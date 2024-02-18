@@ -1,18 +1,17 @@
-import * as _ from 'lodash';
-import { flow, observable, computed } from 'mobx';
-
-import { isSSR } from '../util';
-
 import {
     showLoginDialog,
     getLastUserData,
     getLatestUserData,
     loginEvents,
     goToCheckout,
-    SubscriptionPlans,
     prefetchCheckout,
     initializeAuthUi
 } from '@httptoolkit/accounts';
+import * as _ from 'lodash';
+import { flow, observable, computed } from 'mobx';
+
+import { isSSR } from '../util';
+
 
 export class AccountStore {
     constructor() {
