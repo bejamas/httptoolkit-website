@@ -1,3 +1,4 @@
+import { Book } from '@phosphor-icons/react/dist/ssr';
 import Link from 'next/link';
 
 import { getAllPostsMeta } from '@/lib/mdx';
@@ -12,7 +13,7 @@ export default async function Blog() {
             <h3 key={post.slug} className="text-xl font-semibold">
               {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
               {/* @ts-ignore */}
-              {i}. {post.title}
+              <Book /> {i + 1}. {post.title}
             </h3>
           </Link>
         ))}

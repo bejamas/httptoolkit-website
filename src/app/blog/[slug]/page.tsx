@@ -15,6 +15,7 @@ type BlogPostPageProps = {
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = params;
   const post = await getPostBySlug(slug);
+
   return (
     <section>
       {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}

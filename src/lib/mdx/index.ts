@@ -36,10 +36,10 @@ export const getAllPostsMeta = async () => {
         posts.push(meta);
       }
     } catch (error) {
-      console.error("*_________START___________*");
+      console.error('*_________START___________*');
       console.error('error in file: ', file);
       console.error('error message', error);
-      console.error("*_________END___________*");
+      console.error('*_________END___________*');
     }
   }
   return posts;
