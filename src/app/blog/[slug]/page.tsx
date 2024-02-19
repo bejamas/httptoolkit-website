@@ -1,3 +1,5 @@
+import { Container } from '@/components/elements/container';
+import { Heading } from '@/components/elements/heading';
 import { getPostBySlug, getAllPostsMeta } from '@/lib/mdx';
 
 export async function generateStaticParams() {
@@ -17,10 +19,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = await getPostBySlug(slug);
 
   return (
-    <section>
+    <Container>
       {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
       {/* @ts-ignore */}
-      <div className="flex gap-6 mt-6">{post.meta.title}</div>
-    </section>
+      <Heading>{post.meta.title}</Heading>
+    </Container>
   );
 }

@@ -36,6 +36,13 @@ export const theme = {
         xs: '1.25rem', // 20px / 16px = 1.25rem
       },
     },
+    text: {
+      xll: '1.5rem', // 24px / 16px = 1.5rem
+      xl: '1.25rem', // 20px / 16px = 1.25rem
+      l: '1.125rem', // 18px / 16px = 1.125.5rem
+      m: '1rem', // 16px / 16px = 1rem
+      s: '0.875rem', // 14px / 16px = 0.875
+    },
   },
   space: {
     xs: '4px',

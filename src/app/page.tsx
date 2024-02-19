@@ -1,5 +1,6 @@
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
+import { Text } from '@/components/elements/text';
 
 export default async function Home() {
   return (
@@ -17,6 +18,10 @@ export default async function Home() {
       <Heading as="h5" size="xs">
         Heading XS
       </Heading>
+      <Text>
+        This is a paragraph Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or
+        inject errors
+      </Text>
     </Container>
   );
 }

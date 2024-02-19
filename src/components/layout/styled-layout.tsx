@@ -6,11 +6,11 @@ interface MainLayoutProps {
   children: React.ReactNode;
 }
 
-export function StyledLayout({ children }: MainLayoutProps) {
+export const StyledLayout = ({ children }: MainLayoutProps) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       {children}
     </ThemeProvider>
   );
-}
+};
