@@ -6,7 +6,7 @@ import { styled } from '@/styles';
 
 export const StyledText = styled.p<TextProps>`
   font-size: ${({ theme, fontSize }) => theme.fontSizes.text[fontSize || 'm']};
-  color: ${({ theme, color }) => theme.colors.text[color || "lightGrey"]};
-  font-weight: ${({ theme, fontWeight }) => theme.fontWeight[fontWeight || "normal"]};
+  color: ${({ theme, color }) => theme.colors.text[color || 'lightGrey']};
+  font-weight: ${({ theme, fontWeight }) => theme.fontWeight[fontWeight || 'normal']};
   line-height: 150%;
 `;

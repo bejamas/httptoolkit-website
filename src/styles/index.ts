@@ -62,7 +62,7 @@ export const darkTheme = {
 
 export type TextColor = keyof (typeof lightTheme)['text'];
 export type FontWeigth = keyof (typeof theme)['fontWeight'];
-export type FontSize = keyof (typeof theme)['fontSizes']["text"];
+export type FontSize = keyof (typeof theme)['fontSizes']['text'];
 
 export const theme = {
   screens,

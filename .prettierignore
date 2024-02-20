@@ -23,12 +23,5 @@ build
 # typescript
 *.tsbuildinfo
 
-# storybook
-storybook-static
-
-# codegen
-__generated__
-src/base/cms-adapters/datocms/types/index.ts
-
 # github
 .github/
