@@ -20,6 +20,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <Container>
+      {/* TODO: Remove ban-ts-comment once work on blog post tasks */}
       {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
       {/* @ts-ignore */}
       <Heading>{post.meta.title}</Heading>

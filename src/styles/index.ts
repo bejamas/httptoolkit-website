@@ -7,17 +7,75 @@ import reset from 'styled-reset';
 export { styled, css, ThemeProvider };
 
 export const screens = {
-  sm: '480px',
+  sm: '640px',
   md: '768px',
-  lg: '976px',
-  xl: '1440px',
+  lg: '1024px',
+  xl: '1280px',
+  '2xl': '1440px',
 };
+
+export const lightTheme = {
+  inkBlack: '#16181E',
+  darkGrey: '#1E2028',
+  mediumGrey: '#32343B',
+  lightGrey: '#E6E8F2',
+  white: '#ffffff',
+  electricBlue: '#5175F2',
+  electricLightBlue: '#6284FA',
+  cinnarbarRed: '#D93E1C',
+  orangeGradient: '#D93815, #F65430',
+  blueGradient: '#4064E2, #3556CA',
+  darkGradient: '#1E2028, #30333E 70%',
+  text: {
+    lightGrey: '#16181E',
+    darkGrey: '#595D68',
+    cinnarbarRed: '#D93E1C',
+    white: '#000000',
+    alwayWhite: '#ffffff',
+    alwayLightGrey: '#E6E8F2',
+    electricLightBlue: '#6284FA',
+  },
+} as const;
+
+export const darkTheme = {
+  inkBlack: '#16181E',
+  darkGrey: '#1E2028',
+  mediumGrey: '#32343B',
+  lightGrey: '#E6E8F2',
+  white: '#ffffff',
+  electricBlue: '#5175F2',
+  electricLightBlue: '#6284FA',
+  cinnarbarRed: '#EC502D',
+  orangeGradient: '#D93815, #F65430',
+  blueGradient: '#4064E2, #3556CA',
+  darkGradient: '#1E2028, #30333E 70%',
+  text: {
+    lightGrey: '#E6E8F2',
+    darkGrey: '#C5C6CA',
+    cinnarbarRed: '#EC502D',
+    white: '#ffffff',
+    alwayWhite: '#ffffff',
+    alwayLightGrey: '#E6E8F2',
+    electricLightBlue: '#6284FA',
+  },
+};
+
+export type TextColor = keyof (typeof lightTheme)['text'];
+export type FontWeigth = keyof (typeof theme)['fontWeight'];
+export type FontSize = keyof (typeof theme)['fontSizes']["text"];
 
 export const theme = {
   screens,
   colors: {
-    mainBackground: '#1E2028',
-    gray: '#C5C6CA',
+    // TODO: implement swicht theme
+    ...darkTheme,
+  },
+  fontWeight: {
+    light: '300',
+    normal: '400',
+    medium: '500',
+    semibold: '600',
+    bold: '700',
   },
   fontSizes: {
     heading: {
@@ -51,6 +109,7 @@ export const theme = {
     lg: '24px',
     xl: '32px',
     xxl: '48px',
+    '2xl': '64px',
   },
 };
 
@@ -70,43 +129,14 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background-color: ${theme.colors.mainBackground};
-        color: ${theme.colors.gray};
+        background-color: ${theme.colors.darkGrey};
+        color: ${theme.colors.text.darkGrey};
         overflow-x: hidden;
         font-size: calc(100% / 1.6);
         line-height: 1.5;
     }
 
     em {
-        font-style: italic;
-    }
-
-    .tippy-tooltip-content li:not(:first-child) {
-        margin-top: 10px;
-    }
-
-
-    /* Override Auth0's style choices to match the rest of the UI */
-    .auth0-lock {
-        font-family: Lato, sans-serif !important;
-
-        .auth0-lock-overlay {
-            display: none; /* We have our own overlay we'll use instead */
-        }
-
-        .auth0-lock-widget {
-            overflow: initial !important;
-            box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2) !important;
-        }
-
-        .auth0-lock-form {
-            .auth0-lock-name {
-                ${theme.fontSizeHeading} !important;
-            }
-
-            p, .auth0-lock-social-button-text {
-                font-size: 16px !important;
-            }
-        }
+      font-style: italic;
     }
 `;

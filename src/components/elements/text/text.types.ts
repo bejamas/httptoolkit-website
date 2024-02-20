@@ -1,6 +1,8 @@
-type textSize = 's' | 'm' | 'l' | 'xl' | 'xll';
+import type { FontSize, FontWeigth, TextColor } from "@/styles";
 
 export interface TextProps {
-  size?: textSize;
-  as?: "span" | "p"
+  as?: "span" | "p";
+  color?: TextColor;
+  fontSize?: FontSize;
+  fontWeight?: FontWeigth;
 }

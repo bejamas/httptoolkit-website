@@ -11,7 +11,8 @@ export default async function Blog() {
     <Container>
       {posts?.map((post, i) => (
         <Link href={`/blog/${post.slug}`} style={{ marginBottom: 10, display: 'block', textDecoration: 'none' }}>
-          <Heading as="h3" size="xs" key={post.slug}>
+          <Heading as="h3" fontSize="xs" key={post.slug}>
+            {/* TODO: Remove ban-ts-comment once work on blog post tasks */}
             {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
             {/* @ts-ignore */}
             <Book /> {i + 1}. {post.title}
