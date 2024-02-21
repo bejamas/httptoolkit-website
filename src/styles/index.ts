@@ -101,6 +101,10 @@ export const theme = {
       m: '1rem', // 16px / 16px = 1rem
       s: '0.875rem', // 14px / 16px = 0.875
     },
+    button: {
+      default: '1.125rem', // 18px / 16px = 1.125.5rem
+      small: '1rem', // 16px / 16px = 1rem
+    },
   },
   space: {
     xs: '4px',

@@ -1,3 +1,4 @@
+import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
 import { Text } from '@/components/elements/text';
@@ -30,6 +31,8 @@ export default async function Home() {
         This is a paragraph orange and bold, Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite,
         redirect, or inject errors
       </Text>
+      <Button withBorder>test</Button>
+      <Button variant="secondary">test</Button>
     </Container>
   );
 }
