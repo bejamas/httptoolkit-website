@@ -1,16 +1,5 @@
 # Pull Request Description
 
-## Related Issues / JIRA Ticket
-
-<!-- Link to the issue that is fixed by this PR (if there is one) e.g. Fixes #1234 -->
-<!-- Link the JIRA ticket Related e.g. Ticket [DS-276] -->
-
-Closes [HTD-XX]
-
-<!-- Link the Github issue e.g. Fixes #22 -->
-
-Closes
-
 ## Description
 
 <!-- Give an explanation of the changes introduced in this PR -->
