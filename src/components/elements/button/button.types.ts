@@ -7,6 +7,7 @@ export interface ButtonProps {
   small?: boolean;
   type?: 'submit' | 'button' | 'reset';
   onClick?: (event: MouseEvent) => void;
+  href?: string;
   icon?: string;
   iconWeight?: IconWeight;
 }

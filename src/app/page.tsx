@@ -1,7 +1,10 @@
+'use client';
+
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
 import { Text } from '@/components/elements/text';
+import { Dropdown } from '@/components/modules/dropdown';
 
 export default async function Home() {
   return (
@@ -37,6 +40,23 @@ export default async function Home() {
       <Button variant="secondary" icon="RocketLaunch">
         test
       </Button>
+      <Dropdown
+        variant="secondary"
+        items={[
+          {
+            content: 'Example',
+            as: 'button',
+            onClick: () => alert('example'),
+          },
+          {
+            content: 'Example',
+            as: 'a',
+            href: '/',
+          },
+        ]}
+      >
+        test
+      </Dropdown>
     </Container>
   );
 }

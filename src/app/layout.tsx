@@ -5,6 +5,8 @@ import { StyledLayout } from '@/components/layout/styled-layout';
 import { siteMetadata } from '@/lib/site-metadata';
 import StyledComponentsRegistry from '@/styles/styled-component-registry';
 
+import '@/styles/reset.css';
+
 const dmSansFont = DM_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
