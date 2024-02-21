@@ -31,8 +31,12 @@ export default async function Home() {
         This is a paragraph orange and bold, Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite,
         redirect, or inject errors
       </Text>
-      <Button withBorder>test</Button>
-      <Button variant="secondary">test</Button>
+      <Button withBorder icon="CaretDown">
+        test
+      </Button>
+      <Button variant="secondary" icon="RocketLaunch">
+        test
+      </Button>
     </Container>
   );
 }

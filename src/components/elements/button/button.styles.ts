@@ -26,6 +26,9 @@ export const StyledButton = styled.button<ButtonProps>`
   padding: ${small => (small ? '20px 24px' : '16px 24px')};
 
   border-radius: 12px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
 
   ${props => {
     switch (props.variant) {
