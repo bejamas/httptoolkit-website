@@ -117,6 +117,18 @@ export const theme = {
   },
 };
 
+export const Keyframes = {
+  rotate: keyframes`
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  `,
+};
+
 export const GlobalStyles = createGlobalStyle`
     ${reset};
 

@@ -1,5 +1,3 @@
-'use client';
-
 import { CaretDown, RocketLaunch } from '@phosphor-icons/react/dist/ssr';
 
 import { Button } from '@/components/elements/button';

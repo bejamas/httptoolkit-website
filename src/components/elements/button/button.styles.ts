@@ -1,20 +1,8 @@
 'use client';
 
-import { keyframes } from 'styled-components';
-
 import type { ButtonProps } from './button.types';
 
 import { css, styled } from '@/styles';
-
-export const rotate = keyframes`
-    from {
-      transform: rotate(0deg);
-    }
-
-    to {
-      transform: rotate(360deg);
-    }
-`;
 
 export const StyledButton = styled.button<ButtonProps>`
   position: relative;
