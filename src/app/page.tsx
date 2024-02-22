@@ -1,5 +1,7 @@
 'use client';
 
+import { CaretDown, RocketLaunch } from '@phosphor-icons/react/dist/ssr';
+
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
@@ -34,10 +36,10 @@ export default async function Home() {
         This is a paragraph orange and bold, Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite,
         redirect, or inject errors
       </Text>
-      <Button withBorder icon="CaretDown">
+      <Button withBorder icon={CaretDown}>
         test
       </Button>
-      <Button variant="secondary" icon="RocketLaunch">
+      <Button variant="secondary" icon={RocketLaunch}>
         test
       </Button>
       <Dropdown
