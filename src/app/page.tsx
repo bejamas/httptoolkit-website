@@ -1,9 +1,9 @@
-import { Alien, CaretDown, RocketLaunch, Sparkle } from '@phosphor-icons/react/dist/ssr';
 
 import { Badge } from '@/components/elements/badge';
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
+import { Alien, CaretDown, RocketLaunch, Sparkle } from '@/components/elements/icon';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
 import { Dropdown } from '@/components/modules/dropdown';
