@@ -1,6 +1,7 @@
 import type { Icon, IconWeight } from '@phosphor-icons/react';
+import type { AriaAttributes } from 'react';
 
-export interface ButtonProps {
+export interface ButtonProps extends AriaAttributes {
   as?: 'button' | 'a';
   variant?: 'primary' | 'secondary';
   withBorder?: boolean;

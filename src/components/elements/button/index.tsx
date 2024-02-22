@@ -2,7 +2,7 @@ import { StyledButton, StyledButtonWrapper } from './button.styles';
 import type { ButtonProps } from './button.types';
 import { MovingBorder } from '../moving-border';
 
-export const Button = async ({
+export const Button = ({
   variant = 'primary',
   small = false,
   type = 'button',
@@ -13,9 +13,10 @@ export const Button = async ({
   iconWeight = 'fill',
   onClick,
   href,
+  ...aria
 }: Component<ButtonProps>) => {
-  const base = () => (
-    <StyledButton as={as} variant={variant} small={small} type={type} onClick={onClick} href={href}>
+  const BaseButton = () => (
+    <StyledButton as={as} variant={variant} small={small} type={type} onClick={onClick} href={href} {...aria}>
       {children}
       {Icon && <Icon size={16} weight={iconWeight} />}
     </StyledButton>
@@ -25,9 +26,9 @@ export const Button = async ({
     return (
       <StyledButtonWrapper>
         <MovingBorder rx="30%" ry="30%" />
-        {base()}
+        <BaseButton />
       </StyledButtonWrapper>
     );
   }
-  return base();
+  return <BaseButton />;
 };
