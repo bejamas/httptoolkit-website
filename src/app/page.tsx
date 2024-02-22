@@ -1,5 +1,3 @@
-'use client';
-
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
@@ -46,7 +44,6 @@ export default async function Home() {
           {
             content: 'Example',
             as: 'button',
-            onClick: () => alert('example'),
           },
           {
             content: 'Example',
@@ -57,6 +54,7 @@ export default async function Home() {
       >
         test
       </Dropdown>
+      {/* <Badge icon={Alien}>Intercept</Badge> */}
     </Container>
   );
 }
