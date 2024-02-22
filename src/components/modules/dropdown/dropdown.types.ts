@@ -4,7 +4,7 @@ export interface DropdownProps extends Omit<ButtonProps, 'onClick' | 'href'> {
   items: {
     content: string;
     as?: 'button' | 'a';
-    onClick?: (event?: MouseEvent) => void;
+    onClick?: () => void;
     href?: string;
   }[];
 }
