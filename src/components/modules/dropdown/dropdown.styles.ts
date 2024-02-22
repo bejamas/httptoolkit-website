@@ -27,7 +27,6 @@ export const DropdownOptionsWrapper = styled.div`
 
 export const DropdownWrapper = styled.div`
   position: relative;
-  box-shadow: 0px 0px 8px 0px #e6e8f20d;
   width: fit-content;
 
   &:hover ${DropdownOptionsWrapper} {

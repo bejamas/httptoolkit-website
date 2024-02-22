@@ -25,25 +25,28 @@ export const StyledButton = styled.button<ButtonProps>`
           color: ${({ theme }) => theme.colors.text.alwayWhite};
           background: linear-gradient(${({ theme }) => theme.colors.orangeGradient});
 
-          border: 1px solid #ec502d;
+          border: 1px solid ${({ theme }) => theme.colors.cinnarbarRed};
 
-          box-shadow: 0px 2px 1px 0px #ffffff26 inset;
-          box-shadow: 0px -2px 2px 0px #0000000d inset;
+          box-shadow:
+            0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,
+            0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset;
 
           &:hover {
             border: 1px solid ${({ theme }) => theme.colors.text.white};
           }
 
           &:focus {
-            box-shadow: 0px 2px 1px 0px #ffffff26 inset;
-            box-shadow: 0px -2px 2px 0px #0000000d inset;
-            box-shadow: 0px 0px 0px 8px #32343b99;
+            box-shadow:
+              0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,
+              0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset,
+              0px 0px 0px 8px rgba(50, 52, 59, 0.6);
           }
 
           &:active {
-            box-shadow: 0px 2px 1px 0px #ffffff26 inset;
-            box-shadow: 0px 4px 24px 0px #f56d4f26;
-            box-shadow: 0px -2px 2px 0px #0000000d inset;
+            box-shadow:
+              0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,
+              0px 4px 24px 0px rgba(245, 109, 79, 0.15),
+              0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset;
           }
         `;
       case 'secondary':
@@ -53,19 +56,20 @@ export const StyledButton = styled.button<ButtonProps>`
 
           border: 1px solid transparent;
 
-          box-shadow: 0px 0px 8px 0px #e6e8f20d;
+          box-shadow: 0px 0px 8px 0px rgba(230, 232, 242, 0.05);
 
           &:hover {
             border: 1px solid ${({ theme }) => theme.colors.text.lightGrey};
           }
 
           &:focus {
-            box-shadow: 0px 0px 8px 0px #e6e8f20d;
-            box-shadow: 0px 0px 0px 8px #32343b99;
+            box-shadow:
+              0px 0px 8px 0px rgba(230, 232, 242, 0.05),
+              0px 0px 0px 8px rgba(50, 52, 59, 0.6);
           }
 
           &:active {
-            box-shadow: 0px 0px 8px 0px #e6e8f20d;
+            box-shadow: 0px 0px 8px 0px rgba(230, 232, 242, 0.05);
           }
         `;
     }
