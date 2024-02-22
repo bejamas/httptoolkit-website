@@ -1,3 +1,5 @@
 import { Alien, CaretDown, RocketLaunch, Sparkle, Book } from '@phosphor-icons/react/dist/ssr';
 
-export { Alien, CaretDown, RocketLaunch, Sparkle, Book };
+import { Logo } from './custom';
+
+export { Alien, CaretDown, RocketLaunch, Sparkle, Book, Logo };
