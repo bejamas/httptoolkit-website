@@ -1,22 +1,38 @@
 'use client';
 
-import { DropdownOption, DropdownOptionsWrapper, DropdownWrapper } from './dropdown.styles';
-import type { DropdownProps } from './dropdown.types';
+import { CaretDown } from '@phosphor-icons/react/dist/ssr';
+
+import { DropdownOption, DropdownOptionsWrapper, DropdownWrapper, LinkDropdownOption } from './dropdown.styles';
+import type { DropdownOptionProps, DropdownProps, OptionComponentType } from './dropdown.types';
 
 import { Button } from '@/components/elements/button';
 
-export const Dropdown = ({ children, items, ...buttonProps }: Component<DropdownProps>) => {
+const renderOptions = (items: DropdownOptionProps[]) => {
+  return items.map(({ content, as, href, onClick, ...aria }) => {
+    const OptionComponent: OptionComponentType = as === 'Link' ? LinkDropdownOption : DropdownOption;
+    const newAs = as === 'Link' ? undefined : as;
+
+    return (
+      <OptionComponent key={content} as={newAs} href={href} onClick={onClick} {...aria}>
+        {content}
+      </OptionComponent>
+    );
+  });
+};
+
+export const Dropdown = ({
+  children,
+  items,
+  icon = CaretDown,
+  iconWeight = 'fill',
+  ...buttonProps
+}: Component<DropdownProps>) => {
   return (
     <DropdownWrapper>
-      <Button {...buttonProps}>{children}</Button>
-      <DropdownOptionsWrapper>
-        {Array.isArray(items) &&
-          items.map(item => (
-            <DropdownOption key={item.content} as={item.as} href={item.href} onClick={item.onClick}>
-              {item.content}
-            </DropdownOption>
-          ))}
-      </DropdownOptionsWrapper>
+      <Button icon={icon} iconWeight={iconWeight} {...buttonProps}>
+        {children}
+      </Button>
+      <DropdownOptionsWrapper>{Array.isArray(items) && renderOptions(items)}</DropdownOptionsWrapper>
     </DropdownWrapper>
   );
 };

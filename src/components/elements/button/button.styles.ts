@@ -9,24 +9,29 @@ import { css, styled } from '@/styles';
 const base = css<ButtonProps>`
   position: relative;
   z-index: 1;
+  display: flex;
+  width: fit-content;
+  outline: none;
 
   font-size: ${({ theme, small }) => theme.fontSizes.button[small ? 'small' : 'default']};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   text-decoration: none;
+  line-height: 1;
 
-  padding: ${small => (small ? '20px 24px' : '16px 24px')};
+  padding: ${({ small }) => (small ? '14px 24px' : '18px 24px')};
 
   border-radius: 12px;
-  display: inline-flex;
   gap: 8px;
   align-items: center;
 
   ${props => {
     switch (props.variant) {
       case 'primary':
+        const gradientValues = props.theme.colors.orangeGradient.split(', ');
+
         return css`
           color: ${({ theme }) => theme.colors.text.alwayWhite};
-          background: linear-gradient(${({ theme }) => theme.colors.orangeGradient});
+          background: linear-gradient(345.32deg, ${gradientValues[0]} 10.67%, ${gradientValues[1]} 89.91%);
 
           border: 1px solid ${({ theme }) => theme.colors.cinnarbarRed};
 
@@ -34,18 +39,35 @@ const base = css<ButtonProps>`
             0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,
             0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset;
 
+          ${props.withBorder &&
+          `
+            box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset, 0px 4px 24px 0px rgba(245, 109, 79, 0.15), 0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset;
+          `}
+
           &:hover {
-            border: 1px solid ${({ theme }) => theme.colors.text.white};
+            ${() =>
+              !props.withBorder &&
+              `
+              border: 1px solid ${props.theme.colors.text.white};
+            `}
           }
 
           &:focus {
-            box-shadow:
-              0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,
-              0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset,
-              0px 0px 0px 8px rgba(50, 52, 59, 0.6);
+            ${() =>
+              props.withBorder
+                ? `
+              box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,0px 4px 24px 0px rgba(245, 109, 79, 0.15), 0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset;                
+            `
+                : `
+              box-shadow:
+                0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,
+                0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset,
+                0px 0px 0px 8px rgba(50, 52, 59, 0.6);
+            `}
           }
 
           &:active {
+            background: linear-gradient(345.32deg, #a32d13 10.67%, #dc3814 89.91%);
             box-shadow:
               0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,
               0px 4px 24px 0px rgba(245, 109, 79, 0.15),
@@ -72,7 +94,7 @@ const base = css<ButtonProps>`
           }
 
           &:active {
-            box-shadow: 0px 0px 8px 0px rgba(230, 232, 242, 0.05);
+            background-color: ${({ theme }) => theme.colors.darkGrey};
           }
         `;
     }

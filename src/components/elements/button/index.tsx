@@ -5,7 +5,7 @@ import { MovingBorder } from '../moving-border';
 export const Button = ({
   variant = 'primary',
   small = false,
-  type = 'button',
+  type,
   withBorder = false,
   children,
   as = 'button',
@@ -29,6 +29,7 @@ export const Button = ({
         onClick={onClick}
         href={href}
         target={target}
+        withBorder={withBorder}
         {...aria}
       >
         {children}

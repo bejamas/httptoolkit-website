@@ -35,16 +35,20 @@ export default async function Home() {
         redirect, or inject errors
       </Text>
       <Button target="_blank" icon={CaretDown} as="Link" href="/eso">
-        test
+        Download for macOs
       </Button>
       <Button withBorder icon={CaretDown}>
-        test
+        Download for macOs
       </Button>
       <Button variant="secondary" icon={RocketLaunch}>
-        test
+        Go Pro!
+      </Button>
+      <Button small variant="secondary" icon={RocketLaunch}>
+        Go Pro!
       </Button>
       <Dropdown
         variant="secondary"
+        small
         items={[
           {
             content: 'Example',
@@ -55,9 +59,15 @@ export default async function Home() {
             as: 'a',
             href: '/',
           },
+          {
+            content: 'Example',
+            as: 'Link',
+            href: '/',
+            target: '_blank',
+          },
         ]}
       >
-        test
+        Download for macOS
       </Dropdown>
     </Container>
   );
