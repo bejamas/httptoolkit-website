@@ -13,6 +13,7 @@ export const Button = ({
   iconWeight = 'fill',
   onClick,
   href,
+  target,
   ...aria
 }: Component<ButtonProps>) => {
   const BaseButton = () => {
@@ -20,7 +21,16 @@ export const Button = ({
     const newAs = as === 'Link' ? undefined : as;
 
     return (
-      <ButtonComponent as={newAs} variant={variant} small={small} type={type} onClick={onClick} href={href} {...aria}>
+      <ButtonComponent
+        as={newAs}
+        variant={variant}
+        small={small}
+        type={type}
+        onClick={onClick}
+        href={href}
+        target={target}
+        {...aria}
+      >
         {children}
         {Icon && <Icon size={16} weight={iconWeight} />}
       </ButtonComponent>
