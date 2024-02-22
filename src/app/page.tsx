@@ -4,6 +4,7 @@ import { Badge } from '@/components/elements/badge';
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
+import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
 import { Dropdown } from '@/components/modules/dropdown';
 
@@ -61,6 +62,11 @@ export default async function Home() {
       <Badge icon={Sparkle} variant="secondary" additionalText="Edit">
         Intercept
       </Badge>
+
+      <SquareIcon icon={Alien} />
+      <SquareIcon icon={Alien} size="large" />
+      <SquareIcon icon={Alien} variant="secondary" />
+      <SquareIcon icon={Alien} variant="tertiary" />
     </Container>
   );
 }
