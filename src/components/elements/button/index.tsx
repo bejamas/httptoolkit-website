@@ -1,4 +1,4 @@
-import { StyledButton, StyledButtonWrapper } from './button.styles';
+import { StyledButton, StyledButtonWrapper, StyledLink } from './button.styles';
 import type { ButtonProps } from './button.types';
 import { MovingBorder } from '../moving-border';
 
@@ -15,12 +15,17 @@ export const Button = ({
   href,
   ...aria
 }: Component<ButtonProps>) => {
-  const BaseButton = () => (
-    <StyledButton as={as} variant={variant} small={small} type={type} onClick={onClick} href={href} {...aria}>
-      {children}
-      {Icon && <Icon size={16} weight={iconWeight} />}
-    </StyledButton>
-  );
+  const BaseButton = () => {
+    const ButtonComponent: (props: Component<ButtonProps>) => JSX.Element = as === 'Link' ? StyledLink : StyledButton;
+    const newAs = as === 'Link' ? undefined : as;
+
+    return (
+      <ButtonComponent as={newAs} variant={variant} small={small} type={type} onClick={onClick} href={href} {...aria}>
+        {children}
+        {Icon && <Icon size={16} weight={iconWeight} />}
+      </ButtonComponent>
+    );
+  };
 
   if (withBorder) {
     return (

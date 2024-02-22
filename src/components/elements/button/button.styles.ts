@@ -1,15 +1,18 @@
 'use client';
 
+import Link from 'next/link';
+
 import type { ButtonProps } from './button.types';
 
 import { css, styled } from '@/styles';
 
-export const StyledButton = styled.button<ButtonProps>`
+const base = css<ButtonProps>`
   position: relative;
   z-index: 1;
 
   font-size: ${({ theme, small }) => theme.fontSizes.button[small ? 'small' : 'default']};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
+  text-decoration: none;
 
   padding: ${small => (small ? '20px 24px' : '16px 24px')};
 
@@ -74,6 +77,14 @@ export const StyledButton = styled.button<ButtonProps>`
         `;
     }
   }}
+`;
+
+export const StyledLink = styled(Link)<ButtonProps>`
+  ${base}
+`;
+
+export const StyledButton = styled.button<ButtonProps>`
+  ${base}
 `;
 
 export const StyledButtonWrapper = styled.div`

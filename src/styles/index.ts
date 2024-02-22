@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-nocheck
 
-import styled, { createGlobalStyle, css, ThemeProvider } from 'styled-components';
+import styled, { createGlobalStyle, css, ThemeProvider, keyframes } from 'styled-components';
 import reset from 'styled-reset';
 
 export { styled, css, ThemeProvider };

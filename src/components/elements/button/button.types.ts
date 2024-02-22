@@ -1,8 +1,9 @@
 import type { Icon, IconWeight } from '@phosphor-icons/react';
-import type { AriaAttributes } from 'react';
+import type { AriaAttributes, AriaRole } from 'react';
 
 export interface ButtonProps extends AriaAttributes {
-  as?: 'button' | 'a';
+  as?: 'button' | 'a' | 'Link';
+  role?: AriaRole;
   variant?: 'primary' | 'secondary';
   withBorder?: boolean;
   small?: boolean;

@@ -34,6 +34,9 @@ export default async function Home() {
         This is a paragraph orange and bold, Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite,
         redirect, or inject errors
       </Text>
+      <Button icon={CaretDown} as="Link" href="/eso">
+        test
+      </Button>
       <Button withBorder icon={CaretDown}>
         test
       </Button>
@@ -46,7 +49,6 @@ export default async function Home() {
           {
             content: 'Example',
             as: 'button',
-            onClick: () => alert('example'),
           },
           {
             content: 'Example',
