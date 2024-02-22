@@ -1,4 +1,4 @@
-import type { IconWeight } from '@phosphor-icons/react';
+import type { Icon, IconWeight } from '@phosphor-icons/react';
 
 export interface ButtonProps {
   as?: 'button' | 'a';
@@ -8,6 +8,6 @@ export interface ButtonProps {
   type?: 'submit' | 'button' | 'reset';
   onClick?: (event: MouseEvent) => void;
   href?: string;
-  icon?: string;
+  icon?: Icon;
   iconWeight?: IconWeight;
 }
