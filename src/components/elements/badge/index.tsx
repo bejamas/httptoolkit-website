@@ -1,15 +1,22 @@
-import { BadgeWrapper } from './badge.styles';
+import { AdditionalText, BadgeWrapper, StyledBadge } from './badge.styles';
 import type { BadgeProps } from './badge.types';
 
-export const Badge = async ({ children, additionalText, icon: Icon, iconWeight = 'fill' }: Component<BadgeProps>) => {
-  console.log('icon', Icon);
+export const Badge = async ({
+  children,
+  variant = 'primary',
+  additionalText,
+  icon: Icon,
+  iconWeight = 'fill',
+}: Component<BadgeProps>) => {
+  const hasAdditionalText = variant === 'secondary' && additionalText;
+
   return (
     <BadgeWrapper>
-      {additionalText}
-      <Badge>
+      {hasAdditionalText && <AdditionalText>{additionalText}</AdditionalText>}
+      <StyledBadge variant={variant}>
         {Icon && <Icon size={16} weight={iconWeight} />}
         {children}
-      </Badge>
+      </StyledBadge>
     </BadgeWrapper>
   );
 };

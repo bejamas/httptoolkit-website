@@ -1,5 +1,6 @@
-import { CaretDown, RocketLaunch } from '@phosphor-icons/react/dist/ssr';
+import { Alien, CaretDown, RocketLaunch, Sparkle } from '@phosphor-icons/react/dist/ssr';
 
+import { Badge } from '@/components/elements/badge';
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
@@ -56,7 +57,10 @@ export default async function Home() {
       >
         test
       </Dropdown>
-      {/* <Badge icon={Alien}>Intercept</Badge> */}
+      <Badge icon={Alien}>Intercept</Badge>
+      <Badge icon={Sparkle} variant="secondary" additionalText="Edit">
+        Intercept
+      </Badge>
     </Container>
   );
 }
