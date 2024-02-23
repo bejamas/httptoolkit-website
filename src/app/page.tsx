@@ -24,13 +24,39 @@ export default async function Home() {
       </ShowCase>
 
       <ShowCase title="Text">
-        <Text>
-          This is a paragraph Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or
-          inject errors
+        <Text fontSize="xl">
+          XL Regular: Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject
+          errors.
         </Text>
-        <Text color="electricLightBlue">
-          This is a paragraph Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or
-          inject errors
+        <Text fontSize="xl" fontWeight="medium">
+          XL Medium: Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject
+          errors.
+        </Text>
+        <Text fontSize="l">
+          L Regular: Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject
+          errors
+        </Text>
+        <Text fontSize="l" fontWeight="medium">
+          L Medium: Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject
+          errors
+        </Text>
+        <Text fontSize="l" fontWeight="semibold">
+          L Semibold: Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject
+          errors
+        </Text>
+        <Text fontSize="m">
+          M: Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors
+        </Text>
+        <Text fontSize="s">
+          S: Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors
+        </Text>
+        <Text fontSize="s" fontWeight="medium">
+          S Medium: Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject
+          errors
+        </Text>
+        <Text fontSize="s" fontWeight="semibold">
+          S Semibold: Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject
+          errors
         </Text>
       </ShowCase>
       <ShowCase title="Theme toggle">
