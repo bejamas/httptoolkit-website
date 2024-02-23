@@ -20,10 +20,11 @@ export const StyledSquareIcon = styled.div<Partial<SquareIconProps>>`
 
           & svg {
             color: ${({ theme }) => theme.colors.electricBlue};
-            box-shadow: 0px 2.4000000953674316px 1.2000000476837158px 0px #c9d4fb1a inset;
-            box-shadow: 0px -1.2000000476837158px 1.2000000476837158px 0px #102e971a inset;
-            box-shadow: 0px 2.4000000953674316px 1.2000000476837158px 0px #c9d4fb1a inset;
-            box-shadow: 0px -1.2000000476837158px 1.2000000476837158px 0px #102e971a inset;
+            box-shadow:
+              0px 2.4 1.2 0px rgba(201, 212, 251, 0.1) inset,
+              0px -1.2 1.2 0px rgba(16, 46, 151, 0.1) inset,
+              0px 2.4 1.2 0px rgba(201, 212, 251, 0.1) inset,
+              0px -1.2 1.2 0px rgba(16, 46, 151, 0.1) inset;
           }
 
           ${() =>
