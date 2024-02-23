@@ -1,3 +1,5 @@
+'use client';
+
 import type { Icon, IconWeight } from '@phosphor-icons/react';
 import { IconBase } from '@phosphor-icons/react';
 import type { ReactElement } from 'react';
