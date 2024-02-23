@@ -1,6 +1,6 @@
 'use client';
 
-import type { InputProps } from './input.types';
+import type { InputBorderProps, InputProps } from './input.types';
 
 import { styled } from '@/styles';
 import { adjustOpacity } from '@/styles/helpers/adjust-opacity';
@@ -11,11 +11,12 @@ export const StyledInputWrapper = styled.div`
   gap: 4px;
 `;
 
-export const StyledInputBorder = styled.span<InputProps>`
+export const StyledInputBorder = styled.span<InputBorderProps>`
   display: inline-block;
   border-radius: 6px;
   overflow: hidden;
   padding: 1px;
+  height: ${({ styledAs }) => (styledAs === 'textarea' ? '124px' : 'auto')};
 
   background: ${({ theme }) => adjustOpacity(theme.colors.white, 0.14)};
 
@@ -43,6 +44,8 @@ export const StyledInput = styled.input<InputProps>`
   color: ${({ theme, hasError }) => (hasError ? theme.colors.text.cinnarbarRed : theme.colors.text.darkGrey)};
   outline: 0;
   width: 100%;
+  height: ${({ as }) => (as === 'textarea' ? '100%' : 'auto')};
+  resize: none;
 
   border-radius: 6px;
   background-color: ${({ theme, hasError }) => (hasError ? theme.colors.inkBlack : theme.colors.darkGrey)};

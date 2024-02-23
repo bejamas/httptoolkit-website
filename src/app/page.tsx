@@ -82,6 +82,7 @@ export default async function Home() {
       <SquareIcon icon={Logo} variant="secondary" />
       <SquareIcon icon={Alien} variant="tertiary" />
       <Input placeholder="Email address" />
+      <Input as="textarea" placeholder="Email address" />
       <Input hasError placeholder="Email address" errorMessage="This is an error message." />
     </Container>
   );
