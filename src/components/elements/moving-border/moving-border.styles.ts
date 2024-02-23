@@ -14,6 +14,8 @@ export const BorderWrapper = styled.div`
 
 export const BorderSVG = styled.svg`
   position: absolute;
-  width: fit-content;
+  width: 100%;
   height: 100%;
+  top: 0;
+  right: 0;
 `;

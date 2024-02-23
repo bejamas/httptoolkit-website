@@ -35,14 +35,22 @@ export default async function Home() {
         This is a paragraph orange and bold, Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite,
         redirect, or inject errors
       </Text>
-      <Button withBorder icon={CaretDown}>
-        test
+      <Button target="_blank" icon={CaretDown} as="link" href="/eso">
+        Download for macOs
       </Button>
-      <Button variant="secondary" icon={RocketLaunch}>
-        test
+      <Button as="button" withBorder icon={CaretDown}>
+        Download for macOs
+      </Button>
+      <Button as="button" variant="secondary" icon={RocketLaunch}>
+        Go Pro!
+      </Button>
+      <Button as="button" small variant="secondary" icon={RocketLaunch}>
+        Go Pro!
       </Button>
       <Dropdown
+        as="button"
         variant="secondary"
+        small
         items={[
           {
             content: 'Example',
@@ -53,9 +61,15 @@ export default async function Home() {
             as: 'a',
             href: '/',
           },
+          {
+            content: 'Example',
+            as: 'Link',
+            href: '/',
+            target: '_blank',
+          },
         ]}
       >
-        test
+        Download for macOS
       </Dropdown>
       <Badge icon={Sparkle}>Intercept</Badge>
       <Badge icon={Sparkle} variant="secondary" additionalText="Edit">
