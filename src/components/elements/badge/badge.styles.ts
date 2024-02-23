@@ -34,7 +34,7 @@ export const StyledBadge = styled.span<BadgeProps>`
 
   border: 1px solid ${({ theme }) => adjustOpacity(theme.colors.lightGrey, 0.14)};
 
-  ${({ variant }) => {
+  ${({ variant, theme }) => {
     switch (variant) {
       case 'primary':
         return css`
@@ -44,11 +44,15 @@ export const StyledBadge = styled.span<BadgeProps>`
           background-color: ${({ theme }) => theme.colors.mediumGrey};
         `;
       case 'secondary':
+        const gradientValue = theme.colors.blueGradient.split(', ');
         return css`
           border-radius: 24px;
           padding: 8px 12px;
           color: ${({ theme }) => theme.colors.text.alwayLightGrey};
-          background: linear-gradient(${({ theme }) => theme.colors.blueGradient});
+          background: linear-gradient(180deg, ${gradientValue[0]} 0%, ${gradientValue[1]} 100%);
+          box-shadow:
+            0px 1.66px 0.83px 0px rgba(201, 212, 251, 0.1) inset,
+            0px -0.83px 0.83px 0px rgba(16, 46, 151, 0.1) inset;
         `;
     }
   }}
