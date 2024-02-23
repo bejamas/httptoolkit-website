@@ -20,11 +20,12 @@ export const Button = <T extends 'button' | 'link'>({
   const BaseButton = () => {
     const ButtonComponent: ButtonComponentType<T> = as === 'link' ? StyledLink : StyledButton;
     const isAnchor = (href?.startsWith('http://') || href?.startsWith('https://')) && as === 'link';
+    const newAs = as === 'link' ? undefined : as;
 
     return (
       // @ts-expected-error
       <ButtonComponent
-        as={isAnchor ? 'a' : as}
+        as={isAnchor ? 'a' : newAs}
         variant={variant}
         small={small}
         type={type}
