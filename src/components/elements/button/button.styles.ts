@@ -8,7 +8,7 @@ import { css, styled } from '@/styles';
 import { adjustOpacity } from '@/styles/helpers/adjust-opacity';
 import { getGradientValues } from '@/styles/helpers/get-gradient-values';
 
-const base = css<ButtonProps>`
+const base = css<ButtonProps<'button'>>`
   position: relative;
   z-index: 1;
   display: flex;
@@ -117,11 +117,11 @@ const base = css<ButtonProps>`
   }}
 `;
 
-export const StyledLink = styled(Link)<ButtonProps>`
+export const StyledLink = styled(Link)<ButtonProps<'button'>>`
   ${base}
 `;
 
-export const StyledButton = styled.button<ButtonProps>`
+export const StyledButton = styled.button<ButtonProps<'button'>>`
   ${base}
 `;
 

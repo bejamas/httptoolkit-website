@@ -13,6 +13,6 @@ export interface DropdownOptionProps extends AriaAttributes {
   target?: HTMLAttributeAnchorTarget;
 }
 
-export interface DropdownProps extends Omit<ButtonProps, 'onClick' | 'href'> {
+export interface DropdownProps extends Omit<ButtonProps<'button'>, 'onClick' | 'href'> {
   items: DropdownOptionProps[];
 }

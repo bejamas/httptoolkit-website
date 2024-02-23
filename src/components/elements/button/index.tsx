@@ -1,14 +1,14 @@
 import { StyledButton, StyledButtonWrapper, StyledLink } from './button.styles';
-import type { ButtonProps } from './button.types';
+import type { ButtonComponentType, ButtonProps } from './button.types';
 import { MovingBorder } from '../moving-border';
 
-export const Button = ({
+export const Button = <T extends 'button' | 'link'>({
   variant = 'primary',
   small = false,
   type,
   withBorder = false,
   children,
-  as = 'button',
+  as,
   icon: Icon,
   iconWeight = 'fill',
   onClick,
@@ -16,14 +16,15 @@ export const Button = ({
   target,
   isDropdown = false,
   ...aria
-}: Component<ButtonProps>) => {
+}: ButtonProps<T>) => {
   const BaseButton = () => {
-    const ButtonComponent: (props: Component<ButtonProps>) => JSX.Element = as === 'Link' ? StyledLink : StyledButton;
-    const newAs = as === 'Link' ? undefined : as;
+    const ButtonComponent: ButtonComponentType<T> = as === 'link' ? StyledLink : StyledButton;
+    const isAnchor = (href?.startsWith('http://') || href?.startsWith('https://')) && as === 'link';
 
     return (
+      // @ts-expected-error
       <ButtonComponent
-        as={newAs}
+        as={isAnchor ? 'a' : as}
         variant={variant}
         small={small}
         type={type}

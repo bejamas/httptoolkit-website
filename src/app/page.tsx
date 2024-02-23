@@ -34,19 +34,20 @@ export default async function Home() {
         This is a paragraph orange and bold, Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite,
         redirect, or inject errors
       </Text>
-      <Button target="_blank" icon={CaretDown} as="Link" href="/eso">
+      <Button target="_blank" icon={CaretDown} as="link" href="/eso">
         Download for macOs
       </Button>
-      <Button withBorder icon={CaretDown}>
+      <Button as="button" withBorder icon={CaretDown}>
         Download for macOs
       </Button>
-      <Button variant="secondary" icon={RocketLaunch}>
+      <Button as="button" variant="secondary" icon={RocketLaunch}>
         Go Pro!
       </Button>
-      <Button small variant="secondary" icon={RocketLaunch}>
+      <Button as="button" small variant="secondary" icon={RocketLaunch}>
         Go Pro!
       </Button>
       <Dropdown
+        as="button"
         variant="secondary"
         small
         items={[
