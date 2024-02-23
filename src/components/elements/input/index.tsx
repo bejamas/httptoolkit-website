@@ -6,7 +6,7 @@ export const Input = ({ errorMessage, hasError = false, ...props }: InputProps) 
   return (
     <StyledInputWrapper>
       <StyledInputBorder hasError={hasError}>
-        <StyledInput {...props} />
+        <StyledInput hasError={hasError} {...props} />
       </StyledInputBorder>
       {errorMessage && (
         <Text fontSize="s" color="cinnarbarRed">
