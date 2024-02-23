@@ -2,7 +2,7 @@ import { Badge } from '@/components/elements/badge';
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
-import { Alien, CaretDown, RocketLaunch, Sparkle } from '@/components/elements/icon';
+import { Alien, CaretDown, Logo, RocketLaunch, Sparkle } from '@/components/elements/icon';
 import { Input } from '@/components/elements/input';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
@@ -36,14 +36,22 @@ export default async function Home() {
         This is a paragraph orange and bold, Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite,
         redirect, or inject errors
       </Text>
-      <Button withBorder icon={CaretDown}>
-        test
+      <Button target="_blank" icon={CaretDown} as="link" href="/eso">
+        Download for macOs
       </Button>
-      <Button variant="secondary" icon={RocketLaunch}>
-        test
+      <Button as="button" withBorder icon={CaretDown}>
+        Download for macOs
+      </Button>
+      <Button as="button" variant="secondary" icon={RocketLaunch}>
+        Go Pro!
+      </Button>
+      <Button as="button" small variant="secondary" icon={RocketLaunch}>
+        Go Pro!
       </Button>
       <Dropdown
+        as="button"
         variant="secondary"
+        small
         items={[
           {
             content: 'Example',
@@ -54,9 +62,15 @@ export default async function Home() {
             as: 'a',
             href: '/',
           },
+          {
+            content: 'Example',
+            as: 'Link',
+            href: '/',
+            target: '_blank',
+          },
         ]}
       >
-        test
+        Download for macOS
       </Dropdown>
       <Badge icon={Alien}>Intercept</Badge>
       <Badge icon={Sparkle} variant="secondary" additionalText="Edit">
@@ -65,7 +79,7 @@ export default async function Home() {
 
       <SquareIcon icon={Alien} />
       <SquareIcon icon={Alien} size="large" />
-      <SquareIcon icon={Alien} variant="secondary" />
+      <SquareIcon icon={Logo} variant="secondary" />
       <SquareIcon icon={Alien} variant="tertiary" />
       <Input placeholder="Email address" />
       <Input hasError placeholder="Email address" errorMessage="This is an error message." />
