@@ -104,6 +104,17 @@ export const theme = {
       default: '1.125rem', // 18px / 16px = 1.125.5rem
       small: '1rem', // 16px / 16px = 1rem
     },
+    label: {
+      xl: '1.5rem', // 24px / 16px = 1.5rem
+      l: '1rem', // 16px / 16px = 1rem
+      m: '0.875rem', // 14px / 16px = 0.875
+    },
+  },
+  lineHeight: {
+    label: '110%',
+  },
+  letterSpacing: {
+    label: '0.06em',
   },
   space: {
     xs: '4px',
