@@ -1,7 +1,7 @@
 import { AdditionalText, BadgeWrapper, StyledBadge } from './badge.styles';
 import type { BadgeProps } from './badge.types';
 
-export const Badge = async ({
+export const Badge = ({
   children,
   variant = 'primary',
   additionalText,
