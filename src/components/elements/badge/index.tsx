@@ -15,7 +15,7 @@ export const Badge = async ({
       {hasAdditionalText && <AdditionalText>{additionalText}</AdditionalText>}
       <StyledBadge variant={variant}>
         {Icon && <Icon size={16} weight={iconWeight} />}
-        {children}
+        <h3>{children}</h3>
       </StyledBadge>
     </BadgeWrapper>
   );
