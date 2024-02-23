@@ -1,6 +1,6 @@
 'use client';
 
-import type { ChangeEvent } from 'react';
+import type { ChangeEvent, KeyboardEvent } from 'react';
 import { useEffect, useState } from 'react';
 
 import {
@@ -28,13 +28,19 @@ export const ThemeToggle = () => {
     setIsLight(e.target.checked);
   };
 
+  const handleKeyPress = (event: KeyboardEvent<HTMLLabelElement>) => {
+    if (event.key === 'Enter') {
+      setIsLight(v => !v);
+    }
+  };
+
   return (
-    <StyledLabel>
+    <StyledLabel tabIndex={1} onKeyDown={handleKeyPress}>
       <StyledIconsWrapper>
         <StyledMoon weight="fill" data-is-active={!isLight} />
         <StyledSun weight="fill" data-is-active={isLight} />
       </StyledIconsWrapper>
-      <StyledInput checked={isLight} type="checkbox" onChange={handleThemeChange} />
+      <StyledInput checked={isLight} type="checkbox" aria-checked={isLight} onChange={handleThemeChange} />
       <StyledSwitch />
     </StyledLabel>
   );

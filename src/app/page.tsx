@@ -27,11 +27,6 @@ export default async function Home() {
         This is a paragraph Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or
         inject errors
       </Text>
-      <Text color="cinnarbarRed" fontWeight="medium">
-        This is a paragraph orange and bold, Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite,
-        redirect, or inject errors
-      </Text>
-
       <ThemeToggle />
     </Container>
   );
