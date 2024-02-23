@@ -27,7 +27,7 @@ export type ButtonType = <T extends 'button' | 'link'>(props: Component<ButtonPr
 export type ButtonComponentType<T extends 'button' | 'link'> = (
   props: Component<
     Omit<ButtonProps<T>, 'as'> & {
-      as: T | 'a';
+      as: 'button' | 'a';
     }
   >,
 ) => JSX.Element;
