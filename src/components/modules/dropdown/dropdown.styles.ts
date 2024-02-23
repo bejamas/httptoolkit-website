@@ -5,10 +5,12 @@ import Link from 'next/link';
 import type { DropdownOptionProps } from './dropdown.types';
 
 import { css, styled } from '@/styles';
+import { adjustOpacity } from '@/styles/helpers/adjust-opacity';
 
 const openDropdown = css`
   padding: 4px;
   max-height: 300px;
+  border: 1px solid ${({ theme }) => adjustOpacity(theme.colors.white, 0.12)};
 `;
 
 export const DropdownOptionsWrapper = styled.div`
@@ -35,7 +37,7 @@ export const DropdownWrapper = styled.div`
   position: relative;
   width: fit-content;
 
-  &:hover ${DropdownOptionsWrapper} {
+  &:hover ${DropdownOptionsWrapper}, &:focus-within ${DropdownOptionsWrapper} {
     ${openDropdown}
   }
 `;
@@ -50,6 +52,7 @@ const baseOption = css`
   line-height: 1;
   text-align: left;
   text-decoration: none;
+  outline: none;
 
   &:hover,
   &:focus {
@@ -59,6 +62,7 @@ const baseOption = css`
 export const LinkDropdownOption = styled(Link)<DropdownOptionProps>`
   ${baseOption}
 `;
+
 export const DropdownOption = styled.button<DropdownOptionProps>`
   ${baseOption}
 `;

@@ -14,6 +14,7 @@ export const Button = ({
   onClick,
   href,
   target,
+  isDropdown = false,
   ...aria
 }: Component<ButtonProps>) => {
   const BaseButton = () => {
@@ -30,6 +31,7 @@ export const Button = ({
         href={href}
         target={target}
         withBorder={withBorder}
+        isDropdown={isDropdown}
         {...aria}
       >
         {children}
@@ -46,5 +48,6 @@ export const Button = ({
       </StyledButtonWrapper>
     );
   }
+
   return <BaseButton />;
 };

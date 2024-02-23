@@ -5,6 +5,7 @@ import Link from 'next/link';
 import type { ButtonProps } from './button.types';
 
 import { css, styled } from '@/styles';
+import { adjustOpacity } from '@/styles/helpers/adjust-opacity';
 
 const base = css<ButtonProps>`
   position: relative;
@@ -79,22 +80,36 @@ const base = css<ButtonProps>`
           color: ${({ theme }) => theme.colors.text.lightGrey};
           background-color: ${({ theme }) => theme.colors.inkBlack};
 
-          border: 1px solid transparent;
+          border: 1px solid ${({ theme }) => adjustOpacity(theme.colors.white, 0.12)};
 
           box-shadow: 0px 0px 8px 0px rgba(230, 232, 242, 0.05);
 
           &:hover {
-            border: 1px solid ${({ theme }) => theme.colors.text.lightGrey};
+            ${() =>
+              !props.isDropdown &&
+              `
+              border: 1px solid ${props.theme.colors.text.lightGrey};
+              `}
           }
 
           &:focus {
-            box-shadow:
+            ${() =>
+              !props.isDropdown &&
+              `
+              border: 1px solid ${props.theme.colors.text.lightGrey};
+              box-shadow:
               0px 0px 8px 0px rgba(230, 232, 242, 0.05),
               0px 0px 0px 8px rgba(50, 52, 59, 0.6);
+              `}
           }
 
           &:active {
             background-color: ${({ theme }) => theme.colors.darkGrey};
+            ${() =>
+              !props.isDropdown &&
+              `
+            border: 1px solid ${props.theme.colors.text.lightGrey};
+            `}
           }
         `;
     }

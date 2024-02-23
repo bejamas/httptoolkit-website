@@ -29,7 +29,7 @@ export const Dropdown = ({
 }: Component<DropdownProps>) => {
   return (
     <DropdownWrapper>
-      <Button icon={icon} iconWeight={iconWeight} {...buttonProps}>
+      <Button isDropdown icon={icon} iconWeight={iconWeight} {...buttonProps}>
         {children}
       </Button>
       <DropdownOptionsWrapper>{Array.isArray(items) && renderOptions(items)}</DropdownOptionsWrapper>

@@ -13,4 +13,5 @@ export interface ButtonProps extends AriaAttributes {
   href?: string;
   icon?: Icon;
   iconWeight?: IconWeight;
+  isDropdown?: boolean;
 }
