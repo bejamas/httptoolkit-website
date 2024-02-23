@@ -52,7 +52,7 @@ export const MovingBorder = ({
           transform,
         }}
       >
-        <BorderLine />
+        <BorderLine className="animated-border" />
       </motion.div>
     </>
   );

@@ -6,6 +6,7 @@ import type { ButtonProps } from './button.types';
 
 import { css, styled } from '@/styles';
 import { adjustOpacity } from '@/styles/helpers/adjust-opacity';
+import { getGradientValues } from '@/styles/helpers/get-gradient-values';
 
 const base = css<ButtonProps>`
   position: relative;
@@ -28,7 +29,7 @@ const base = css<ButtonProps>`
   ${props => {
     switch (props.variant) {
       case 'primary':
-        const gradientValues = props.theme.colors.orangeGradient.split(', ');
+        const gradientValues = getGradientValues(props.theme.colors.orangeGradient);
 
         return css`
           color: ${({ theme }) => theme.colors.text.alwayWhite};
@@ -130,8 +131,20 @@ export const StyledButtonWrapper = styled.div`
   overflow: hidden;
 
   padding: 8px;
-  border-radius: 12px;
+  border-radius: 20px;
   box-shadow: inset 0px 0px 0px 10px ${({ theme }) => theme.colors.mediumGrey};
+  border: 1px solid ${({ theme }) => adjustOpacity(theme.colors.white, 0.12)};
+
+  &:hover,
+  &:focus-within,
+  &:active {
+    border: 1px solid transparent;
+
+    & .animated-border {
+      width: 300vw;
+      height: 300vh;
+    }
+  }
 
   &::after {
     content: '';
@@ -142,6 +155,6 @@ export const StyledButtonWrapper = styled.div`
     margin: auto;
     width: calc(100% - 2px);
     height: calc(100% - 2px);
-    border-radius: 12px;
+    border-radius: 20px;
   }
 `;
