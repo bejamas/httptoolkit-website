@@ -51,8 +51,8 @@ export const StyledBadge = styled.span<BadgeProps>`
           color: ${({ theme }) => theme.colors.text.alwayLightGrey};
           background: linear-gradient(180deg, ${gradientValue[0]} 0%, ${gradientValue[1]} 100%);
           box-shadow:
-            0px 1.6666666269302368px 0.8333333134651184px 0px rgba(201, 212, 251, 0.1) inset,
-            0px -0.8333333134651184px 0.8333333134651184px 0px rgba(16, 46, 151, 0.1) inset;
+            0px 1.66px 0.83px 0px rgba(201, 212, 251, 0.1) inset,
+            0px -0.83px 0.83px 0px rgba(16, 46, 151, 0.1) inset;
         `;
     }
   }}
