@@ -1,6 +1,7 @@
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
 import { Text } from '@/components/elements/text';
+import { ThemeToggle } from '@/components/elements/theme-toggle';
 
 export default async function Home() {
   return (
@@ -30,6 +31,8 @@ export default async function Home() {
         This is a paragraph orange and bold, Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite,
         redirect, or inject errors
       </Text>
+
+      <ThemeToggle />
     </Container>
   );
 }
