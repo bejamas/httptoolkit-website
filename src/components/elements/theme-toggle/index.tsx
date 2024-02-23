@@ -1,13 +1,19 @@
 'use client';
 
+import type { ChangeEvent } from 'react';
 import { useEffect, useState } from 'react';
+
+import {
+  StyledIconsWrapper,
+  StyledInput,
+  StyledLabel,
+  StyledMoon,
+  StyledSun,
+  StyledSwitch,
+} from './theme-toggle.styles';
 
 export const ThemeToggle = () => {
   const [isLight, setIsLight] = useState(false);
-
-  const onHandleTheme = () => {
-    return setIsLight(t => !t);
-  };
 
   useEffect(() => {
     const html = document.querySelector('html') as HTMLHtmlElement;
@@ -18,5 +24,18 @@ export const ThemeToggle = () => {
     }
   }, [isLight]);
 
-  return <div onClick={onHandleTheme}>Theme toggle</div>;
+  const handleThemeChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setIsLight(e.target.checked);
+  };
+
+  return (
+    <StyledLabel>
+      <StyledIconsWrapper>
+        <StyledMoon weight="fill" data-is-active={!isLight} />
+        <StyledSun weight="fill" data-is-active={isLight} />
+      </StyledIconsWrapper>
+      <StyledInput checked={isLight} type="checkbox" onChange={handleThemeChange} />
+      <StyledSwitch />
+    </StyledLabel>
+  );
 };

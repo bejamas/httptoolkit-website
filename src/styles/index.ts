@@ -26,6 +26,7 @@ const colorTheme = {
   orangeGradient: 'var(--orange-gradient)',
   blueGradient: 'var(--blue-gradient)',
   darkGradient: 'var(--dark-gradient)',
+  borderGradient: 'var(--border-gradient)',
   text: {
     lightGrey: 'var(--text-light-grey)',
     darkGrey: 'var(--text-dark-grey)',
@@ -35,6 +36,7 @@ const colorTheme = {
     alwayLightGrey: 'var(--text-always-light-grey)',
     electricLightBlue: 'var(--text-electric-light-blue)',
   },
+  shadowDefault: 'var(--shadow-default)',
 } as const;
 
 export type TextColor = keyof (typeof colorTheme)['text'];
@@ -104,6 +106,7 @@ export const GlobalStyles = createGlobalStyle`
       --orange-gradient: linear-gradient(to bottom, #D93815, #F65430);
       --blue-gradient: linear-gradient(to bottom, #4064E2, #3556CA);
       --dark-gradient: linear-gradient(to bottom, #1E2028, #30333E 70%);
+      --border-gradient: linear-gradient(to bottom, rgba(103, 108, 129, 0.2), rgba(93, 97, 112, 0.04));
       --text-light-grey: #E6E8F2;
       --text-dark-grey: #C5C6CA;
       --text-cinnabar-red: #EC502D;
@@ -111,6 +114,7 @@ export const GlobalStyles = createGlobalStyle`
       --text-always-white: #ffffff;
       --text-always-light-grey: #E6E8F2;
       --text-electric-light-blue: #6284FA;
+      --shadow-default: rgba(230, 232, 242, 0.05);
     }
 
     .light {
@@ -125,6 +129,7 @@ export const GlobalStyles = createGlobalStyle`
       --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
       --blue-gradient: linear-gradient(to bottom, #3556CA, #4064E2);
       --dark-gradient: linear-gradient(to bottom, #30333E, #1E2028 70%);
+      --border-gradient: linear-gradient(to bottom, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
       --text-light-grey: #16181E;
       --text-dark-grey: #595D68;
       --text-cinnabar-red: #D93E1C;
@@ -132,6 +137,7 @@ export const GlobalStyles = createGlobalStyle`
       --text-always-white: #ffffff;
       --text-always-light-grey: #E6E8F2;
       --text-electric-light-blue: #5175F2;
+      --shadow-default: rgba(0, 0, 0, 0.05);
     }
 
     * {
@@ -147,10 +153,10 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background-color: ${theme.colors.inkBlack};
+        background-color: ${theme.colors.darkGrey};
         color: ${theme.colors.text.lightGrey};
         overflow-x: hidden;
-        font-size: calc(100% / 1.6);
+        font-size: 16px;
         line-height: 1.5;
     }
 
