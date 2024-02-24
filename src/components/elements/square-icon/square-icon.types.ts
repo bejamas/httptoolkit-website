@@ -5,8 +5,11 @@ export const SquareIconSizes = {
   large: 48,
 };
 
-export interface SquareIconProps {
-  variant?: 'primary' | 'secondary' | 'darker-secondary' | 'tertiary';
+export interface StyledSquareIconProps {
+  $variant?: 'primary' | 'secondary' | 'darker-secondary' | 'tertiary';
+  $size?: keyof typeof SquareIconSizes;
+}
+
+export interface SquareIconProps extends StyledSquareIconProps {
   icon: Icon;
-  size?: keyof typeof SquareIconSizes;
 }

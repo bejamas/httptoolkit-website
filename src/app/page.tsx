@@ -1,4 +1,3 @@
-
 import { Badge } from '@/components/elements/badge';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
@@ -87,9 +86,9 @@ export default async function Home() {
       </ShowCase>
       <ShowCase title="Icon">
         <SquareIcon icon={Alien} />
-        <SquareIcon icon={Alien} size="large" />
-        <SquareIcon icon={Logo} variant="secondary" />
-        <SquareIcon icon={Alien} variant="tertiary" />
+        <SquareIcon icon={Alien} $size="large" />
+        <SquareIcon icon={Logo} $variant="secondary" />
+        <SquareIcon icon={Alien} $variant="tertiary" />
       </ShowCase>
       <ShowCase title="Theme toggle">
         <ThemeToggle />
