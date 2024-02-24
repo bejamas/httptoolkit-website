@@ -54,8 +54,4 @@ export const StyledBadge = styled.span<BadgeProps>`
         `;
     }
   }}
-
-  & svg {
-    color: ${({ theme }) => theme.colors.white};
-  }
 `;
