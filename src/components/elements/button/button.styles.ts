@@ -17,12 +17,11 @@ const base = css<ButtonProps<'button'>>`
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   text-decoration: none;
   line-height: 1;
-
   padding: ${({ small }) => (small ? '14px 24px' : '18px 24px')};
-
   border-radius: 12px;
   gap: 8px;
   align-items: center;
+  cursor: pointer;
 
   ${props => {
     switch (props.variant) {
@@ -54,8 +53,8 @@ const base = css<ButtonProps<'button'>>`
             ${() =>
               props.withBorder
                 ? `
-              box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,0px 4px 24px 0px rgba(245, 109, 79, 0.15), 0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset;
-            `
+                box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset, 0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset, 0px 0px 0px 8px rgba(50, 52, 59, 0.6);
+                `
                 : `
               box-shadow:
                 0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,
@@ -65,7 +64,6 @@ const base = css<ButtonProps<'button'>>`
           }
 
           &:active {
-            border: 1px solid ${props.theme.colors.text.white};
             background: linear-gradient(345.32deg, #a32d13 10.67%, #dc3814 89.91%);
             box-shadow:
               0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,
@@ -127,5 +125,4 @@ export const StyledButtonWrapper = styled.div`
 
   padding: 8px;
   border-radius: 20px;
-  box-shadow: inset 0px 0px 0px 10px ${({ theme }) => theme.colors.mediumGrey};
 `;

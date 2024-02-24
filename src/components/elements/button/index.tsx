@@ -2,7 +2,8 @@
 // @ts-nocheck
 import { StyledButton, StyledButtonWrapper, StyledLink } from './button.styles';
 import type { ButtonComponentType, ButtonProps } from './button.types';
-import { MovingBorder } from '../moving-border';
+
+import { MovingBorder } from '@/components/elements/moving-border';
 
 export const Button = <T extends 'button' | 'link'>({
   variant = 'primary',
@@ -45,10 +46,11 @@ export const Button = <T extends 'button' | 'link'>({
 
   if (withBorder) {
     return (
-      <StyledButtonWrapper>
-        <MovingBorder rx="30%" ry="30%" />
-        <BaseButton />
-      </StyledButtonWrapper>
+      <MovingBorder>
+        <StyledButtonWrapper>
+          <BaseButton />
+        </StyledButtonWrapper>
+      </MovingBorder>
     );
   }
 
