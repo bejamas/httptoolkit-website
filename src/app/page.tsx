@@ -1,4 +1,3 @@
-
 import { Badge } from '@/components/elements/badge';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
@@ -94,6 +93,7 @@ export default async function Home() {
       </ShowCase>
       <ShowCase title="Input">
         <Input placeholder="Email address" />
+        <Input placeholder="Search" type="search" />
         <Input as="textarea" placeholder="Email address" />
         <Input hasError placeholder="Email address" errorMessage="This is an error message." />
       </ShowCase>

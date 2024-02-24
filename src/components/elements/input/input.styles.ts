@@ -14,6 +14,7 @@ export const StyledInputBorder = styled.span<InputBorderProps>`
   display: inline-block;
   border-radius: 6px;
   overflow: hidden;
+  position: relative;
   padding: 1px;
   height: ${({ styledAs }) => (styledAs === 'textarea' ? '124px' : 'auto')};
 
@@ -29,6 +30,14 @@ export const StyledInputBorder = styled.span<InputBorderProps>`
       padding: 1px;
       background: ${theme.colors.orangeGradient}
     `}
+
+  & > svg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 12px;
+    margin: auto;
+  }
 `;
 
 export const StyledInput = styled.input<InputProps>`
