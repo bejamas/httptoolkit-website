@@ -1,11 +1,13 @@
 import { Badge } from '@/components/elements/badge';
+import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
-import { Sparkle, Alien, Logo } from '@/components/elements/icon/index';
+import { Sparkle, Alien, Logo, CaretDown, RocketLaunch } from '@/components/elements/icon/index';
 import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
+import { Dropdown } from '@/components/modules/dropdown';
 
 export default async function Home() {
   return (
@@ -89,6 +91,44 @@ export default async function Home() {
         <SquareIcon icon={Alien} $size="large" />
         <SquareIcon icon={Logo} $variant="secondary" />
         <SquareIcon icon={Alien} $variant="tertiary" />
+      </ShowCase>
+      <ShowCase title="Buttons">
+        <Button as="button" withBorder icon={CaretDown}>
+          Download for macOs
+        </Button>
+        <Button icon={CaretDown} as="link" href="/blog">
+          Download for macOs
+        </Button>
+        <Button as="button" variant="secondary" icon={RocketLaunch}>
+          Go Pro!
+        </Button>
+        <Button as="button" small variant="secondary" icon={RocketLaunch}>
+          Go Pro!
+        </Button>
+        <Dropdown
+          as="button"
+          variant="secondary"
+          small
+          items={[
+            {
+              content: 'Download for Android',
+              as: 'button',
+            },
+            {
+              content: 'Download for Linux',
+              as: 'a',
+              target: '_blank',
+              href: 'https://www.google.com/',
+            },
+            {
+              content: 'Download for Mac',
+              as: 'Link',
+              href: '/blog',
+            },
+          ]}
+        >
+          Download for macOS
+        </Dropdown>
       </ShowCase>
       <ShowCase title="Theme toggle">
         <ThemeToggle />

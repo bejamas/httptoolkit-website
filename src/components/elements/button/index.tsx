@@ -1,6 +1,10 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
 import { StyledButton, StyledButtonWrapper, StyledLink } from './button.styles';
 import type { ButtonComponentType, ButtonProps } from './button.types';
-import { MovingBorder } from '../moving-border';
+
+import { MovingBorder } from '@/components/elements/moving-border';
+import { isExternalUrl } from '@/lib/utils';
 
 export const Button = <T extends 'button' | 'link'>({
   variant = 'primary',
@@ -19,11 +23,10 @@ export const Button = <T extends 'button' | 'link'>({
 }: ButtonProps<T>) => {
   const BaseButton = () => {
     const ButtonComponent: ButtonComponentType<T> = as === 'link' ? StyledLink : StyledButton;
-    const isAnchor = (href?.startsWith('http://') || href?.startsWith('https://')) && as === 'link';
+    const isAnchor = isExternalUrl(href) && as === 'link';
     const newAs = as === 'link' ? undefined : as;
 
     return (
-      // @ts-expected-error
       <ButtonComponent
         as={isAnchor ? 'a' : newAs}
         variant={variant}
@@ -44,10 +47,11 @@ export const Button = <T extends 'button' | 'link'>({
 
   if (withBorder) {
     return (
-      <StyledButtonWrapper>
-        <MovingBorder rx="30%" ry="30%" />
-        <BaseButton />
-      </StyledButtonWrapper>
+      <MovingBorder>
+        <StyledButtonWrapper>
+          <BaseButton />
+        </StyledButtonWrapper>
+      </MovingBorder>
     );
   }
 

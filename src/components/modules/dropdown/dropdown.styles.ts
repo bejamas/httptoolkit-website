@@ -4,13 +4,14 @@ import Link from 'next/link';
 
 import type { DropdownOptionProps } from './dropdown.types';
 
-import { css, styled } from '@/styles';
+import { css, screens, styled } from '@/styles';
 import { adjustOpacity } from '@/styles/helpers/adjust-opacity';
 
 const openDropdown = css`
   padding: 4px;
   max-height: 300px;
   border: 1px solid ${({ theme }) => adjustOpacity(theme.colors.white, 0.12)};
+  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.borderGradient};
 `;
 
 export const DropdownOptionsWrapper = styled.div`
@@ -25,7 +26,7 @@ export const DropdownOptionsWrapper = styled.div`
   max-height: 0;
   transition: all 0.5s linear;
   overflow: hidden;
-
+  z-index: 33;
   box-shadow: 0px 0px 8px 0px rgba(230, 232, 242, 0.05);
 
   &:hover {
@@ -35,10 +36,18 @@ export const DropdownOptionsWrapper = styled.div`
 
 export const DropdownWrapper = styled.div`
   position: relative;
-  width: fit-content;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0px 0px 8px 0px rgba(230, 232, 242, 0.05);
+  justify-content: center;
 
   &:hover ${DropdownOptionsWrapper}, &:focus-within ${DropdownOptionsWrapper} {
     ${openDropdown}
+  }
+
+  @media (min-width: ${screens['lg']}) {
+    justify-content: start;
+    width: fit-content;
   }
 `;
 
@@ -50,9 +59,13 @@ const baseOption = css`
   color: ${({ theme }) => theme.colors.text.lightGrey};
   font-size: ${({ theme }) => theme.fontSizes.text.m};
   line-height: 1;
-  text-align: left;
+  text-align: center;
   text-decoration: none;
   outline: none;
+
+  @media (min-width: ${screens['lg']}) {
+    text-align: left;
+  }
 
   &:hover,
   &:focus {
