@@ -3,7 +3,6 @@
 import type { InputBorderProps, InputProps } from './input.types';
 
 import { styled } from '@/styles';
-import { adjustOpacity } from '@/styles/helpers/adjust-opacity';
 
 export const StyledInputWrapper = styled.div`
   display: flex;
@@ -18,22 +17,18 @@ export const StyledInputBorder = styled.span<InputBorderProps>`
   padding: 1px;
   height: ${({ styledAs }) => (styledAs === 'textarea' ? '124px' : 'auto')};
 
-  background: ${({ theme }) => adjustOpacity(theme.colors.white, 0.14)};
+  background: ${({ theme }) => theme.colors.borderGradient};
 
   &:hover {
-    ${({ theme, hasError }) => !hasError && `background: linear-gradient(180deg, ${theme.colors.blueGradient});`}
+    ${({ theme, hasError }) => !hasError && `background: ${theme.colors.blueGradient};`}
   }
 
-  ${({ hasError, theme }) => {
-    const gradientValues = theme.colors.orangeGradient.split(', ');
-    return (
-      hasError &&
-      `
-      padding: 1px;
-      background: linear-gradient(345.32deg, ${gradientValues[0]} 10.67%, ${gradientValues[1]} 89.91%);
+  ${({ hasError, theme }) =>
+    hasError &&
     `
-    );
-  }}
+      padding: 1px;
+      background: ${theme.colors.orangeGradient}
+    `}
 `;
 
 export const StyledInput = styled.input<InputProps>`
