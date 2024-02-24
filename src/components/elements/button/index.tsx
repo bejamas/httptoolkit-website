@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
 import { StyledButton, StyledButtonWrapper, StyledLink } from './button.styles';
 import type { ButtonComponentType, ButtonProps } from './button.types';
 import { MovingBorder } from '../moving-border';
@@ -23,7 +25,6 @@ export const Button = <T extends 'button' | 'link'>({
     const newAs = as === 'link' ? undefined : as;
 
     return (
-      // @ts-expected-error
       <ButtonComponent
         as={isAnchor ? 'a' : newAs}
         variant={variant}

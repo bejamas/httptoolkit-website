@@ -11,6 +11,7 @@ const openDropdown = css`
   padding: 4px;
   max-height: 300px;
   border: 1px solid ${({ theme }) => adjustOpacity(theme.colors.white, 0.12)};
+  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.borderGradient};
 `;
 
 export const DropdownOptionsWrapper = styled.div`
@@ -25,7 +26,7 @@ export const DropdownOptionsWrapper = styled.div`
   max-height: 0;
   transition: all 0.5s linear;
   overflow: hidden;
-
+  z-index: 33;
   box-shadow: 0px 0px 8px 0px rgba(230, 232, 242, 0.05);
 
   &:hover {
@@ -36,7 +37,8 @@ export const DropdownOptionsWrapper = styled.div`
 export const DropdownWrapper = styled.div`
   position: relative;
   width: fit-content;
-
+  border-radius: 12px;
+  box-shadow: 0px 0px 8px 0px rgba(230, 232, 242, 0.05);
   &:hover ${DropdownOptionsWrapper}, &:focus-within ${DropdownOptionsWrapper} {
     ${openDropdown}
   }

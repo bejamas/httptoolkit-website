@@ -39,6 +39,11 @@ const colorTheme = {
     electricLightBlue: 'var(--text-electric-light-blue)',
     textGradient: TextGradient,
   },
+  button: {
+    secondaryDefault: 'var(--button-secondary-default)',
+    secondarySection: 'var(--button-secondary-section)',
+    border: 'var(--button-boder)',
+  },
   shadowDefault: 'var(--shadow-default)',
 } as const;
 
@@ -133,10 +138,10 @@ export const GlobalStyles = createGlobalStyle`
       --electric-blue: #5175F2;
       --electric-light-blue: #6284FA;
       --cinnabar-red: #EC502D;
-      --orange-gradient: linear-gradient(to bottom, #D93815, #F65430);
+      --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
       --blue-gradient: linear-gradient(to bottom, #4064E2, #3556CA);
       --dark-gradient: linear-gradient(to bottom, #1E2028, #30333E 70%);
-      --border-gradient: rgba(255, 255, 255, 0.2);
+      --border-gradient: rgba(255, 255, 255, 0.1);
       --text-light-grey: #E6E8F2;
       --text-dark-grey: #C5C6CA;
       --text-cinnabar-red: #EC502D;
@@ -145,6 +150,9 @@ export const GlobalStyles = createGlobalStyle`
       --text-always-light-grey: #E6E8F2;
       --text-electric-light-blue: #6284FA;
       --text-gradient: linear-gradient(to bottom,rgba(231,235,253,0.7),rgba(230,232,242,1));
+      --button-secondary-default: #16181E;
+      --button-secondary-section: #16181E;
+      --button-boder: rgba(255, 255, 255, 4%);
       --shadow-default: rgba(230, 232, 242, 0.05);
     }
 
@@ -169,6 +177,9 @@ export const GlobalStyles = createGlobalStyle`
       --text-always-light-grey: #E6E8F2;
       --text-electric-light-blue: #5175F2;
       --text-gradient: linear-gradient(to bottom,rgba(30, 32, 40, 1),rgba(48, 51, 62, 0.7));
+      --button-secondary-default: #F2F2F2;
+      --button-secondary-section: #ffffff;
+      --button-boder: rgba(103, 108, 129, 20%);
       --shadow-default: rgba(0, 0, 0, 0.05);
     }
 

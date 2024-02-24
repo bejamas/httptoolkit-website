@@ -87,10 +87,10 @@ export default async function Home() {
         </Badge>
       </ShowCase>
       <ShowCase title="Buttons">
-        <Button target="_blank" icon={CaretDown} as="link" href="/eso">
+        <Button as="button" withBorder icon={CaretDown}>
           Download for macOs
         </Button>
-        <Button as="button" withBorder icon={CaretDown}>
+        <Button icon={CaretDown} as="link" href="/blog">
           Download for macOs
         </Button>
         <Button as="button" variant="secondary" icon={RocketLaunch}>
@@ -109,15 +109,15 @@ export default async function Home() {
               as: 'button',
             },
             {
-              content: 'Example',
+              content: 'Google.com',
               as: 'a',
-              href: '/',
+              target: '_blank',
+              href: 'https://www.google.com/',
             },
             {
-              content: 'Example',
+              content: 'Blog',
               as: 'Link',
-              href: '/',
-              target: '_blank',
+              href: '/blog',
             },
           ]}
         >
