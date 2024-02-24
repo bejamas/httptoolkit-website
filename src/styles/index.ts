@@ -56,6 +56,9 @@ export const theme = {
   colors: {
     ...colorTheme,
   },
+  fontFamily: {
+    dmSans: 'var(--font-dmSans)',
+  },
   fontWeight: {
     light: '300',
     normal: '400',
@@ -195,8 +198,17 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: bold;
     }
 
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 0;
+    }
+
+    button {
+      font-family: ${theme.fontFamily.dmSans};
+    }
+
     body {
         background-color: ${theme.colors.darkGrey};
+        font-family: ${theme.fontFamily.dmSans};
         color: ${theme.colors.text.lightGrey};
         overflow-x: hidden;
         font-size: 16px;
