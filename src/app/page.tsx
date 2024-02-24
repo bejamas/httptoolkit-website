@@ -105,17 +105,17 @@ export default async function Home() {
           small
           items={[
             {
-              content: 'Example',
+              content: 'Download for Android',
               as: 'button',
             },
             {
-              content: 'Google.com',
+              content: 'Download for Linux',
               as: 'a',
               target: '_blank',
               href: 'https://www.google.com/',
             },
             {
-              content: 'Blog',
+              content: 'Download for Mac',
               as: 'Link',
               href: '/blog',
             },

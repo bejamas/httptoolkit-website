@@ -4,13 +4,13 @@ import Link from 'next/link';
 
 import type { ButtonProps } from './button.types';
 
-import { css, styled } from '@/styles';
+import { css, screens, styled } from '@/styles';
 
 const base = css<ButtonProps<'button'>>`
   position: relative;
   z-index: 1;
   display: flex;
-  width: fit-content;
+  width: 100%;
   outline: none;
   border: 0;
   font-size: ${({ theme, small }) => theme.fontSizes.button[small ? 'small' : 'default']};
@@ -21,7 +21,13 @@ const base = css<ButtonProps<'button'>>`
   border-radius: 12px;
   gap: 8px;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
+
+  @media (min-width: ${screens['lg']}) {
+    width: fit-content;
+    justify-content: start;
+  }
 
   ${props => {
     switch (props.variant) {
@@ -120,9 +126,15 @@ export const StyledButton = styled.button<ButtonProps<'button'>>`
 
 export const StyledButtonWrapper = styled.div`
   position: relative;
-  width: fit-content;
+  width: 100%;
   overflow: hidden;
-
+  text-align: center;
   padding: 8px;
   border-radius: 20px;
+  justify-content: center;
+
+  @media (min-width: ${screens['lg']}) {
+    justify-content: start;
+    width: fit-content;
+  }
 `;

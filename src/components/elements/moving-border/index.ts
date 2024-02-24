@@ -1,14 +1,18 @@
 'use client';
 
-import { styled } from '@/styles';
+import { screens, styled } from '@/styles';
 
 export const MovingBorder = styled.div`
   --border-width: 1px;
   --radius: 20px;
-  width: fit-content;
+  width: 100%;
   position: relative;
   border-radius: var(--radius);
   border: var(--border-width) solid transparent;
+
+  @media (min-width: ${screens['lg']}) {
+    width: fit-content;
+  }
 
   &:hover {
     border: 1px solid ${({ theme }) => theme.colors.cinnarbarRed};
