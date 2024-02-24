@@ -19,6 +19,8 @@ export const StyledHeading = styled.h1<HeadingProps>`
   line-height: ${({ fontSize }) => lineHeightMap[fontSize || 'xl']};
   text-align: ${({ textAlign: align }) => align || 'initial'};
 
+  ${({ color, theme }) => color === 'textGradient' && theme.colors.text.textGradient}
+
   @media (min-width: ${({ theme }) => theme.screens.xl}) {
     font-size: ${({ theme, fontSize }) => theme.fontSizes.heading.desktop[fontSize || 'xl'].toString()};
   }

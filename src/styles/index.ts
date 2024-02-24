@@ -11,6 +11,11 @@ export const screens = {
   '2xl': '1440px',
 };
 
+const TextGradient = css`
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
 const colorTheme = {
   inkBlack: 'var(--ink-black)',
   darkGrey: 'var(--dark-grey)',
@@ -32,6 +37,7 @@ const colorTheme = {
     alwayWhite: 'var(--text-always-white)',
     alwayLightGrey: 'var(--text-always-light-grey)',
     electricLightBlue: 'var(--text-electric-light-blue)',
+    textGradient: TextGradient,
   },
   shadowDefault: 'var(--shadow-default)',
 } as const;
@@ -111,6 +117,7 @@ export const GlobalStyles = createGlobalStyle`
       --text-always-white: #ffffff;
       --text-always-light-grey: #E6E8F2;
       --text-electric-light-blue: #6284FA;
+      --text-gradient: linear-gradient(to bottom,rgba(231,235,253,0.7),rgba(230,232,242,1));
       --shadow-default: rgba(230, 232, 242, 0.05);
     }
 
@@ -134,6 +141,7 @@ export const GlobalStyles = createGlobalStyle`
       --text-always-white: #ffffff;
       --text-always-light-grey: #E6E8F2;
       --text-electric-light-blue: #5175F2;
+      --text-gradient: linear-gradient(to bottom,rgba(30, 32, 40, 1),rgba(48, 51, 62, 0.7));
       --shadow-default: rgba(0, 0, 0, 0.05);
     }
 

@@ -8,6 +8,7 @@ export default async function Home() {
   return (
     <Container>
       <ShowCase title="Heading">
+        <Heading color="textGradient">XL Text Gradient</Heading>
         <Heading color="cinnarbarRed">What is HTTP Toolkit? - XL</Heading>
         <Heading as="h2" fontSize="l">
           What is HTTP Toolkit? - L
