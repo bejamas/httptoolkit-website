@@ -8,7 +8,6 @@ import { adjustOpacity } from '@/styles/helpers/adjust-opacity';
 export const BadgeWrapper = styled.div`
   display: flex;
   align-items: center;
-
   gap: 16px;
 `;
 
