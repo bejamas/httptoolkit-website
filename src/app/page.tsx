@@ -95,7 +95,7 @@ export default async function Home() {
         <Input placeholder="Email address" />
         <Input placeholder="Search" type="search" />
         <Input as="textarea" placeholder="Email address" />
-        <Input hasError placeholder="Email address" errorMessage="This is an error message." />
+        <Input $hasError placeholder="Email address" errorMessage="This is an error message." />
       </ShowCase>
       <ShowCase title="Theme toggle">
         <ThemeToggle />
