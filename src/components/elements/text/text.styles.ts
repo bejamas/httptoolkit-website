@@ -9,5 +9,6 @@ export const StyledText = styled.p<TextProps>`
   color: ${({ theme, color }) => theme.colors.text[color || 'darkGrey']};
   font-weight: ${({ theme, fontWeight }) => theme.fontWeight[fontWeight || 'normal']};
   text-align: ${({ textAlign }) => textAlign || 'initial'};
-  line-height: 150%;
+  line-height: ${({ as }) => (as === 'span' ? 1.1 : 1.5)};
+  letter-spacing: ${({ as }) => (as === 'span' ? '0.06rem' : 'initial')};
 `;

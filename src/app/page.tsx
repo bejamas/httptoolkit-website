@@ -8,18 +8,24 @@ export default async function Home() {
   return (
     <Container>
       <ShowCase title="Heading">
-        <Heading>What is HTTP Toolkit? - XL</Heading>
+        <Heading color="cinnarbarRed">What is HTTP Toolkit? - XL</Heading>
         <Heading as="h2" fontSize="l">
           What is HTTP Toolkit? - L
         </Heading>
         <Heading as="h3" fontSize="m">
           What is HTTP Toolkit? - M
         </Heading>
-        <Heading as="h4" fontSize="s" color="cinnarbarRed">
+        <Heading as="h4" fontSize="s">
           What is HTTP Toolkit? - S
+        </Heading>
+        <Heading as="h4" fontSize="s" fontWeight="medium">
+          What is HTTP Toolkit? - S Medium
         </Heading>
         <Heading as="h5" fontSize="xs">
           What is HTTP Toolkit? - XS
+        </Heading>
+        <Heading as="h5" fontSize="xs" fontWeight="medium">
+          What is HTTP Toolkit? - XS Medium
         </Heading>
       </ShowCase>
 
@@ -57,6 +63,15 @@ export default async function Home() {
         <Text fontSize="s" fontWeight="semibold">
           S Semibold: Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject
           errors
+        </Text>
+        <Text as="span" fontSize="xll" fontWeight="bold">
+          Label XL
+        </Text>
+        <Text as="span" fontSize="l" fontWeight="bold">
+          Label L
+        </Text>
+        <Text as="span" fontSize="s" fontWeight="bold">
+          Label M
         </Text>
       </ShowCase>
       <ShowCase title="Theme toggle">

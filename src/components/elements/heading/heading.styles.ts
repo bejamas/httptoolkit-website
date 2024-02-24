@@ -5,11 +5,11 @@ import type { HeadingProps } from './heading.types';
 import { styled } from '@/styles';
 
 const lineHeightMap = {
-  xl: '110%',
-  l: '110%',
-  m: '110%',
-  s: '130%',
-  xs: '130%',
+  xl: 1.1,
+  l: 1.1,
+  m: 1.1,
+  s: 1.3,
+  xs: 1.3,
 };
 
 export const StyledHeading = styled.h1<HeadingProps>`
