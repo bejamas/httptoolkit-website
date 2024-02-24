@@ -3,14 +3,13 @@
 import type { SquareIconProps } from './square-icon.types';
 
 import { css, styled } from '@/styles';
-import { adjustOpacity } from '@/styles/helpers/adjust-opacity';
 
 export const StyledSquareIcon = styled.div<Partial<SquareIconProps>>`
   display: flex;
   width: fit-content;
   border-radius: 12px;
   padding: 11px;
-  border: 1px solid ${({ theme }) => adjustOpacity(theme.colors.white, 0.14)};
+  border: 1px solid ${({ theme }) => theme.colors.borderGradient};
 
   ${({ variant, size }) => {
     switch (variant) {
