@@ -29,15 +29,17 @@ const base = css<ButtonProps<'button'>>`
     justify-content: start;
   }
 
+  &:hover {
+    transition: all ease-in 0.3s;
+  }
+
   ${props => {
     switch (props.variant) {
       case 'primary':
         return css`
           color: ${({ theme }) => theme.colors.text.alwayWhite};
           background: ${({ theme }) => theme.colors.orangeGradient};
-
           border: 1px solid ${({ theme }) => theme.colors.cinnarbarRed};
-
           box-shadow:
             0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,
             0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset;
@@ -48,6 +50,7 @@ const base = css<ButtonProps<'button'>>`
           `}
 
           &:hover {
+            transition: border ease-in 0.3s;
             ${() =>
               !props.withBorder &&
               `
@@ -77,6 +80,7 @@ const base = css<ButtonProps<'button'>>`
               0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset;
           }
         `;
+
       case 'secondary':
         return css`
           color: ${({ theme }) => theme.colors.text.lightGrey};

@@ -16,6 +16,7 @@ export const MovingBorder = styled.div`
 
   &:hover {
     border: 1px solid ${({ theme }) => theme.colors.cinnarbarRed};
+    transition: all ease-in 0.3s;
   }
 
   &:before {
