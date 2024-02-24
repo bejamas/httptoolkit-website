@@ -4,6 +4,7 @@ import { StyledButton, StyledButtonWrapper, StyledLink } from './button.styles';
 import type { ButtonComponentType, ButtonProps } from './button.types';
 
 import { MovingBorder } from '@/components/elements/moving-border';
+import { isExternalUrl } from '@/lib/utils';
 
 export const Button = <T extends 'button' | 'link'>({
   variant = 'primary',
@@ -22,7 +23,7 @@ export const Button = <T extends 'button' | 'link'>({
 }: ButtonProps<T>) => {
   const BaseButton = () => {
     const ButtonComponent: ButtonComponentType<T> = as === 'link' ? StyledLink : StyledButton;
-    const isAnchor = (href?.startsWith('http://') || href?.startsWith('https://')) && as === 'link';
+    const isAnchor = isExternalUrl(href) && as === 'link';
     const newAs = as === 'link' ? undefined : as;
 
     return (
