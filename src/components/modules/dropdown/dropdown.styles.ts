@@ -8,7 +8,7 @@ import { css, screens, styled } from '@/styles';
 const openDropdown = css`
   padding: 4px;
   max-height: fit-content;
-  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.borderGradient};
+  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
 `;
 
 export const DropdownOptionsWrapper = styled.div<Pick<DropdownProps, '$direction'>>`
