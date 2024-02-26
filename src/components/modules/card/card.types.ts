@@ -3,6 +3,7 @@ export interface CardProps {
   text: string;
   darkImage: Image;
   lightImage?: Image;
+  colorScheme?: 'dark' | 'light';
 }
 
 export interface StyledCardImageWrapperProps {

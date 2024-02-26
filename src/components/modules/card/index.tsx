@@ -10,14 +10,22 @@ import LightDots from '@/images/backgrounds/light/dots-light.svg';
 import LightFuncGradient from '@/images/backgrounds/light/func-gradient-light.png';
 import LightGradient from '@/images/backgrounds/light/gradient-light.png';
 
-export const Card = ({ title, text, darkImage: image }: CardProps) => {
-  const colorsScheme: 'dark' | 'light' = 'dark';
+//TODO: Remove isLight when have useTheme hook
+
+export const Card = ({ title, text, darkImage, lightImage, colorScheme = 'dark' }: CardProps) => {
+  const isDark = colorScheme === 'dark';
+
+  const Dots = isDark ? DarkDots.src : LightDots.src;
+  const Gradient = isDark ? DarkGradient.src : LightGradient.src;
+  const FuncGradient = isDark ? DarkFuncGradient.src : LightFuncGradient.src;
+  const image = isDark ? darkImage : lightImage || darkImage;
+
   return (
     <StyledCardWrapper>
       <StyledCardImageWrapper
-        $backgroundDots={colorsScheme === 'dark' ? DarkDots.src : LightDots.src}
-        $backgroundFuncGradient={colorsScheme === 'dark' ? DarkFuncGradient.src : LightFuncGradient.src}
-        $backgroundGradient={colorsScheme === 'dark' ? DarkGradient.src : LightGradient.src}
+        $backgroundDots={Dots}
+        $backgroundFuncGradient={FuncGradient}
+        $backgroundGradient={Gradient}
       >
         <StyledCardImage src={image.src} alt={image.alt} />
       </StyledCardImageWrapper>
