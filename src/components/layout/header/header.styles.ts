@@ -17,7 +17,7 @@ export const StyledHeaderContainer = styled(Container)`
   justify-content: space-between;
 `;
 
-export const StyledNavItems = styled.div`
+export const StyledNavItems = styled.nav`
   display: inline-flex;
   align-items: center;
   gap: 48px;

@@ -11,7 +11,7 @@ export const StyledMobileWrapper = styled.div`
   }
 `;
 
-export const StyledNavMobileItems = styled.div`
+export const StyledNavMobileItems = styled.nav`
   display: inline-flex;
   flex-direction: column;
   align-items: center;
