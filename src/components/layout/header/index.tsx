@@ -13,31 +13,13 @@ import { Text } from '@/components/elements/text';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 import Logo from '@/images/logo.svg';
+import { pageRoutes } from '@/lib/constants/routes';
 
 export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
-  const navigationItems = [
-    {
-      href: '/pricing',
-      label: 'Pricing',
-    },
-    {
-      href: '/docs',
-      label: 'Docs',
-    },
-    {
-      href: '/blog',
-      label: 'Blog',
-    },
-    {
-      href: '/contact',
-      label: 'Contact',
-    },
-    {
-      href: '/integrations',
-      label: 'Integrations',
-    },
-  ];
+  const { PRICING, DOCS, BLOG, CONTACT, INTEGRATION } = pageRoutes;
+  const navigationItems = [PRICING, DOCS, BLOG, CONTACT, INTEGRATION];
 
+  // TODO: move to it's own component when working in the download feature
   const dropdownItems: DropdownOptionProps[] = [
     {
       content: 'for MacOS DMG',

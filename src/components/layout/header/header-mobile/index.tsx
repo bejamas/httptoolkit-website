@@ -10,6 +10,7 @@ type NavigationItems = {
   href: string;
   label: string;
 };
+
 interface MobileHeaderProps {
   navigationItems: NavigationItems[];
   dropdownItems: DropdownOptionProps[];
