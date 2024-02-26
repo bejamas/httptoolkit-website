@@ -12,10 +12,11 @@ const openDropdown = css<Pick<DropdownProps, '$variant'>>`
     ${({ theme, $variant }) => ($variant === 'secondary' ? theme.colors.borderGradient : theme.colors.cinnarbarRed)};
 `;
 
-export const DropdownOptionsWrapper = styled.div<Pick<DropdownProps, '$variant'>>`
+export const DropdownOptionsWrapper = styled.div<Pick<DropdownProps, '$variant' | '$direction'>>`
   display: grid;
   position: absolute;
-  top: calc(100% + 4px);
+  top: ${({ $direction }) => ($direction === 'bottom' ? 'calc(100% + 4px)' : 'auto')};
+  bottom: ${({ $direction }) => ($direction === 'top' ? 'calc(100% + 4px)' : 'auto')};
   border-radius: 12px;
   background: ${({ theme, $variant }) =>
     $variant === 'secondary' ? theme.colors.inkBlack : theme.colors.orangeGradient};

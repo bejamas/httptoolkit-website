@@ -23,6 +23,10 @@ const DrawerHeader = styled.div`
 
 const DrawerContent = styled.div`
   padding: 16px;
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 interface DrawerProps {

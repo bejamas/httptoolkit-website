@@ -67,13 +67,13 @@ export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
             <Logo />
           </Link>
         </div>
-        <MobileHeader />
+        <MobileHeader navigationItems={navigationItems} dropdownItems={dropdownItems} />
         {isNavigationEnabled ? (
           <StyledNavigation>
             <StyledNavItems>
               {navigationItems.map(navItem => {
                 return (
-                  <Link href={navItem.href}>
+                  <Link key={`${navItem.label}-${navItem.href}`} href={navItem.href}>
                     <Text as="span" fontSize="m">
                       {navItem.label}
                     </Text>
