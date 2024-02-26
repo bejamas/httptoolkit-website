@@ -1,39 +1,36 @@
 import { StyledButton, StyledButtonWrapper, StyledLink } from './button.styles';
 import type { ButtonComponentType, ButtonProps } from './button.types';
-import { MovingBorder } from '../moving-border';
 
-export const Button = <T extends 'button' | 'link'>({
-  variant = 'primary',
-  small = false,
-  type,
-  withBorder = false,
+import { MovingBorder } from '@/components/elements/moving-border';
+
+export const Button = ({
+  as = 'button',
   children,
-  as,
+  href,
   icon: Icon,
   iconWeight = 'fill',
   onClick,
-  href,
   target,
-  isDropdown = false,
+  type,
+  $small = false,
+  $variant = 'primary',
+  $withBorder = false,
+  $isDropdown = false,
   ...aria
-}: ButtonProps<T>) => {
+}: ButtonProps) => {
   const BaseButton = () => {
-    const ButtonComponent: ButtonComponentType<T> = as === 'link' ? StyledLink : StyledButton;
-    const isAnchor = (href?.startsWith('http://') || href?.startsWith('https://')) && as === 'link';
-    const newAs = as === 'link' ? undefined : as;
+    const ButtonComponent: ButtonComponentType = as === 'link' ? StyledLink : StyledButton;
 
     return (
-      // @ts-expected-error
       <ButtonComponent
-        as={isAnchor ? 'a' : newAs}
-        variant={variant}
-        small={small}
         type={type}
         onClick={onClick}
         href={href}
         target={target}
-        withBorder={withBorder}
-        isDropdown={isDropdown}
+        $variant={$variant}
+        $small={$small}
+        $withBorder={$withBorder}
+        $isDropdown={$isDropdown}
         {...aria}
       >
         {children}
@@ -42,12 +39,13 @@ export const Button = <T extends 'button' | 'link'>({
     );
   };
 
-  if (withBorder) {
+  if ($withBorder) {
     return (
-      <StyledButtonWrapper>
-        <MovingBorder rx="30%" ry="30%" />
-        <BaseButton />
-      </StyledButtonWrapper>
+      <MovingBorder>
+        <StyledButtonWrapper>
+          <BaseButton />
+        </StyledButtonWrapper>
+      </MovingBorder>
     );
   }
 

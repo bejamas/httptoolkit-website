@@ -1,19 +1,18 @@
 'use client';
 
-import type { SquareIconProps } from './square-icon.types';
+import type { StyledSquareIconProps } from './square-icon.types';
 
 import { css, styled } from '@/styles';
-import { adjustOpacity } from '@/styles/helpers/adjust-opacity';
 
-export const StyledSquareIcon = styled.div<Partial<SquareIconProps>>`
+export const StyledSquareIcon = styled.div<StyledSquareIconProps>`
   display: flex;
   width: fit-content;
   border-radius: 12px;
   padding: 11px;
-  border: 1px solid ${({ theme }) => adjustOpacity(theme.colors.white, 0.14)};
+  border: 1px solid ${({ theme }) => theme.colors.borderGradient};
 
-  ${({ variant, size }) => {
-    switch (variant) {
+  ${({ $variant, $size }) => {
+    switch ($variant) {
       case 'primary':
         return css`
           background-color: ${({ theme }) => theme.colors.inkBlack};
@@ -28,7 +27,7 @@ export const StyledSquareIcon = styled.div<Partial<SquareIconProps>>`
           }
 
           ${() =>
-            size === 'large' &&
+            $size === 'large' &&
             `
               border-width: 1.13px;
               border-radius: 16px;
