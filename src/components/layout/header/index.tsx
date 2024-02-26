@@ -1,5 +1,11 @@
 import { MobileHeader } from './header-mobile';
-import { StyledHeaderContainer, StyledHeaderWrapper, StyledNavItems, StyledNavigation } from './header.styles';
+import {
+  StyledHeaderContainer,
+  StyledHeaderWrapper,
+  StyledLogoWrapper,
+  StyledNavItems,
+  StyledNavigation,
+} from './header.styles';
 import type { HeaderProps } from './header.types';
 
 import { Link } from '@/components/elements/link';
@@ -62,11 +68,11 @@ export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
   return (
     <StyledHeaderWrapper>
       <StyledHeaderContainer>
-        <div>
+        <StyledLogoWrapper>
           <Link href="/" aria-label="Go to home">
             <Logo />
           </Link>
-        </div>
+        </StyledLogoWrapper>
         <MobileHeader navigationItems={navigationItems} dropdownItems={dropdownItems} />
         {isNavigationEnabled ? (
           <StyledNavigation>

@@ -7,6 +7,12 @@ export const StyledHeaderWrapper = styled.section`
   border-bottom: 1px solid ${({ theme }) => theme.colors.borderDark};
 `;
 
+export const StyledLogoWrapper = styled.div`
+  & svg {
+    fill: currentColor;
+  }
+`;
+
 export const StyledHeaderContainer = styled(Container)`
   display: flex;
   align-items: center;
