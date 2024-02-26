@@ -43,7 +43,7 @@ export const Dropdown = ({
       <Button icon={icon} iconWeight={iconWeight} $variant={$variant} $isDropdown {...buttonProps}>
         {children}
       </Button>
-      <DropdownOptionsWrapper $variant={$variant} $direction={$direction} role="menu">
+      <DropdownOptionsWrapper $direction={$direction} role="menu">
         {Array.isArray(items) && renderOptions(items, $variant)}
       </DropdownOptionsWrapper>
     </DropdownWrapper>

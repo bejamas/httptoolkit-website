@@ -103,7 +103,7 @@ export const theme = {
     },
   },
   lineHeight: {
-    label: '110%',
+    label: '1.1',
   },
   letterSpacing: {
     label: '0.06em',
