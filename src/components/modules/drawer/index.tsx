@@ -38,8 +38,13 @@ export const Drawer = ({ isOpen = false, onClose, children }: Component<DrawerPr
   return (
     <DrawerContainer isOpen={isOpen}>
       <DrawerHeader>
-        <Button style={{ width: 48, height: 48, padding: 0 }} $variant="secondary" onClick={onClose}>
-          <CaretLeft size={16} color="#fff" weight="fill" />
+        <Button
+          style={{ width: 48, height: 48, padding: 0 }}
+          $variant="secondary"
+          onClick={onClose}
+          aria-label="closemobilemenu"
+        >
+          <CaretLeft aria-hidden="true" size={16} color="#fff" weight="fill" />
         </Button>
       </DrawerHeader>
       <DrawerContent>{children}</DrawerContent>
