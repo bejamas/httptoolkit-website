@@ -5,9 +5,9 @@ import type { HeadingProps } from './heading.types';
 import { styled } from '@/styles';
 
 const lineHeightMap = {
-  xl: 1.1,
-  l: 1.1,
-  m: 1.1,
+  xl: 1.12,
+  l: 1.12,
+  m: 1.12,
   s: 1.3,
   xs: 1.3,
 };
