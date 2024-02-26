@@ -44,7 +44,7 @@ const colorTheme = {
   button: {
     secondaryDefault: 'var(--button-secondary-default)',
     secondarySection: 'var(--button-secondary-section)',
-    border: 'var(--button-boder)',
+    border: 'var(--button-border)',
   },
   shadowDefault: 'var(--shadow-default)',
 } as const;
@@ -159,7 +159,7 @@ export const GlobalStyles = createGlobalStyle`
       --text-gradient: linear-gradient(to bottom,rgba(231,235,253,0.7),rgba(230,232,242,1));
       --button-secondary-default: #16181E;
       --button-secondary-section: #16181E;
-      --button-boder: rgba(255, 255, 255, 4%);
+      --button-border: rgba(255, 255, 255, 4%);
       --shadow-default: rgba(230, 232, 242, 0.05);
     }
 
@@ -188,7 +188,7 @@ export const GlobalStyles = createGlobalStyle`
       --text-gradient: linear-gradient(to bottom,rgba(30, 32, 40, 1),rgba(48, 51, 62, 0.7));
       --button-secondary-default: #F2F2F2;
       --button-secondary-section: #ffffff;
-      --button-boder: rgba(103, 108, 129, 20%);
+      --button-border: rgba(103, 108, 129, 20%);
       --shadow-default: rgba(0, 0, 0, 0.05);
     }
 

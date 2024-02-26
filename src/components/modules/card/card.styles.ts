@@ -11,7 +11,7 @@ export const StyledCardWrapper = styled.div`
   border-radius: 12px;
   box-shadow:
     0px 2px 24px 0px rgba(230, 232, 242, 0.05),
-    0 0 0 1px ${({ theme }) => theme.colors.borderGradient};
+    0 0 0 1px ${({ theme }) => theme.colors.button.border};
 `;
 
 export const StyledCardImageWrapper = styled.div<StyledCardImageWrapperProps>`
