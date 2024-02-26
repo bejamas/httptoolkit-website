@@ -1,10 +1,11 @@
 'use client';
 
 import { List } from '@phosphor-icons/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Button } from '@/components/elements/button';
 import { Drawer } from '@/components/modules/drawer';
+import { isSSR } from '@/lib/utils';
 
 export const MobileDrawerMenu = ({ children }: Component) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +13,13 @@ export const MobileDrawerMenu = ({ children }: Component) => {
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    if (!isSSR && window.document) {
+      const overflow = isOpen ? 'hidden' : 'auto';
+      document.body.style.overflow = overflow;
+    }
+  }, [isOpen]);
 
   return (
     <>
