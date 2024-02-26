@@ -7,7 +7,7 @@ import { css, screens, styled } from '@/styles';
 
 const openDropdown = css<Pick<DropdownProps, '$variant'>>`
   padding: 4px;
-  max-height: 300px;
+  max-height: fit-content;
   box-shadow: 0 0 0 1px
     ${({ theme, $variant }) => ($variant === 'secondary' ? theme.colors.borderGradient : theme.colors.cinnarbarRed)};
 `;
