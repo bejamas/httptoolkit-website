@@ -1,3 +1,5 @@
+'use client';
+
 import * as Tooltip from '@radix-ui/react-tooltip';
 import type { ReactNode } from 'react';
 
