@@ -15,14 +15,20 @@ export const StyledCardWrapper = styled.div`
 `;
 
 export const StyledCardImageWrapper = styled.div<StyledCardImageWrapperProps>`
-  margin: 0px 48px;
   padding-top: 28px;
   display: flex;
   justify-content: center;
-  background:
-    url(${({ $backgroundGradient }) => $backgroundGradient}) 50% 77%/110% 200% no-repeat,
-    url(${({ $backgroundFuncGradient }) => $backgroundFuncGradient}) 100% no-repeat,
-    url(${({ $backgroundDots }) => $backgroundDots}) 0% 0%/100% 100% no-repeat;
+  background-image: url(${({ $backgroundGradient }) => $backgroundGradient}),
+    url(${({ $backgroundFuncGradient }) => $backgroundFuncGradient}), url(${({ $backgroundDots }) => $backgroundDots});
+  background-position:
+    center 140%,
+    center,
+    center;
+  background-size:
+    602px 384.19px,
+    524px 248px,
+    524px 248px;
+  background-repeat: no-repeat;
 `;
 
 export const StyledCardImage = styled.img`
