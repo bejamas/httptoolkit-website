@@ -25,10 +25,12 @@ const colorTheme = {
   electricBlue: 'var(--electric-blue)',
   electricLightBlue: 'var(--electric-light-blue)',
   cinnarbarRed: 'var(--cinnabar-red)',
+  cinnarbarRedDark: 'var(--cinnabar-red-dark)',
   orangeGradient: 'var(--orange-gradient)',
   blueGradient: 'var(--blue-gradient)',
   darkGradient: 'var(--dark-gradient)',
   borderGradient: 'var(--border-gradient)',
+  borderDark: 'var(--border-dark)',
   text: {
     lightGrey: 'var(--text-light-grey)',
     darkGrey: 'var(--text-dark-grey)',
@@ -101,7 +103,7 @@ export const theme = {
     },
   },
   lineHeight: {
-    label: '110%',
+    label: '1.1',
   },
   letterSpacing: {
     label: '0.06em',
@@ -141,10 +143,12 @@ export const GlobalStyles = createGlobalStyle`
       --electric-blue: #5175F2;
       --electric-light-blue: #6284FA;
       --cinnabar-red: #EC502D;
+      --cinnabar-red-dark: #D93E1C;
       --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
       --blue-gradient: linear-gradient(to bottom, #4064E2, #3556CA);
       --dark-gradient: linear-gradient(to bottom, #1E2028, #30333E 70%);
       --border-gradient: rgba(255, 255, 255, 0.1);
+      --border-dark: rgba(255, 255, 255, 0.2);
       --text-light-grey: #E6E8F2;
       --text-dark-grey: #C5C6CA;
       --text-cinnabar-red: #EC502D;
@@ -168,10 +172,12 @@ export const GlobalStyles = createGlobalStyle`
       --electric-blue: #5175F2;
       --electric-light-blue: #6284FA;
       --cinnabar-red: #D93E1C;
+      --cinnabar-red-dark: #D93E1C;
       --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
       --blue-gradient: linear-gradient(to bottom, #3556CA, #4064E2);
       --dark-gradient: linear-gradient(to bottom, #30333E, #1E2028 70%);
       --border-gradient: transparent;
+      --border-dark: rgba(103, 108, 129, 0.2);
       --text-light-grey: #16181E;
       --text-dark-grey: #595D68;
       --text-cinnabar-red: #D93E1C;
@@ -192,6 +198,7 @@ export const GlobalStyles = createGlobalStyle`
 
     a {
       color: ${theme.colors.text.lightGrey};
+      text-decoration: none;
     }
 
     strong {
@@ -217,5 +224,19 @@ export const GlobalStyles = createGlobalStyle`
 
     em {
       font-style: italic;
+    }
+
+    .visually-hidden {
+      border: 0;
+      padding: 0;
+      margin: 0;
+      position: absolute !important;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      clip: rect(1px 1px 1px 1px); /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+      clip: rect(1px, 1px, 1px, 1px); /*maybe deprecated but we need to support legacy browsers */
+      clip-path: inset(50%); /*modern browsers, clip-path works inwards from each corner*/
+      white-space: nowrap; /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
     }
 `;

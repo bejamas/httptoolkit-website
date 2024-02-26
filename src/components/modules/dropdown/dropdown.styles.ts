@@ -1,23 +1,21 @@
 'use client';
 
-import Link from 'next/link';
+import type { DropdownOptionProps, DropdownProps } from './dropdown.types';
 
-import type { DropdownOptionProps } from './dropdown.types';
-
+import { Link } from '@/components/elements/link';
 import { css, screens, styled } from '@/styles';
-import { adjustOpacity } from '@/styles/helpers/adjust-opacity';
 
 const openDropdown = css`
   padding: 4px;
-  max-height: 300px;
-  border: 1px solid ${({ theme }) => adjustOpacity(theme.colors.white, 0.12)};
-  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.borderGradient};
+  max-height: fit-content;
+  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
 `;
 
-export const DropdownOptionsWrapper = styled.div`
+export const DropdownOptionsWrapper = styled.div<Pick<DropdownProps, '$direction'>>`
   display: grid;
   position: absolute;
-  top: calc(100% + 4px);
+  top: ${({ $direction }) => ($direction === 'bottom' ? 'calc(100% + 4px)' : 'auto')};
+  bottom: ${({ $direction }) => ($direction === 'top' ? 'calc(100% + 4px)' : 'auto')};
   border-radius: 12px;
   background: ${({ theme }) => theme.colors.inkBlack};
   padding: 0 4px;
@@ -27,18 +25,17 @@ export const DropdownOptionsWrapper = styled.div`
   transition: all 0.5s linear;
   overflow: hidden;
   z-index: 33;
-  box-shadow: 0px 0px 8px 0px rgba(230, 232, 242, 0.05);
+  box-shadow: '0px 0px 8px 0px rgba(230, 232, 242, 0.05)';
 
   &:hover {
     ${openDropdown}
   }
 `;
 
-export const DropdownWrapper = styled.div`
+export const DropdownWrapper = styled.div<Pick<DropdownProps, '$variant'>>`
   position: relative;
   width: 100%;
   border-radius: 12px;
-  box-shadow: 0px 0px 8px 0px rgba(230, 232, 242, 0.05);
   justify-content: center;
 
   &:hover ${DropdownOptionsWrapper}, &:focus-within ${DropdownOptionsWrapper} {
@@ -51,7 +48,7 @@ export const DropdownWrapper = styled.div`
   }
 `;
 
-const baseOption = css`
+const baseOption = css<DropdownOptionProps>`
   background-color: transparent;
   border: none;
   border-radius: 10px;
@@ -69,9 +66,10 @@ const baseOption = css`
 
   &:hover,
   &:focus {
-    background-color: ${({ theme }) => theme.colors.darkGrey};
+    background: ${({ theme }) => theme.colors.darkGrey};
   }
 `;
+
 export const LinkDropdownOption = styled(Link)<DropdownOptionProps>`
   ${baseOption}
 `;

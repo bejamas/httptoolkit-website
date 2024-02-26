@@ -1,20 +1,39 @@
-import { CaretDown, RocketLaunch, Sparkle } from '@phosphor-icons/react/dist/ssr';
-
 import { Badge } from '@/components/elements/badge';
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
+import { Sparkle, Alien, Logo, CaretDown, RocketLaunch } from '@/components/elements/icon';
+import { Input } from '@/components/elements/input';
 import ShowCase from '@/components/elements/showcase';
+import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
 import { Card } from '@/components/modules/card';
 import { Dropdown } from '@/components/modules/dropdown';
+import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 import LightCardIllustration1 from '@/images/illustration/card-1-light.svg';
 import CardIllustration1 from '@/images/illustration/card-1.svg';
 import LightCardIllustration from '@/images/illustration/card-light.svg';
 import CardIllustration from '@/images/illustration/card.svg';
 
 export default async function Home() {
+  const dropdownItems: DropdownOptionProps[] = [
+    {
+      content: 'Download for Android',
+    },
+    {
+      content: 'Download for Linux',
+      as: 'link',
+      target: '_blank',
+      href: 'https://www.google.com/',
+    },
+    {
+      content: 'Download for Mac',
+      as: 'link',
+      href: '/blog',
+    },
+  ];
+
   return (
     <Container>
       <ShowCase title="Heading">
@@ -75,13 +94,13 @@ export default async function Home() {
           S Semibold: Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject
           errors
         </Text>
-        <Text as="span" fontSize="xll" fontWeight="bold">
+        <Text as="label" fontSize="xll" fontWeight="bold">
           Label XL
         </Text>
-        <Text as="span" fontSize="l" fontWeight="bold">
+        <Text as="label" fontSize="m" fontWeight="bold">
           Label L
         </Text>
-        <Text as="span" fontSize="s" fontWeight="bold">
+        <Text as="label" fontSize="s" fontWeight="bold">
           Label M
         </Text>
       </ShowCase>
@@ -91,43 +110,41 @@ export default async function Home() {
           Pro Feature
         </Badge>
       </ShowCase>
-      <ShowCase title="Buttons">
-        <Button as="button" withBorder icon={CaretDown}>
+      <ShowCase title="Icon">
+        <SquareIcon icon={Alien} />
+        <SquareIcon icon={Alien} $size="large" />
+        <SquareIcon icon={Logo} $variant="secondary" />
+        <SquareIcon icon={Alien} $variant="tertiary" />
+      </ShowCase>
+      <ShowCase title="Button Primary">
+        <Button as="button" $withBorder icon={CaretDown}>
           Download for macOs
         </Button>
         <Button icon={CaretDown} as="link" href="/blog">
           Download for macOs
         </Button>
-        <Button as="button" variant="secondary" icon={RocketLaunch}>
+      </ShowCase>
+      <ShowCase title="Button Secondary">
+        <Button icon={RocketLaunch} $variant="secondary">
           Go Pro!
         </Button>
-        <Button as="button" small variant="secondary" icon={RocketLaunch}>
+        <Button icon={RocketLaunch} $small $variant="secondary">
           Go Pro!
         </Button>
-        <Dropdown
-          as="button"
-          variant="secondary"
-          small
-          items={[
-            {
-              content: 'Download for Android',
-              as: 'button',
-            },
-            {
-              content: 'Download for Linux',
-              as: 'a',
-              target: '_blank',
-              href: 'https://www.google.com/',
-            },
-            {
-              content: 'Download for Mac',
-              as: 'Link',
-              href: '/blog',
-            },
-          ]}
-        >
+      </ShowCase>
+      <ShowCase title="Dropdown">
+        <Dropdown $small items={dropdownItems} aria-label="Download Items">
           Download for macOS
         </Dropdown>
+        <Dropdown $variant="primary" $withBorder items={dropdownItems} aria-label="Download Items">
+          Download for macOS
+        </Dropdown>
+      </ShowCase>
+      <ShowCase title="Input">
+        <Input placeholder="Email address" />
+        <Input placeholder="Search" type="search" />
+        <Input as="textarea" placeholder="Email address" />
+        <Input $hasError placeholder="Email address" errorMessage="This is an error message." />
       </ShowCase>
       <ShowCase title="Card">
         <Card

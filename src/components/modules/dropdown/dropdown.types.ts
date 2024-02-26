@@ -1,18 +1,25 @@
-import type { AriaAttributes, HTMLAttributeAnchorTarget } from 'react';
+import type { Icon, IconWeight } from '@phosphor-icons/react';
+import type { AriaAttributes } from 'react';
 
-import type { ButtonProps } from '@/components/elements/button/button.types';
+import type {
+  ButtonType,
+  ButtonWithoutHrefProps,
+  LinkWithHrefProps,
+  StyledButtonProps,
+} from '@/components/elements/button/button.types';
 
 export type OptionComponentType = (props: Component<Omit<DropdownOptionProps, 'content'>>) => JSX.Element;
 
-export interface DropdownOptionProps extends AriaAttributes {
-  content: string;
-  as?: 'button' | 'a' | 'Link';
-  onClick?: () => void;
+export type DropdownOptionProps = {
+  as?: ButtonType;
   href?: string;
-  role?: HTMLAttributeAnchorTarget;
-  target?: HTMLAttributeAnchorTarget;
-}
+  $variant?: StyledButtonProps['$variant'];
+  content: string;
+} & (ButtonWithoutHrefProps | LinkWithHrefProps);
 
-export interface DropdownProps extends Omit<ButtonProps<'button'>, 'onClick' | 'href'> {
+export interface DropdownProps extends StyledButtonProps, AriaAttributes {
+  icon?: Icon;
+  iconWeight?: IconWeight;
   items: DropdownOptionProps[];
+  $direction?: 'top' | 'bottom';
 }
