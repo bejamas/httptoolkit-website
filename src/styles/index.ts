@@ -181,7 +181,7 @@ export const GlobalStyles = createGlobalStyle`
       --text-light-grey: #16181E;
       --text-dark-grey: #595D68;
       --text-cinnabar-red: #D93E1C;
-      --text-white: #ffffff;
+      --text-white: #000000;
       --text-always-white: #ffffff;
       --text-always-light-grey: #E6E8F2;
       --text-electric-light-blue: #5175F2;
