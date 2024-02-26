@@ -4,7 +4,7 @@ import { Container } from '@/components/elements/container';
 import { screens, styled } from '@/styles';
 
 export const StyledHeaderWrapper = styled.section`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.borderGradient};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.borderDark};
 `;
 
 export const StyledHeaderContainer = styled(Container)`
