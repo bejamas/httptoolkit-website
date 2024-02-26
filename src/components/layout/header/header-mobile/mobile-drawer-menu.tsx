@@ -23,8 +23,13 @@ export const MobileDrawerMenu = ({ children }: Component) => {
 
   return (
     <>
-      <Button style={{ width: 48, height: 48, padding: 0 }} $variant="secondary" onClick={toggleDrawer}>
-        <List size={16} color="#fff" />
+      <Button
+        style={{ width: 48, height: 48, padding: 0 }}
+        aria-label="openmobilemenu"
+        $variant="secondary"
+        onClick={toggleDrawer}
+      >
+        <List aria-hidden="true" size={16} color="#fff" />
       </Button>
       <Drawer isOpen={isOpen} onClose={toggleDrawer}>
         {children}

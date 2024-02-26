@@ -63,7 +63,7 @@ export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
     <StyledHeaderWrapper>
       <StyledHeaderContainer>
         <div>
-          <Link href="/">
+          <Link href="/" aria-label="Go to home">
             <Logo />
           </Link>
         </div>
