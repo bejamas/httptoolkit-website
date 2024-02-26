@@ -22,7 +22,7 @@ export const Card = ({ title, text, darkImage: image }: CardProps) => {
         <StyledCardImage src={image.src} alt={image.alt} />
       </StyledCardImageWrapper>
       <StyledCardTextWrapper>
-        <Heading textAlign="center" fontSize="m" color="lightGrey">
+        <Heading textAlign="center" fontSize="m" color="lightGrey" as="p">
           {title}
         </Heading>
         <Text fontSize="m" textAlign="center" color="darkGrey">
