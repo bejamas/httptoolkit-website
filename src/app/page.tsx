@@ -7,7 +7,9 @@ import { Heading } from '@/components/elements/heading';
 import ShowCase from '@/components/elements/showcase';
 import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
+import { Card } from '@/components/modules/card';
 import { Dropdown } from '@/components/modules/dropdown';
+import CardIllustration from '@/images/illustration/card.svg';
 
 export default async function Home() {
   return (
@@ -123,6 +125,16 @@ export default async function Home() {
         >
           Download for macOS
         </Dropdown>
+      </ShowCase>
+      <ShowCase title="Card">
+        <Card
+          title="Simulate Network Issues & Redirect Traffic"
+          text="Inject request timeouts, simulate connection failures, and silently redirect requests from one server to another. These features also ensure API stability and failover efficacy."
+          darkImage={{
+            src: CardIllustration.src,
+            alt: 'Simulate',
+          }}
+        />
       </ShowCase>
       <ShowCase title="Theme toggle">
         <ThemeToggle />
