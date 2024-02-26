@@ -15,9 +15,8 @@ export const StyledCardWrapper = styled.div`
 `;
 
 export const StyledCardImageWrapper = styled.div<StyledCardImageWrapperProps>`
-  height: 216px;
-  margin: 0px 48px 0;
-  padding-top: 24px;
+  margin: 0px 48px;
+  padding-top: 28px;
   display: flex;
   justify-content: center;
   background:
@@ -33,7 +32,7 @@ export const StyledCardImage = styled.img`
 export const StyledCardTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 20px;
   margin: 0 auto;
-  padding: 84px 48px 28px;
+  padding: 56px 48px 28px;
 `;
