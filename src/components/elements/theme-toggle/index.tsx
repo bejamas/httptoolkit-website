@@ -36,13 +36,16 @@ export const ThemeToggle = () => {
 
   return (
     <StyledLabel htmlFor="themetoggle" onKeyDown={handleKeyPress}>
+      <span className="visually-hidden">Ligh mode toggle</span>
       <StyledIconsWrapper>
-        <StyledMoon weight="fill" data-is-active={!isLight} />
-        <StyledSun weight="fill" data-is-active={isLight} />
+        <StyledMoon aria-label="Dark theme" weight="fill" data-is-active={!isLight} />
+        <StyledSun aria-label="Light theme" weight="fill" data-is-active={isLight} />
       </StyledIconsWrapper>
       <StyledInput
         id="themetoggle"
-        name="themetoggle"
+        role="switch"
+        name="theme-toggle"
+        aria-label="Toggle theme"
         checked={isLight}
         type="checkbox"
         aria-checked={isLight}
