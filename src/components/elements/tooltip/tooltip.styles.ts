@@ -7,7 +7,7 @@ import { styled } from '@/styles';
 
 export const StyledTooltipContent = styled(RadixTooltip.Content)<StyledTooltipContentProps>`
   background-color: ${({ theme }) => theme.colors.mediumGrey};
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 8px 12px;
   z-index: 1;
 
