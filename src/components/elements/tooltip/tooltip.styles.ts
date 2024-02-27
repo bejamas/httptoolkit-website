@@ -8,6 +8,7 @@ export const StyledTooltipContent = styled(RadixTooltip.Content)`
   border-radius: 8px;
   padding: 8px 12px;
   z-index: 1;
+  margin-top: -12px;
 
   box-shadow: ${({ theme }) => theme.shadow.tooltip};
 `;
