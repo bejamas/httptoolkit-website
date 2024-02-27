@@ -8,7 +8,7 @@ import { Text } from '../text';
 
 export const Tooltip = ({ children, text, side = 'right' }: TooltipProps) => {
   return (
-    <RadixTooltip.Root open>
+    <RadixTooltip.Root>
       <RadixTooltip.Trigger asChild>{children}</RadixTooltip.Trigger>
       <RadixTooltip.Portal>
         <StyledTooltipContent side={side} sideOffset={20}>
