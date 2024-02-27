@@ -6,12 +6,12 @@ import { StyledTooltipContent } from './tooltip.styles';
 import type { TooltipProps } from './tooltip.types';
 import { Text } from '../text';
 
-export const Tooltip = ({ children, text, colorScheme }: TooltipProps) => {
+export const Tooltip = ({ children, text }: TooltipProps) => {
   return (
     <RadixTooltip.Root>
       <RadixTooltip.Trigger asChild>{children}</RadixTooltip.Trigger>
       <RadixTooltip.Portal>
-        <StyledTooltipContent $colorScheme={colorScheme} sideOffset={8}>
+        <StyledTooltipContent sideOffset={8}>
           <Text fontSize="s" textAlign="center" color="white">
             {text}
           </Text>
