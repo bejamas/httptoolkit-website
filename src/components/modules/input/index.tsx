@@ -2,8 +2,9 @@ import { forwardRef } from 'react';
 
 import { StyledInput, StyledInputBorder, StyledInputWrapper, StyledSearchButton } from './input.styles';
 import type { InputProps } from './input.types';
-import { MagnifyingGlass } from '../icon';
-import { Text } from '../text';
+
+import { MagnifyingGlass } from '@/components/elements/icon';
+import { Text } from '@/components/elements/text';
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ as = 'input', errorMessage, $hasError = false, onClickSearch, ...props }, ref) => {
