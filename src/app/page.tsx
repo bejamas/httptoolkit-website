@@ -2,7 +2,7 @@ import { Badge } from '@/components/elements/badge';
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
-import { Sparkle, Alien, FullLogo, CaretDown, RocketLaunch, Logo } from '@/components/elements/icon';
+import { Sparkle, Alien, CaretDown, RocketLaunch, Logo } from '@/components/elements/icon';
 import { Input } from '@/components/elements/input';
 import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
@@ -109,7 +109,6 @@ export default async function Home() {
       <ShowCase title="Icon">
         <SquareIcon icon={Alien} />
         <SquareIcon icon={Alien} $size="large" />
-        <SquareIcon icon={FullLogo} $variant="secondary" />
         <SquareIcon icon={Logo} $variant="secondary" />
         <SquareIcon icon={Alien} $variant="tertiary" />
       </ShowCase>
