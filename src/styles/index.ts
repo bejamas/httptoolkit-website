@@ -118,7 +118,7 @@ export const theme = {
     '2xl': '64px',
   },
   shadow: {
-    tooltip: 'var(--shadow-tooltip)',
+    box: 'var(--shadow-box)',
   },
 };
 
@@ -164,7 +164,7 @@ export const GlobalStyles = createGlobalStyle`
       --button-secondary-section: #16181E;
       --button-boder: rgba(255, 255, 255, 4%);
       --shadow-default: rgba(230, 232, 242, 0.05);
-      --shadow-tooltip: 0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0 0 8px rgba(230, 232, 242, 0.05);
+      --shadow-box: 0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0 0 8px rgba(230, 232, 242, 0.05);
     }
 
     .light {
@@ -194,7 +194,7 @@ export const GlobalStyles = createGlobalStyle`
       --button-secondary-section: #ffffff;
       --button-boder: rgba(103, 108, 129, 20%);
       --shadow-default: rgba(0, 0, 0, 0.05);
-      --shadow-tooltip: 0px 2px 2px 0px rgba(0, 0, 0, 0.07);
+      --shadow-box: 0px 2px 2px 0px rgba(0, 0, 0, 0.07);
     }
 
     * {
