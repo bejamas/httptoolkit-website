@@ -3,10 +3,12 @@ import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
 import { Sparkle, Alien, FullLogo, CaretDown, RocketLaunch, Logo } from '@/components/elements/icon';
+import { Input } from '@/components/elements/input';
 import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
+import { Tooltip } from '@/components/elements/tooltip';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 
@@ -128,12 +130,30 @@ export default async function Home() {
         </Button>
       </ShowCase>
       <ShowCase title="Dropdown">
-        <Dropdown $variant="secondary" $small items={dropdownItems} aria-label="Download Items">
+        <Dropdown $small items={dropdownItems} aria-label="Download Items">
           Download for macOS
         </Dropdown>
         <Dropdown $variant="primary" $withBorder items={dropdownItems} aria-label="Download Items">
           Download for macOS
         </Dropdown>
+      </ShowCase>
+      <ShowCase title="Input">
+        <Input placeholder="Email address" />
+        <Input placeholder="Search" type="search" />
+        <Input as="textarea" placeholder="Email address" />
+        <Input $hasError placeholder="Email address" errorMessage="This is an error message." />
+      </ShowCase>
+      <ShowCase title="Tooltip">
+        <Tooltip text="example">
+          <Button icon={RocketLaunch} $variant="secondary">
+            Go Pro!
+          </Button>
+        </Tooltip>
+        <Tooltip text="example">
+          <Button icon={RocketLaunch} $variant="secondary">
+            Go Pro!
+          </Button>
+        </Tooltip>
       </ShowCase>
       <ShowCase title="Theme toggle">
         <ThemeToggle />
