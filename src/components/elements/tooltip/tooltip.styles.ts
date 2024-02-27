@@ -10,5 +10,5 @@ export const StyledTooltipContent = styled(RadixTooltip.Content)`
   z-index: 1;
   margin-top: -12px;
 
-  box-shadow: ${({ theme }) => theme.shadow.tooltip};
+  box-shadow: ${({ theme }) => theme.shadow.box};
 `;
