@@ -25,6 +25,6 @@ export const StyledHeadingBlockWrapper = styled.section<StyledHeadingBlockProps>
 
 export const StyledHeadingBlockTitle = styled(Heading)`
   & span {
-    color: ${({ theme }) => theme.colors.cinnarbarRed};
+    -webkit-text-fill-color: ${({ theme }) => theme.colors.cinnarbarRed};
   }
 `;
