@@ -3,14 +3,15 @@ import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
 import { Sparkle, Alien, Logo, CaretDown, RocketLaunch } from '@/components/elements/icon';
-import { Input } from '@/components/elements/input';
 import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
+import { Tooltip } from '@/components/elements/tooltip';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 import { HeadingBlock } from '@/components/modules/heading-block';
+import { Input } from '@/components/modules/input';
 
 export default async function Home() {
   const dropdownItems: DropdownOptionProps[] = [
@@ -141,6 +142,18 @@ export default async function Home() {
         <Input placeholder="Search" type="search" />
         <Input as="textarea" placeholder="Email address" />
         <Input $hasError placeholder="Email address" errorMessage="This is an error message." />
+      </ShowCase>
+      <ShowCase title="Tooltip">
+        <Tooltip text="example">
+          <Button icon={RocketLaunch} $variant="secondary">
+            Go Pro!
+          </Button>
+        </Tooltip>
+        <Tooltip text="example">
+          <Button icon={RocketLaunch} $variant="secondary">
+            Go Pro!
+          </Button>
+        </Tooltip>
       </ShowCase>
       <ShowCase title="Heading Block">
         <HeadingBlock
