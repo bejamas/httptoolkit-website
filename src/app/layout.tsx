@@ -48,7 +48,7 @@ export default function RootLayout({
           <StyledLayout>
             <RadixProviders>
               <Header />
-              {children}
+              <main>{children}</main>
             </RadixProviders>
           </StyledLayout>
         </StyledComponentsRegistry>
