@@ -18,6 +18,9 @@ export const Card = ({ title, text, darkImage, lightImage, colorScheme = 'dark' 
   const Dots = isDark ? DarkDots.src : LightDots.src;
   const Gradient = isDark ? DarkGradient.src : LightGradient.src;
   const FuncGradient = isDark ? DarkFuncGradient.src : LightFuncGradient.src;
+  {
+    /* TODO: Possible to handle with <picture> and prefers-color-scheme */
+  }
   const image = isDark ? darkImage : lightImage || darkImage;
 
   return (
@@ -30,7 +33,7 @@ export const Card = ({ title, text, darkImage, lightImage, colorScheme = 'dark' 
         <StyledCardImage src={image.src} alt={image.alt} />
       </StyledCardImageWrapper>
       <StyledCardTextWrapper>
-        <Heading textAlign="center" fontSize="m" color="lightGrey" as="h4">
+        <Heading textAlign="center" fontSize="m" color="lightGrey" as="h3">
           {title}
         </Heading>
         <Text fontSize="m" textAlign="center" color="darkGrey">
