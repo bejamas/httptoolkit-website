@@ -75,3 +75,7 @@ export const StyledFooterCopySection = styled.div`
     flex-direction: row;
   }
 `;
+
+export const StyledSimpleFooterWrapper = styled(StyledFooterCopySection)`
+  gap: 32px;
+`;

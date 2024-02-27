@@ -7,6 +7,7 @@ import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
 import { Tooltip } from '@/components/elements/tooltip';
+import { SimpleFooter } from '@/components/layout/footer/simple-footer';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 import { Input } from '@/components/modules/input';
@@ -152,6 +153,9 @@ export default async function Home() {
             Go Pro!
           </Button>
         </Tooltip>
+      </ShowCase>
+      <ShowCase title="Simple footer">
+        <SimpleFooter />
       </ShowCase>
     </Container>
   );
