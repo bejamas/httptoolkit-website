@@ -12,7 +12,7 @@ import {
   StyledSwitch,
 } from './theme-toggle.styles';
 
-export const ThemeToggle = () => {
+export const ThemeToggle = ({ id = 'themetoggle' }: { id?: string }) => {
   const [isLight, setIsLight] = useState(false);
 
   useEffect(() => {
@@ -35,14 +35,14 @@ export const ThemeToggle = () => {
   };
 
   return (
-    <StyledLabel htmlFor="themetoggle" onKeyDown={handleKeyPress}>
+    <StyledLabel htmlFor={id} onKeyDown={handleKeyPress}>
       <span className="visually-hidden">Ligh mode toggle</span>
       <StyledIconsWrapper>
         <StyledMoon aria-label="Dark theme" weight="fill" data-is-active={!isLight} />
         <StyledSun aria-label="Light theme" weight="fill" data-is-active={isLight} />
       </StyledIconsWrapper>
       <StyledInput
-        id="themetoggle"
+        id={id}
         role="switch"
         name="theme-toggle"
         aria-label="Toggle theme"

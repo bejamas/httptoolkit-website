@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { DM_Sans } from 'next/font/google';
 
+import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
 import { RadixProviders } from '@/components/layout/radix-layout';
 import { StyledLayout } from '@/components/layout/styled-layout';
@@ -49,6 +50,7 @@ export default function RootLayout({
             <RadixProviders>
               <Header />
               <main>{children}</main>
+              <Footer />
             </RadixProviders>
           </StyledLayout>
         </StyledComponentsRegistry>
