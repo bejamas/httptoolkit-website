@@ -10,6 +10,7 @@ import { ThemeToggle } from '@/components/elements/theme-toggle';
 import { Tooltip } from '@/components/elements/tooltip';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
+import { HeadingBlock } from '@/components/modules/heading-block';
 import { Input } from '@/components/modules/input';
 import { IntegrationCard } from '@/components/modules/integration-card';
 
@@ -174,6 +175,39 @@ export default async function Home() {
             href: '/example',
             target: '_blank',
           }}
+        />
+      </ShowCase>
+      <ShowCase title="Heading Block">
+        <HeadingBlock
+          title="What is `*HTTP Toolkit*`?"
+          text="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."
+          badgeTitle="Pro Feature"
+          badgeAdditionalText="EDIT"
+          badgeIcon={Sparkle}
+          $align="center"
+          $isContentCentered
+        />
+        <HeadingBlock
+          title="What is `*HTTP Toolkit*`?"
+          text="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."
+          badgeTitle="Pro Feature"
+          badgeAdditionalText="EDIT"
+          badgeIcon={Sparkle}
+          $align="left"
+        />
+        <HeadingBlock
+          title="What is `*HTTP Toolkit*`?"
+          text="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."
+          $align="center"
+          $isContentCentered
+        />
+        <HeadingBlock
+          title="Test with `*fully automated*` mock responses"
+          badgeTitle="Pro Feature"
+          badgeAdditionalText="mock"
+          badgeIcon={Sparkle}
+          $align="center"
+          $isContentCentered
         />
       </ShowCase>
       <ShowCase title="Theme toggle">
