@@ -30,7 +30,7 @@ export const Card = ({ title, text, darkImage, lightImage, colorScheme = 'dark' 
         <StyledCardImage src={image.src} alt={image.alt} />
       </StyledCardImageWrapper>
       <StyledCardTextWrapper>
-        <Heading textAlign="center" fontSize="m" color="lightGrey" as="p">
+        <Heading textAlign="center" fontSize="m" color="lightGrey" as="h4">
           {title}
         </Heading>
         <Text fontSize="m" textAlign="center" color="darkGrey">
