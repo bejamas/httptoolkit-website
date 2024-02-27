@@ -143,12 +143,12 @@ export default async function Home() {
         <Input $hasError placeholder="Email address" errorMessage="This is an error message." />
       </ShowCase>
       <ShowCase title="Tooltip">
-        <Tooltip colorScheme="light" text="example">
+        <Tooltip text="example">
           <Button icon={RocketLaunch} $variant="secondary">
             Go Pro!
           </Button>
         </Tooltip>
-        <Tooltip colorScheme="dark" text="example">
+        <Tooltip text="example">
           <Button icon={RocketLaunch} $variant="secondary">
             Go Pro!
           </Button>
