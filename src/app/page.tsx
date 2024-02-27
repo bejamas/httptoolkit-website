@@ -163,7 +163,7 @@ export default async function Home() {
           badgeAdditionalText="EDIT"
           badgeIcon={Sparkle}
           $align="center"
-          $centered
+          $isContentCentered
         />
         <HeadingBlock
           title="What is `*HTTP Toolkit*`?"
@@ -177,7 +177,7 @@ export default async function Home() {
           title="What is `*HTTP Toolkit*`?"
           text="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."
           $align="center"
-          $centered
+          $isContentCentered
         />
         <HeadingBlock
           title="Test with `*fully automated*` mock responses"
@@ -185,7 +185,7 @@ export default async function Home() {
           badgeAdditionalText="mock"
           badgeIcon={Sparkle}
           $align="center"
-          $centered
+          $isContentCentered
         />
       </ShowCase>
       <ShowCase title="Theme toggle">

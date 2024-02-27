@@ -5,12 +5,12 @@ import { Badge } from '@/components/elements/badge';
 import { Text } from '@/components/elements/text';
 
 /**
- * @param title: This string can have text gradient on the segments that are between \`\*content\*\`
+ * @param title: This string can have highlighted text on the segments that are between \`\*content\*\`
  */
 
 export const HeadingBlock = ({
   $align = 'center',
-  $centered = false,
+  $isContentCentered = false,
   title,
   text,
   badgeTitle,
@@ -18,15 +18,15 @@ export const HeadingBlock = ({
   badgeIcon,
 }: HeadingBlockProps) => {
   const formattedTitle = title.split('`').map(segment => {
-    const isGradient = segment.includes('*');
-    if (!isGradient) {
+    const isHighlighted = segment.includes('*');
+    if (!isHighlighted) {
       return segment;
     }
     return <span>{segment.replaceAll('*', '')}</span>;
   });
 
   return (
-    <StyledHeadingBlockWrapper $align={$align} $centered={$centered}>
+    <StyledHeadingBlockWrapper $align={$align} $isContentCentered={$isContentCentered}>
       {badgeTitle && (
         <Badge variant="secondary" additionalText={badgeAdditionalText} icon={badgeIcon}>
           {badgeTitle}

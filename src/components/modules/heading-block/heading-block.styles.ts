@@ -20,7 +20,7 @@ export const StyledHeadingBlockWrapper = styled.section<StyledHeadingBlockProps>
   gap: 24px;
   text-align: ${({ $align }) => $align};
   align-items: ${({ $align }) => alignDictionary[$align]};
-  margin: ${({ $centered }) => $centered && '0 auto'};
+  margin: ${({ $isContentCentered: $centered }) => $centered && '0 auto'};
 `;
 
 export const StyledHeadingBlockTitle = styled(Heading)`

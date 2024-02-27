@@ -2,7 +2,7 @@ import type { BadgeProps } from '@/components/elements/badge/badge.types';
 
 export interface StyledHeadingBlockProps {
   $align: CanvasTextAlign;
-  $centered?: boolean;
+  $isContentCentered?: boolean;
 }
 
 export interface HeadingBlockProps extends StyledHeadingBlockProps {
