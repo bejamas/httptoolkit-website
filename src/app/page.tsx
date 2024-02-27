@@ -2,7 +2,7 @@ import { Badge } from '@/components/elements/badge';
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
-import { Sparkle, Alien, Logo, CaretDown, RocketLaunch } from '@/components/elements/icon';
+import { Sparkle, Alien, Logo, CaretDown, RocketLaunch, AndroidLogo } from '@/components/elements/icon';
 import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
@@ -11,6 +11,7 @@ import { Tooltip } from '@/components/elements/tooltip';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 import { Input } from '@/components/modules/input';
+import { IntegrationCard } from '@/components/modules/integration-card';
 
 export default async function Home() {
   const dropdownItems: DropdownOptionProps[] = [
@@ -153,6 +154,27 @@ export default async function Home() {
             Go Pro!
           </Button>
         </Tooltip>
+      </ShowCase>
+      <ShowCase title="Integration Card">
+        <IntegrationCard
+          $showBadge
+          icon={AndroidLogo}
+          title="Android"
+          text="Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices."
+          link={{
+            href: '/example',
+            target: '_blank',
+          }}
+        />
+        <IntegrationCard
+          icon={AndroidLogo}
+          title="Javascript"
+          text="Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices."
+          link={{
+            href: '/example',
+            target: '_blank',
+          }}
+        />
       </ShowCase>
       <ShowCase title="Theme toggle">
         <ThemeToggle />
