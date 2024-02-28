@@ -9,6 +9,9 @@ import {
   CheckCircle,
   AndroidLogo,
   ArrowRight,
+  Globe,
+  SealCheck,
+  LinkSimpleBreak,
 } from '@phosphor-icons/react/dist/ssr';
 
 import { FullLogo, Logo } from './custom';
@@ -26,4 +29,7 @@ export {
   CheckCircle,
   AndroidLogo,
   ArrowRight,
+  Globe,
+  SealCheck,
+  LinkSimpleBreak,
 };
