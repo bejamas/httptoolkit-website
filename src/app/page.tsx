@@ -9,11 +9,13 @@ import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
 import { Tooltip } from '@/components/elements/tooltip';
+import { BlogCard } from '@/components/modules/blog-card';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { Input } from '@/components/modules/input';
 import { IntegrationCard } from '@/components/modules/integration-card';
+import BlogPostImage from '@/content/posts/analytics-map.png';
 
 export default async function Home() {
   const dropdownItems: DropdownOptionProps[] = [
@@ -213,6 +215,18 @@ export default async function Home() {
       </ShowCase>
       <ShowCase title="Copy">
         <Copy text="brew install --cask http-toolkit" />
+      </ShowCase>
+      <ShowCase title="Blog card">
+        <BlogCard
+          title="How do you know what's gone wrong when your API request fails?"
+          text="Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices."
+          slug="5-big-features-of-typescript-3.7"
+          tag="engineering"
+          date="2020-09-10T16:30"
+          image={{
+            src: BlogPostImage.src,
+          }}
+        />
       </ShowCase>
       <ShowCase title="Theme toggle">
         <ThemeToggle />
