@@ -1,12 +1,6 @@
 import { FooterColumnBlock } from './components/footer-column-block';
-import {
-  StyledSeparator,
-  StyledColumn,
-  StyledContainer,
-  StyledFooter,
-  StyledFooterCopySection,
-  StyledIconsWrapper,
-} from './footer.styles';
+import { FooterCopy } from './components/footer-copy';
+import { StyledSeparator, StyledColumn, StyledContainer, StyledFooter, StyledIconsWrapper } from './footer.styles';
 
 import { Container } from '@/components/elements/container';
 import { Github, TwitterX } from '@/components/elements/icon';
@@ -17,10 +11,8 @@ import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
 import { footerColumns } from '@/content/data/footer-columns';
 import LogoFooter from '@/images/logo-footer.svg';
-import { pageRoutes } from '@/lib/constants/routes';
 
 export const Footer = () => {
-  const { PRIVACY_POLICY, TERM_OF_SERVICES } = pageRoutes;
   return (
     <StyledFooter>
       <StyledContainer>
@@ -63,13 +55,7 @@ export const Footer = () => {
       </StyledContainer>
       <Container>
         <StyledSeparator />
-        <StyledFooterCopySection>
-          <Text fontSize="m">© {new Date().getFullYear()} HTTP Toolkit All rights reserved.</Text>
-          <Stack $direction="row">
-            <Link href={TERM_OF_SERVICES.href}>{TERM_OF_SERVICES.label}</Link>
-            <Link href={PRIVACY_POLICY.href}>{PRIVACY_POLICY.label}</Link>
-          </Stack>
-        </StyledFooterCopySection>
+        <FooterCopy />
       </Container>
     </StyledFooter>
   );
