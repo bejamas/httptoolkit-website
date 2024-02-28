@@ -1,9 +1,9 @@
+import { FooterColumnBlock } from './components/footer-column-block';
 import {
   StyledSeparator,
   StyledColumn,
   StyledContainer,
   StyledFooter,
-  StyledMenuItems,
   StyledFooterCopySection,
   StyledIconsWrapper,
 } from './footer.styles';
@@ -15,15 +15,8 @@ import { SquareIcon } from '@/components/elements/square-icon';
 import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
+import { footerColumns } from '@/content/data/footer-columns';
 import LogoFooter from '@/images/logo-footer.svg';
-
-const ColumnHeading = ({ children }: Component) => {
-  return (
-    <Text as="label" fontSize="m" color="cinnarbarRed" fontWeight="bold">
-      {children}
-    </Text>
-  );
-};
 
 export const Footer = () => {
   return (
@@ -55,52 +48,15 @@ export const Footer = () => {
           </StyledIconsWrapper>
         </StyledColumn>
         <StyledColumn>
-          <Stack>
-            <ColumnHeading>Product</ColumnHeading>
-            <StyledMenuItems>
-              <Link href="/">Http Toolkit for MacOS</Link>
-              <Link href="/">Http Toolkit for Windows</Link>
-              <Link href="/">Http Toolkit for Linux</Link>
-              <Link href="/">Pricing</Link>
-            </StyledMenuItems>
-          </Stack>
-          <Stack $gapxl="64px">
-            <Stack>
-              <ColumnHeading>Resources</ColumnHeading>
-              <StyledMenuItems>
-                <Link href="/blog">Blog</Link>
-                <Link href="/docs">Docs</Link>
-                <Link href="/">FAQ</Link>
-              </StyledMenuItems>
-            </Stack>
-            <Stack>
-              <ColumnHeading>Projects</ColumnHeading>
-              <StyledMenuItems>
-                <Link href="/">WIll it CORS?</Link>
-              </StyledMenuItems>
-            </Stack>
-          </Stack>
-          <Stack>
-            <ColumnHeading>Alternatives</ColumnHeading>
-            <StyledMenuItems>
-              <Link href="/">Fiddler</Link>
-              <Link href="/">Chrome Dev Tools</Link>
-              <Link href="/">Charles</Link>
-            </StyledMenuItems>
-          </Stack>
-          <Stack>
-            <ColumnHeading>Integrations</ColumnHeading>
-            <StyledMenuItems>
-              <Link href="/">Android</Link>
-              <Link href="/">Docker</Link>
-              <Link href="/">Python</Link>
-              <Link href="/">Ruby</Link>
-              <Link href="/">Java</Link>
-              <Link href="/">Electron</Link>
-              <Link href="/">Javascript</Link>
-              <Link href="/">All Integrations</Link>
-            </StyledMenuItems>
-          </Stack>
+          {footerColumns.map(column => {
+            const hasSubHeading = !!column.subHeading;
+            return (
+              <Stack key={column.title} $gapxl={hasSubHeading ? '64px' : '16px'}>
+                <FooterColumnBlock column={column} />
+                {column.subHeading && <FooterColumnBlock column={column} />}
+              </Stack>
+            );
+          })}
         </StyledColumn>
       </StyledContainer>
       <Container>
