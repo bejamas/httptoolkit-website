@@ -10,9 +10,10 @@ export const Copy = ({ text }: CopyProps) => {
   const [isCopied, setCopied] = useClipboard(text, {
     successDuration: 1000,
   });
+
   return (
     <StyledCopy>
-      {text}{' '}
+      {text}
       {!isCopied ? (
         <StyledCopyButton title="Copy command" onClick={setCopied}>
           <CopyIcon size={16} weight="fill" />
