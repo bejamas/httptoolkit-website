@@ -5,13 +5,14 @@ import {
   StyledFooter,
   StyledMenuItems,
   StyledFooterCopySection,
+  StyledIconsWrapper,
 } from './footer.styles';
 
 import { Container } from '@/components/elements/container';
 import { Github, TwitterX } from '@/components/elements/icon';
 import { Link } from '@/components/elements/link';
 import { SquareIcon } from '@/components/elements/square-icon';
-import Stack from '@/components/elements/Stack';
+import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
 import LogoFooter from '@/images/logo-footer.svg';
@@ -29,14 +30,14 @@ export const Footer = () => {
     <StyledFooter>
       <StyledContainer>
         <StyledColumn>
-          <Stack $gap="76px">
-            <Stack>
-              <LogoFooter />
-              <Text fontSize="m">
-                Theres a lot of new HTTP Toolkit features coming soon, like automated iOS interception, HTTP client
-                tools, gRPC & GraphQL support, and request diffing.
-              </Text>
-            </Stack>
+          <Stack>
+            <LogoFooter />
+            <Text fontSize="m">
+              There&apos;s a lot of new HTTP Toolkit features coming soon, like automated iOS interception, HTTP client
+              tools, gRPC & GraphQL support, and request diffing.
+            </Text>
+          </Stack>
+          <StyledIconsWrapper>
             <Stack>
               <Text as="label" fontSize="l" fontWeight="bold">
                 FOLLOW US
@@ -51,7 +52,7 @@ export const Footer = () => {
               </Stack>
             </Stack>
             <ThemeToggle id="theme-toggle-footer" />
-          </Stack>
+          </StyledIconsWrapper>
         </StyledColumn>
         <StyledColumn>
           <Stack>
@@ -63,13 +64,15 @@ export const Footer = () => {
               <Link href="/">Pricing</Link>
             </StyledMenuItems>
           </Stack>
-          <Stack>
-            <ColumnHeading>Resources</ColumnHeading>
-            <StyledMenuItems>
-              <Link href="/blog">Blog</Link>
-              <Link href="/docs">Docs</Link>
-              <Link href="/">FAQ</Link>
-            </StyledMenuItems>
+          <Stack $gapxl="64px">
+            <Stack>
+              <ColumnHeading>Resources</ColumnHeading>
+              <StyledMenuItems>
+                <Link href="/blog">Blog</Link>
+                <Link href="/docs">Docs</Link>
+                <Link href="/">FAQ</Link>
+              </StyledMenuItems>
+            </Stack>
             <Stack>
               <ColumnHeading>Projects</ColumnHeading>
               <StyledMenuItems>
@@ -91,6 +94,11 @@ export const Footer = () => {
               <Link href="/">Android</Link>
               <Link href="/">Docker</Link>
               <Link href="/">Python</Link>
+              <Link href="/">Ruby</Link>
+              <Link href="/">Java</Link>
+              <Link href="/">Electron</Link>
+              <Link href="/">Javascript</Link>
+              <Link href="/">All Integrations</Link>
             </StyledMenuItems>
           </Stack>
         </StyledColumn>

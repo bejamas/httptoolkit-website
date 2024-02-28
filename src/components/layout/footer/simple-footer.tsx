@@ -2,7 +2,7 @@ import { StyledSeparator, StyledFooter, StyledFooterCopySection, StyledSimpleFoo
 
 import { Container } from '@/components/elements/container';
 import { Link } from '@/components/elements/link';
-import Stack from '@/components/elements/Stack';
+import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
 import LogoFooter from '@/images/logo-footer.svg';

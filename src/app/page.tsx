@@ -154,7 +154,7 @@ export default async function Home() {
           </Button>
         </Tooltip>
       </ShowCase>
-      <ShowCase title="Simple footer">
+      <ShowCase title="Simple Footer">
         <SimpleFooter />
       </ShowCase>
     </Container>

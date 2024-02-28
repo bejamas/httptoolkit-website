@@ -225,6 +225,7 @@ export const GlobalStyles = createGlobalStyle`
         overflow-x: hidden;
         font-size: 16px;
         line-height: 1.5;
+        /* -webkit-font-smoothing: antialiased; */
     }
 
     em {

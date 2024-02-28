@@ -3,9 +3,9 @@ import React from 'react';
 import { StyledStack } from './stack.styles';
 import type { StackProps } from './stack.types';
 
-const Stack = ({ $gap, $direction, children }: StackProps) => {
+const Stack = ({ $gap, $gapxl, $direction, children }: StackProps) => {
   return (
-    <StyledStack $gap={$gap} $direction={$direction}>
+    <StyledStack $gap={$gap} $gapxl={$gapxl} $direction={$direction}>
       {children}
     </StyledStack>
   );

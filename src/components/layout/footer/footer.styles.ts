@@ -20,10 +20,15 @@ export const StyledContainer = styled(Container)`
 
 export const StyledColumn = styled.div`
   &:first-child {
+    display: flex;
+    flex-direction: column;
     min-width: min-content;
+    gap: 16px;
 
     @media (min-width: ${screens.xl}) {
+      flex-direction: column;
       min-width: 398px;
+      gap: 76px;
     }
   }
 
@@ -78,4 +83,17 @@ export const StyledFooterCopySection = styled.div`
 
 export const StyledSimpleFooterWrapper = styled(StyledFooterCopySection)`
   gap: 32px;
+`;
+
+export const StyledIconsWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+  gap: 76px;
+
+  @media (min-width: ${screens.md}) {
+    flex-direction: column;
+    align-items: start;
+  }
 `;
