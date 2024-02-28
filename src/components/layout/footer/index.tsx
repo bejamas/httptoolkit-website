@@ -17,8 +17,10 @@ import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
 import { footerColumns } from '@/content/data/footer-columns';
 import LogoFooter from '@/images/logo-footer.svg';
+import { pageRoutes } from '@/lib/constants/routes';
 
 export const Footer = () => {
+  const { PRIVACY_POLICY, TERM_OF_SERVICES } = pageRoutes;
   return (
     <StyledFooter>
       <StyledContainer>
@@ -62,10 +64,10 @@ export const Footer = () => {
       <Container>
         <StyledSeparator />
         <StyledFooterCopySection>
-          <Text fontSize="m">© 2024 HTTP Toolkit All rights reserved.</Text>
+          <Text fontSize="m">© {new Date().getFullYear()} HTTP Toolkit All rights reserved.</Text>
           <Stack $direction="row">
-            <Link href="/">Terms of Service</Link>
-            <Link href="/">Privacy Policy</Link>
+            <Link href={TERM_OF_SERVICES.href}>{TERM_OF_SERVICES.label}</Link>
+            <Link href={PRIVACY_POLICY.href}>{PRIVACY_POLICY.label}</Link>
           </Stack>
         </StyledFooterCopySection>
       </Container>

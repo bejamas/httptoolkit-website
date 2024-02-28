@@ -23,6 +23,14 @@ export const pageRoutes = {
     href: '/faq',
     label: 'FAQ',
   },
+  TERM_OF_SERVICES: {
+    href: '/term-of-services',
+    label: 'Terms of Service',
+  },
+  PRIVACY_POLICY: {
+    href: '/privacy-policy',
+    label: 'Privacy Policy',
+  },
   //Integrations
   ANDROID: {
     href: '/integrations/android',
