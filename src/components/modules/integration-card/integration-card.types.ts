@@ -8,6 +8,7 @@ export interface StyledIntegrationCardProps {
 
 export interface IntegrationCardProps extends StyledIntegrationCardProps {
   icon: Icon;
+  badgeText?: string;
   title: string;
   text: string;
   link: LinkProps;

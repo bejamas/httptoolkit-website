@@ -14,7 +14,14 @@ import { ArrowRight } from '@/components/elements/icon';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
 
-export const IntegrationCard = ({ title, icon, text, $showBadge, link }: IntegrationCardProps) => {
+export const IntegrationCard = ({
+  title,
+  icon,
+  text,
+  $showBadge,
+  link,
+  badgeText = 'MOST POPULAR',
+}: IntegrationCardProps) => {
   return (
     <StyledIntegrationCardBorder $showBadge={$showBadge}>
       <StyledIntegrationCardWrapper $showBadge={$showBadge}>
@@ -26,7 +33,7 @@ export const IntegrationCard = ({ title, icon, text, $showBadge, link }: Integra
                 {title}
               </Heading>
             </StyledIntegrationCardTitle>
-            {$showBadge && <Badge variant="secondary">MOST POPULAR</Badge>}
+            {$showBadge && <Badge variant="secondary">{badgeText}</Badge>}
           </StyledIntegrationCardTitleWrapper>
           <Text fontSize="l" color="darkGrey">
             {text}
