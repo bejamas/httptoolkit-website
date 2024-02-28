@@ -14,6 +14,11 @@ export const StyledContainer = styled(Container)`
 
   @media (min-width: ${screens.md}) {
     flex-direction: row;
+    gap: 40px;
+  }
+
+  @media (min-width: ${screens.lg}) {
+    flex-direction: row;
     gap: 128px;
   }
 `;
@@ -37,12 +42,17 @@ export const StyledColumn = styled.div`
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
 
-    @media (min-width: ${screens.sm}) {
+    @media (min-width: ${screens.md}) {
       grid-template-columns: repeat(3, 1fr);
       gap: 40px;
     }
 
-    @media (min-width: ${screens.xl}) {
+    @media (min-width: ${screens.lg}) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 50px;
+    }
+
+    @media (min-width: ${screens['2xl']}) {
       grid-template-columns: repeat(4, 1fr);
       gap: 91px;
     }
