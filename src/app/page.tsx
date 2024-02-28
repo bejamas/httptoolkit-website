@@ -3,12 +3,13 @@ import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Copy } from '@/components/elements/copy';
 import { Heading } from '@/components/elements/heading';
-import { Sparkle, Alien, Logo, CaretDown, RocketLaunch, AndroidLogo } from '@/components/elements/icon';
+import { Sparkle, Alien, Logo, CaretDown, RocketLaunch, AndroidLogo, GithubLogo } from '@/components/elements/icon';
 import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
 import { Tooltip } from '@/components/elements/tooltip';
+import { ContentCard } from '@/components/modules/content-card';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 import { HeadingBlock } from '@/components/modules/heading-block';
@@ -57,7 +58,6 @@ export default async function Home() {
           What is HTTP Toolkit? - XS Medium
         </Heading>
       </ShowCase>
-
       <ShowCase title="Text">
         <Text fontSize="xl">
           XL Regular: Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject
@@ -213,6 +213,16 @@ export default async function Home() {
       </ShowCase>
       <ShowCase title="Copy">
         <Copy text="brew install --cask http-toolkit" />
+      </ShowCase>
+      <ShowCase title="Content Card">
+        <ContentCard title="Join the mailing list now, so you don't miss new features & releases:" $isNewsletter />
+        <ContentCard
+          title="Having issues?"
+          text="Head to the GitHub issue repo, as many questions and bugs already have answers there, and new bugs or feature requests posted there get more feedback & support from the wider community."
+          buttonText="Github HTTP Toolkit"
+          buttonIcon={GithubLogo}
+          buttonHref="https://github.com/httptoolkit/httptoolkit-website"
+        />
       </ShowCase>
       <ShowCase title="Theme toggle">
         <ThemeToggle />
