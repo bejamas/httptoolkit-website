@@ -51,7 +51,7 @@ export const Footer = () => {
                 </Link>
               </Stack>
             </Stack>
-            <ThemeToggle id="theme-toggle-footer" />
+            <ThemeToggle id="themetogglefooter" />
           </StyledIconsWrapper>
         </StyledColumn>
         <StyledColumn>

@@ -37,7 +37,7 @@ export const ThemeToggle = ({ id = 'themetoggle' }: { id?: string }) => {
   const changeThemeText = isLight ? 'dark' : 'light';
 
   return (
-    <StyledLabel htmlFor="themetoggle" onKeyDown={handleKeyPress}>
+    <StyledLabel htmlFor={id} onKeyDown={handleKeyPress}>
       <span className="visually-hidden">Enable {changeThemeText} mode</span>
       <StyledIconsWrapper>
         <StyledMoon aria-label="Dark theme" weight="fill" data-is-active={!isLight} />
@@ -46,7 +46,7 @@ export const ThemeToggle = ({ id = 'themetoggle' }: { id?: string }) => {
       <StyledInput
         id={id}
         role="switch"
-        name="theme-toggle"
+        name="{id}"
         checked={isLight}
         type="checkbox"
         aria-checked={isLight}

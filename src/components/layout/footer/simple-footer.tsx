@@ -13,7 +13,7 @@ export const SimpleFooter = () => {
       <Container>
         <StyledSimpleFooterWrapper>
           <LogoFooter />
-          <ThemeToggle id="theme-toggle-footer" />
+          <ThemeToggle id="theme-toggle-footer-small" />
         </StyledSimpleFooterWrapper>
         <StyledSeparator />
         <StyledFooterCopySection>
