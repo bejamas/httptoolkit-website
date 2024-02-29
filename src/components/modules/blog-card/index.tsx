@@ -12,13 +12,7 @@ import { Button } from '@/components/elements/button';
 import { Heading } from '@/components/elements/heading';
 import { ArrowRight } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
-
-function formatDateLongMonthYear(date: string) {
-  return new Date(date).toLocaleDateString('en-US', {
-    month: 'long',
-    year: 'numeric',
-  });
-}
+import { formatDateLongMonthYear } from '@/lib/utils/formatMonthYearDate';
 
 export const BlogCard = ({ title, text, image, date, tag }: BlogCardProps) => {
   return (
