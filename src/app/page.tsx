@@ -10,20 +10,28 @@ import {
   CaretDown,
   RocketLaunch,
   AndroidLogo,
-  GithubLogo,
   CaretRight,
+  SealCheck,
+  LinkSimpleBreak,
+  GithubLogo,
 } from '@/components/elements/icon';
 import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
+import { ThemeToggle } from '@/components/elements/theme-toggle';
+import { ThemedImage } from '@/components/elements/themed-image';
 import { Tooltip } from '@/components/elements/tooltip';
 import { SimpleFooter } from '@/components/layout/footer/simple-footer';
+import { BlogCard } from '@/components/modules/blog-card';
+import { ContentCard } from '@/components/modules/content-card';
 import { CTABox } from '@/components/modules/cta-box';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
+import { FluidCard } from '@/components/modules/fluid-card';
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { Input } from '@/components/modules/input';
 import { IntegrationCard } from '@/components/modules/integration-card';
+import BlogPostImage from '@/content/posts/analytics-map.png';
 
 export default async function Home() {
   const dropdownItems: DropdownOptionProps[] = [
@@ -67,7 +75,6 @@ export default async function Home() {
           What is HTTP Toolkit? - XS Medium
         </Heading>
       </ShowCase>
-
       <ShowCase title="Text">
         <Text fontSize="xl">
           XL Regular: Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject
@@ -240,6 +247,69 @@ export default async function Home() {
           buttonHref="https://example.com"
           buttonText="Github HTTP Toolkit"
           buttonIcon={GithubLogo}
+        />
+      </ShowCase>
+      <ShowCase title="Blog card">
+        <BlogCard
+          title="How do you know what's gone wrong when your API request fails?"
+          text="Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices."
+          slug="5-big-features-of-typescript-3.7"
+          tag="engineering"
+          date="2020-09-10T16:30"
+          image={{
+            src: BlogPostImage.src,
+          }}
+        />
+      </ShowCase>
+      <ShowCase title="Content Card">
+        <ContentCard title="Join the mailing list now, so you don't miss new features & releases:" $isNewsletter />
+        <ContentCard
+          title="Having issues?"
+          text="Head to the GitHub issue repo, as many questions and bugs already have answers there, and new bugs or feature requests posted there get more feedback & support from the wider community."
+          buttonText="Github HTTP Toolkit"
+          buttonIcon={GithubLogo}
+          buttonHref="https://github.com/httptoolkit/httptoolkit-website"
+        />
+      </ShowCase>
+      <ShowCase title="Fluid Cards">
+        <FluidCard
+          $variant="default"
+          icon={SealCheck}
+          title="Capture & inspect encrypted HTTPS"
+          text={
+            'Immediately view HTTPS on any device from apps that trust user-installed certificates, like Chrome.\n\n Enable trust in your own app with one tiny manifest change. \n\n On emulators & rooted devices, easily intercept HTTPS from any app, with automatic injection of a system certificate authority.'
+          }
+        />
+        <FluidCard
+          $variant="dark"
+          icon={LinkSimpleBreak}
+          title="Integrate"
+          text={
+            "Interception internals you can integrate into your own code for mocking, testing or building custom proxies, available as an MIT-licensed [open-source library](https://example.com) **(that's $0 vs the $2,999/year price tag to build on FiddlerCore)**."
+          }
+        />
+        <FluidCard
+          $variant="highlighted"
+          title="Want the full details?"
+          text={'Take a look at the in-depth guide to Android HTTP debugging.'}
+          buttonHref="https://example.com"
+          buttonText="Learn more"
+        />
+      </ShowCase>
+      <ShowCase title="Theme toggle">
+        <ThemeToggle />
+      </ShowCase>
+      <ShowCase title="Themed Image" $flexDirection="row">
+        <ThemedImage
+          withBorderAnimation
+          alt="Example themed image"
+          darkSrc="https://picsum.photos/id/1019/1024"
+          lightSrc="https://picsum.photos/id/1035/1024"
+        />
+        <ThemedImage
+          alt="Example themed image"
+          darkSrc="https://picsum.photos/id/1019/1024"
+          lightSrc="https://picsum.photos/id/1035/1024"
         />
       </ShowCase>
       <ShowCase title="Simple Footer">

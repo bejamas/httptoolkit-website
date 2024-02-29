@@ -11,6 +11,9 @@ import {
   ArrowRight,
   CaretRight,
   GithubLogo,
+  Globe,
+  SealCheck,
+  LinkSimpleBreak,
 } from '@phosphor-icons/react/dist/ssr';
 
 import { FullLogo, Logo, Github, TwitterX } from './custom';
@@ -28,6 +31,9 @@ export {
   CheckCircle,
   AndroidLogo,
   ArrowRight,
+  Globe,
+  SealCheck,
+  LinkSimpleBreak,
   Github,
   TwitterX,
   CaretRight,
