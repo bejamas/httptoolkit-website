@@ -10,6 +10,7 @@ import {
   AndroidLogo,
   ArrowRight,
   CaretRight,
+  GithubLogo,
 } from '@phosphor-icons/react/dist/ssr';
 
 import { FullLogo, Logo, Github, TwitterX } from './custom';
@@ -30,4 +31,5 @@ export {
   Github,
   TwitterX,
   CaretRight,
+  GithubLogo,
 };

@@ -2,7 +2,7 @@
 
 import { styled } from '@/styles';
 
-export const StyledBlogCTAWrapper = styled.div`
+export const StyledCTABoxWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,11 +16,11 @@ export const StyledBlogCTAWrapper = styled.div`
 
   background-image: url('/dots_dark.svg'), url('/gradient-dark.png');
   background-size:
-    400px 400px,
-    1591px 1016px;
+    250px auto,
+    200% 200%;
   background-repeat: repeat, no-repeat;
   background-position:
-    center,
+    top 0 center,
     top 10% center;
 
   & * {
@@ -41,10 +41,22 @@ export const StyledBlogCTAWrapper = styled.div`
   }
 `;
 
-export const StyledBlogCTASubtitle = styled.p`
+export const StyledCTABoxSubtitle = styled.p`
   font-size: ${({ theme }) => theme.fontSizes.label.l};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   letter-spacing: 0.6;
   color: ${({ theme }) => theme.colors.text.darkGrey};
   text-transform: uppercase;
+`;
+
+export const StyledCTABoxContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
+export const StyledCTABoxButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 `;

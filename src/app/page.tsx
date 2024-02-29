@@ -3,13 +3,22 @@ import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Copy } from '@/components/elements/copy';
 import { Heading } from '@/components/elements/heading';
-import { Sparkle, Alien, Logo, CaretDown, RocketLaunch, AndroidLogo } from '@/components/elements/icon';
+import {
+  Sparkle,
+  Alien,
+  Logo,
+  CaretDown,
+  RocketLaunch,
+  AndroidLogo,
+  GithubLogo,
+  CaretRight,
+} from '@/components/elements/icon';
 import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
 import { Tooltip } from '@/components/elements/tooltip';
 import { SimpleFooter } from '@/components/layout/footer/simple-footer';
-import { BlogCTA } from '@/components/modules/blog/cta';
+import { CTABox } from '@/components/modules/cta-box';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 import { HeadingBlock } from '@/components/modules/heading-block';
@@ -216,11 +225,21 @@ export default async function Home() {
         <Copy text="brew install --cask http-toolkit" />
       </ShowCase>
       <ShowCase title="Blog CTA Block">
-        <BlogCTA
+        <CTABox
           title="A brief introduction to OpenAPI"
           subtitle="see also"
           buttonHref="/example"
           buttonText="Learn more"
+          buttonIcon={CaretRight}
+        />
+        <CTABox
+          $variant="faq"
+          title="Still have questions?"
+          text="Head to the GitHub issue repo, as many questions and bugs already have answers there, and new bugs or feature requests posted there get more feedback & support from the wider community."
+          textOverButton="You can also read more in the docs:"
+          buttonHref="https://example.com"
+          buttonText="Github HTTP Toolkit"
+          buttonIcon={GithubLogo}
         />
       </ShowCase>
       <ShowCase title="Simple Footer">
