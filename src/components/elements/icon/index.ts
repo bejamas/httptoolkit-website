@@ -13,6 +13,7 @@ import {
   Globe,
   SealCheck,
   LinkSimpleBreak,
+  Check,
 } from '@phosphor-icons/react/dist/ssr';
 
 import { FullLogo, Logo, Github, TwitterX } from './custom';
@@ -36,4 +37,5 @@ export {
   LinkSimpleBreak,
   Github,
   TwitterX,
+  Check,
 };
