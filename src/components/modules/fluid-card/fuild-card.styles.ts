@@ -50,7 +50,7 @@ export const StyledFluidCardText = styled.div<StyledFluidCardProps>`
   & * {
     font-size: ${({ theme }) => theme.fontSizes.text.m};
     color: ${({ theme, $variant }) =>
-      $variant === 'highlighted' ? theme.colors.text.lightGrey : theme.colors.text.darkGrey};
+      $variant === 'highlighted' ? theme.colors.text.alwayLightGrey : theme.colors.text.darkGrey};
   }
 
   & p:not(:last-child) {

@@ -11,7 +11,7 @@ import { renderer } from '@/lib/marked/link-target-render';
 
 export const FluidCard = ({ title, icon, text, buttonHref, buttonText, $variant = 'default' }: FluidCardProps) => {
   const headingSize: HeadingProps['fontSize'] = $variant === 'dark' ? 's' : 'm';
-  const headingColor: HeadingProps['color'] = $variant === 'highlighted' ? 'white' : 'lightGrey';
+  const headingColor: HeadingProps['color'] = $variant === 'highlighted' ? 'alwayWhite' : 'lightGrey';
   const headingWeight: HeadingProps['fontWeight'] = $variant === 'dark' ? 'medium' : 'normal';
 
   return (
