@@ -10,9 +10,12 @@ import {
   AndroidLogo,
   ArrowRight,
   GithubLogo,
+  Globe,
+  SealCheck,
+  LinkSimpleBreak,
 } from '@phosphor-icons/react/dist/ssr';
 
-import { FullLogo, Logo } from './custom';
+import { FullLogo, Logo, Github, TwitterX } from './custom';
 
 export {
   Alien,
@@ -28,4 +31,9 @@ export {
   AndroidLogo,
   ArrowRight,
   GithubLogo,
+  Globe,
+  SealCheck,
+  LinkSimpleBreak,
+  Github,
+  TwitterX,
 };
