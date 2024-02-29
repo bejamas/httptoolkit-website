@@ -1,6 +1,7 @@
 'use client';
 
 import type { StyledButtonProps } from './button.types';
+import { Link } from '../link';
 
 // import { Link } from '@/components/elements/link';
 import { css, screens, styled } from '@/styles';
@@ -124,7 +125,7 @@ const base = css<StyledButtonProps>`
   }}
 `;
 
-export const StyledLink = styled.a<StyledButtonProps>`
+export const StyledLink = styled(Link)<StyledButtonProps>`
   ${base}
 `;
 
