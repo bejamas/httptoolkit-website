@@ -14,7 +14,7 @@ import {
   LinkSimpleBreak,
 } from '@phosphor-icons/react/dist/ssr';
 
-import { FullLogo, Logo } from './custom';
+import { FullLogo, Logo, Github, TwitterX } from './custom';
 
 export {
   Alien,
@@ -32,4 +32,6 @@ export {
   Globe,
   SealCheck,
   LinkSimpleBreak,
+  Github,
+  TwitterX,
 };

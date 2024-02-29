@@ -17,7 +17,9 @@ import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
+import { ThemedImage } from '@/components/elements/themed-image';
 import { Tooltip } from '@/components/elements/tooltip';
+import { SimpleFooter } from '@/components/layout/footer/simple-footer';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 import { FluidCard } from '@/components/modules/fluid-card';
@@ -251,6 +253,22 @@ export default async function Home() {
       </ShowCase>
       <ShowCase title="Theme toggle">
         <ThemeToggle />
+      </ShowCase>
+      <ShowCase title="Themed Image" $flexDirection="row">
+        <ThemedImage
+          withBorderAnimation
+          alt="Example themed image"
+          darkSrc="https://picsum.photos/id/1019/1024"
+          lightSrc="https://picsum.photos/id/1035/1024"
+        />
+        <ThemedImage
+          alt="Example themed image"
+          darkSrc="https://picsum.photos/id/1019/1024"
+          lightSrc="https://picsum.photos/id/1035/1024"
+        />
+      </ShowCase>
+      <ShowCase title="Simple Footer">
+        <SimpleFooter />
       </ShowCase>
     </Container>
   );
