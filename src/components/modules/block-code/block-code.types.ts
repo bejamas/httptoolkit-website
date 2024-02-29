@@ -1,4 +1,4 @@
-export interface BlogCodeProps {
+export interface BlockCodeProps {
   title: string;
   content: string;
 }

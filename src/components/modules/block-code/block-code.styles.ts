@@ -2,19 +2,19 @@
 
 import { styled } from '@/styles';
 
-export const StyledBlogCodeWrapper = styled.div`
+export const StyledBlockCodeWrapper = styled.div`
   border-radius: 16px;
   box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
   background-color: ${({ theme }) => theme.colors.mediumGrey};
   overflow: hidden;
 `;
 
-export const StyledBlogCodeTitleWrapper = styled.div`
+export const StyledBlockCodeTitleWrapper = styled.div`
   padding: 16px;
   box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
 `;
 
-export const StyledBlogCodeContent = styled.code`
+export const StyledBlockCodeContent = styled.code`
   display: block;
   width: 100%;
   padding: 16px;

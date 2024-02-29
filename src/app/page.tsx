@@ -9,7 +9,7 @@ import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
 import { Tooltip } from '@/components/elements/tooltip';
 import { SimpleFooter } from '@/components/layout/footer/simple-footer';
-import { BlogCode } from '@/components/modules/blog/code';
+import { BlockCode } from '@/components/modules/block-code';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 import { HeadingBlock } from '@/components/modules/heading-block';
@@ -216,7 +216,7 @@ export default async function Home() {
         <Copy text="brew install --cask http-toolkit" />
       </ShowCase>
       <ShowCase title="Blog block code">
-        <BlogCode
+        <BlockCode
           title="Response example"
           content={`await axios.post(
   '/payments',
