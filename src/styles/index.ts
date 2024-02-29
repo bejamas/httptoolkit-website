@@ -240,11 +240,6 @@ export const GlobalStyles = createGlobalStyle`
       left: 7px;
       top: -16rem;
       transform: translateX(-50%);
-      background-color: ${theme.colors.cinnarbarRed};
-      color: var(--color--white-1);
-      padding: 1rem;
-      border-radius: 0 0 5px 5px;
-      text-align: center;
     }
 
     .skip-button:focus-within,
