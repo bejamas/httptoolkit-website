@@ -53,5 +53,3 @@ export const StyledContentCardForm = styled.form`
     flex-shrink: 0;
   }
 `;
-
-// export const StyledContentCard = styled
