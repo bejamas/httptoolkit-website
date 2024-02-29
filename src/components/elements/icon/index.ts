@@ -1,5 +1,39 @@
-import { Alien, CaretDown, RocketLaunch, Sparkle, Book, MagnifyingGlass } from '@phosphor-icons/react/dist/ssr';
+import {
+  Alien,
+  CaretDown,
+  RocketLaunch,
+  Sparkle,
+  Book,
+  MagnifyingGlass,
+  Copy,
+  CheckCircle,
+  AndroidLogo,
+  ArrowRight,
+  GithubLogo,
+  Globe,
+  SealCheck,
+  LinkSimpleBreak,
+} from '@phosphor-icons/react/dist/ssr';
 
-import { Logo } from './custom';
+import { FullLogo, Logo, Github, TwitterX } from './custom';
 
-export { Alien, CaretDown, RocketLaunch, Sparkle, Book, Logo, MagnifyingGlass };
+export {
+  Alien,
+  CaretDown,
+  RocketLaunch,
+  Sparkle,
+  Book,
+  FullLogo,
+  Logo,
+  MagnifyingGlass,
+  Copy,
+  CheckCircle,
+  AndroidLogo,
+  ArrowRight,
+  GithubLogo,
+  Globe,
+  SealCheck,
+  LinkSimpleBreak,
+  Github,
+  TwitterX,
+};

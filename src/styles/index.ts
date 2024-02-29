@@ -31,6 +31,7 @@ const colorTheme = {
   darkGradient: 'var(--dark-gradient)',
   borderGradient: 'var(--border-gradient)',
   borderDark: 'var(--border-dark)',
+  borderMovingDark: 'var(--moving-border-dark)',
   text: {
     lightGrey: 'var(--text-light-grey)',
     darkGrey: 'var(--text-dark-grey)',
@@ -117,6 +118,9 @@ export const theme = {
     xxl: '48px',
     '2xl': '64px',
   },
+  shadow: {
+    box: 'var(--shadow-box)',
+  },
 };
 
 export const Keyframes = {
@@ -142,7 +146,7 @@ export const GlobalStyles = createGlobalStyle`
       --white: #ffffff;
       --electric-blue: #5175F2;
       --electric-light-blue: #6284FA;
-      --cinnabar-red: #EC502D;
+      --cinnabar-red: #F2522E;
       --cinnabar-red-dark: #D93E1C;
       --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
       --blue-gradient: linear-gradient(to bottom, #4064E2, #3556CA);
@@ -151,7 +155,7 @@ export const GlobalStyles = createGlobalStyle`
       --border-dark: rgba(255, 255, 255, 0.2);
       --text-light-grey: #E6E8F2;
       --text-dark-grey: #C5C6CA;
-      --text-cinnabar-red: #EC502D;
+      --text-cinnabar-red: #F2522E;
       --text-white: #ffffff;
       --text-always-white: #ffffff;
       --text-always-light-grey: #E6E8F2;
@@ -161,9 +165,11 @@ export const GlobalStyles = createGlobalStyle`
       --button-secondary-section: #16181E;
       --button-border: rgba(255, 255, 255, 4%);
       --shadow-default: rgba(230, 232, 242, 0.05);
+      --shadow-box: 0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0 0 8px rgba(230, 232, 242, 0.05);
+      --moving-border-dark: rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4)
     }
 
-    .light {
+    [data-theme="light"] {
       --ink-black: #FBFAF9;
       --dark-grey: #ffffff;
       --medium-grey: #f2f2f2;
@@ -171,7 +177,7 @@ export const GlobalStyles = createGlobalStyle`
       --white: #16181E;
       --electric-blue: #5175F2;
       --electric-light-blue: #6284FA;
-      --cinnabar-red: #D93E1C;
+      --cinnabar-red: #D43D1B;
       --cinnabar-red-dark: #D93E1C;
       --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
       --blue-gradient: linear-gradient(to bottom, #3556CA, #4064E2);
@@ -180,8 +186,8 @@ export const GlobalStyles = createGlobalStyle`
       --border-dark: rgba(103, 108, 129, 0.2);
       --text-light-grey: #16181E;
       --text-dark-grey: #595D68;
-      --text-cinnabar-red: #D93E1C;
-      --text-white: #ffffff;
+      --text-cinnabar-red: #D43D1B;
+      --text-white: #000000;
       --text-always-white: #ffffff;
       --text-always-light-grey: #E6E8F2;
       --text-electric-light-blue: #5175F2;
@@ -190,6 +196,8 @@ export const GlobalStyles = createGlobalStyle`
       --button-secondary-section: #ffffff;
       --button-border: rgba(103, 108, 129, 20%);
       --shadow-default: rgba(0, 0, 0, 0.05);
+      --shadow-box: 0px 2px 2px 0px rgba(0, 0, 0, 0.07);
+      --moving-border-dark: rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 70%,  rgba(0, 0, 0, 0.1),  rgba(51, 60, 255, 0.4);
     }
 
     * {
@@ -209,7 +217,7 @@ export const GlobalStyles = createGlobalStyle`
       line-height: 0;
     }
 
-    button {
+    button, textarea, input {
       font-family: ${theme.fontFamily.dmSans};
     }
 
@@ -220,6 +228,7 @@ export const GlobalStyles = createGlobalStyle`
         overflow-x: hidden;
         font-size: 16px;
         line-height: 1.5;
+        /* -webkit-font-smoothing: antialiased; */
     }
 
     em {

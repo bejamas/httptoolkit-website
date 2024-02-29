@@ -9,13 +9,17 @@ export const StyledSquareIcon = styled.div<StyledSquareIconProps>`
   width: fit-content;
   border-radius: 12px;
   padding: 11px;
-  border: 1px solid ${({ theme }) => theme.colors.borderGradient};
+  border: 1px solid ${({ theme }) => theme.colors.button.border};
 
   ${({ $variant, $size }) => {
     switch ($variant) {
       case 'primary':
         return css`
           background-color: ${({ theme }) => theme.colors.inkBlack};
+
+          box-shadow:
+            0px 2px 0px 0px rgba(0, 0, 0, 0.05) inset,
+            0px 0px 11px 0px rgba(0, 0, 0, 0.05);
 
           & svg {
             color: ${({ theme }) => theme.colors.electricBlue};
@@ -61,6 +65,15 @@ export const StyledSquareIcon = styled.div<StyledSquareIconProps>`
           color: ${({ theme }) => theme.colors.white}
           border-radius: 8px;
           padding: 12px;
+          background-color: ${({ theme }) => theme.colors.mediumGrey};
+          box-shadow: 0px 0px 24px 0px #8082891a inset;
+        `;
+
+      case 'tertiary-bigger':
+        return css`
+          color: ${({ theme }) => theme.colors.white}
+          border-radius: 8px;
+          padding: 15px;
           background-color: ${({ theme }) => theme.colors.mediumGrey};
           box-shadow: 0px 0px 24px 0px #8082891a inset;
         `;
