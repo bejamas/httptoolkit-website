@@ -31,10 +31,6 @@ import { HeadingBlock } from '@/components/modules/heading-block';
 import { Input } from '@/components/modules/input';
 import { IntegrationCard } from '@/components/modules/integration-card';
 import BlogPostImage from '@/content/posts/analytics-map.png';
-import LightCardIllustration1 from '@/images/illustration/card-1-light.svg';
-import CardIllustration1 from '@/images/illustration/card-1.svg';
-import LightCardIllustration from '@/images/illustration/card-light.svg';
-import CardIllustration from '@/images/illustration/card.svg';
 
 export default async function Home() {
   const dropdownItems: DropdownOptionProps[] = [
@@ -169,44 +165,16 @@ export default async function Home() {
         <Card
           title="Simulate Network Issues & Redirect Traffic"
           text="Inject request timeouts, simulate connection failures, and silently redirect requests from one server to another. These features also ensure API stability and failover efficacy."
-          darkImage={{
-            src: CardIllustration.src,
-            alt: 'Simulate',
-          }}
+          darkImage="/illustration/card.svg"
+          lightImage="/illustration/card-light.svg"
+          imageAlt="Simulate"
         />
         <Card
           title="Targeted Request Handling: Proxy & Mock Server Capabilities"
           text="Precise matching lets you target the requests you care about. Match any requests sent anywhere by using HTTP Toolkit as a proxy, send requests directly to use it as a mock server."
-          darkImage={{
-            src: CardIllustration1.src,
-            alt: 'Simulate',
-          }}
-        />
-        <Card
-          title="Simulate Network Issues & Redirect Traffic"
-          text="Inject request timeouts, simulate connection failures, and silently redirect requests from one server to another. These features also ensure API stability and failover efficacy."
-          colorScheme="light"
-          darkImage={{
-            src: CardIllustration.src,
-            alt: 'Simulate',
-          }}
-          lightImage={{
-            src: LightCardIllustration.src,
-            alt: 'Simulate',
-          }}
-        />
-        <Card
-          title="Targeted Request Handling: Proxy & Mock Server Capabilities"
-          text="Precise matching lets you target the requests you care about. Match any requests sent anywhere by using HTTP Toolkit as a proxy, send requests directly to use it as a mock server."
-          colorScheme="light"
-          darkImage={{
-            src: CardIllustration1.src,
-            alt: 'Simulate',
-          }}
-          lightImage={{
-            src: LightCardIllustration1.src,
-            alt: 'Simulate',
-          }}
+          darkImage="/illustration/card-1.svg"
+          lightImage="/illustration/card-1-light.svg"
+          imageAlt="Simulate"
         />
       </ShowCase>
       <ShowCase title="Tooltip">

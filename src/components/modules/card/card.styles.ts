@@ -1,7 +1,6 @@
 'use client';
 
-import type { StyledCardImageWrapperProps } from './card.types';
-
+import { ThemedImage } from '@/components/elements/themed-image';
 import { styled } from '@/styles';
 
 export const StyledCardWrapper = styled.div`
@@ -14,12 +13,13 @@ export const StyledCardWrapper = styled.div`
     0 0 0 1px ${({ theme }) => theme.colors.button.border};
 `;
 
-export const StyledCardImageWrapper = styled.div<StyledCardImageWrapperProps>`
+export const StyledCardImageWrapper = styled.div`
   padding-top: 28px;
   display: flex;
   justify-content: center;
-  background-image: url(${({ $backgroundGradient }) => $backgroundGradient}),
-    url(${({ $backgroundFuncGradient }) => $backgroundFuncGradient}), url(${({ $backgroundDots }) => $backgroundDots});
+  background-image: ${({ theme }) => theme.backgroundImages.backgroundGradient},
+    ${({ theme }) => theme.backgroundImages.backgroundFuncGradient},
+    ${({ theme }) => theme.backgroundImages.backgroundDots};
   background-position:
     center 140%,
     center,
@@ -31,8 +31,9 @@ export const StyledCardImageWrapper = styled.div<StyledCardImageWrapperProps>`
   background-repeat: no-repeat;
 `;
 
-export const StyledCardImage = styled.img`
-  height: 216px;
+export const StyledCardImage = styled(ThemedImage)`
+  height: 216px !important;
+  position: relative !important;
 `;
 
 export const StyledCardTextWrapper = styled.div`
