@@ -9,6 +9,7 @@ import {
   CheckCircle,
   AndroidLogo,
   ArrowRight,
+  CaretRight,
 } from '@phosphor-icons/react/dist/ssr';
 
 import { FullLogo, Logo, Github, TwitterX } from './custom';
@@ -28,4 +29,5 @@ export {
   ArrowRight,
   Github,
   TwitterX,
+  CaretRight,
 };

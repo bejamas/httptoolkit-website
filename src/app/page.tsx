@@ -9,6 +9,7 @@ import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
 import { Tooltip } from '@/components/elements/tooltip';
 import { SimpleFooter } from '@/components/layout/footer/simple-footer';
+import { BlogCTA } from '@/components/modules/blog/cta';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 import { HeadingBlock } from '@/components/modules/heading-block';
@@ -213,6 +214,14 @@ export default async function Home() {
       </ShowCase>
       <ShowCase title="Copy">
         <Copy text="brew install --cask http-toolkit" />
+      </ShowCase>
+      <ShowCase title="Blog CTA Block">
+        <BlogCTA
+          title="A brief introduction to OpenAPI"
+          subtitle="see also"
+          buttonHref="/example"
+          buttonText="Learn more"
+        />
       </ShowCase>
       <ShowCase title="Simple Footer">
         <SimpleFooter />
