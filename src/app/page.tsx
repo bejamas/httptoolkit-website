@@ -10,6 +10,7 @@ import {
   CaretDown,
   RocketLaunch,
   AndroidLogo,
+  CaretRight,
   SealCheck,
   LinkSimpleBreak,
   GithubLogo,
@@ -22,7 +23,9 @@ import { ThemedImage } from '@/components/elements/themed-image';
 import { Tooltip } from '@/components/elements/tooltip';
 import { SimpleFooter } from '@/components/layout/footer/simple-footer';
 import { BlogCard } from '@/components/modules/blog-card';
+import { Card } from '@/components/modules/card';
 import { ContentCard } from '@/components/modules/content-card';
+import { CTABox } from '@/components/modules/cta-box';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 import { FluidCard } from '@/components/modules/fluid-card';
@@ -165,6 +168,22 @@ export default async function Home() {
         <Input as="textarea" placeholder="Email address" />
         <Input $hasError placeholder="Email address" errorMessage="This is an error message." />
       </ShowCase>
+      <ShowCase title="Card">
+        <Card
+          title="Simulate Network Issues & Redirect Traffic"
+          text="Inject request timeouts, simulate connection failures, and silently redirect requests from one server to another. These features also ensure API stability and failover efficacy."
+          darkImage="/images/illustration.svg"
+          lightImage="/images/illustration-light.svg"
+          imageAlt="Simulate"
+        />
+        <Card
+          title="Targeted Request Handling: Proxy & Mock Server Capabilities"
+          text="Precise matching lets you target the requests you care about. Match any requests sent anywhere by using HTTP Toolkit as a proxy, send requests directly to use it as a mock server."
+          darkImage="/images/illustration-1.svg"
+          lightImage="/images/illustration-1-light.svg"
+          imageAlt="Simulate"
+        />
+      </ShowCase>
       <ShowCase title="Tooltip">
         <Tooltip text="example">
           <Button icon={RocketLaunch} $variant="secondary">
@@ -233,6 +252,24 @@ export default async function Home() {
       </ShowCase>
       <ShowCase title="Copy">
         <Copy text="brew install --cask http-toolkit" />
+      </ShowCase>
+      <ShowCase title="Blog CTA Block">
+        <CTABox
+          title="A brief introduction to OpenAPI"
+          subtitle="see also"
+          buttonHref="/example"
+          buttonText="Learn more"
+          buttonIcon={CaretRight}
+        />
+        <CTABox
+          $variant="faq"
+          title="Still have questions?"
+          text="Head to the GitHub issue repo, as many questions and bugs already have answers there, and new bugs or feature requests posted there get more feedback & support from the wider community."
+          textOverButton="You can also read more in the docs:"
+          buttonHref="https://example.com"
+          buttonText="Github HTTP Toolkit"
+          buttonIcon={GithubLogo}
+        />
       </ShowCase>
       <ShowCase title="Blog card">
         <BlogCard
