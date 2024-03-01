@@ -14,7 +14,8 @@ export const StyledCTABoxWrapper = styled.div`
     0px 0px 24px 0px rgba(128, 130, 137, 0.1) inset,
     0 0 0 1px ${({ theme }) => theme.colors.button.border};
 
-  background-image: url('/dots_dark.svg'), url('/gradient-dark.png');
+  background-image: ${({ theme }) => theme.backgroundImages.backgroundDots},
+    ${({ theme }) => theme.backgroundImages.backgroundGradient};
   background-size:
     250px auto,
     200% 200%;
@@ -25,10 +26,6 @@ export const StyledCTABoxWrapper = styled.div`
 
   & * {
     text-align: center;
-  }
-
-  @media (prefers-color-scheme: light) {
-    background-image: url('/dots-light.svg'), url('/gradient-light.png');
   }
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
