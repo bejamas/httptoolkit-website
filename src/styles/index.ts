@@ -240,6 +240,7 @@ export const GlobalStyles = createGlobalStyle`
       left: 7px;
       top: -16rem;
       transform: translateX(-50%);
+      transition: top 400ms ease-in;
     }
 
     .skip-button:focus-within,
