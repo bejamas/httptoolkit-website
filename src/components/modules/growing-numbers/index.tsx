@@ -4,38 +4,12 @@ import {
   StyledGrowingNumbersStat,
   StyledGrowingNumbersStatsWrapper,
 } from './growing-numbers.styles';
-import type { GrowingNumbersStat } from './growing-numbers.types';
+import type { GrowingNumbersProps } from './growing-numbers.types';
 
 import { Text } from '@/components/elements/text';
-import { getGithubDownloadStats } from '@/lib/services/get-github-download-stats';
 import { convertToMax3DigitsWithSuffix } from '@/lib/utils/format3digitsAndSuffix';
 
-export const GrowingNumbers = async () => {
-  const downloads = await getGithubDownloadStats();
-
-  const stats: GrowingNumbersStat[] = [
-    {
-      title: 'years in business',
-      number: 7,
-      isOver: true,
-    },
-    {
-      title: 'app downloads',
-      number: downloads,
-      isOver: true,
-    },
-    {
-      title: 'users across the world',
-      number: 300850,
-      isOver: true,
-    },
-    {
-      title: 'awesome debugging tool',
-      number: 1,
-      isOver: false,
-    },
-  ];
-
+export const GrowingNumbers = ({ stats }: GrowingNumbersProps) => {
   return (
     <StyledGrowingNumbersStatsWrapper>
       {Array.isArray(stats) &&

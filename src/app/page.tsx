@@ -32,7 +32,7 @@ import { FluidCard } from '@/components/modules/fluid-card';
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { Input } from '@/components/modules/input';
 import { IntegrationCard } from '@/components/modules/integration-card';
-import { Statistics } from '@/components/sections/stadistics';
+import { Statistics } from '@/components/sections/statistics';
 import BlogPostImage from '@/content/posts/analytics-map.png';
 
 export default async function Home() {

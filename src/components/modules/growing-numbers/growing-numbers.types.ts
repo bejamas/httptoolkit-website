@@ -3,3 +3,7 @@ export interface GrowingNumbersStat {
   number: number;
   isOver?: boolean;
 }
+
+export interface GrowingNumbersProps {
+  stats: GrowingNumbersStat[];
+}
