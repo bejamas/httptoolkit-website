@@ -32,6 +32,7 @@ import { FluidCard } from '@/components/modules/fluid-card';
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { Input } from '@/components/modules/input';
 import { IntegrationCard } from '@/components/modules/integration-card';
+import { GrowingNumbers } from '@/components/sections/growing-numbers';
 import BlogPostImage from '@/content/posts/analytics-map.png';
 
 export default async function Home() {
@@ -329,6 +330,32 @@ export default async function Home() {
           lightSrc="https://picsum.photos/id/1035/1024"
         />
       </ShowCase>
+      <GrowingNumbers
+        title="Why `*HTTP Toolkit*`?"
+        text="Numbers that speak for themselves:"
+        stats={[
+          {
+            title: 'years in business',
+            number: 7,
+            isOver: true,
+          },
+          {
+            title: 'app downloads',
+            number: 1000000,
+            isOver: true,
+          },
+          {
+            title: 'users across the world',
+            number: 300850,
+            isOver: true,
+          },
+          {
+            title: 'awesome debugging tool',
+            number: 1,
+            isOver: false,
+          },
+        ]}
+      />
       <ShowCase title="Simple Footer">
         <SimpleFooter />
       </ShowCase>
