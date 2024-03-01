@@ -134,7 +134,7 @@ export default async function Home() {
         <SquareIcon icon={Alien} />
         <SquareIcon icon={Logo} $variant="secondary" />
         64x64
-        <SquareIcon icon={Alien} $size="xLarge" $variant="tertiary" />
+        <SquareIcon icon={Alien} $size="large" />
         72x72
         <SquareIcon icon={Alien} $size="xLarge" $variant="tertiary" />
       </ShowCase>
