@@ -29,6 +29,7 @@ import { FluidCard } from '@/components/modules/fluid-card';
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { Input } from '@/components/modules/input';
 import { IntegrationCard } from '@/components/modules/integration-card';
+import { FeatureLine } from '@/components/sections/feature-line';
 import BlogPostImage from '@/content/posts/analytics-map.png';
 
 export default async function Home() {
@@ -290,6 +291,32 @@ export default async function Home() {
           alt="Example themed image"
           darkSrc="https://picsum.photos/id/1019/1024"
           lightSrc="https://picsum.photos/id/1035/1024"
+        />
+      </ShowCase>
+      <ShowCase title="Feature line">
+        <FeatureLine
+          $align="right"
+          darkImage="/images/mockup-image.jpg"
+          lightImage="/images/mockup-image-light.jpg"
+          alt="Mockup image"
+          title="Seamless Traffic Interception"
+          badge={{
+            text: 'Intercept',
+            icon: Sparkle,
+          }}
+          list={[
+            'Experience unmatched control with the Intercept feature, allowing you to seamlessly capture and analyze network traffic in real-time.',
+            "Tailor your network's behavior by modifying requests and responses on the fly, ensuring thorough testing and debugging.",
+            "Intercept offers a direct window into your application's communication, providing clarity and precision in your development process.",
+          ]}
+        />
+        <FeatureLine
+          darkImage="/images/mockup-image.jpg"
+          lightImage="/images/mockup-image-light.jpg"
+          alt="Mockup image"
+          title="Customize Responses with Prototyping Rules for Endpoints"
+          text="Create rules to match requests and respond with your own content, to quickly prototype against new endpoints or services."
+          icon={Sparkle}
         />
       </ShowCase>
       <ShowCase title="Simple Footer">
