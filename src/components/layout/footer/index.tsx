@@ -30,10 +30,10 @@ export const Footer = () => {
                 FOLLOW US
               </Text>
               <Stack $direction="row">
-                <Link href="https://github.com/httptoolkit">
+                <Link href="https://github.com/httptoolkit" title="Github" aria-label="Github">
                   <SquareIcon $size="small" icon={Github} />
                 </Link>
-                <Link href="https://twitter.com/httptoolkit">
+                <Link href="https://twitter.com/httptoolkit" title="Twitter" aria-label="Twitter">
                   <SquareIcon $size="small" icon={TwitterX} />
                 </Link>
               </Stack>
