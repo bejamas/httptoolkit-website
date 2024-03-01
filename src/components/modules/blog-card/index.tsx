@@ -23,7 +23,7 @@ export const BlogCard = ({ title, text, image, date, tag }: BlogCardProps) => {
       </StyledBlogCardFigure>
       <StyledBlogCardContentWrapper>
         <Text fontSize="m" color="darkGrey">
-          {formatDateLongMonthYear(date)}
+          <time dateTime={date}>{formatDateLongMonthYear(date)}</time>
         </Text>
         <Heading as="h3" color="white" fontSize="xs" fontWeight="medium">
           {title}
