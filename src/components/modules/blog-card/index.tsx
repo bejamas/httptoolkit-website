@@ -25,7 +25,7 @@ export const BlogCard = ({ title, text, image, date, tag }: BlogCardProps) => {
         <Text fontSize="m" color="darkGrey">
           {formatDateLongMonthYear(date)}
         </Text>
-        <Heading color="white" fontSize="xs" fontWeight="medium">
+        <Heading as="h3" color="white" fontSize="xs" fontWeight="medium">
           {title}
         </Heading>
         <Text fontSize="m" color="darkGrey">
