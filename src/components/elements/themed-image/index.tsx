@@ -9,7 +9,7 @@ import { StyledThemedImage, ThemedImageMovingBorder } from './themed-image';
 
 import { useMounted } from '@/lib/hooks/use-mounted';
 
-interface ThemeImageProps extends Omit<ImageProps, 'src'> {
+export interface ThemeImageProps extends Omit<ImageProps, 'src'> {
   lightSrc: string | StaticImport;
   darkSrc: string | StaticImport;
   withBorderAnimation?: boolean;
