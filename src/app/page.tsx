@@ -64,7 +64,7 @@ export default async function Home() {
         }}
         heading="Intercept & view all your HTTP"
         image={{
-          darkSrc: '/images/hero-placeholder.png',
+          darkSrc: '/images/hero-placeholder-dark.png',
           lightSrc: '/images/hero-placeholder-light.png',
           withBorderAnimation: true,
           alt: 'Hero',
