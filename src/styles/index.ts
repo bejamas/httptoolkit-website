@@ -220,6 +220,11 @@ export const GlobalStyles = createGlobalStyle`
       --hero-box-shadow: transparent;
     }
 
+    [data-theme='dark'] [data-hide-on-theme='dark'],
+    [data-theme='light'] [data-hide-on-theme='light'] {
+      display: none;
+    }
+
     * {
         box-sizing: border-box;
     }

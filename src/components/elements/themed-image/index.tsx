@@ -3,11 +3,8 @@
 import type { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import type { ImageProps } from 'next/image';
 import Image from 'next/image';
-import { useTheme } from 'next-themes';
 
 import { StyledThemedImage, ThemedImageMovingBorder } from './themed-image';
-
-import { useMounted } from '@/lib/hooks/use-mounted';
 
 export interface ThemeImageProps extends Omit<ImageProps, 'src'> {
   lightSrc: string | StaticImport;
@@ -22,47 +19,39 @@ export const ThemedImage = ({
   withBorderAnimation,
   withoutStyles,
   alt = 'image',
+  width,
+  height,
   ...props
 }: ThemeImageProps) => {
-  const { resolvedTheme } = useTheme();
-  const { isMounted } = useMounted();
-  let src;
+  const hasSize = !!width && !!height;
   const imageProps = {
-    fill: true,
+    fill: !hasSize,
+    priority: false,
     ...props,
   };
 
-  if (!isMounted) {
-    return null;
-  }
-
-  switch (resolvedTheme) {
-    case 'light':
-      src = lightSrc;
-      break;
-    case 'dark':
-      src = darkSrc;
-      break;
-    default:
-      src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
-      break;
-  }
-
   if (withBorderAnimation) {
     return (
-      <ThemedImageMovingBorder>
-        <Image alt={alt} src={src} {...imageProps} />
+      <ThemedImageMovingBorder style={{ minHeight: height }}>
+        <Image alt={alt} src={lightSrc} width={width} height={height} {...imageProps} data-hide-on-theme="dark" />
+        <Image alt={alt} src={darkSrc} width={width} height={height} {...imageProps} data-hide-on-theme="light" />
       </ThemedImageMovingBorder>
     );
   }
 
   if (withoutStyles) {
-    return <Image alt={alt} src={src} {...imageProps} />;
+    return (
+      <>
+        <Image alt={alt} src={lightSrc} width={width} height={height} {...imageProps} data-hide-on-theme="dark" />
+        <Image alt={alt} src={darkSrc} width={width} height={height} {...imageProps} data-hide-on-theme="light" />
+      </>
+    );
   }
 
   return (
-    <StyledThemedImage>
-      <Image alt={alt} src={src} {...imageProps} />
+    <StyledThemedImage style={{ minHeight: height }}>
+      <Image alt={alt} src={lightSrc} width={width} height={height} {...imageProps} data-hide-on-theme="dark" />
+      <Image alt={alt} src={darkSrc} width={width} height={height} {...imageProps} data-hide-on-theme="light" />
     </StyledThemedImage>
   );
 };
