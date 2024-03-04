@@ -15,6 +15,7 @@ import {
   SealCheck,
   LinkSimpleBreak,
   CursorClick,
+  AppleLogo,
 } from '@phosphor-icons/react/dist/ssr';
 
 import { FullLogo, Logo, Github, TwitterX } from './custom';
@@ -40,4 +41,5 @@ export {
   CaretRight,
   GithubLogo,
   CursorClick,
+  AppleLogo,
 };

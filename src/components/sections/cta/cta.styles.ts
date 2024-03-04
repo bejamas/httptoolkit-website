@@ -16,7 +16,7 @@ const ctaSectionStyles = css`
   margin: 96px auto;
 `;
 
-export const StyledHeroWrapper = styled.section<{ $isHero: boolean }>`
+export const StyledHeroWrapper = styled.section<{ $isHero: boolean; $isLargeText: boolean }>`
   position: relative;
   padding-top: 96px;
   padding-bottom: 64px;
@@ -37,6 +37,13 @@ export const StyledHeroWrapper = styled.section<{ $isHero: boolean }>`
     pointer-events: none;
     background-image: radial-gradient(ellipse at center, transparent 60%, ${({ theme }) => theme.colors.inkBlack});
   }
+
+  ${({ $isLargeText }) =>
+    !$isLargeText &&
+    css`
+      padding-top: 128px;
+      padding-bottom: 128px;
+    `};
 `;
 
 export const StyledContainer = styled(Container)`
@@ -76,10 +83,16 @@ export const StyledExcerpt = styled(Text)`
   max-width: 659px;
 `;
 
-export const StyledCTAWrapper = styled.div`
+export const StyledCTAWrapper = styled.div<{ $isLargeText: boolean }>`
   display: flex;
   align-items: center;
 
   gap: 32px;
   margin-bottom: 66px;
+
+  ${({ $isLargeText }) =>
+    !$isLargeText &&
+    css`
+      margin-top: 16px;
+    `};
 `;

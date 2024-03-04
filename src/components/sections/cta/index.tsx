@@ -15,9 +15,10 @@ export type CTA = Pick<ButtonProps, 'icon' | 'href' | 'onClick' | '$withBorder' 
   title: string;
 };
 
-export interface HeroProps {
+export interface CTAProps {
   isHero?: boolean;
   heading: string;
+  textAppearance?: 'small' | 'large';
   subHeading?: {
     text: string;
     icon?: IconType;
@@ -37,31 +38,33 @@ export const CTA = ({
   cta,
   withDownload = true,
   isHero = true,
+  textAppearance = 'large',
   image,
-}: HeroProps) => {
+}: CTAProps) => {
   const SubHeadingIcon = subHeading?.icon;
   const asTitle = isHero ? 'h1' : 'h3';
+  const isLargeText = textAppearance === 'large';
 
   return (
-    <StyledHeroWrapper $isHero={isHero}>
+    <StyledHeroWrapper $isHero={isHero} $isLargeText={isLargeText}>
       <StyledContainer>
         {icon && (
           <SquareIcon $size={isHero ? 'xLarge' : 'large'} $variant={isHero ? 'primary' : 'secondary'} icon={icon} />
         )}
         {subHeading && (
-          <Text as="label" color="cinnarbarRed" fontSize="xll" fontWeight="bold">
+          <Text as="label" color="cinnarbarRed" fontSize={isLargeText ? 'xll' : 'm'} fontWeight="bold">
             {subHeading?.text} {SubHeadingIcon && <SubHeadingIcon weight="fill" />}
           </Text>
         )}
-        <Stack $gapxl="32px">
-          <Heading color="textGradient" as={asTitle}>
+        <Stack $gapxl={isLargeText ? '32px' : '16px'}>
+          <Heading color="textGradient" as={asTitle} fontSize={isLargeText ? 'xl' : 'l'}>
             {heading}
           </Heading>
           {excerpt && <StyledExcerpt fontSize="l">{excerpt}</StyledExcerpt>}
 
           {/* TODO: Use the download feature instead when is ready */}
           {(withDownload || cta) && (
-            <StyledCTAWrapper>
+            <StyledCTAWrapper $isLargeText={isLargeText}>
               {withDownload ? (
                 <Dropdown $variant="primary" $withBorder items={dropdownItems} aria-label="Download Items">
                   Download for macOS
