@@ -1,6 +1,7 @@
 import {
   Alien,
   CaretDown,
+  CaretUp,
   RocketLaunch,
   Sparkle,
   Book,
@@ -15,6 +16,8 @@ import {
   SealCheck,
   LinkSimpleBreak,
   Check,
+  CursorClick,
+  AppleLogo,
 } from '@phosphor-icons/react/dist/ssr';
 
 import { FullLogo, Logo, Github, TwitterX } from './custom';
@@ -40,4 +43,7 @@ export {
   Check,
   CaretRight,
   GithubLogo,
+  CaretUp,
+  CursorClick,
+  AppleLogo,
 };

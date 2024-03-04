@@ -3,8 +3,10 @@ import type { Icon } from '@phosphor-icons/react';
 import type { CustomIcon } from '../icon/custom/types';
 
 export const SquareIconSizes = {
-  medium: 32,
-  large: 48,
+  small: 48,
+  medium: 56,
+  large: 64,
+  xLarge: 72,
 };
 
 export interface StyledSquareIconProps {
@@ -12,6 +14,8 @@ export interface StyledSquareIconProps {
   $size?: keyof typeof SquareIconSizes;
 }
 
+export type IconType = Icon | CustomIcon;
+
 export interface SquareIconProps extends StyledSquareIconProps {
-  icon: Icon | CustomIcon;
+  icon: IconType;
 }
