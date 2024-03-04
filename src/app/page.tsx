@@ -218,6 +218,7 @@ export default async function Home() {
       <ShowCase title="Blog block code">
         <BlockCode
           title="Response example"
+          language="javascript"
           content={`await axios.post(
   '/payments',
   { to: 'user@example', value: 2000 },
