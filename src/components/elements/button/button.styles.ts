@@ -2,7 +2,7 @@
 
 import type { StyledButtonProps } from './button.types';
 
-// import { Link } from '@/components/elements/link';
+import { Link } from '@/components/elements/link';
 import { css, screens, styled } from '@/styles';
 
 const base = css<StyledButtonProps>`
@@ -10,6 +10,7 @@ const base = css<StyledButtonProps>`
   z-index: 1;
   display: flex;
   width: 100%;
+  height: fit-content;
   outline: none;
   border: 0;
   font-size: ${({ theme, $small }) => theme.fontSizes.button[$small ? 'small' : 'default']};
@@ -124,7 +125,7 @@ const base = css<StyledButtonProps>`
   }}
 `;
 
-export const StyledLink = styled.a<StyledButtonProps>`
+export const StyledLink = styled(Link)<StyledButtonProps>`
   ${base}
 `;
 
