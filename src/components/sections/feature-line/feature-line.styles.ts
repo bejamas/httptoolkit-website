@@ -28,10 +28,24 @@ export const StyledFeatureLineContentWrapper = styled.div`
   flex-direction: column;
   gap: 16px;
   max-width: 548px;
+
+  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+    align-items: center;
+    margin: 0 auto 32px;
+    gap: 32px;
+  }
 `;
 
 export const StyledFeatureLineTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+    gap: 32px;
+
+    & > * {
+      text-align: center;
+    }
+  }
 `;
