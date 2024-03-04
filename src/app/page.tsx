@@ -347,15 +347,31 @@ export default async function Home() {
             "Intercept offers a direct window into your application's communication, providing clarity and precision in your development process.",
           ]}
         />
-        <FeatureLine
-          darkImage="/images/mockup-image.webp"
-          lightImage="/images/mockup-image-light.webp"
-          alt="Mockup image"
-          title="Customize Responses with Prototyping Rules for Endpoints"
-          text="Create rules to match requests and respond with your own content, to quickly prototype against new endpoints or services."
-          icon={Sparkle}
-        />
       </ShowCase>
+      <FeatureLine
+        darkImage="/images/mockup-image.webp"
+        lightImage="/images/mockup-image-light.webp"
+        alt="Mockup image"
+        title="Customize Responses with Prototyping Rules for Endpoints"
+        text="Create rules to match requests and respond with your own content, to quickly prototype against new endpoints or services."
+        icon={Sparkle}
+      />
+      <FeatureLine
+        darkImage="/images/mockup-image.webp"
+        lightImage="/images/mockup-image-light.webp"
+        alt="Mockup image"
+        title="Endpoint Management for Testing Edge Cases & Error Handling"
+        text="Define new endpoints, override existing ones, or replace external services, to reproduce tricky edge cases and test your error handling."
+        icon={Sparkle}
+      />
+      <FeatureLine
+        darkImage="/images/mockup-image.webp"
+        lightImage="/images/mockup-image-light.webp"
+        alt="Mockup image"
+        title="Shareable Mock Rulesets: Import & Export for Team Collaboration"
+        text="Import & export your mock rulesets, to build complex setups and share them with your team."
+        icon={Sparkle}
+      />
       <ShowCase title="Simple Footer">
         <SimpleFooter />
       </ShowCase>
