@@ -35,7 +35,6 @@ export const StyledCardImageWrapper = styled.div`
 export const StyledCardImage = styled(ThemedImage)`
   height: 216px !important;
   position: relative !important;
-  max-width: 296px;
   padding: 0 16px;
 `;
 
