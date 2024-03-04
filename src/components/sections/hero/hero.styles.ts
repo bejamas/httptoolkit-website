@@ -2,19 +2,30 @@
 
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
+import { StyledStack } from '@/components/elements/stack/stack.styles';
 import { Text } from '@/components/elements/text';
+import { StyledText } from '@/components/elements/text/text.styles';
 import { styled } from '@/styles';
 
 export const StyledHeroWrapper = styled.section`
+  position: relative;
   padding-top: 96px;
   padding-bottom: 64px;
   text-align: center;
   box-shadow: ${({ theme }) => theme.shadow.hero};
-
   background:
     no-repeat url('/images/backgrounds/hero-lines.svg'),
     ${({ theme }) => theme.backgroundImages.backgroundDots};
   background-position: top -80px center;
+
+  /* faded look effect */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(ellipse at center, transparent 60%, ${({ theme }) => theme.colors.inkBlack});
+  }
 `;
 
 export const StyledHeading = styled(Heading)`
@@ -32,6 +43,16 @@ export const StyledContainer = styled(Container)`
 
   padding-left: 0;
   padding-right: 0;
+
+  & ${StyledText} {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  & ${StyledStack} {
+    align-items: center;
+  }
 `;
 
 export const STyledSubHeading = styled(Text)`
@@ -41,7 +62,6 @@ export const STyledSubHeading = styled(Text)`
 `;
 
 export const StyledExcerpt = styled(Text)`
-  margin: 32px 0;
   max-width: 659px;
 `;
 
@@ -50,6 +70,5 @@ export const StyledCTAWrapper = styled.div`
   align-items: center;
 
   gap: 32px;
-  margin-top: 32px;
   margin-bottom: 66px;
 `;

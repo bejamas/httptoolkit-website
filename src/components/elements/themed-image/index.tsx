@@ -24,34 +24,39 @@ export const ThemedImage = ({
   ...props
 }: ThemeImageProps) => {
   const hasSize = !!width && !!height;
+
   const imageProps = {
     fill: !hasSize,
     priority: false,
+    width,
+    height,
     ...props,
+  };
+
+  const FinalImage = () => {
+    return (
+      <>
+        <Image alt={alt} src={lightSrc} {...imageProps} data-hide-on-theme="dark" />
+        <Image alt={alt} src={darkSrc} {...imageProps} data-hide-on-theme="light" />
+      </>
+    );
   };
 
   if (withBorderAnimation) {
     return (
       <ThemedImageMovingBorder style={{ minHeight: height }}>
-        <Image alt={alt} src={lightSrc} width={width} height={height} {...imageProps} data-hide-on-theme="dark" />
-        <Image alt={alt} src={darkSrc} width={width} height={height} {...imageProps} data-hide-on-theme="light" />
+        <FinalImage />
       </ThemedImageMovingBorder>
     );
   }
 
   if (withoutStyles) {
-    return (
-      <>
-        <Image alt={alt} src={lightSrc} width={width} height={height} {...imageProps} data-hide-on-theme="dark" />
-        <Image alt={alt} src={darkSrc} width={width} height={height} {...imageProps} data-hide-on-theme="light" />
-      </>
-    );
+    return <FinalImage />;
   }
 
   return (
     <StyledThemedImage style={{ minHeight: height }}>
-      <Image alt={alt} src={lightSrc} width={width} height={height} {...imageProps} data-hide-on-theme="dark" />
-      <Image alt={alt} src={darkSrc} width={width} height={height} {...imageProps} data-hide-on-theme="light" />
+      <FinalImage />
     </StyledThemedImage>
   );
 };
