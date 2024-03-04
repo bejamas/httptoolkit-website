@@ -16,7 +16,7 @@ import { CaretDown } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
 
 const renderAccordion = (link: TableContentProps['links'][0], isCollapsible: boolean) => {
-  const hasSubItems = Array.isArray(link.subItems);
+  const hasSubItems = Boolean(Array.isArray(link.subItems) && link.subItems?.length);
   const showCaret = isCollapsible && hasSubItems;
 
   if (!isCollapsible) return <TableContentAccordionFixed link={link} hasSubItems={hasSubItems} />;
