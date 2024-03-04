@@ -46,7 +46,7 @@ export const FeatureLine = ({
           {list && <TextList list={list} />}
         </StyledFeatureLineTextWrapper>
       </StyledFeatureLineContentWrapper>
-      <StyledFeatureLineImage darkSrc={darkImage} lightSrc={lightImage} alt={alt} withBorderAnimation />
+      <StyledFeatureLineImage darkSrc={darkImage} lightSrc={lightImage} alt={alt} withBorder />
     </StyledFeatureLineWrapper>
   );
 };
