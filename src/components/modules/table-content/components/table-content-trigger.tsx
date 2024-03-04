@@ -11,7 +11,7 @@ const TextComponent = ({ children }: Component) => (
   </Text>
 );
 
-export const TableContentTriggerComponent = ({ text, href }: TableContentProps['links'][0]) => {
+export const TableContentTriggerComponent = ({ text, href }: TableContentProps['links'][number]) => {
   if (href) {
     return (
       <TextComponent>
