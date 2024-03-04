@@ -333,8 +333,8 @@ export default async function Home() {
       <ShowCase title="Feature line">
         <FeatureLine
           $align="right"
-          darkImage="/images/mockup-image.jpg"
-          lightImage="/images/mockup-image-light.jpg"
+          darkImage="/images/mockup-image.webp"
+          lightImage="/images/mockup-image-light.webp"
           alt="Mockup image"
           title="Seamless Traffic Interception"
           badge={{
@@ -348,8 +348,8 @@ export default async function Home() {
           ]}
         />
         <FeatureLine
-          darkImage="/images/mockup-image.jpg"
-          lightImage="/images/mockup-image-light.jpg"
+          darkImage="/images/mockup-image.webp"
+          lightImage="/images/mockup-image-light.webp"
           alt="Mockup image"
           title="Customize Responses with Prototyping Rules for Endpoints"
           text="Create rules to match requests and respond with your own content, to quickly prototype against new endpoints or services."
