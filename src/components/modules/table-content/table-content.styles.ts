@@ -55,7 +55,7 @@ export const StyledTableContentItemTrigger = styled(Accordion.Trigger)`
 
   & svg {
     transition: transform 0.5s;
-    color: ${({ theme }) => theme.colors.text.alwayWhite};
+    color: ${({ theme }) => theme.colors.text.white};
   }
 `;
 
