@@ -18,14 +18,14 @@ export const BlogCard = ({ title, text, image, date, tag }: BlogCardProps) => {
   return (
     <StyledBlogCardWrapper>
       <StyledBlogCardFigure>
-        <StyledBlogCardImage src={image.src} alt={image.alt} />
+        <StyledBlogCardImage src={image.src} alt={image.alt} loading="lazy" />
         <StyledBlogCardTag>{tag}</StyledBlogCardTag>
       </StyledBlogCardFigure>
       <StyledBlogCardContentWrapper>
         <Text fontSize="m" color="darkGrey">
-          {formatDateLongMonthYear(date)}
+          <time dateTime={date}>{formatDateLongMonthYear(date)}</time>
         </Text>
-        <Heading color="white" fontSize="xs" fontWeight="medium">
+        <Heading as="h3" color="white" fontSize="xs" fontWeight="medium">
           {title}
         </Heading>
         <Text fontSize="m" color="darkGrey">

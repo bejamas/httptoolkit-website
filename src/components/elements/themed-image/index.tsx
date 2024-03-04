@@ -3,54 +3,60 @@
 import type { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import type { ImageProps } from 'next/image';
 import Image from 'next/image';
-import { useTheme } from 'next-themes';
 
 import { StyledThemedImage, ThemedImageMovingBorder } from './themed-image';
 
-import { useMounted } from '@/lib/hooks/use-mounted';
-
-interface ThemeImageProps extends Omit<ImageProps, 'src'> {
+export interface ThemeImageProps extends Omit<ImageProps, 'src'> {
   lightSrc: string | StaticImport;
   darkSrc: string | StaticImport;
   withBorderAnimation?: boolean;
+  withoutStyles?: boolean;
 }
 
-export const ThemedImage = ({ lightSrc, darkSrc, withBorderAnimation, alt = 'image', ...props }: ThemeImageProps) => {
-  const { resolvedTheme } = useTheme();
-  const { isMounted } = useMounted();
-  let src;
+export const ThemedImage = ({
+  lightSrc,
+  darkSrc,
+  withBorderAnimation,
+  withoutStyles,
+  alt = 'image',
+  width,
+  height,
+  ...props
+}: ThemeImageProps) => {
+  const hasSize = !!width && !!height;
+
   const imageProps = {
-    fill: true,
+    fill: !hasSize,
+    priority: false,
+    width,
+    height,
     ...props,
   };
 
-  if (!isMounted) {
-    return null;
-  }
-
-  switch (resolvedTheme) {
-    case 'light':
-      src = lightSrc;
-      break;
-    case 'dark':
-      src = darkSrc;
-      break;
-    default:
-      src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
-      break;
-  }
+  const FinalImage = () => {
+    return (
+      <>
+        <Image alt={alt} src={lightSrc} {...imageProps} data-hide-on-theme="dark" />
+        <Image alt={alt} src={darkSrc} {...imageProps} data-hide-on-theme="light" />
+      </>
+    );
+  };
 
   if (withBorderAnimation) {
     return (
-      <ThemedImageMovingBorder>
-        <Image alt={alt} src={src} {...imageProps} />
+      <ThemedImageMovingBorder style={{ minHeight: height }}>
+        <FinalImage />
       </ThemedImageMovingBorder>
     );
   }
 
+  if (withoutStyles) {
+    return <FinalImage />;
+  }
+
   return (
-    <StyledThemedImage>
-      <Image alt={alt} src={src} {...imageProps} />
+    <StyledThemedImage style={{ minHeight: height }}>
+      <FinalImage />
     </StyledThemedImage>
   );
 };

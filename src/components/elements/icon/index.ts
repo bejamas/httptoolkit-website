@@ -9,10 +9,13 @@ import {
   CheckCircle,
   AndroidLogo,
   ArrowRight,
+  CaretRight,
   GithubLogo,
   Globe,
   SealCheck,
   LinkSimpleBreak,
+  CursorClick,
+  AppleLogo,
 } from '@phosphor-icons/react/dist/ssr';
 
 import { FullLogo, Logo, Github, TwitterX } from './custom';
@@ -30,10 +33,13 @@ export {
   CheckCircle,
   AndroidLogo,
   ArrowRight,
-  GithubLogo,
   Globe,
   SealCheck,
   LinkSimpleBreak,
   Github,
   TwitterX,
+  CaretRight,
+  GithubLogo,
+  CursorClick,
+  AppleLogo,
 };
