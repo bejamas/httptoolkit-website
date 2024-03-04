@@ -5,7 +5,7 @@ import { StyledHeading } from '@/components/elements/heading/heading.styles';
 import { StyledStack } from '@/components/elements/stack/stack.styles';
 import { Text } from '@/components/elements/text';
 import { StyledText } from '@/components/elements/text/text.styles';
-import { styled, css } from '@/styles';
+import { styled, css, screens } from '@/styles';
 
 const ctaSectionStyles = css`
   max-width: 1440px;
@@ -41,8 +41,13 @@ export const StyledHeroWrapper = styled.section<{ $isHero: boolean; $isLargeText
   ${({ $isLargeText }) =>
     !$isLargeText &&
     css`
-      padding-top: 128px;
-      padding-bottom: 128px;
+      padding-top: 64px;
+      padding-bottom: 64px;
+
+      @media (min-width: ${screens['lg']}) {
+        padding-top: 128px;
+        padding-bottom: 128px;
+      }
     `};
 `;
 
@@ -53,8 +58,10 @@ export const StyledContainer = styled(Container)`
   align-items: center;
   justify-content: center;
 
-  padding-left: 0;
-  padding-right: 0;
+  @media (min-width: ${screens['lg']}) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   & ${StyledHeading} {
     max-width: 1100px;
@@ -80,7 +87,11 @@ export const STyledSubHeading = styled(Text)`
 `;
 
 export const StyledExcerpt = styled(Text)`
-  max-width: 659px;
+  max-width: 343px;
+
+  @media (min-width: ${screens['lg']}) {
+    max-width: 659px;
+  }
 `;
 
 export const StyledCTAWrapper = styled.div<{ $isLargeText: boolean }>`
