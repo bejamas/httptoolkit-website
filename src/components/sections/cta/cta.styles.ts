@@ -1,13 +1,22 @@
 'use client';
 
 import { Container } from '@/components/elements/container';
-import { Heading } from '@/components/elements/heading';
+import { StyledHeading } from '@/components/elements/heading/heading.styles';
 import { StyledStack } from '@/components/elements/stack/stack.styles';
 import { Text } from '@/components/elements/text';
 import { StyledText } from '@/components/elements/text/text.styles';
-import { styled } from '@/styles';
+import { styled, css } from '@/styles';
 
-export const StyledHeroWrapper = styled.section`
+const ctaSectionStyles = css`
+  max-width: 1440px;
+  margin: 0 auto;
+  border: 1px solid ${({ theme }) => theme.colors.button.border};
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 96px auto;
+`;
+
+export const StyledHeroWrapper = styled.section<{ $isHero: boolean }>`
   position: relative;
   padding-top: 96px;
   padding-bottom: 64px;
@@ -17,6 +26,8 @@ export const StyledHeroWrapper = styled.section`
     no-repeat url('/images/backgrounds/hero-lines.svg'),
     ${({ theme }) => theme.backgroundImages.backgroundDots};
   background-position: top -80px center;
+
+  ${({ $isHero }) => !$isHero && ctaSectionStyles};
 
   /* faded look effect */
   &::before {
@@ -28,12 +39,6 @@ export const StyledHeroWrapper = styled.section`
   }
 `;
 
-export const StyledHeading = styled(Heading)`
-  max-width: 1100px;
-  line-height: 115%;
-  padding-top: 4px;
-`;
-
 export const StyledContainer = styled(Container)`
   max-width: 1140px;
   display: flex;
@@ -43,6 +48,12 @@ export const StyledContainer = styled(Container)`
 
   padding-left: 0;
   padding-right: 0;
+
+  & ${StyledHeading} {
+    max-width: 1100px;
+    line-height: 115%;
+    padding-top: 4px;
+  }
 
   & ${StyledText} {
     display: flex;

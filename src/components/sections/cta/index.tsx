@@ -1,7 +1,8 @@
-import { StyledCTAWrapper, StyledContainer, StyledExcerpt, StyledHeading, StyledHeroWrapper } from './hero.styles';
+import { StyledCTAWrapper, StyledContainer, StyledExcerpt, StyledHeroWrapper } from './cta.styles';
 
 import { Button } from '@/components/elements/button';
 import type { ButtonProps } from '@/components/elements/button/button.types';
+import { Heading } from '@/components/elements/heading';
 import { SquareIcon } from '@/components/elements/square-icon';
 import type { IconType } from '@/components/elements/square-icon/square-icon.types';
 import Stack from '@/components/elements/stack';
@@ -15,6 +16,7 @@ export type CTA = Pick<ButtonProps, 'icon' | 'href' | 'onClick' | '$withBorder' 
 };
 
 export interface HeroProps {
+  isHero?: boolean;
   heading: string;
   subHeading?: {
     text: string;
@@ -27,19 +29,34 @@ export interface HeroProps {
   image?: ThemeImageProps;
 }
 
-export const Hero = ({ icon, heading, subHeading, excerpt, cta, withDownload = true, image }: HeroProps) => {
+export const CTA = ({
+  icon,
+  heading,
+  subHeading,
+  excerpt,
+  cta,
+  withDownload = true,
+  isHero = true,
+  image,
+}: HeroProps) => {
   const SubHeadingIcon = subHeading?.icon;
+  const asTitle = isHero ? 'h1' : 'h3';
+
   return (
-    <StyledHeroWrapper>
+    <StyledHeroWrapper $isHero={isHero}>
       <StyledContainer>
-        {icon && <SquareIcon $size="xLarge" icon={icon} />}
+        {icon && (
+          <SquareIcon $size={isHero ? 'xLarge' : 'large'} $variant={isHero ? 'primary' : 'secondary'} icon={icon} />
+        )}
         {subHeading && (
           <Text as="label" color="cinnarbarRed" fontSize="xll" fontWeight="bold">
             {subHeading?.text} {SubHeadingIcon && <SubHeadingIcon weight="fill" />}
           </Text>
         )}
         <Stack $gapxl="32px">
-          <StyledHeading color="textGradient">{heading}</StyledHeading>
+          <Heading color="textGradient" as={asTitle}>
+            {heading}
+          </Heading>
           {excerpt && <StyledExcerpt fontSize="l">{excerpt}</StyledExcerpt>}
 
           {/* TODO: Use the download feature instead when is ready */}

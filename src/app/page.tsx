@@ -33,7 +33,7 @@ import { FluidCard } from '@/components/modules/fluid-card';
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { Input } from '@/components/modules/input';
 import { IntegrationCard } from '@/components/modules/integration-card';
-import { Hero } from '@/components/sections/hero';
+import { CTA } from '@/components/sections/cta';
 import BlogPostImage from '@/content/posts/analytics-map.png';
 
 export default async function Home() {
@@ -57,7 +57,7 @@ export default async function Home() {
 
   return (
     <>
-      <Hero
+      <CTA
         subHeading={{
           text: 'With one click',
           icon: CursorClick,
