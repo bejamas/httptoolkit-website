@@ -1,6 +1,7 @@
 import {
   Alien,
   CaretDown,
+  CaretUp,
   RocketLaunch,
   Sparkle,
   Book,
@@ -38,4 +39,5 @@ export {
   TwitterX,
   CaretRight,
   GithubLogo,
+  CaretUp,
 };

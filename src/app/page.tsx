@@ -32,6 +32,7 @@ import { FluidCard } from '@/components/modules/fluid-card';
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { Input } from '@/components/modules/input';
 import { IntegrationCard } from '@/components/modules/integration-card';
+import { TableContent } from '@/components/modules/table-content';
 import BlogPostImage from '@/content/posts/analytics-map.png';
 
 export default async function Home() {
@@ -49,6 +50,63 @@ export default async function Home() {
       content: 'Download for Mac',
       as: 'link',
       href: '/blog',
+    },
+  ];
+
+  const commonSubItems = [
+    {
+      text: 'The Intercept Page',
+      href: '#interceptor-page',
+    },
+    {
+      text: 'Single Project',
+      href: '#interceptor-page',
+    },
+    {
+      text: 'Payments',
+      href: '#interceptor-page',
+    },
+  ];
+  const collapsibleTableContent = [
+    {
+      text: 'Getting Started',
+      subItems: commonSubItems,
+    },
+    {
+      text: 'Reference',
+      subItems: commonSubItems,
+    },
+    {
+      text: 'Guides',
+      subItems: commonSubItems,
+    },
+    {
+      text: 'CE Admin APIs',
+      subItems: commonSubItems,
+    },
+    {
+      text: 'FAQs',
+      subItems: commonSubItems,
+    },
+  ];
+  const nonCollapsibleTableContent = [
+    {
+      text: 'Terms Of Service',
+      href: '#example',
+    },
+    {
+      text: 'Terms Of Service (“Terms”)',
+      href: '#example',
+    },
+    {
+      text: 'What information do we collect?',
+      href: '#example',
+      subItems: [
+        {
+          text: 'Information automatically collected',
+          href: '#example',
+        },
+      ],
     },
   ];
 
@@ -333,6 +391,10 @@ export default async function Home() {
           darkSrc="https://picsum.photos/id/1019/1024"
           lightSrc="https://picsum.photos/id/1035/1024"
         />
+      </ShowCase>
+      <ShowCase title="Navigation content sidebar">
+        <TableContent isCollapsible links={collapsibleTableContent} />
+        <TableContent links={nonCollapsibleTableContent} />
       </ShowCase>
       <ShowCase title="Simple Footer">
         <SimpleFooter />
