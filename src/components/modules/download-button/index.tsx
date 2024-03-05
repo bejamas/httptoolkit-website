@@ -2,18 +2,23 @@
 
 import sortBy from 'lodash/sortBy';
 import { useEffect, useMemo, useState } from 'react';
+import { useMedia } from 'react-use';
 
+import { SendEmail } from './components/send-email';
 import type { DownloadButtonProps } from './download-button.types';
 import { Dropdown } from '../dropdown';
 import type { DropdownOptionProps } from '../dropdown/dropdown.types';
 
-
 import { OSDictionary } from '@/lib/constants/download-dictionary';
 import { parseUserAgent } from '@/lib/utils/parse-user-agent';
+import { screens } from '@/styles';
 
 
-export const DownloadButton = ({ $small, $variant, $withBorder }: DownloadButtonProps) => {
+// TODO: need to integrate send email functionality
+
+export const DownloadButton = ({ $small, $variant, $withBorder, hasMobileFallback }: DownloadButtonProps) => {
   const [operativeSystem, setOperativeSystem] = useState('');
+  const isMobile = useMedia(`(max-width: ${screens.lg})`, false);
   const defaultOperativeSystem =
     OSDictionary.find(os => os.os === operativeSystem && os.defaultText) || OSDictionary[0];
 
@@ -30,6 +35,8 @@ export const DownloadButton = ({ $small, $variant, $withBorder }: DownloadButton
   useEffect(() => {
     setOperativeSystem(parseUserAgent(navigator.userAgent));
   }, []);
+
+  if (isMobile && hasMobileFallback) return <SendEmail />;
 
   return (
     <Dropdown $small={$small} $variant={$variant} $withBorder={$withBorder} aria-label="Download Items" items={items}>
