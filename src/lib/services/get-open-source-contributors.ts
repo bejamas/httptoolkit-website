@@ -58,7 +58,7 @@ export const getOpenSourceContributors = async () => {
     }),
   );
 
-  const uniqueContributors = [...new Set(contributors.map(([, contributors]) => contributors).flat())];
+  const uniqueContributors = [...new Set<unknown>(contributors.map(([, contributors]) => contributors).flat())];
 
   return uniqueContributors.length;
 };

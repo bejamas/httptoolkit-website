@@ -37,8 +37,8 @@ export async function getOrganizationStars(organizationName = GITHUB_ORG) {
     }
 
     return starsCount;
-  } catch (error) {
-    console.error('Error:', error.message);
+  } catch (error: unknown) {
+    if (error instanceof Error) console.error('Error:', error.message);
     return 0;
   }
 }
