@@ -5,30 +5,33 @@ import { GrowingNumbers } from '@/components/modules/growing-numbers';
 import type { GrowingNumbersStat } from '@/components/modules/growing-numbers/growing-numbers.types';
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { getGithubDownloadStats } from '@/lib/services/get-github-download-stats';
+import { getOpenSourceContributors } from '@/lib/services/get-open-source-contributors';
+import { getOrganizationStars } from '@/lib/services/get-repo-starts';
 
 export const Statistics = async ({ title, text }: StatisticsProps) => {
   const downloads = await getGithubDownloadStats();
+  const contributors = await getOpenSourceContributors();
+  const starts = await getOrganizationStars();
 
   const stats: GrowingNumbersStat[] = [
     {
       title: 'years in business',
-      number: 7,
+      number: 8,
       isOver: true,
     },
     {
-      title: 'app downloads',
+      title: 'users around the world',
       number: downloads,
       isOver: true,
     },
     {
-      title: 'users across the world',
-      number: 300850,
-      isOver: true,
+      title: 'open-source contributors',
+      number: contributors,
     },
     {
-      title: 'awesome debugging tool',
-      number: 1,
-      isOver: false,
+      title: 'GitHub stars on httptoolkit repos',
+      number: starts,
+      isOver: true,
     },
   ];
   return (
