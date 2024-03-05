@@ -32,6 +32,7 @@ export const NavigationSidebarLinks = ({ title, links }: NavigationSidebarLinksP
                 <ItemTitleComponent {...link} />
               </StyledNavigationSidebarLinksContentTitle>
               {Array.isArray(link.subitems) &&
+                link.subitems?.length > 0 &&
                 link.subitems.map(link => (
                   <StyledNavigationSidebarLinksContentLink href={link.href}>
                     {link.text}
