@@ -20,7 +20,6 @@ export const ThemedImageMovingBorder = styled(MovingBorder)<MovingBorderProps>`
   --radius: 16px;
   line-height: 0;
   width: 100%;
-  aspect-ratio: 1 / 1;
   height: auto;
   object-fit: cover;
 
