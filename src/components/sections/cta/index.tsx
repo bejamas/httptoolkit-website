@@ -47,7 +47,7 @@ export const CTA = ({
           {(withDownload || cta) && (
             <StyledCTAWrapper $isLargeText={isLargeText}>
               {withDownload ? (
-                <Dropdown $variant="primary" $withBorder items={dropdownItems} aria-label="Download Items">
+                <Dropdown $variant="primary" $withBorder={isHero} items={dropdownItems} aria-label="Download Items">
                   Download for macOS
                 </Dropdown>
               ) : null}
