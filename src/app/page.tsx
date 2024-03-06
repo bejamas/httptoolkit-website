@@ -37,6 +37,7 @@ import { IntegrationCard } from '@/components/modules/integration-card';
 import { NavigationSidebarLinks } from '@/components/modules/navigation-sidebar-links';
 import { TableContent } from '@/components/modules/table-content';
 import { CTA } from '@/components/sections/cta';
+import { IntegrationCTA } from '@/components/sections/integration/cta';
 import BlogPostImage from '@/content/posts/analytics-map.png';
 
 export default async function Home() {
@@ -477,6 +478,21 @@ export default async function Home() {
         <ShowCase title="Navigation content sidebar links">
           <NavigationSidebarLinks title="On this page" links={navigationContentSidebar} />
         </ShowCase>
+        <IntegrationCTA
+          $variant="hero"
+          title="Automatic setup and powerful integration for all your tools"
+          text="With deep integrations into a huge range of popular components & tools, HTTP Toolkit lets you intercept mobile apps, whole devices, bash scripts, entire Docker containers and more, so you can see & modify anything in just one click."
+        />
+        <IntegrationCTA
+          $variant="cta"
+          title="Integrations"
+          text="Explore a vast array of integrations and applications designed to streamline your work, consolidate information, and enhance collaboration effortlessly. "
+          button={{
+            $small: true,
+            $variant: 'secondary',
+            children: 'See all integrations',
+          }}
+        />
         <ShowCase title="Simple Footer">
           <SimpleFooter />
         </ShowCase>
