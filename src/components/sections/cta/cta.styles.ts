@@ -1,5 +1,7 @@
 'use client';
 
+import type { CTAVariant } from './cta.types';
+
 import { Container } from '@/components/elements/container';
 import { StyledHeading } from '@/components/elements/heading/heading.styles';
 import { StyledStack } from '@/components/elements/stack/stack.styles';
@@ -7,28 +9,46 @@ import { Text } from '@/components/elements/text';
 import { StyledText } from '@/components/elements/text/text.styles';
 import { styled, css, screens } from '@/styles';
 
-const ctaSectionStyles = css`
+const ctaSquareStyles = css`
   max-width: 1440px;
   margin: 0 auto;
-  border: 1px solid ${({ theme }) => theme.colors.button.border};
+  border: 1px solid ${({ theme }) => theme.colors.borderDark};
   border-radius: 16px;
   overflow: hidden;
   margin: 96px auto;
-`;
-
-export const StyledHeroWrapper = styled.section<{ $isHero: boolean; $isLargeText: boolean }>`
-  position: relative;
-  padding-top: 96px;
+  padding-top: 64px;
   padding-bottom: 64px;
-  text-align: center;
-  box-shadow: ${({ theme }) => theme.shadow.hero};
+  box-shadow: 0px 0px 24px 0px rgba(189, 195, 218, 0.1) inset;
   background:
     no-repeat url('/images/backgrounds/hero-lines.svg'),
     ${({ theme }) => theme.backgroundImages.backgroundDots};
   background-position: top -80px center;
 
-  ${({ $isHero }) => !$isHero && ctaSectionStyles};
+  @media (min-width: ${screens['lg']}) {
+    padding-top: 128px;
+    padding-bottom: 128px;
+  }
+  /* faded look effect */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(ellipse at center, transparent 30%, ${({ theme }) => theme.colors.inkBlack});
+  }
+`;
 
+const ctaStyles = css`
+  background: no-repeat url('/images/backgrounds/hero-lines.svg');
+  background-position: top -80px center;
+`;
+
+const ctaHeroStyles = css`
+  box-shadow: ${({ theme }) => theme.shadow.hero};
+  background:
+    no-repeat url('/images/backgrounds/hero-lines.svg'),
+    ${({ theme }) => theme.backgroundImages.backgroundDots};
+  background-position: top -80px center;
   /* faded look effect */
   &::before {
     content: '';
@@ -37,18 +57,22 @@ export const StyledHeroWrapper = styled.section<{ $isHero: boolean; $isLargeText
     pointer-events: none;
     background-image: radial-gradient(ellipse at center, transparent 60%, ${({ theme }) => theme.colors.inkBlack});
   }
+`;
 
-  ${({ $isLargeText }) =>
-    !$isLargeText &&
-    css`
-      padding-top: 64px;
-      padding-bottom: 64px;
+export const StyledHeroWrapper = styled.section<{ $variant: CTAVariant }>`
+  position: relative;
+  padding-top: 32px;
+  padding-bottom: 64px;
+  text-align: center;
 
-      @media (min-width: ${screens['lg']}) {
-        padding-top: 128px;
-        padding-bottom: 128px;
-      }
-    `};
+  ${({ $variant }) => $variant === 'cta-square' && ctaSquareStyles};
+  ${({ $variant }) => $variant === 'cta-hero' && ctaHeroStyles};
+  ${({ $variant }) => $variant === 'cta-fluid' && ctaStyles};
+
+  @media (min-width: ${screens['lg']}) {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
 `;
 
 export const StyledContainer = styled(Container)`
@@ -99,7 +123,6 @@ export const StyledCTAWrapper = styled.div<{ $isLargeText: boolean }>`
   align-items: center;
 
   gap: 32px;
-  margin-bottom: 66px;
 
   ${({ $isLargeText }) =>
     !$isLargeText &&
