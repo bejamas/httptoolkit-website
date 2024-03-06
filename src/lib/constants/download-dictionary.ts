@@ -1,4 +1,6 @@
-import { LATEST_VERSION } from './app-version';
+const LATEST_VERSION_PLACEHOLDER = '{LATEST_VERSION}';
+
+export const parseReleasePath = (path: string, LATEST_VERSION: string) => path.replace('{}', LATEST_VERSION);
 
 export const OSDictionary = [
   {
@@ -6,7 +8,7 @@ export const OSDictionary = [
     href: '/download/mac-dgm',
     text: 'MacOS DGM',
     defaultText: 'macOs',
-    releasePath: `v${LATEST_VERSION}/HttpToolkit-${LATEST_VERSION}.dmg`,
+    releasePath: `v${LATEST_VERSION_PLACEHOLDER}/HttpToolkit-${LATEST_VERSION_PLACEHOLDER}.dmg`,
   },
   {
     os: 'mac',
@@ -19,13 +21,13 @@ export const OSDictionary = [
     href: '/download/windows-installer',
     text: 'Windows installer',
     defaultText: 'Windows',
-    releasePath: `v${LATEST_VERSION}/HttpToolkit-installer-${LATEST_VERSION}.exe`,
+    releasePath: `v${LATEST_VERSION_PLACEHOLDER}/HttpToolkit-installer-${LATEST_VERSION_PLACEHOLDER}.exe`,
   },
   {
     os: 'windows',
     href: '/download/windows-zip',
     text: 'Windows Standalone Zip',
-    releasePath: `v${LATEST_VERSION}/HttpToolkit-win-x64-${LATEST_VERSION}.zip`,
+    releasePath: `v${LATEST_VERSION_PLACEHOLDER}/HttpToolkit-win-x64-${LATEST_VERSION_PLACEHOLDER}.zip`,
   },
   {
     os: 'windows',
@@ -38,7 +40,7 @@ export const OSDictionary = [
     href: '/download/debian-package',
     text: 'Linux Debian Package',
     defaultText: 'Linux',
-    releasePath: `v${LATEST_VERSION}/HttpToolkit-${LATEST_VERSION}.deb`,
+    releasePath: `v${LATEST_VERSION_PLACEHOLDER}/HttpToolkit-${LATEST_VERSION_PLACEHOLDER}.deb`,
   },
   {
     os: 'linux',
@@ -50,6 +52,6 @@ export const OSDictionary = [
     os: 'linux',
     href: '/download/standalone-zip',
     text: 'Linux Standalone Zip',
-    releasePath: `v${LATEST_VERSION}/HttpToolkit-linux-x64-${LATEST_VERSION}.zip`,
+    releasePath: `v${LATEST_VERSION_PLACEHOLDER}/HttpToolkit-linux-x64-${LATEST_VERSION_PLACEHOLDER}.zip`,
   },
 ];
