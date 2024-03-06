@@ -1,7 +1,7 @@
 import styled, { createGlobalStyle, css, ThemeProvider, keyframes } from 'styled-components';
 import reset from 'styled-reset';
 
-export { styled, css, ThemeProvider };
+export { styled, css, ThemeProvider, keyframes };
 
 export const screens = {
   sm: '640px',
@@ -127,6 +127,8 @@ export const theme = {
   },
   shadow: {
     box: 'var(--shadow-box)',
+    innerBox: 'var(--shadow-inner-box)',
+    hero: 'var(--hero-box-shadow)',
   },
   backgroundImages: {
     ...backgroundImagesTheme,
@@ -170,17 +172,19 @@ export const GlobalStyles = createGlobalStyle`
       --text-always-white: #ffffff;
       --text-always-light-grey: #E6E8F2;
       --text-electric-light-blue: #6284FA;
-      --text-gradient: linear-gradient(to bottom,rgba(231,235,253,0.7),rgba(230,232,242,1));
+      --text-gradient: linear-gradient(to bottom,rgba(230,232,242,1), rgba(231,235,253,0.7));
       --button-secondary-default: #16181E;
       --button-secondary-section: #16181E;
       --button-border: rgba(255, 255, 255, 4%);
       --shadow-default: rgba(230, 232, 242, 0.05);
       --shadow-box: 0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0 0 8px rgba(230, 232, 242, 0.05);
+      --shadow-inner-box: rgba(128, 130, 137, 0.1);
       --moving-border-dark: rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4);
       --background-dots: url('/images/backgrounds/dots_dark.svg');
       --background-always-dark-dots: url('/images/backgrounds/dots_dark.svg');
       --background-gradient: url('/images/backgrounds/gradient_dark.png');
       --background-func-gradient: url('/images/backgrounds/func_gradient_dark.png');
+      --hero-box-shadow: 0 0 20px 52px inset rgb(30 32 40 / 55%);
     }
 
     [data-theme="light"] {
@@ -215,6 +219,12 @@ export const GlobalStyles = createGlobalStyle`
       --background-dots: url('/images/backgrounds/dots-light.svg');
       --background-gradient: url('/images/backgrounds/gradient-light.png');
       --background-func-gradient: url('/images/backgrounds/func-gradient-dark.png');
+      --hero-box-shadow: transparent;
+    }
+
+    [data-theme='dark'] [data-hide-on-theme='dark'],
+    [data-theme='light'] [data-hide-on-theme='light'] {
+      display: none;
     }
 
     * {
