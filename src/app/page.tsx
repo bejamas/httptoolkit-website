@@ -18,6 +18,7 @@ import {
 } from '@/components/elements/icon';
 import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
+import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
 import { ThemedImage } from '@/components/elements/themed-image';
@@ -493,30 +494,32 @@ export default async function Home() {
             ]}
           />
         </ShowCase>
-        <FeatureLine
-          darkImage="/images/mockup-image.webp"
-          lightImage="/images/mockup-image-light.webp"
-          alt="Mockup image"
-          title="Customize Responses with Prototyping Rules for Endpoints"
-          text="Create rules to match requests and respond with your own content, to quickly prototype against new endpoints or services."
-          icon={Sparkle}
-        />
-        <FeatureLine
-          darkImage="/images/mockup-image.webp"
-          lightImage="/images/mockup-image-light.webp"
-          alt="Mockup image"
-          title="Endpoint Management for Testing Edge Cases & Error Handling"
-          text="Define new endpoints, override existing ones, or replace external services, to reproduce tricky edge cases and test your error handling."
-          icon={Sparkle}
-        />
-        <FeatureLine
-          darkImage="/images/mockup-image.webp"
-          lightImage="/images/mockup-image-light.webp"
-          alt="Mockup image"
-          title="Shareable Mock Rulesets: Import & Export for Team Collaboration"
-          text="Import & export your mock rulesets, to build complex setups and share them with your team."
-          icon={Sparkle}
-        />
+        <Stack $gap="32px" $gapxl="96px">
+          <FeatureLine
+            darkImage="/images/mockup-image.webp"
+            lightImage="/images/mockup-image-light.webp"
+            alt="Mockup image"
+            title="Customize Responses with Prototyping Rules for Endpoints"
+            text="Create rules to match requests and respond with your own content, to quickly prototype against new endpoints or services."
+            icon={Sparkle}
+          />
+          <FeatureLine
+            darkImage="/images/mockup-image.webp"
+            lightImage="/images/mockup-image-light.webp"
+            alt="Mockup image"
+            title="Endpoint Management for Testing Edge Cases & Error Handling"
+            text="Define new endpoints, override existing ones, or replace external services, to reproduce tricky edge cases and test your error handling."
+            icon={Sparkle}
+          />
+          <FeatureLine
+            darkImage="/images/mockup-image.webp"
+            lightImage="/images/mockup-image-light.webp"
+            alt="Mockup image"
+            title="Shareable Mock Rulesets: Import & Export for Team Collaboration"
+            text="Import & export your mock rulesets, to build complex setups and share them with your team."
+            icon={Sparkle}
+          />
+        </Stack>
         <ShowCase title="Navigation content sidebar links">
           <NavigationSidebarLinks title="On this page" links={navigationContentSidebar} />
         </ShowCase>
