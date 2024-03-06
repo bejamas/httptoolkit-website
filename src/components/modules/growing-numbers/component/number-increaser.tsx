@@ -15,6 +15,7 @@ export const NumberIncreaser = ({ maxValue, suffix }: NumberIncreaserProps) => {
   if (!isMounted) {
     return <>{maxValue}</>;
   }
+
   return (
     <>
       {!suffix && maxValue < 10 && '0'}
