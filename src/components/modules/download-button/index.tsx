@@ -15,6 +15,8 @@ import { screens } from '@/styles';
 
 // TODO: need to integrate send email functionality
 
+const LATEST_RELEASE_URL = 'https://github.com/httptoolkit/httptoolkit-desktop/releases/latest';
+
 export const DownloadButton = ({ $small, $variant, $withBorder }: DownloadButtonProps) => {
   const [operativeSystem, setOperativeSystem] = useState('');
   const isMobile = useMedia(`(max-width: ${screens.lg})`, false);
@@ -25,7 +27,7 @@ export const DownloadButton = ({ $small, $variant, $withBorder }: DownloadButton
     () =>
       sortBy(OSDictionary, [item => (item.os === defaultOperativeSystem.os ? 0 : 1)], 'os', 'desc').map(item => ({
         as: 'link',
-        href: item.href,
+        href: item.href || LATEST_RELEASE_URL,
         content: item.text,
       })),
     [operativeSystem],
