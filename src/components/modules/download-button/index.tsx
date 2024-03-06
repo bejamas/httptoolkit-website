@@ -13,10 +13,9 @@ import { OSDictionary } from '@/lib/constants/download-dictionary';
 import { parseUserAgent } from '@/lib/utils/parse-user-agent';
 import { screens } from '@/styles';
 
-
 // TODO: need to integrate send email functionality
 
-export const DownloadButton = ({ $small, $variant, $withBorder, hasMobileFallback }: DownloadButtonProps) => {
+export const DownloadButton = ({ $small, $variant, $withBorder }: DownloadButtonProps) => {
   const [operativeSystem, setOperativeSystem] = useState('');
   const isMobile = useMedia(`(max-width: ${screens.lg})`, false);
   const defaultOperativeSystem =
@@ -36,7 +35,7 @@ export const DownloadButton = ({ $small, $variant, $withBorder, hasMobileFallbac
     setOperativeSystem(parseUserAgent(navigator.userAgent));
   }, []);
 
-  if (isMobile && hasMobileFallback) return <SendEmail />;
+  if (isMobile) return <SendEmail />;
 
   return (
     <Dropdown $small={$small} $variant={$variant} $withBorder={$withBorder} aria-label="Download Items" items={items}>

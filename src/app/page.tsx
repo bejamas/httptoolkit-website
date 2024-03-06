@@ -480,7 +480,7 @@ export default async function Home() {
         </ShowCase>
         <ShowCase title="Download button">
           <DownloadButton $small $variant="secondary" />
-          <DownloadButton $variant="primary" $withBorder hasMobileFallback />
+          <DownloadButton $variant="primary" $withBorder />
         </ShowCase>
         <ShowCase title="Simple Footer">
           <SimpleFooter />
