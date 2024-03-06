@@ -13,6 +13,7 @@ export const GrowingNumbers = ({ stats }: GrowingNumbersProps) => {
   return (
     <StyledGrowingNumbersStatsWrapper>
       {Array.isArray(stats) &&
+        stats?.length > 0 &&
         stats.map(stat => {
           const [number, suffix] = convertToMax3DigitsWithSuffix(stat.number);
           return (
