@@ -7,11 +7,11 @@ import {
 } from './hero.styles';
 import type { IntegrationSinglePageHeroProps } from './hero.types';
 
-import { Button } from '@/components/elements/button';
 import { Heading } from '@/components/elements/heading';
 import { Logo, X } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
 import { Breadcrumbs } from '@/components/modules/breadcrumbs';
+import { DownloadButton } from '@/components/modules/download-button';
 
 const breadcrumbs = [
   {
@@ -41,8 +41,7 @@ export const IntegrationSinglePageHero = ({
           <Text fontSize="m" color="darkGrey">
             {text}
           </Text>
-          {/* TODO: Download button */}
-          <Button>Download for macOS</Button>
+          <DownloadButton $variant="primary" />
         </StyledHeroContent>
       </StyledHeroContentWrapper>
       <StyledHeroImageWrapper>

@@ -576,12 +576,6 @@ export default async function Home() {
         <ShowCase title="Navigation content sidebar links">
           <NavigationSidebarLinks title="On this page" links={navigationContentSidebar} />
         </ShowCase>
-        <IntegrationSinglePageHero
-          title="Http Toolkit and Docker integrated"
-          text="Intercept & view all Docker HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
-          icon={DockerLogo}
-          breadcrumbText="docker"
-        />
         <ShowCase title="Download button">
           <DownloadButton $small $variant="secondary" />
           <DownloadButton $variant="primary" $withBorder />
@@ -591,6 +585,12 @@ export default async function Home() {
           <SimpleFooter />
         </ShowCase>
       </Container>
+      <IntegrationSinglePageHero
+        title="Http Toolkit and Docker integrated"
+        text="Intercept & view all Docker HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
+        icon={DockerLogo}
+        breadcrumbText="docker"
+      />
     </>
   );
 }

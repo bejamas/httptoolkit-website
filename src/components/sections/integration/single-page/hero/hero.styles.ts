@@ -1,16 +1,19 @@
 'use client';
 
+import { Container } from '@/components/elements/container';
 import { styled } from '@/styles';
 
-export const StyledHeroWrapper = styled.section`
-  padding: 32px 0;
+export const StyledHeroWrapper = styled(Container)`
+  padding-top: 32px;
+  padding-bottom: 32px;
   display: flex;
   flex-direction: column;
   gap: 32px;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     flex-direction: row;
-    padding: 64px 0;
+    padding-top: 64px;
+    padding-bottom: 64px;
     gap: 96px;
 
     & > * {
