@@ -11,7 +11,7 @@ export const Breadcrumbs = ({ links }: BreadcrumbsProps) => {
         links.map((link, index) => {
           const isLast = links.length - 1 === index;
           return (
-            <StyledBreadcrumbItem>
+            <StyledBreadcrumbItem key={link.text}>
               <StyledBreadcrumbItem>
                 <StyledBreadcrumbLink as={link.href ? 'a' : 'p'} $active={isLast} href={link.href ?? ''}>
                   {link.text}

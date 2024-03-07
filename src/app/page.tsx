@@ -580,7 +580,6 @@ export default async function Home() {
           <DownloadButton $small $variant="secondary" />
           <DownloadButton $variant="primary" $withBorder />
         </ShowCase>
-        <IntegrationGrid integrations={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
         <ShowCase title="Simple Footer">
           <SimpleFooter />
         </ShowCase>
@@ -591,6 +590,7 @@ export default async function Home() {
         icon={DockerLogo}
         breadcrumbText="docker"
       />
+      <IntegrationGrid integrations={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
     </>
   );
 }

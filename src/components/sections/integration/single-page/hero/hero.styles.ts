@@ -1,9 +1,8 @@
 'use client';
 
-import { Container } from '@/components/elements/container';
 import { styled } from '@/styles';
 
-export const StyledHeroWrapper = styled(Container)`
+export const StyledIntegrationHeroWrapper = styled.div`
   padding-top: 32px;
   padding-bottom: 32px;
   display: flex;
@@ -22,13 +21,13 @@ export const StyledHeroWrapper = styled(Container)`
   }
 `;
 
-export const StyledHeroContentWrapper = styled.div`
+export const StyledIntegrationHeroContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 48px;
 `;
 
-export const StyledHeroContent = styled.div`
+export const StyledIntegrationHeroContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -40,7 +39,7 @@ export const StyledHeroContent = styled.div`
   }
 `;
 
-export const StyledHeroImageWrapper = styled.div`
+export const StyledIntegrationHeroImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,7 +63,7 @@ export const StyledHeroImageWrapper = styled.div`
   background-repeat: no-repeat, no-repeat, repeat;
 `;
 
-export const StyledHeroImage = styled.div`
+export const StyledIntegrationHeroImage = styled.div`
   display: flex;
   gap: 24px;
   align-items: center;
