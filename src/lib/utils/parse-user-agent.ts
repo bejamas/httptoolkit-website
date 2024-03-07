@@ -1,6 +1,6 @@
 export function parseUserAgent(userAgent: string) {
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent)) {
-    return 'send-to-email';
+    return 'mobile';
   }
 
   let operatingSystem = 'mac';
