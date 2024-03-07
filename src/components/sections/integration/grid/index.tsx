@@ -8,7 +8,7 @@ export const IntegrationGrid = ({ integrations }: IntegrationGridProps) => {
     <StyledIntegrationGrid>
       {Array.isArray(integrations) &&
         integrations.length > 0 &&
-        integrations.map(card => <IntegrationCard {...card} />)}
+        integrations.map(card => <IntegrationCard key={card.title} {...card} />)}
     </StyledIntegrationGrid>
   );
 };
