@@ -116,6 +116,28 @@ export default async function Home() {
     },
   ];
 
+  const integrationsCard = [
+    {
+      $showBadge: true,
+      icon: AndroidLogo,
+      title: 'Android',
+      text: 'Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
+      link: {
+        href: '/example',
+        target: '_blank',
+      },
+    },
+    {
+      icon: AndroidLogo,
+      title: 'Javascript',
+      text: 'Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
+      link: {
+        href: '/example',
+        target: '_blank',
+      },
+    },
+  ];
+
   const navigationContentSidebar = [
     {
       text: 'Payments processing',
@@ -478,65 +500,7 @@ export default async function Home() {
         <ShowCase title="Navigation content sidebar links">
           <NavigationSidebarLinks title="On this page" links={navigationContentSidebar} />
         </ShowCase>
-        <IntegrationGrid>
-          <IntegrationCard
-            $showBadge
-            icon={AndroidLogo}
-            title="Android"
-            text="Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices."
-            link={{
-              href: '/example',
-              target: '_blank',
-            }}
-          />
-          <IntegrationCard
-            icon={AndroidLogo}
-            title="Javascript"
-            text="Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices."
-            link={{
-              href: '/example',
-              target: '_blank',
-            }}
-          />
-          <IntegrationCard
-            $showBadge
-            icon={AndroidLogo}
-            title="Android"
-            text="Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices."
-            link={{
-              href: '/example',
-              target: '_blank',
-            }}
-          />
-          <IntegrationCard
-            icon={AndroidLogo}
-            title="Javascript"
-            text="Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices."
-            link={{
-              href: '/example',
-              target: '_blank',
-            }}
-          />
-          <IntegrationCard
-            $showBadge
-            icon={AndroidLogo}
-            title="Android"
-            text="Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices."
-            link={{
-              href: '/example',
-              target: '_blank',
-            }}
-          />
-          <IntegrationCard
-            icon={AndroidLogo}
-            title="Javascript"
-            text="Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices."
-            link={{
-              href: '/example',
-              target: '_blank',
-            }}
-          />
-        </IntegrationGrid>
+        <IntegrationGrid cards={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
         <ShowCase title="Simple Footer">
           <SimpleFooter />
         </ShowCase>

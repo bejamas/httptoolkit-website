@@ -1,5 +1,12 @@
 import { StyledIntegrationGrid } from './grid.styles';
+import type { IntegrationGridProps } from './grid.types';
 
-export const IntegrationGrid = ({ children }: Component) => {
-  return <StyledIntegrationGrid>{children}</StyledIntegrationGrid>;
+import { IntegrationCard } from '@/components/modules/integration-card';
+
+export const IntegrationGrid = ({ cards }: IntegrationGridProps) => {
+  return (
+    <StyledIntegrationGrid>
+      {Array.isArray(cards) && cards.length > 0 && cards.map(card => <IntegrationCard {...card} />)}
+    </StyledIntegrationGrid>
+  );
 };
