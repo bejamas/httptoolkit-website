@@ -25,7 +25,7 @@ export const HeadingBlock = ({
           {badgeTitle}
         </Badge>
       )}
-      <StyledHeadingBlockTitle fontSize="l" textAlign={$align} color="textGradient">
+      <StyledHeadingBlockTitle forwardedAs="h2" fontSize="l" textAlign={$align} color="textGradient">
         <HighlightedText title={title} />
       </StyledHeadingBlockTitle>
       {text && (
