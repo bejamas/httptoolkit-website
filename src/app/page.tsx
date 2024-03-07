@@ -548,7 +548,7 @@ export default async function Home() {
         <ShowCase title="Navigation content sidebar links">
           <NavigationSidebarLinks title="On this page" links={navigationContentSidebar} />
         </ShowCase>
-        <IntegrationGrid cards={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
+        <IntegrationGrid integrations={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
         <ShowCase title="Simple Footer">
           <SimpleFooter />
         </ShowCase>

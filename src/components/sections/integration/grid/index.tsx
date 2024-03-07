@@ -3,10 +3,12 @@ import type { IntegrationGridProps } from './grid.types';
 
 import { IntegrationCard } from '@/components/modules/integration-card';
 
-export const IntegrationGrid = ({ cards }: IntegrationGridProps) => {
+export const IntegrationGrid = ({ integrations }: IntegrationGridProps) => {
   return (
     <StyledIntegrationGrid>
-      {Array.isArray(cards) && cards.length > 0 && cards.map(card => <IntegrationCard {...card} />)}
+      {Array.isArray(integrations) &&
+        integrations.length > 0 &&
+        integrations.map(card => <IntegrationCard {...card} />)}
     </StyledIntegrationGrid>
   );
 };
