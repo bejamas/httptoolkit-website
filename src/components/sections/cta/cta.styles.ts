@@ -89,9 +89,13 @@ export const StyledContainer = styled(Container)`
   }
 
   & ${StyledHeading} {
-    max-width: 1100px;
+    max-width: 360px;
     line-height: 115%;
     padding-top: 4px;
+
+    @media (min-width: ${screens['md']}) {
+      max-width: 1100px;
+    }
   }
 
   & ${StyledText} {
@@ -126,8 +130,12 @@ export const StyledExcerpt = styled(Text)<{ $isLargeText?: boolean }>`
 export const StyledCTAWrapper = styled.div<{ $isLargeText: boolean }>`
   display: flex;
   align-items: center;
-
+  flex-direction: column;
   gap: 32px;
+
+  @media (min-width: ${screens['lg']}) {
+    flex-direction: row;
+  }
 
   ${({ $isLargeText }) =>
     !$isLargeText &&

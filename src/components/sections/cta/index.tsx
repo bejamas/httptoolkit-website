@@ -7,8 +7,7 @@ import { SquareIcon } from '@/components/elements/square-icon';
 import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { ThemedImage } from '@/components/elements/themed-image';
-import { dropdownItems } from '@/components/layout/header';
-import { Dropdown } from '@/components/modules/dropdown';
+import { DownloadButton } from '@/components/modules/download-button';
 
 export const CTA = ({
   icon,
@@ -51,9 +50,7 @@ export const CTA = ({
           {(withDownload || cta) && (
             <StyledCTAWrapper $isLargeText={isLargeText}>
               {withDownload ? (
-                <Dropdown $variant="primary" $withBorder={isHero} items={dropdownItems} aria-label="Download Items">
-                  Download for macOS
-                </Dropdown>
+                <DownloadButton $variant="primary" $withBorder={isHero} aria-label="Download Items" />
               ) : null}
 
               {cta && (
