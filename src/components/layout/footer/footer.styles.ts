@@ -38,7 +38,7 @@ export const StyledColumn = styled.div`
 
     & *:first-child > svg {
       width: fit-content;
-      height: 20px;
+      height: 26px;
     }
   }
 
@@ -141,7 +141,7 @@ export const StyledSimpleFooterWrapper = styled(StyledFooterCopySection)`
 
   & > svg {
     width: fit-content;
-    height: 20px;
+    height: 26px;
   }
 `;
 

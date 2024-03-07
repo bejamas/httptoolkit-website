@@ -18,7 +18,7 @@ export const Footer = () => {
       <StyledContainer>
         <StyledColumn>
           <Stack>
-            <LogoFooter width="" height="" />
+            <LogoFooter />
             <Text fontSize="m">
               There&apos;s a lot of new HTTP Toolkit features coming soon, like automated iOS interception, HTTP client
               tools, gRPC & GraphQL support, and request diffing.

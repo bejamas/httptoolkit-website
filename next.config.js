@@ -18,7 +18,7 @@ const nextConfig = {
     config.module?.rules?.push({
       // issuer: /\.[jt]sx?$/,
       test: /\.svg$/i,
-      use: [{ loader: '@svgr/webpack', options: { icon: true } }],
+      use: [{ loader: '@svgr/webpack', options: { icon: 'auto' } }],
     });
 
     return config;
