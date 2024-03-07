@@ -19,10 +19,11 @@ export default async function FiddlerPage() {
       <CTA
         $variant="cta-square"
         icon={Logo}
+        textAppearance="small"
         heading="Try it for yourself"
         excerpt="It is completely free! You can also Go Pro and explore the Http Toolkit with additional features."
         cta={{
-          title: 'Go Prop!',
+          title: 'Go Pro!',
           icon: RocketLaunch,
           href: '/pro',
         }}
@@ -31,10 +32,11 @@ export default async function FiddlerPage() {
       <CTA
         $variant="cta-fluid"
         icon={Logo}
+        textAppearance="small"
         heading="Try it for yourself"
         excerpt="It is completely free! You can also Go Pro and explore the Http Toolkit with additional features."
         cta={{
-          title: 'Go Prop!',
+          title: 'Go Pro!',
           icon: RocketLaunch,
           href: '/pro',
         }}

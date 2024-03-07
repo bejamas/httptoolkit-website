@@ -10,7 +10,7 @@ import { StyledText } from '@/components/elements/text/text.styles';
 import { styled, css, screens } from '@/styles';
 
 const ctaSquareStyles = css`
-  max-width: 1440px;
+  max-width: 1344px;
   margin: 0 auto;
   border: 1px solid ${({ theme }) => theme.colors.borderDark};
   border-radius: 16px;
@@ -28,6 +28,7 @@ const ctaSquareStyles = css`
     padding-top: 128px;
     padding-bottom: 128px;
   }
+
   /* faded look effect */
   &::before {
     content: '';
@@ -110,12 +111,16 @@ export const STyledSubHeading = styled(Text)`
   gap: 8px;
 `;
 
-export const StyledExcerpt = styled(Text)`
-  max-width: 343px;
+export const StyledExcerpt = styled(Text)<{ $isLargeText?: boolean }>`
+  ${({ $isLargeText }) =>
+    $isLargeText &&
+    css`
+      max-width: 343px;
 
-  @media (min-width: ${screens['lg']}) {
-    max-width: 659px;
-  }
+      @media (min-width: ${screens['lg']}) {
+        max-width: 659px;
+      }
+    `};
 `;
 
 export const StyledCTAWrapper = styled.div<{ $isLargeText: boolean }>`

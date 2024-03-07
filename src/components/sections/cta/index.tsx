@@ -30,18 +30,22 @@ export const CTA = ({
     <StyledHeroWrapper $variant={$variant}>
       <StyledContainer>
         {icon && (
-          <SquareIcon $size={isHero ? 'xLarge' : 'large'} $variant={isHero ? 'primary' : 'secondary'} icon={icon} />
+          <SquareIcon $size={isHero ? 'xLarge' : 'medium'} $variant={isHero ? 'primary' : 'secondary'} icon={icon} />
         )}
         {subHeading && (
           <Text as="label" color="cinnarbarRed" fontSize={isLargeText ? 'xll' : 'm'} fontWeight="bold">
             {subHeading?.text} {SubHeadingIcon && <SubHeadingIcon weight="fill" />}
           </Text>
         )}
-        <Stack $gapxl={isLargeText ? '32px' : '16px'}>
+        <Stack $gapxl={isLargeText ? '32px' : '24px'}>
           <Heading color="textGradient" as={asTitle} fontSize={isLargeText ? 'xl' : 'l'}>
             {heading}
           </Heading>
-          {excerpt && <StyledExcerpt fontSize="l">{excerpt}</StyledExcerpt>}
+          {excerpt && (
+            <StyledExcerpt fontSize="l" $isLargeText={isLargeText}>
+              {excerpt}
+            </StyledExcerpt>
+          )}
 
           {/* TODO: Use the download feature instead when is ready */}
           {(withDownload || cta) && (
