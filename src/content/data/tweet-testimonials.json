@@ -3,201 +3,234 @@
     "id": "1702319616352305389",
     "name": "HassanMunene",
     "username": "Awanzii",
-    "text": "Today I discovered this amazing open source tool call HTTP Toolkit that you can use to intercept HTTP and HTTPS traffic for analysing and debugging. In case you want to look at header and body of your HTTP messages then this tool is really amazing."
+    "quote": "Today I discovered this amazing open source tool call HTTP Toolkit that you can use to intercept HTTP and HTTPS traffic for analysing and debugging. In case you want to look at header and body of your HTTP messages then this tool is really amazing.",
+    "icon": "twitterX"
   },
   {
     "id": "1683567006111367169",
     "name": "Darasus",
     "username": "darasus_",
-    "text": "Pro tip: If you want to debug @trpcio remote procedure calls in @reactjs server components, @HttpToolkit is your best friend"
+    "quote": "Pro tip: If you want to debug @trpcio remote procedure calls in @reactjs server components, @HttpToolkit is your best friend",
+    "icon": "twitterX"
   },
   {
     "id": "1557661097611743232",
     "name": "Toni Castillo",
     "username": "ToniCastillo_",
-    "text": "Acabo de descubrir HTTP Toolkit y me flipa: https://httptoolkit.tech. Una herramienta para interceptar, depurar, testear y simular con HTTP. Y además es de código abierto."
+    "quote": "Acabo de descubrir HTTP Toolkit y me flipa: https://httptoolkit.tech. Una herramienta para interceptar, depurar, testear y simular con HTTP. Y además es de código abierto.",
+    "icon": "twitterX"
   },
   {
     "id": "1685492486456881152",
     "name": "Yi Ding",
     "username": "yi_ding",
-    "text": "Totally unpaid product endorsement: really really like @HttpToolkit for debugging LLM requests/responses. One click copy-paste into your terminal and all requests/responses including SSL are automatically proxied and viewable."
+    "quote": "Totally unpaid product endorsement: really really like @HttpToolkit for debugging LLM requests/responses. One click copy-paste into your terminal and all requests/responses including SSL are automatically proxied and viewable.",
+    "icon": "twitterX"
   },
   {
     "id": "1417242969183227907",
     "username": "Stavros",
     "name": "Stavros",
-    "text": "I love @pimterry's @HttpToolkit so damn much, it's the only thing that let me intercept Android apps' requests, and did it with just two clicks.\n\nI'm just stunned, fantastic work."
+    "quote": "I love @pimterry's @HttpToolkit so damn much, it's the only thing that let me intercept Android apps' requests, and did it with just two clicks.\n\nI'm just stunned, fantastic work.",
+    "icon": "twitterX"
   },
   {
     "id": "1222894618594795520",
     "name": "Petr Stribny",
     "username": "stribny",
-    "text": "Great tool for debugging and mocking HTTP requests https://httptoolkit.tech #debugging #softwaredevelopment"
+    "quote": "Great tool for debugging and mocking HTTP requests https://httptoolkit.tech #debugging #softwaredevelopment",
+    "icon": "twitterX"
   },
   {
     "id": "1430513437323399172",
     "username": "Manikanta",
     "name": "zaheckmania",
-    "text": "When it comes to flutter app penetration testing it's a nightmare for me. But today I found an awesome tool #HttpToolkit which helps to inspect flutter app traffic with a seamless connection. Thank you @HttpToolkit"
+    "quote": "When it comes to flutter app penetration testing it's a nightmare for me. But today I found an awesome tool #HttpToolkit which helps to inspect flutter app traffic with a seamless connection. Thank you @HttpToolkit",
+    "icon": "twitterX"
   },
   {
     "id": "1381489773223665669",
     "name": "Noob",
     "username": "gamedev_noob",
-    "text": "@pimterry knows what he is doing. Great code in HTTP toolkit.",
-    "archiveUrl": "https://web.archive.org/web/20210708034605/https://twitter.com/i/web/status/1381489773223665669"
+    "quote": "@pimterry knows what he is doing. Great code in HTTP toolkit.",
+    "archiveUrl": "https://web.archive.org/web/20210708034605/https://twitter.com/i/web/status/1381489773223665669",
+    "icon": "twitterX"
   },
   {
     "id": "1421537213779636226",
     "name": "Guy Gascoigne-Piggford",
     "username": "ggascoigne",
-    "text": "If you ever want to easily look at what api calls your non-browser process is making, then https://httptoolkit.tech is really effective and trivial to setup.  Saved me a lot of time, a very neat tool."
+    "quote": "If you ever want to easily look at what api calls your non-browser process is making, then https://httptoolkit.tech is really effective and trivial to setup.  Saved me a lot of time, a very neat tool.",
+    "icon": "twitterX"
   },
   {
     "id": "1727221226194780163",
     "name": "Cuckoo Chickoo",
     "username": "Sunny_Again",
-    "text": "@HttpToolkit is the first thing I install before even starting to work on any project"
+    "quote": "@HttpToolkit is the first thing I install before even starting to work on any project",
+    "icon": "twitterX"
   },
   {
     "id": "1302164558736322560",
     "name": "Faisal Rathore",
     "username": "AkaaZaan",
-    "text": "what an awesome tool!!"
+    "quote": "what an awesome tool!!",
+    "icon": "twitterX"
   },
   {
     "id": "1233552355339071488",
     "name": "Elijah Lynn",
     "username": "ElijahLynn",
-    "text": "@httptoolkit is one of the most useful debugging tools EVER! You can intercept all HTTPS requests AND responses and MOCK responses! So FUDGING valuable!\n\nSo excited to see this tool develop and just submitted a software request to my company!"
+    "quote": "@httptoolkit is one of the most useful debugging tools EVER! You can intercept all HTTPS requests AND responses and MOCK responses! So FUDGING valuable!\n\nSo excited to see this tool develop and just submitted a software request to my company!",
+    "icon": "twitterX"
   },
   {
     "id": "1252611268806148102",
     "name": "Adam Williams",
     "username": "aiwilliams",
-    "text": "Working with @erkang to get past an unexpected API response uploading #jupiterone security policies to #confluence for our customers. Bumped into https://httptoolkit.tech amazed how it just worked to trace HTTP from any Terminal.app sub-process!"
+    "quote": "Working with @erkang to get past an unexpected API response uploading #jupiterone security policies to #confluence for our customers. Bumped into https://httptoolkit.tech amazed how it just worked to trace HTTP from any Terminal.app sub-process!",
+    "icon": "twitterX"
   },
   {
     "id": "1302164558736322560",
     "name": "Johannes Wuensch",
     "username": "JohannesWuensch",
-    "text": "Just tested it. Works like a charm! Thank you so much!"
+    "quote": "Just tested it. Works like a charm! Thank you so much!",
+    "icon": "twitterX"
   },
   {
     "id": "1265816960685793280",
     "name": "jahz_v",
     "username": "jahz_v",
-    "text": "Man I have no idea how I built web apps before @HttpToolkit. If you haven't gotten it yet get it now! Being able to intercept ALL outgoing requests (including pre-flight OPTIONS for CORS reqs!!) is v v handy",
-    "archiveUrl": "https://web.archive.org/web/20200529065508/https://twitter.com/jahz_v/status/1265816960685793280"
+    "quote": "Man I have no idea how I built web apps before @HttpToolkit. If you haven't gotten it yet get it now! Being able to intercept ALL outgoing requests (including pre-flight OPTIONS for CORS reqs!!) is v v handy",
+    "archiveUrl": "https://web.archive.org/web/20200529065508/https://twitter.com/jahz_v/status/1265816960685793280",
+    "icon": "twitterX"
   },
   {
     "id": "1672907551409864705",
     "name": "Vikas",
     "username": "vikasg603",
-    "text": "@HttpToolkit is a must-have for developers and security enthusiasts! 🌐🔒 With its user-friendly interface, it lets you intercept, inspect, and manipulate HTTP(S) traffic effortlessly."
+    "quote": "@HttpToolkit is a must-have for developers and security enthusiasts! 🌐🔒 With its user-friendly interface, it lets you intercept, inspect, and manipulate HTTP(S) traffic effortlessly.",
+    "icon": "twitterX"
   },
   {
     "id": "1176163277925228545",
     "name": "Neil Craig",
     "username": "tdp_org",
-    "text": "OK, confirmed by @HttpToolkit (which is ace BTW!), Chrome (stable) is not making HTTP requests to my endpoint...",
-    "archiveUrl": "https://web.archive.org/web/20210902144505/https://twitter.com/i/web/status/1176163277925228545"
+    "quote": "OK, confirmed by @HttpToolkit (which is ace BTW!), Chrome (stable) is not making HTTP requests to my endpoint...",
+    "archiveUrl": "https://web.archive.org/web/20210902144505/https://twitter.com/i/web/status/1176163277925228545",
+    "icon": "twitterX"
   },
   {
     "id": "1358065384524496896",
     "name": "wget",
     "username": "wget42",
-    "text": "Wow. I switched from AdvancedRestCient and mitmproxy to @HttpToolkit and my life has just changed. I'm noticing additional traffic from my printer I didn't notice with mitmproxy. The configuration is also much more easier to achieve. I've never been a fan of Postman or Insomnia."
+    "quote": "Wow. I switched from AdvancedRestCient and mitmproxy to @HttpToolkit and my life has just changed. I'm noticing additional traffic from my printer I didn't notice with mitmproxy. The configuration is also much more easier to achieve. I've never been a fan of Postman or Insomnia.",
+    "icon": "twitterX"
   },
   {
     "id": "1381703719687835648",
     "name": "Sam Yates",
     "username": "satxsam",
-    "text": "I'm always impressed at the thought that went into it when I fire up @HttpToolkit"
+    "quote": "I'm always impressed at the thought that went into it when I fire up @HttpToolkit",
+    "icon": "twitterX"
   },
   {
     "id": "1356353324694515718",
     "name": "ᴀɴᴛʜᴏɴʏ ʜɪᴠᴇʀᴛ",
     "username": "ahivert_",
-    "text": "I just tried @HttpToolkit after used charles.\nWow! Less than 5 minutes to make my Ubuntu intercept https traffic from my smartphone. Fast and simple!\n\nAnd it's open source ! 🤩\n\n#api #android #opensource #https"
+    "quote": "I just tried @HttpToolkit after used charles.\nWow! Less than 5 minutes to make my Ubuntu intercept https traffic from my smartphone. Fast and simple!\n\nAnd it's open source ! 🤩\n\n#api #android #opensource #https",
+    "icon": "twitterX"
   },
   {
     "id": "1337144156397953024",
     "name": "Emma Heffernan",
     "username": "3mm4h3ff",
-    "text": "Stumbled upon a nice find - it's an open source alternative software to the likes of Burp Suite etc. Very handy and neatly done, have a look: https://httptoolkit.tech"
+    "quote": "Stumbled upon a nice find - it's an open source alternative software to the likes of Burp Suite etc. Very handy and neatly done, have a look: https://httptoolkit.tech",
+    "icon": "twitterX"
   },
   {
     "id": "1329019171800223744",
     "name": "Tiago Almeida",
     "username": "talmeida99",
-    "text": "Tried out @HttpToolkit to custom map some requests on Android. Very impressed with it, good UI and the automatic certificate setup with emulator is great"
+    "quote": "Tried out @HttpToolkit to custom map some requests on Android. Very impressed with it, good UI and the automatic certificate setup with emulator is great",
+    "icon": "twitterX"
   },
   {
     "id": "1385676109073764353",
     "name": "Rafael Gonzaga",
     "username": "_rafaelgss",
-    "text": "Excellent open-source HTTP debugging! https://httptoolkit.tech"
+    "quote": "Excellent open-source HTTP debugging! https://httptoolkit.tech",
+    "icon": "twitterX"
   },
   {
     "id": "1121117201635917825",
     "username": "nikmd23",
     "name": "Nik Molnar",
-    "text": "I like @HttpToolkit's integration with @OpenApiSpec! Nifty little feature that overlays OpenAPI documentation over a Postman like experience."
+    "quote": "I like @HttpToolkit's integration with @OpenApiSpec! Nifty little feature that overlays OpenAPI documentation over a Postman like experience.",
+    "icon": "twitterX"
   },
   {
     "id": "1223946088324968448",
     "name": "Heikki Tolvanen",
     "username": "tolvanhe",
-    "text": "Thank you for your quick response! I really like your tool and will recommend it to anyone inspecting the privacy issues of websites :)"
+    "quote": "Thank you for your quick response! I really like your tool and will recommend it to anyone inspecting the privacy issues of websites :)",
+    "icon": "twitterX"
   },
   {
     "id": "1520053993707290627",
     "name": "Catalin Ghita",
     "username": "CatalinGhita4",
-    "text": "I use HTTP Toolkit, it's really nice."
+    "quote": "I use HTTP Toolkit, it's really nice.",
+    "icon": "twitterX"
   },
   {
     "id": "1661678997258862594",
     "name": "@fergal@anyska.fergl.ie",
     "username": "NooShoes",
-    "text": "Oh that's really nice, love how you can intercept an individual browser window. So long mitmproxy!"
+    "quote": "Oh that's really nice, love how you can intercept an individual browser window. So long mitmproxy!",
+    "icon": "twitterX"
   },
   {
     "id": "1571210612314886145",
     "name": "Vijendra Chouhan",
     "username": "vschouhan1020",
-    "text": "Recently I came across this amazing tool named HTTPtoolkit for reverse engineering one of my Android App. This tool helps you to intercept and view all your https by connecting with ADB and by providing a user friendly GUI."
+    "quote": "Recently I came across this amazing tool named HTTPtoolkit for reverse engineering one of my Android App. This tool helps you to intercept and view all your https by connecting with ADB and by providing a user friendly GUI.",
+    "icon": "twitterX"
   },
   {
     "id": "1522387719959109632",
     "name": "vlad.near",
     "username": "vgrichina",
-    "text": "Wow https://httptoolkit.tech is one of the best development tools I've seen in a while."
+    "quote": "Wow https://httptoolkit.tech is one of the best development tools I've seen in a while.",
+    "icon": "twitterX"
   },
   {
     "id": "1521048072519835649",
     "name": "Jan",
     "username": "janvlnas",
-    "text": "If you need to inspect HTTP traffic from (say) Node.js app, try @HttpToolkit. No need to mess with proxy settings or self-signed certificates, just start a \"Fresh Terminal\" and start your app. Works like a charm"
+    "quote": "If you need to inspect HTTP traffic from (say) Node.js app, try @HttpToolkit. No need to mess with proxy settings or self-signed certificates, just start a \"Fresh Terminal\" and start your app. Works like a charm",
+    "icon": "twitterX"
   },
   {
     "id": "1275874663705522178",
     "name": "Marco",
     "username": "thecodetrotter",
-    "text": "You made my day with https://httptoolkit.tech\nAmazing"
+    "quote": "You made my day with https://httptoolkit.tech\nAmazing",
+    "icon": "twitterX"
   },
   {
     "id": "1471649695478910978",
     "name": "Esa Firman",
     "username": "EsaFirm",
-    "text": "HTTP Toolkit's Github is so delightful, it explain each of the component clearly and they open source all of the codes. Can't wait to test it!"
+    "quote": "HTTP Toolkit's Github is so delightful, it explain each of the component clearly and they open source all of the codes. Can't wait to test it!",
+    "icon": "twitterX"
   },
   {
     "id": "1410574017161924610",
     "name": "vishnu",
     "username": "k_v0",
-    "text": "Must have tool for android pentest!!"
+    "quote": "Must have tool for android pentest!!",
+    "icon": "twitterX"
   }
 ]

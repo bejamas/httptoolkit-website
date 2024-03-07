@@ -43,6 +43,7 @@ import { FeatureLine } from '@/components/sections/feature-line';
 import { IntegrationGrid } from '@/components/sections/integration/grid';
 import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
 import { Statistics } from '@/components/sections/statistics';
+import { Testimonials } from '@/components/sections/testimonials';
 import BlogPostImage from '@/content/posts/analytics-map.png';
 
 export default async function Home() {
@@ -579,6 +580,7 @@ export default async function Home() {
           <DownloadButton $variant="primary" $withBorder />
         </ShowCase>
         <IntegrationGrid integrations={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
+        <Testimonials />
         <ShowCase title="Simple Footer">
           <SimpleFooter />
         </ShowCase>

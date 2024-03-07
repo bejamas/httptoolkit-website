@@ -18,6 +18,9 @@ import {
   Check,
   CursorClick,
   AppleLogo,
+  Heart,
+  Article,
+  RedditLogo,
 } from '@phosphor-icons/react/dist/ssr';
 
 import { FullLogo, Logo, Github, TwitterX } from './custom';
@@ -46,4 +49,7 @@ export {
   CaretUp,
   CursorClick,
   AppleLogo,
+  Heart,
+  Article,
+  RedditLogo,
 };
