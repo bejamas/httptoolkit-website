@@ -37,7 +37,7 @@ export const DownloadButton = ({ $small, $variant, $withBorder }: DownloadButton
     setOperativeSystem(parseUserAgent(navigator.userAgent));
   }, []);
 
-  if (isMobile) return <SendEmail />;
+  if (isMobile || operativeSystem === 'send-to-email') return <SendEmail />;
 
   return (
     <Dropdown $small={$small} $variant={$variant} $withBorder={$withBorder} aria-label="Download Items" items={items}>
