@@ -580,7 +580,10 @@ export default async function Home() {
           <DownloadButton $variant="primary" $withBorder />
         </ShowCase>
         <IntegrationGrid integrations={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
-        <Testimonials />
+      </Container>
+      <Testimonials />
+
+      <Container>
         <ShowCase title="Simple Footer">
           <SimpleFooter />
         </ShowCase>

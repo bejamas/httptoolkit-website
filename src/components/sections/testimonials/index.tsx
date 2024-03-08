@@ -1,5 +1,10 @@
 import { TestimonialsCard } from './testimonials-card';
-import { StyledTestimonialGrid, StyledTestimonialsWrapper } from './testimonials.styles';
+import {
+  ScrollContainer,
+  ScrollContent,
+  StyledTestimonialGrid,
+  StyledTestimonialsWrapper,
+} from './testimonials.styles';
 
 import { Heart } from '@/components/elements/icon';
 import type { IconAvatar } from '@/components/elements/icon-avatar';
@@ -30,17 +35,25 @@ export const Testimonials = async () => {
         title={`Join ~*${userDownloads.toLocaleString()}*~ developers`}
         $align="center"
       />
-      <StyledTestimonialGrid>
-        {testimonialsData.map(testimonial => {
-          if (!testimonial?.quote) {
-            return null;
-          }
+      <ScrollContainer>
+        <ScrollContent>
+          <StyledTestimonialGrid>
+            {testimonialsData.map(testimonial => {
+              if (!testimonial?.quote) {
+                return null;
+              }
 
-          return (
-            <TestimonialsCard key={testimonial?.id} text={testimonial?.quote} icon={testimonial?.icon as IconAvatar} />
-          );
-        })}
-      </StyledTestimonialGrid>
+              return (
+                <TestimonialsCard
+                  key={testimonial?.id}
+                  text={testimonial?.quote}
+                  icon={testimonial?.icon as IconAvatar}
+                />
+              );
+            })}
+          </StyledTestimonialGrid>
+        </ScrollContent>
+      </ScrollContainer>
     </StyledTestimonialsWrapper>
   );
 };

@@ -1,6 +1,6 @@
 'use client';
 
-import { styled } from '@/styles';
+import { styled, keyframes } from '@/styles';
 
 export const StyledTestimonialsWrapper = styled.section`
   display: flex;
@@ -25,7 +25,8 @@ export const StyledTestimonialCard = styled.article`
   margin-bottom: 16px;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
-    max-width: 480px;
+    min-width: 480px;
+    text-wrap: wrap;
   }
 `;
 
@@ -41,7 +42,32 @@ export const StyledAuthorDetails = styled.div`
 `;
 
 export const StyledTestimonialGrid = styled.div`
-  columns: 3;
+  columns: 4;
   gap: 16px;
   break-inside: avoid;
+  max-height: 850px;
+  overflow: visible;
+`;
+
+const scrollAnimation = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+`;
+
+export const ScrollContainer = styled.div`
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent);
+`;
+
+export const ScrollContent = styled.div`
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ${scrollAnimation} 15s linear infinite;
 `;
