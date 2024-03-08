@@ -33,7 +33,7 @@ export const IntegrationCompatibility = ({ title, subtitle, tools }: Integration
         <StyledCompatibilityBadgeWrapper>
           {Array.isArray(tools) &&
             tools.length > 0 &&
-            tools.map(tool => <CompatibilityBadge>{tool}</CompatibilityBadge>)}
+            tools.map(tool => <CompatibilityBadge key={tool}>{tool}</CompatibilityBadge>)}
         </StyledCompatibilityBadgeWrapper>
       </StyledIntegrationCompatibilityContentWrapper>
     </StyledIntegrationCompatibilityWrapper>
