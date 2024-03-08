@@ -47,7 +47,6 @@ export const CTA = ({
             </StyledExcerpt>
           )}
         </Stack>
-        {/* TODO: Use the download feature instead when is ready */}
         {(withDownload || cta) && (
           <StyledCTAWrapper $isLargeText={isLargeText}>
             {withDownload ? (
