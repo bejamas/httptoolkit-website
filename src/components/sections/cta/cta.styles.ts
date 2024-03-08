@@ -72,7 +72,7 @@ export const StyledHeroWrapper = styled.section<{ $variant: CTAVariant }>`
 
   @media (min-width: ${screens['lg']}) {
     padding-top: 96px;
-    padding-bottom: 96px;
+    padding-bottom: 64px;
   }
 `;
 
@@ -91,7 +91,7 @@ export const StyledContainer = styled(Container)`
   & ${StyledHeading} {
     max-width: 360px;
     line-height: 115%;
-    padding-top: 4px;
+    padding-top: 11px;
 
     @media (min-width: ${screens['md']}) {
       max-width: 1115px;
