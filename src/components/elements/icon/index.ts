@@ -22,6 +22,8 @@ import {
   Gear,
   ShieldCheck,
   ArrowsLeftRight,
+  WindowsLogo,
+  LinuxLogo,
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -71,4 +73,6 @@ export {
   Gear,
   ShieldCheck,
   ArrowsLeftRight,
+  WindowsLogo,
+  LinuxLogo,
 };

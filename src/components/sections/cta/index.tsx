@@ -19,6 +19,7 @@ export const CTA = ({
   textAppearance = 'large',
   image,
   $variant = 'cta-hero',
+  $bgVariant = 'default',
 }: CTAProps) => {
   const SubHeadingIcon = subHeading?.icon;
   const isHero = $variant === 'cta-hero';
@@ -26,7 +27,7 @@ export const CTA = ({
   const isLargeText = textAppearance === 'large';
 
   return (
-    <StyledHeroWrapper $variant={$variant}>
+    <StyledHeroWrapper $variant={$variant} $bgVariant={$bgVariant}>
       <StyledContainer>
         {icon && (
           <SquareIcon $size={isHero ? 'xLarge' : 'medium'} $variant={isHero ? 'primary' : 'secondary'} icon={icon} />

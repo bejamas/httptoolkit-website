@@ -1,6 +1,6 @@
 'use client';
 
-import type { CTAVariant } from './cta.types';
+import type { CTAVariant, bgVariant } from './cta.types';
 
 import { Container } from '@/components/elements/container';
 import { StyledHeading } from '@/components/elements/heading/heading.styles';
@@ -44,12 +44,53 @@ const ctaStyles = css`
   background-position: top -80px center;
 `;
 
-const ctaHeroStyles = css`
+const handleBackgroundVariant = (variant: bgVariant) => {
+  switch (variant) {
+    case 'left-bottom-to-top-right':
+      return css`
+        background:
+          no-repeat url(/images/backgrounds/hero-lines-2.svg),
+          var(--background-dots);
+        background-position: right -200px top -300px;
+      `;
+    case 'rigth-bottom-to-top-left':
+      return css`
+        background:
+          no-repeat url(/images/backgrounds/hero-lines-4.svg),
+          var(--background-dots);
+        background-position: right -500px top -275px;
+      `;
+
+    case 'left-top-to-bottom-right':
+      return css`
+        background:
+          no-repeat url(/images/backgrounds/hero-lines-3.svg),
+          var(--background-dots);
+        background-position: right -210px top -390px;
+      `;
+
+    default:
+      return css`
+        background:
+          no-repeat url('/images/backgrounds/hero-lines.svg'),
+          ${({ theme }) => theme.backgroundImages.backgroundDots};
+        background-position: top -80px center;
+      `;
+  }
+};
+
+const ctaHeroStyles = css<{ $variant: CTAVariant; $bgVariant: bgVariant }>`
   box-shadow: ${({ theme }) => theme.shadow.hero};
-  background:
-    no-repeat url('/images/backgrounds/hero-lines.svg'),
-    ${({ theme }) => theme.backgroundImages.backgroundDots};
-  background-position: top -80px center;
+  ${({ $bgVariant }) => handleBackgroundVariant($bgVariant)};
+  /* background: no-repeat url(/images/backgrounds/hero-lines-2.svg),var(--background-dots);
+    background-position: right top -300px; */
+
+  /* background: no-repeat url(/images/backgrounds/hero-lines-3.svg),var(--background-dots);
+    background-position: right top -355px; */
+
+  /* background: no-repeat url(/images/backgrounds/hero-lines-4.svg),var(--background-dots);
+    background-position: left top -300px; */
+
   /* faded look effect */
   &::before {
     content: '';
@@ -60,7 +101,7 @@ const ctaHeroStyles = css`
   }
 `;
 
-export const StyledHeroWrapper = styled.section<{ $variant: CTAVariant }>`
+export const StyledHeroWrapper = styled.section<{ $variant: CTAVariant; $bgVariant: bgVariant }>`
   position: relative;
   padding-top: 32px;
   padding-bottom: 64px;
