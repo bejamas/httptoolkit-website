@@ -81,15 +81,3 @@ export const StyledIntegrationCTAContent = styled.div<StyledIntegrationCTAProps>
   align-items: center;
   gap: 24px;
 `;
-
-export const StyledDesktopIconRows = styled.div`
-  @media (max-width: ${({ theme }) => theme.screens.lg}) {
-    display: none;
-  }
-`;
-
-export const StyledMobileIconRows = styled.div`
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
-    display: none;
-  }
-`;

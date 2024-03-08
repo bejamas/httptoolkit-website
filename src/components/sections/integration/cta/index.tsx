@@ -1,11 +1,10 @@
+'use client';
+
+import { useMedia } from 'react-use';
+
 import { IconRows } from './components/icon-rows';
 import type { IconRowsProps } from './components/icon-rows/icon-rows.types';
-import {
-  StyledDesktopIconRows,
-  StyledIntegrationCTAContent,
-  StyledIntegrationCTAWrapper,
-  StyledMobileIconRows,
-} from './cta.styles';
+import { StyledIntegrationCTAContent, StyledIntegrationCTAWrapper } from './cta.styles';
 import type { IntegrationCTAProps } from './cta.types';
 
 import { Button } from '@/components/elements/button';
@@ -20,6 +19,7 @@ import {
   SquareJSLogo,
 } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
+import { screens } from '@/styles';
 
 const leftIcons: IconRowsProps['rows'] = [
   {
@@ -70,12 +70,11 @@ const mobileIcons: IconRowsProps['rows'] = [
 
 export const IntegrationCTA = ({ title, text, button, $variant }: IntegrationCTAProps) => {
   const HeadingTag = $variant === 'cta' ? 'h2' : 'h1';
+  const isMobile = useMedia(`(max-width: ${screens.lg})`, false);
 
   return (
     <StyledIntegrationCTAWrapper $variant={$variant}>
-      <StyledDesktopIconRows>
-        <IconRows rows={leftIcons} $orientation="left" $offset={0.9} />
-      </StyledDesktopIconRows>
+      {!isMobile && <IconRows rows={leftIcons} $orientation="left" $offset={0.9} />}
       <StyledIntegrationCTAContent $variant={$variant}>
         <Heading as={HeadingTag} fontSize="l" color="lightGrey" textAlign="center">
           {title}
@@ -85,12 +84,8 @@ export const IntegrationCTA = ({ title, text, button, $variant }: IntegrationCTA
         </Text>
         {button && <Button {...button}>{button.children}</Button>}
       </StyledIntegrationCTAContent>
-      <StyledMobileIconRows>
-        <IconRows rows={mobileIcons} $orientation="right" $offset={0} />
-      </StyledMobileIconRows>
-      <StyledDesktopIconRows>
-        <IconRows rows={rightIcons} $orientation="right" $offset={0.8} />
-      </StyledDesktopIconRows>
+      {isMobile && <IconRows rows={mobileIcons} $orientation="right" $offset={0} />}
+      {!isMobile && <IconRows rows={rightIcons} $orientation="right" $offset={0.8} />}
     </StyledIntegrationCTAWrapper>
   );
 };
