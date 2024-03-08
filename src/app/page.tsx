@@ -110,19 +110,19 @@ export default async function Home() {
   const nonCollapsibleTableContent = [
     {
       text: 'Terms Of Service',
-      href: '#example',
+      href: '#example-1',
     },
     {
       text: 'Terms Of Service (“Terms”)',
-      href: '#example',
+      href: '#example-2',
     },
     {
       text: 'What information do we collect?',
-      href: '#example',
+      href: '#example-3',
       subItems: [
         {
           text: 'Information automatically collected',
-          href: '#example',
+          href: '#example-5',
         },
       ],
     },
@@ -135,7 +135,7 @@ export default async function Home() {
       title: 'Android',
       text: 'Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
       link: {
-        href: '/example',
+        href: '/example-1',
         target: '_blank',
       },
     },
@@ -144,7 +144,7 @@ export default async function Home() {
       title: 'Javascript',
       text: 'Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
       link: {
-        href: '/example',
+        href: '/example-2',
         target: '_blank',
       },
     },
@@ -156,28 +156,28 @@ export default async function Home() {
       subitems: [
         {
           text: 'Standard checkout',
-          href: '#example',
+          href: '#example-1',
         },
         {
           text: 'Internet transfer',
-          href: '#example',
+          href: '#example-2',
         },
       ],
     },
     {
       text: 'How to pay?',
-      href: '#example',
+      href: '#example-3',
     },
     {
       text: 'Troubles with payment',
       subitems: [
         {
           text: 'How to find your money',
-          href: '#example',
+          href: '#example-4',
         },
         {
           text: 'My money has gone',
-          href: '#example',
+          href: '#example-5',
         },
       ],
     },
