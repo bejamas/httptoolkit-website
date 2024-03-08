@@ -32,12 +32,12 @@ export const CTA = ({
           <SquareIcon $size={isHero ? 'xLarge' : 'medium'} $variant={isHero ? 'primary' : 'secondary'} icon={icon} />
         )}
         {subHeading && (
-          <Text as="label" color="cinnarbarRed" fontSize={isLargeText ? 'xll' : 'm'} fontWeight="bold">
+          <Text as="label" color="cinnarbarRed" fontSize="xll" fontWeight="bold">
             {subHeading?.text} {SubHeadingIcon && <SubHeadingIcon weight="fill" />}
           </Text>
         )}
-        <Stack $gapxl={isLargeText ? '32px' : '24px'}>
-          <Heading color="textGradient" as={asTitle} fontSize={isLargeText ? 'xl' : 'l'}>
+        <Stack $gapxl="24px">
+          <Heading color="textGradient" as={asTitle} fontSize="xl">
             {heading}
           </Heading>
           {excerpt && (
@@ -45,24 +45,23 @@ export const CTA = ({
               {excerpt}
             </StyledExcerpt>
           )}
-
-          {/* TODO: Use the download feature instead when is ready */}
-          {(withDownload || cta) && (
-            <StyledCTAWrapper $isLargeText={isLargeText}>
-              {withDownload ? (
-                <DownloadButton $variant="primary" $withBorder={isHero} aria-label="Download Items" />
-              ) : null}
-
-              {cta && (
-                <Button as="link" $variant={cta.$variant || 'secondary'} href={cta.href} icon={cta.icon}>
-                  {cta.title}
-                </Button>
-              )}
-            </StyledCTAWrapper>
-          )}
-
-          {image && <ThemedImage title={heading || image.title} {...image} />}
         </Stack>
+        {/* TODO: Use the download feature instead when is ready */}
+        {(withDownload || cta) && (
+          <StyledCTAWrapper $isLargeText={isLargeText}>
+            {withDownload ? (
+              <DownloadButton $variant="primary" $withBorder={isHero} aria-label="Download Items" />
+            ) : null}
+
+            {cta && (
+              <Button as="link" $variant={cta.$variant || 'secondary'} href={cta.href} icon={cta.icon}>
+                {cta.title}
+              </Button>
+            )}
+          </StyledCTAWrapper>
+        )}
+
+        {image && <ThemedImage title={heading || image.title} {...image} />}
       </StyledContainer>
     </StyledHeroWrapper>
   );

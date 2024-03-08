@@ -94,7 +94,7 @@ export const StyledContainer = styled(Container)`
     padding-top: 4px;
 
     @media (min-width: ${screens['md']}) {
-      max-width: 1100px;
+      max-width: 1115px;
     }
   }
 
@@ -132,14 +132,10 @@ export const StyledCTAWrapper = styled.div<{ $isLargeText: boolean }>`
   align-items: center;
   flex-direction: column;
   gap: 32px;
+  margin-top: 32px;
+  margin-bottom: 64px;
 
   @media (min-width: ${screens['lg']}) {
     flex-direction: row;
   }
-
-  ${({ $isLargeText }) =>
-    !$isLargeText &&
-    css`
-      margin-top: 16px;
-    `};
 `;
