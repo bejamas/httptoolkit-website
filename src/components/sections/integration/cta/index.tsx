@@ -10,52 +10,60 @@ import type { IntegrationCTAProps } from './cta.types';
 
 import { Button } from '@/components/elements/button';
 import { Heading } from '@/components/elements/heading';
-import { GithubLogo, Globe, Sparkle } from '@/components/elements/icon';
+import {
+  AndroidLogo,
+  DockerLogo,
+  ElectronLogo,
+  JavaLogo,
+  PythonLogo,
+  RubyLogo,
+  SquareJSLogo,
+} from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
 
 const leftIcons: IconRowsProps['rows'] = [
   {
-    icons: [Sparkle, GithubLogo, Globe, Sparkle],
+    icons: [SquareJSLogo, ElectronLogo, PythonLogo],
     offset: 0.8,
   },
   {
-    icons: [Sparkle, GithubLogo, Globe, Globe],
+    icons: [AndroidLogo, DockerLogo, RubyLogo, JavaLogo],
     offset: 0,
   },
   {
-    icons: [Sparkle, GithubLogo, Globe, Sparkle],
+    icons: [PythonLogo, JavaLogo, SquareJSLogo, AndroidLogo],
     offset: 0.6,
   },
 ];
 const rightIcons: IconRowsProps['rows'] = [
   {
-    icons: [Sparkle, GithubLogo, Globe],
+    icons: [DockerLogo, JavaLogo, AndroidLogo],
     offset: 0.8,
   },
   {
-    icons: [Sparkle, GithubLogo, Globe, Sparkle],
+    icons: [ElectronLogo, SquareJSLogo, PythonLogo, AndroidLogo],
     offset: 0,
   },
   {
-    icons: [Sparkle, GithubLogo, Globe],
+    icons: [RubyLogo, ElectronLogo, DockerLogo],
     offset: 1.6,
   },
 ];
 const mobileIcons: IconRowsProps['rows'] = [
   {
-    icons: [Sparkle, GithubLogo, Globe],
+    icons: [PythonLogo, SquareJSLogo, DockerLogo],
     offset: 0,
   },
   {
-    icons: [Sparkle, GithubLogo, Globe],
+    icons: [RubyLogo, ElectronLogo, DockerLogo],
     offset: 0.6,
   },
   {
-    icons: [Sparkle, GithubLogo, Globe],
+    icons: [JavaLogo, AndroidLogo, DockerLogo],
     offset: 0.2,
   },
   {
-    icons: [Sparkle, GithubLogo, Globe],
+    icons: [DockerLogo, JavaLogo, SquareJSLogo],
     offset: 0.7,
   },
 ];

@@ -13,11 +13,11 @@ export const IconRows = ({ rows, $orientation, $offset }: IconRowsProps) => {
     <StyledIconRowsWrapper $offset={$offset} $orientation={$orientation}>
       {Array.isArray(rows) &&
         rows?.length > 0 &&
-        rows.map(row => (
-          <StyledIconRow $offset={parserOffset(row.offset)} $orientation={$orientation}>
+        rows.map((row, rowIndex) => (
+          <StyledIconRow key={rowIndex} $offset={parserOffset(row.offset)} $orientation={$orientation}>
             {Array.isArray(row.icons) &&
               row.icons?.length > 0 &&
-              row.icons.map(icon => <SquareIcon icon={icon} $size="xLarge" />)}
+              row.icons.map((icon, iconIndex) => <SquareIcon key={iconIndex} icon={icon} $size="xLarge" />)}
           </StyledIconRow>
         ))}
     </StyledIconRowsWrapper>
