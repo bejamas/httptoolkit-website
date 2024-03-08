@@ -7,7 +7,7 @@ export const CompatibilityBadge = ({ children }: Component) => {
   return (
     <StyledCompatibilityBadge>
       <CheckIcon $small />
-      <Text fontSize="m" color="alwayLightGrey" fontWeight="medium">
+      <Text fontSize="m" color="lightGrey" fontWeight="medium">
         {children}
       </Text>
     </StyledCompatibilityBadge>

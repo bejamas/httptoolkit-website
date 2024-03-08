@@ -4,6 +4,7 @@ import { styled } from '@/styles';
 
 export const StyledCompatibilityBadge = styled.div`
   display: flex;
+  align-items: center;
   gap: 6px;
   padding: 8px 16px;
   border-radius: 24px;
