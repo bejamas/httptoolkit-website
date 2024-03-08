@@ -81,7 +81,10 @@ const handleBackgroundVariant = (variant: bgVariant) => {
 
 const ctaHeroStyles = css<{ $variant: CTAVariant; $bgVariant: bgVariant }>`
   box-shadow: ${({ theme }) => theme.shadow.hero};
-  ${({ $bgVariant }) => handleBackgroundVariant($bgVariant)};
+
+  @media (min-width: ${screens['md']}) {
+    ${({ $bgVariant }) => handleBackgroundVariant($bgVariant)};
+  }
 
   /* faded look effect */
   &::before {
@@ -166,9 +169,10 @@ export const StyledCTAWrapper = styled.div<{ $isLargeText: boolean }>`
   flex-direction: column;
   gap: 32px;
   margin-top: 32px;
-  margin-bottom: 64px;
+  margin-bottom: 32px;
 
   @media (min-width: ${screens['lg']}) {
     flex-direction: row;
+    margin-bottom: 64px;
   }
 `;
