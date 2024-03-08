@@ -51,14 +51,14 @@ const handleBackgroundVariant = (variant: bgVariant) => {
         background:
           no-repeat url(/images/backgrounds/hero-lines-2.svg),
           var(--background-dots);
-        background-position: right -200px top -300px;
+        background-position: center top -388px;
       `;
     case 'rigth-bottom-to-top-left':
       return css`
         background:
           no-repeat url(/images/backgrounds/hero-lines-4.svg),
           var(--background-dots);
-        background-position: right -500px top -275px;
+        background-position: center top -340px;
       `;
 
     case 'left-top-to-bottom-right':
@@ -66,7 +66,7 @@ const handleBackgroundVariant = (variant: bgVariant) => {
         background:
           no-repeat url(/images/backgrounds/hero-lines-3.svg),
           var(--background-dots);
-        background-position: right -210px top -390px;
+        background-position: center top -310px;
       `;
 
     default:
