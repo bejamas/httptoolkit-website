@@ -50,11 +50,8 @@ export const StyledTestimonialGrid = styled.div`
 `;
 
 const scrollAnimation = keyframes`
-  0% {
-    transform: translateX(0);
-  }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-66.6666%);
   }
 `;
 
@@ -64,10 +61,16 @@ export const ScrollContainer = styled.div`
   display: flex;
   position: relative;
   -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent);
+  transform: translate3d(0, 0, 0);
 `;
 
 export const ScrollContent = styled.div`
   display: inline-flex;
   white-space: nowrap;
   animation: ${scrollAnimation} 15s linear infinite;
+
+  &:hover {
+    opacity: 1;
+    animation-play-state: paused;
+  }
 `;
