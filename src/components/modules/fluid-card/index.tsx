@@ -17,7 +17,7 @@ export const FluidCard = ({ title, icon, text, buttonHref, buttonText, $variant 
   return (
     <StyledFluidCardWrapper $variant={$variant}>
       {icon && (
-        <SquareIcon icon={icon} $variant={$variant !== 'default' ? 'tertiary' : 'tertiary-bigger'} $size="medium" />
+        <SquareIcon icon={icon} $variant={$variant !== 'default' ? 'tertiary' : 'tertiary-bigger'} $size="large" />
       )}
       <StyledFluidCardContentWrapper $variant={$variant}>
         <Heading as="h3" color={headingColor} fontSize={headingSize} fontWeight={headingWeight}>

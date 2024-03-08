@@ -22,6 +22,7 @@ import {
   Gear,
   ShieldCheck,
   ArrowsLeftRight,
+  Wrench,
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -71,4 +72,5 @@ export {
   Gear,
   ShieldCheck,
   ArrowsLeftRight,
+  Wrench,
 };
