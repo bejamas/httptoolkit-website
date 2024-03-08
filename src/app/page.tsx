@@ -15,6 +15,10 @@ import {
   LinkSimpleBreak,
   GithubLogo,
   CursorClick,
+  DockerLogo,
+  ShieldCheck,
+  ArrowsLeftRight,
+  Gear,
 } from '@/components/elements/icon';
 import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
@@ -41,7 +45,9 @@ import { TableContent } from '@/components/modules/table-content';
 import { CTA } from '@/components/sections/cta';
 import { FeatureLine } from '@/components/sections/feature-line';
 import { IntegrationGrid } from '@/components/sections/integration/grid';
+import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
+import { IntegrationTextImage } from '@/components/sections/integration/single-page/text-image';
 import { Statistics } from '@/components/sections/statistics';
 import BlogPostImage from '@/content/posts/analytics-map.png';
 
@@ -524,7 +530,6 @@ export default async function Home() {
 );`}
           />
         </ShowCase>
-        <Statistics title="Why `*HTTP Toolkit*`?" text="Numbers that speak for themselves:" />
         <ShowCase title="Feature line">
           <FeatureLine
             $align="right"
@@ -550,7 +555,7 @@ export default async function Home() {
             alt="Mockup image"
             title="Customize Responses with Prototyping Rules for Endpoints"
             text="Create rules to match requests and respond with your own content, to quickly prototype against new endpoints or services."
-            icon={Sparkle}
+            icon={Gear}
           />
           <FeatureLine
             darkImage="/images/mockup-image.webp"
@@ -558,7 +563,7 @@ export default async function Home() {
             alt="Mockup image"
             title="Endpoint Management for Testing Edge Cases & Error Handling"
             text="Define new endpoints, override existing ones, or replace external services, to reproduce tricky edge cases and test your error handling."
-            icon={Sparkle}
+            icon={ShieldCheck}
           />
           <FeatureLine
             darkImage="/images/mockup-image.webp"
@@ -566,7 +571,7 @@ export default async function Home() {
             alt="Mockup image"
             title="Shareable Mock Rulesets: Import & Export for Team Collaboration"
             text="Import & export your mock rulesets, to build complex setups and share them with your team."
-            icon={Sparkle}
+            icon={ArrowsLeftRight}
           />
         </Stack>
         <IntegrationSteps title="Two ways to get started" subtitle="getting started" steps={stepsData} />
@@ -578,11 +583,27 @@ export default async function Home() {
           <DownloadButton $small $variant="secondary" />
           <DownloadButton $variant="primary" $withBorder />
         </ShowCase>
-        <IntegrationGrid integrations={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
         <ShowCase title="Simple Footer">
           <SimpleFooter />
         </ShowCase>
       </Container>
+      <IntegrationSinglePageHero
+        title="Http Toolkit and Docker integrated"
+        text="Intercept & view all Docker HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
+        icon={DockerLogo}
+        breadcrumbText="docker"
+      />
+      <IntegrationGrid integrations={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
+      <Statistics title="Why `*HTTP Toolkit*`?" text="Numbers that speak for themselves:" />
+      <IntegrationTextImage
+        title="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."
+        subtitle="what is http toolkit?"
+        image={{
+          darkSrc: '/images/mockup-image.webp',
+          lightSrc: '/images/mockup-image-light.webp',
+          alt: 'Mockup image',
+        }}
+      />
     </>
   );
 }
