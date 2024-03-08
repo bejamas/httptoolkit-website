@@ -39,7 +39,7 @@ const ctaSquareStyles = css`
   }
 `;
 
-const ctaStyles = css`
+const ctaFluidStyles = css`
   background: no-repeat url('/images/backgrounds/hero-lines.svg');
   background-position: top -80px center;
 `;
@@ -73,7 +73,7 @@ const handleBackgroundVariant = (variant: bgVariant) => {
       return css`
         background:
           no-repeat url('/images/backgrounds/hero-lines.svg'),
-          ${({ theme }) => theme.backgroundImages.backgroundDots};
+          var(--background-dots);
         background-position: top -80px center;
       `;
   }
@@ -82,14 +82,6 @@ const handleBackgroundVariant = (variant: bgVariant) => {
 const ctaHeroStyles = css<{ $variant: CTAVariant; $bgVariant: bgVariant }>`
   box-shadow: ${({ theme }) => theme.shadow.hero};
   ${({ $bgVariant }) => handleBackgroundVariant($bgVariant)};
-  /* background: no-repeat url(/images/backgrounds/hero-lines-2.svg),var(--background-dots);
-    background-position: right top -300px; */
-
-  /* background: no-repeat url(/images/backgrounds/hero-lines-3.svg),var(--background-dots);
-    background-position: right top -355px; */
-
-  /* background: no-repeat url(/images/backgrounds/hero-lines-4.svg),var(--background-dots);
-    background-position: left top -300px; */
 
   /* faded look effect */
   &::before {
@@ -109,7 +101,7 @@ export const StyledHeroWrapper = styled.section<{ $variant: CTAVariant; $bgVaria
 
   ${({ $variant }) => $variant === 'cta-square' && ctaSquareStyles};
   ${({ $variant }) => $variant === 'cta-hero' && ctaHeroStyles};
-  ${({ $variant }) => $variant === 'cta-fluid' && ctaStyles};
+  ${({ $variant }) => $variant === 'cta-fluid' && ctaFluidStyles};
 
   @media (min-width: ${screens['lg']}) {
     padding-top: 96px;
