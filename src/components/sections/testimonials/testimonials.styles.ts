@@ -42,11 +42,18 @@ export const StyledAuthorDetails = styled.div`
 `;
 
 export const StyledTestimonialGrid = styled.div`
-  columns: 4;
+  display: grid;
+  grid-template-columns: repeat(50, 1fr);
   gap: 16px;
   break-inside: avoid;
-  max-height: 850px;
-  overflow: visible;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: dense;
+
+  /* Apply padding to every 9th item */
+  & > *:nth-child(even) {
+    margin-top: 50px;
+  }
 `;
 
 const scrollAnimation = keyframes`
@@ -67,7 +74,7 @@ export const ScrollContainer = styled.div`
 export const ScrollContent = styled.div`
   display: inline-flex;
   white-space: nowrap;
-  animation: ${scrollAnimation} 15s linear infinite;
+  animation: ${scrollAnimation} 80s linear infinite;
 
   &:hover {
     opacity: 1;

@@ -13,18 +13,25 @@ import articleTestimonials from '@/content/data/article-testimonials.json';
 import reeditTestimonials from '@/content/data/reddit-testimonials.json';
 import tweetTestimonials from '@/content/data/tweet-testimonials.json';
 import { getGithubDownloadStats } from '@/lib/services/get-github-download-stats';
+import { shuffleArray } from '@/lib/utils';
 
 export const Testimonials = async () => {
   const userDownloads = await getGithubDownloadStats();
-  const testimonialsData = [...articleTestimonials, ...reeditTestimonials, ...tweetTestimonials].map(item => {
-    return {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      id: item?.link || item?.id,
-      quote: item.quote,
-      icon: item.icon,
-    };
-  });
+  const testimonialsData = shuffleArray([...articleTestimonials, ...reeditTestimonials, ...tweetTestimonials]).map(
+    item => {
+      return {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        id: item?.link || item?.id,
+        quote: item.quote,
+        icon: item.icon,
+      };
+    },
+  );
+
+  const chunkedData = Array.from({ length: Math.ceil(testimonialsData.length / 3) }, (_, index) =>
+    testimonialsData.slice(index * 3, index * 3 + 3),
+  );
 
   return (
     <StyledTestimonialsWrapper>
@@ -38,19 +45,18 @@ export const Testimonials = async () => {
       <ScrollContainer>
         <ScrollContent>
           <StyledTestimonialGrid>
-            {testimonialsData.map(testimonial => {
-              if (!testimonial?.quote) {
-                return null;
-              }
-
-              return (
-                <TestimonialsCard
-                  key={testimonial?.id}
-                  text={testimonial?.quote}
-                  icon={testimonial?.icon as IconAvatar}
-                />
-              );
-            })}
+            {chunkedData.map((chunk, rowIndex) => (
+              <div key={rowIndex}>
+                {chunk.map((testimonial, colIndex) => {
+                  if (!testimonial?.quote) {
+                    return null;
+                  }
+                  return (
+                    <TestimonialsCard key={colIndex} text={testimonial?.quote} icon={testimonial?.icon as IconAvatar} />
+                  );
+                })}
+              </div>
+            ))}
           </StyledTestimonialGrid>
         </ScrollContent>
       </ScrollContainer>
