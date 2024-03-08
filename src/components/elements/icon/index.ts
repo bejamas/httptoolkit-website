@@ -21,9 +21,21 @@ import {
   Heart,
   Article,
   RedditLogo,
+  X,
 } from '@phosphor-icons/react/dist/ssr';
 
-import { FullLogo, Logo, Github, TwitterX } from './custom';
+import {
+  FullLogo,
+  Logo,
+  Github,
+  TwitterX,
+  DockerLogo,
+  ElectronLogo,
+  JavaLogo,
+  RubyLogo,
+  SquareJSLogo,
+  PythonLogo,
+} from './custom';
 
 export {
   Alien,
@@ -52,4 +64,11 @@ export {
   Heart,
   Article,
   RedditLogo,
+  DockerLogo,
+  ElectronLogo,
+  JavaLogo,
+  RubyLogo,
+  SquareJSLogo,
+  PythonLogo,
+  X,
 };
