@@ -15,9 +15,14 @@ import {
   LinkSimpleBreak,
   GithubLogo,
   CursorClick,
+  DockerLogo,
+  ShieldCheck,
+  ArrowsLeftRight,
+  Gear,
 } from '@/components/elements/icon';
 import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
+import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
 import { ThemedImage } from '@/components/elements/themed-image';
@@ -28,6 +33,7 @@ import { BlogCard } from '@/components/modules/blog-card';
 import { Card } from '@/components/modules/card';
 import { ContentCard } from '@/components/modules/content-card';
 import { CTABox } from '@/components/modules/cta-box';
+import { DownloadButton } from '@/components/modules/download-button';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 import { FluidCard } from '@/components/modules/fluid-card';
@@ -38,6 +44,12 @@ import { NavigationSidebarLinks } from '@/components/modules/navigation-sidebar-
 import { TableContent } from '@/components/modules/table-content';
 import { CTA } from '@/components/sections/cta';
 import { IntegrationCTA } from '@/components/sections/integration/cta';
+import { FeatureLine } from '@/components/sections/feature-line';
+import { IntegrationGrid } from '@/components/sections/integration/grid';
+import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
+import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
+import { IntegrationTextImage } from '@/components/sections/integration/single-page/text-image';
+import { Statistics } from '@/components/sections/statistics';
 import BlogPostImage from '@/content/posts/analytics-map.png';
 
 export default async function Home() {
@@ -116,6 +128,28 @@ export default async function Home() {
     },
   ];
 
+  const integrationsCard = [
+    {
+      $showBadge: true,
+      icon: AndroidLogo,
+      title: 'Android',
+      text: 'Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
+      link: {
+        href: '/example',
+        target: '_blank',
+      },
+    },
+    {
+      icon: AndroidLogo,
+      title: 'Javascript',
+      text: 'Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
+      link: {
+        href: '/example',
+        target: '_blank',
+      },
+    },
+  ];
+
   const navigationContentSidebar = [
     {
       text: 'Payments processing',
@@ -147,6 +181,28 @@ export default async function Home() {
         },
       ],
     },
+  ];
+
+  const stepsData = [
+    [
+      'Open a terminal via HTTP Toolkit',
+      'Run any command in that terminal to build or create a Docker container',
+      'The build or container is automatically intercepted',
+      "Instantly inspect, debug & rewrite all your container's HTTP(S) traffic",
+    ],
+    [
+      'Launch a Docker container anywhere',
+      "Click 'Attach to Docker' in HTTP Toolkit, and pick your container",
+      'HTTP Toolkit recreates & restarts the container with interception injected',
+      "Instantly inspect, debug & rewrite all your container's HTTP(S) traffic",
+    ],
+  ];
+  const stepsData1 = [
+    [
+      'Open a terminal via HTTP Toolkit',
+      'Run any Python script, tool or server from that terminal',
+      "Instantly see, debug & rewrite all Python's HTTP traffic",
+    ],
   ];
 
   return (
@@ -475,28 +531,95 @@ export default async function Home() {
 );`}
           />
         </ShowCase>
+        <ShowCase title="Feature line">
+          <FeatureLine
+            $align="right"
+            darkImage="/images/mockup-image.webp"
+            lightImage="/images/mockup-image-light.webp"
+            alt="Mockup image"
+            title="Seamless Traffic Interception"
+            badge={{
+              text: 'Intercept',
+              icon: Sparkle,
+            }}
+            list={[
+              'Experience unmatched control with the Intercept feature, allowing you to seamlessly capture and analyze network traffic in real-time.',
+              "Tailor your network's behavior by modifying requests and responses on the fly, ensuring thorough testing and debugging.",
+              "Intercept offers a direct window into your application's communication, providing clarity and precision in your development process.",
+            ]}
+          />
+        </ShowCase>
+        <Stack $gap="32px" $gapxl="96px">
+          <FeatureLine
+            darkImage="/images/mockup-image.webp"
+            lightImage="/images/mockup-image-light.webp"
+            alt="Mockup image"
+            title="Customize Responses with Prototyping Rules for Endpoints"
+            text="Create rules to match requests and respond with your own content, to quickly prototype against new endpoints or services."
+            icon={Gear}
+          />
+          <FeatureLine
+            darkImage="/images/mockup-image.webp"
+            lightImage="/images/mockup-image-light.webp"
+            alt="Mockup image"
+            title="Endpoint Management for Testing Edge Cases & Error Handling"
+            text="Define new endpoints, override existing ones, or replace external services, to reproduce tricky edge cases and test your error handling."
+            icon={ShieldCheck}
+          />
+          <FeatureLine
+            darkImage="/images/mockup-image.webp"
+            lightImage="/images/mockup-image-light.webp"
+            alt="Mockup image"
+            title="Shareable Mock Rulesets: Import & Export for Team Collaboration"
+            text="Import & export your mock rulesets, to build complex setups and share them with your team."
+            icon={ArrowsLeftRight}
+          />
+        </Stack>
+        <IntegrationSteps title="Two ways to get started" subtitle="getting started" steps={stepsData} />
+        <IntegrationSteps title="Getting `*started*`" steps={stepsData1} />
         <ShowCase title="Navigation content sidebar links">
           <NavigationSidebarLinks title="On this page" links={navigationContentSidebar} />
         </ShowCase>
-        <IntegrationCTA
-          $variant="hero"
-          title="Automatic setup and powerful integration for all your tools"
-          text="With deep integrations into a huge range of popular components & tools, HTTP Toolkit lets you intercept mobile apps, whole devices, bash scripts, entire Docker containers and more, so you can see & modify anything in just one click."
-        />
-        <IntegrationCTA
-          $variant="cta"
-          title="Integrations"
-          text="Explore a vast array of integrations and applications designed to streamline your work, consolidate information, and enhance collaboration effortlessly. "
-          button={{
-            $small: true,
-            $variant: 'secondary',
-            children: 'See all integrations',
-          }}
-        />
+        <ShowCase title="Download button">
+          <DownloadButton $small $variant="secondary" />
+          <DownloadButton $variant="primary" $withBorder />
+        </ShowCase>
         <ShowCase title="Simple Footer">
           <SimpleFooter />
         </ShowCase>
       </Container>
+      <IntegrationSinglePageHero
+        title="Http Toolkit and Docker integrated"
+        text="Intercept & view all Docker HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
+        icon={DockerLogo}
+        breadcrumbText="docker"
+      />
+      <IntegrationGrid integrations={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
+      <Statistics title="Why `*HTTP Toolkit*`?" text="Numbers that speak for themselves:" />
+      <IntegrationCTA
+        $variant="hero"
+        title="Automatic setup and powerful integration for all your tools"
+        text="With deep integrations into a huge range of popular components & tools, HTTP Toolkit lets you intercept mobile apps, whole devices, bash scripts, entire Docker containers and more, so you can see & modify anything in just one click."
+      />
+      <IntegrationCTA
+        $variant="cta"
+        title="Integrations"
+        text="Explore a vast array of integrations and applications designed to streamline your work, consolidate information, and enhance collaboration effortlessly. "
+        button={{
+          $small: true,
+          $variant: 'secondary',
+          children: 'See all integrations',
+        }}
+      />
+      <IntegrationTextImage
+        title="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."
+        subtitle="what is http toolkit?"
+        image={{
+          darkSrc: '/images/mockup-image.webp',
+          lightSrc: '/images/mockup-image-light.webp',
+          alt: 'Mockup image',
+        }}
+      />
     </>
   );
 }

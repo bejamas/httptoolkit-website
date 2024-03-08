@@ -16,6 +16,12 @@ const TextGradient = css`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
+
+const TextOrangeGradient = css`
+  background: var(--text-orange-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
 const colorTheme = {
   inkBlack: 'var(--ink-black)',
   darkGrey: 'var(--dark-grey)',
@@ -29,7 +35,10 @@ const colorTheme = {
   orangeGradient: 'var(--orange-gradient)',
   blueGradient: 'var(--blue-gradient)',
   darkGradient: 'var(--dark-gradient)',
+  circleGradient: 'var(--circle-gradient)',
+  ellipseGradient: 'var(--ellipse-gradient)',
   borderGradient: 'var(--border-gradient)',
+  borderAlwaysGradient: 'var(--border-always-gradient)',
   borderDark: 'var(--border-dark)',
   borderMovingDark: 'var(--moving-border-dark)',
   text: {
@@ -41,6 +50,7 @@ const colorTheme = {
     alwayLightGrey: 'var(--text-always-light-grey)',
     electricLightBlue: 'var(--text-electric-light-blue)',
     textGradient: TextGradient,
+    textOrangeGradient: TextOrangeGradient,
   },
   button: {
     secondaryDefault: 'var(--button-secondary-default)',
@@ -163,7 +173,10 @@ export const GlobalStyles = createGlobalStyle`
       --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
       --blue-gradient: linear-gradient(to bottom, #4064E2, #3556CA);
       --dark-gradient: linear-gradient(to bottom, #1E2028, #30333E 70%);
+      --circle-gradient: rgba(163, 105, 190, 1);
+      --ellipse-gradient: rgba(31, 74, 255, 1);
       --border-gradient: rgba(255, 255, 255, 0.1);
+      --border-always-gradient: rgba(255, 255, 255, 0.1);
       --border-dark: rgba(255, 255, 255, 0.2);
       --text-light-grey: #E6E8F2;
       --text-dark-grey: #C5C6CA;
@@ -173,6 +186,8 @@ export const GlobalStyles = createGlobalStyle`
       --text-always-light-grey: #E6E8F2;
       --text-electric-light-blue: #6284FA;
       --text-gradient: linear-gradient(to bottom,rgba(230,232,242,1), rgba(231,235,253,0.7));
+      --text-orange-gradient: linear-gradient(345.32deg, #D93815 10.67%, #F65430 89.91%);
+;
       --button-secondary-default: #16181E;
       --button-secondary-section: #16181E;
       --button-border: rgba(255, 255, 255, 4%);
@@ -200,7 +215,10 @@ export const GlobalStyles = createGlobalStyle`
       --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
       --blue-gradient: linear-gradient(to bottom, #3556CA, #4064E2);
       --dark-gradient: linear-gradient(to bottom, #30333E, #1E2028 70%);
+      --circle-gradient: rgba(182, 99, 248, 1);
+      --ellipse-gradient: rgba(0, 183, 241, 1);
       --border-gradient: transparent;
+      --border-always-gradient: rgba(255, 255, 255, 0.1);
       --border-dark: rgba(103, 108, 129, 0.2);
       --text-light-grey: #16181E;
       --text-dark-grey: #595D68;

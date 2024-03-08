@@ -15,11 +15,27 @@ import {
   Globe,
   SealCheck,
   LinkSimpleBreak,
+  Check,
   CursorClick,
   AppleLogo,
+  X,
+  Gear,
+  ShieldCheck,
+  ArrowsLeftRight,
 } from '@phosphor-icons/react/dist/ssr';
 
-import { FullLogo, Logo, Github, TwitterX } from './custom';
+import {
+  FullLogo,
+  Logo,
+  Github,
+  TwitterX,
+  DockerLogo,
+  ElectronLogo,
+  JavaLogo,
+  RubyLogo,
+  SquareJSLogo,
+  PythonLogo,
+} from './custom';
 
 export {
   Alien,
@@ -39,9 +55,20 @@ export {
   LinkSimpleBreak,
   Github,
   TwitterX,
+  Check,
   CaretRight,
   GithubLogo,
   CaretUp,
   CursorClick,
   AppleLogo,
+  DockerLogo,
+  ElectronLogo,
+  JavaLogo,
+  RubyLogo,
+  SquareJSLogo,
+  PythonLogo,
+  X,
+  Gear,
+  ShieldCheck,
+  ArrowsLeftRight,
 };
