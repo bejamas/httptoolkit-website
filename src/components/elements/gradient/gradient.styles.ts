@@ -11,4 +11,5 @@ export const StyledGradient = styled.div`
     radial-gradient(ellipse 70% 45% at left, ${({ theme }) => theme.colors.ellipseGradient} 0%, transparent 70%);
   background-size: contain;
   opacity: 0.15;
+  z-index: -1;
 `;
