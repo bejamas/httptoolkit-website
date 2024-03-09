@@ -7,8 +7,13 @@ export const StyledTestimonialsWrapper = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 96px 0;
+  padding: 62px 0;
+  padding-bottom: 0;
   gap: 61px;
+
+  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    padding: 96px 0;
+  }
 `;
 
 export const StyledTestimonialCard = styled.article`
@@ -21,12 +26,14 @@ export const StyledTestimonialCard = styled.article`
   display: flex;
   flex-direction: column;
   gap: 36px;
-  break-inside: avoid;
   margin-bottom: 16px;
+
+  & p {
+    text-wrap: wrap;
+  }
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     min-width: 480px;
-    text-wrap: wrap;
   }
 `;
 
@@ -43,16 +50,15 @@ export const StyledAuthorDetails = styled.div`
 
 export const StyledTestimonialGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(50, 1fr);
+  grid-template-columns: repeat(17, 343px);
   gap: 16px;
-  break-inside: avoid;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(3, auto);
-  grid-auto-flow: dense;
 
-  /* Apply padding to every 9th item */
-  & > *:nth-child(even) {
-    margin-top: 50px;
+  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    grid-template-columns: repeat(50, 1fr);
+    /* Apply padding to every 9th item */
+    & > *:nth-child(odd) {
+      margin-top: 50px;
+    }
   }
 `;
 
@@ -69,6 +75,7 @@ export const ScrollContainer = styled.div`
   position: relative;
   -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent);
   transform: translate3d(0, 0, 0);
+  justify-content: center;
 `;
 
 export const ScrollContent = styled.div`
