@@ -1,6 +1,6 @@
 'use client';
 
-import { styled, keyframes } from '@/styles';
+import { styled } from '@/styles';
 
 export const StyledTestimonialsWrapper = styled.section`
   display: flex;
@@ -10,6 +10,7 @@ export const StyledTestimonialsWrapper = styled.section`
   padding: 62px 0;
   padding-bottom: 0;
   gap: 61px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent);
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     padding: 96px 0;
@@ -33,7 +34,7 @@ export const StyledTestimonialCard = styled.article`
   }
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
-    min-width: 480px;
+    max-width: 480px;
   }
 `;
 
@@ -49,42 +50,17 @@ export const StyledAuthorDetails = styled.div`
 `;
 
 export const StyledTestimonialGrid = styled.div`
+  --grid-items: 34;
   display: grid;
-  grid-template-columns: repeat(17, 343px);
+  grid-template-columns: repeat(var(--grid-items), 343px);
   gap: 16px;
+  margin-right: 16px;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
-    grid-template-columns: repeat(50, 1fr);
+    grid-template-columns: repeat(var(--grid-items), 1fr);
     /* Apply padding to every 9th item */
     & > *:nth-child(odd) {
       margin-top: 50px;
     }
-  }
-`;
-
-const scrollAnimation = keyframes`
-  100% {
-    transform: translateX(-66.6666%);
-  }
-`;
-
-export const ScrollContainer = styled.div`
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  position: relative;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent);
-  transform: translate3d(0, 0, 0);
-  justify-content: center;
-`;
-
-export const ScrollContent = styled.div`
-  display: inline-flex;
-  white-space: nowrap;
-  animation: ${scrollAnimation} 80s linear infinite;
-
-  &:hover {
-    opacity: 1;
-    animation-play-state: paused;
   }
 `;
