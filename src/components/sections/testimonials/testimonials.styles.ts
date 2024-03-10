@@ -17,7 +17,7 @@ export const StyledTestimonialsWrapper = styled.section`
   }
 `;
 
-export const StyledTestimonialCard = styled.article`
+export const StyledTestimonialCard = styled.blockquote`
   background: ${({ theme }) => theme.colors.inkBlack};
   box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
   border-radius: 12px;
@@ -38,12 +38,12 @@ export const StyledTestimonialCard = styled.article`
   }
 `;
 
-export const StyledAuthorWrapper = styled.div`
+export const StyledAuthorWrapper = styled.footer`
   display: flex;
   gap: 16px;
 `;
 
-export const StyledAuthorDetails = styled.div`
+export const StyledAuthorDetails = styled.cite`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -61,6 +61,22 @@ export const StyledTestimonialGrid = styled.div`
     /* Apply padding to every 9th item */
     & > *:nth-child(odd) {
       margin-top: 50px;
+    }
+  }
+`;
+
+export const StyledQuote = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  & p {
+    color: ${({ theme }) => theme.colors.text.darkGrey};
+    font-weight: ${({ theme }) => theme.fontWeight.normal};
+
+    & strong {
+      color: ${({ theme }) => theme.colors.text.lightGrey};
+      font-weight: ${({ theme }) => theme.fontWeight.medium};
     }
   }
 `;

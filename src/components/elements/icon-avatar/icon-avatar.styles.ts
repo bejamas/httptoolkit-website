@@ -3,7 +3,7 @@
 import { styled } from '@/styles';
 
 export const StyledAvatar = styled.div`
-  width: 48px;
+  min-width: 48px;
   height: 48px;
   border-radius: 100%;
   background: ${({ theme }) => theme.colors.inkBlack};
