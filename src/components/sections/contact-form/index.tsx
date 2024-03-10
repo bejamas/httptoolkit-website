@@ -7,6 +7,7 @@ import { Input } from '@/components/modules/input';
 export const ContactForm = () => {
   return (
     <StyledContactFormWrapper>
+      {/* TODO: Replace test formspree with the client endpoint after QA */}
       <form action="https://formspree.io/f/xnqezbgv" method="POST">
         <Stack $gapxl="32px">
           <Stack $gapxl="16px">
