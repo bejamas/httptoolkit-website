@@ -22,8 +22,8 @@ export const StyledIntegrationBentoWrapper = styled.section`
 export const StyledIntegrationBentoGradientWrapper = styled.div`
   transform: rotate(90deg);
   position: absolute;
-  width: 100px;
-  top: 0;
+  width: 100%;
+  top: -50%;
   right: 0;
   left: 0;
   margin: 0 auto;

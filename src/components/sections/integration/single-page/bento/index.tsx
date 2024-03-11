@@ -18,7 +18,7 @@ export const IntegrationBento = ({ title, subtitle, cards }: IntegrationBentoPro
   return (
     <StyledIntegrationBentoWrapper>
       <StyledIntegrationBentoGradientWrapper>
-        <Gradient />
+        <Gradient $shape="full" />
       </StyledIntegrationBentoGradientWrapper>
       <Container>
         <StyledIntegrationBentoHeadingWrapper>
