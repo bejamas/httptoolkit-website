@@ -3,6 +3,7 @@ import { Heading } from '@/components/elements/heading';
 import { Book, Desktop, Flag, Globe, LinkSimpleBreak, Shuffle } from '@/components/elements/icon';
 import { Bento } from '@/components/sections/bento';
 import type { BentoProps } from '@/components/sections/bento/bento.types';
+import { IntegrationCompatibility } from '@/components/sections/integration/single-page/compatibility';
 
 export default function IntegrationsPage() {
   const bentoCards: BentoProps['cards'] = [
@@ -43,6 +44,7 @@ export default function IntegrationsPage() {
         <Heading color="textGradient">Integrations</Heading>
       </Container>
       <Bento title="HTTP Toolkit has all the core Fiddler features you use, plus:" cards={bentoCards} />
+      <IntegrationCompatibility title="Supported by Docker" subtitle="compatibility" />
     </>
   );
 }
