@@ -1,7 +1,9 @@
 import {
   StyledTermOfServicesHeading,
+  StyledTermOfServicesLink,
   StyledTermOfServicesSectionBreak,
   StyledTermOfServicesText,
+  StyledTermOfServicesUL,
 } from './terms-of-services.styles';
 
 export const termOfServicesComponents = {
@@ -28,5 +30,11 @@ export const termOfServicesComponents = {
   },
   Spacer() {
     return <StyledTermOfServicesSectionBreak />;
+  },
+  a({ children, href }: Component<{ href: string }>) {
+    return <StyledTermOfServicesLink href={href}>{children}</StyledTermOfServicesLink>;
+  },
+  ul({ children }: Component) {
+    return <StyledTermOfServicesUL>{children}</StyledTermOfServicesUL>;
   },
 };

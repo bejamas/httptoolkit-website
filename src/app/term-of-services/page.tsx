@@ -3,7 +3,7 @@ import Content from './content.mdx';
 import { ContentWithTable } from '@/components/sections/content-with-table';
 import { HeroPoints } from '@/components/sections/hero-points';
 
-export default function TermsPrivacy() {
+export default function TermOfServices() {
   return (
     <>
       <HeroPoints
@@ -12,29 +12,26 @@ export default function TermsPrivacy() {
       />
       <ContentWithTable
         content={Content}
-        tableContent={{
-          isCollapsible: true,
-          links: [
-            {
-              text: 'Terms Of Service',
-              href: '#example-1',
-            },
-            {
-              text: 'Terms Of Service (“Terms”)',
-              href: '#example-2',
-            },
-            {
-              text: 'What information do we collect?',
-              href: '#example-3',
-              subItems: [
-                {
-                  text: 'Information automatically collected',
-                  href: '#example-5',
-                },
-              ],
-            },
-          ],
-        }}
+        links={[
+          {
+            text: 'Terms Of Service',
+            href: '#example-1',
+          },
+          {
+            text: 'Terms Of Service (“Terms”)',
+            href: '#example-2',
+          },
+          {
+            text: 'What information do we collect?',
+            href: '#example-3',
+            subItems: [
+              {
+                text: 'Information automatically collected',
+                href: '#example-5',
+              },
+            ],
+          },
+        ]}
       />
     </>
   );

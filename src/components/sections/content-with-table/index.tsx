@@ -11,7 +11,7 @@ import { RichText } from '../rich-text';
 import { Gradient } from '@/components/elements/gradient';
 import { TableContent } from '@/components/modules/table-content';
 
-export const ContentWithTable = ({ content: Content, tableContent }: ContentWithTableProps) => {
+export const ContentWithTable = ({ content: Content, links }: ContentWithTableProps) => {
   return (
     <StyledContentWithTableWrapper>
       <StyledContentWithTableUpperGradientWrapper>
@@ -22,7 +22,7 @@ export const ContentWithTable = ({ content: Content, tableContent }: ContentWith
       </StyledContentWithTableLowerGradientWrapper>
       <StyledContentWithTableContentWrapper>
         <StyledContentWithTableTableWrapper>
-          <TableContent {...tableContent} />
+          <TableContent isCollapsible={false} links={links} />
         </StyledContentWithTableTableWrapper>
         <div>
           <RichText content={Content} theme="terms-of-service" />

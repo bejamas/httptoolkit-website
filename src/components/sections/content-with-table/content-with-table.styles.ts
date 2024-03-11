@@ -4,6 +4,7 @@ import { css, styled } from '@/styles';
 
 export const StyledContentWithTableWrapper = styled.section`
   position: relative;
+  overflow: hidden;
   background-color: ${({ theme }) => theme.colors.inkBlack};
 `;
 

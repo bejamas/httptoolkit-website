@@ -1,6 +1,7 @@
 'use client';
 
 import { Heading } from '@/components/elements/heading';
+import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';
 import { styled } from '@/styles';
 
@@ -18,4 +19,14 @@ export const StyledTermOfServicesSectionBreak = styled.div`
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     margin-bottom: 42px;
   }
+`;
+
+export const StyledTermOfServicesLink = styled(Link)`
+  text-decoration: underline;
+  color: ${({ theme }) => theme.colors.text.darkGrey};
+`;
+
+export const StyledTermOfServicesUL = styled.ul`
+  list-style: disc;
+  padding-left: 20px;
 `;

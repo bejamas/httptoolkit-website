@@ -4,5 +4,5 @@ import type { TableContentProps } from '@/components/modules/table-content/table
 
 export interface ContentWithTableProps {
   content: RichTextProps['content'];
-  tableContent: TableContentProps;
+  links: TableContentProps['links'];
 }
