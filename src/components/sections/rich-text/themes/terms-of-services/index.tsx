@@ -6,21 +6,27 @@ import {
   StyledTermOfServicesUL,
 } from './terms-of-services.styles';
 
+const Heading2 = ({ children, id }: Component) => {
+  return (
+    <StyledTermOfServicesHeading forwardedAs="h2" fontSize="m" color="lightGrey" id={id}>
+      {children}
+    </StyledTermOfServicesHeading>
+  );
+};
+
+const Heading3 = ({ children, id }: Component) => {
+  return (
+    <StyledTermOfServicesHeading forwardedAs="h3" fontSize="s" color="lightGrey" id={id}>
+      {children}
+    </StyledTermOfServicesHeading>
+  );
+};
+
 export const termOfServicesComponents = {
-  h2({ children }: Component) {
-    return (
-      <StyledTermOfServicesHeading forwardedAs="h2" fontSize="m" color="lightGrey">
-        {children}
-      </StyledTermOfServicesHeading>
-    );
-  },
-  h3({ children }: Component) {
-    return (
-      <StyledTermOfServicesHeading forwardedAs="h3" fontSize="s" color="lightGrey">
-        {children}
-      </StyledTermOfServicesHeading>
-    );
-  },
+  Heading2,
+  Heading3,
+  h2: Heading2,
+  h3: Heading3,
   p({ children }: Component) {
     return (
       <StyledTermOfServicesText fontSize="m" color="darkGrey">

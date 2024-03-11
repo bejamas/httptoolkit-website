@@ -267,6 +267,10 @@ export const GlobalStyles = createGlobalStyle`
       font-family: ${theme.fontFamily.dmSans};
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
         background-color: ${theme.colors.darkGrey};
         font-family: ${theme.fontFamily.dmSans};
