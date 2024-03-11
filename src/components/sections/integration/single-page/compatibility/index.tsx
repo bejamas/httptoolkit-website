@@ -14,7 +14,27 @@ import { Gradient } from '@/components/elements/gradient';
 import { Heading } from '@/components/elements/heading';
 import { DownloadButton } from '@/components/modules/download-button';
 
-export const IntegrationCompatibility = ({ title, subtitle, tools }: IntegrationCompatibilityProps) => {
+const compatibilityTools = [
+  'Docker',
+  'Node.js containers',
+  'Docker Compose',
+  'Docker for Mac',
+  'Docker for Windows',
+  'Golang containers',
+  'Apt-Get, Apk, Npm, and other build tools',
+  'PHP+Apache containers',
+  'Ruby containers',
+  'Curl, Wget, Httpie, and other Bash clients',
+  'Java containers',
+  'Rust containers',
+  'Python containers',
+];
+
+export const IntegrationCompatibility = ({
+  title,
+  subtitle,
+  tools = compatibilityTools,
+}: IntegrationCompatibilityProps) => {
   return (
     <StyledIntegrationCompatibilityWrapper>
       <StyledIntegrationCompatibilityGradientWrapper>

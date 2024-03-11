@@ -42,7 +42,6 @@ import { TableContent } from '@/components/modules/table-content';
 import { CTA } from '@/components/sections/cta';
 import { FeatureLine } from '@/components/sections/feature-line';
 import { IntegrationGrid } from '@/components/sections/integration/grid';
-import { IntegrationCompatibility } from '@/components/sections/integration/single-page/compatibility';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
 import { Statistics } from '@/components/sections/statistics';
@@ -199,22 +198,6 @@ export default async function Home() {
       'Run any Python script, tool or server from that terminal',
       "Instantly see, debug & rewrite all Python's HTTP traffic",
     ],
-  ];
-
-  const compatibilityTools = [
-    'Docker',
-    'Node.js containers',
-    'Docker Compose',
-    'Docker for Mac',
-    'Docker for Windows',
-    'Golang containers',
-    'Apt-Get, Apk, Npm, and other build tools',
-    'PHP+Apache containers',
-    'Ruby containers',
-    'Curl, Wget, Httpie, and other Bash clients',
-    'Java containers',
-    'Rust containers',
-    'Python containers',
   ];
 
   return (
@@ -608,7 +591,6 @@ export default async function Home() {
       />
       <IntegrationGrid integrations={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
       <Statistics title="Why `*HTTP Toolkit*`?" text="Numbers that speak for themselves:" />
-      <IntegrationCompatibility title="Supported by Docker" subtitle="compatibility" tools={compatibilityTools} />
     </>
   );
 }
