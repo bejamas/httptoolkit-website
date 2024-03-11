@@ -1,7 +1,7 @@
 ---
 title: "Apple already shipped attestation on the web, and we barely noticed"
 date: '2023-07-25T14:00'
-cover_image: './header-images/signing.jpg'
+cover_image: 'header-images/signing.jpg'
 tags: apple, browsers
 isFeatured: true
 ---

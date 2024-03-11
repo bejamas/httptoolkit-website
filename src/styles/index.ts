@@ -243,6 +243,8 @@ export const GlobalStyles = createGlobalStyle`
     [data-theme='dark'] [data-hide-on-theme='dark'],
     [data-theme='light'] [data-hide-on-theme='light'] {
       display: none;
+      padding-top: 0;
+      visibility: hidden;
     }
 
     * {

@@ -17,10 +17,11 @@ type BlogPostPageProps = {
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = params;
   const post = await getPostBySlug(slug);
+
   return (
     <Container>
       <Heading>{post.title}</Heading>
-      {post.content}
+      <div>{post.content}</div>
     </Container>
   );
 }

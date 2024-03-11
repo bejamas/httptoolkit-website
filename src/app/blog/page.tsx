@@ -12,7 +12,7 @@ export default async function Blog() {
 
   return (
     <Container>
-      <OverviewHero featuredPost={featurePost} />
+      {featurePost && <OverviewHero featuredPost={featurePost} />}
       {posts?.map((post, i) => (
         <Link
           key={i}
@@ -20,9 +20,6 @@ export default async function Blog() {
           style={{ marginBottom: 10, display: 'block', textDecoration: 'none' }}
         >
           <Heading as="h3" fontSize="xs" key={post.slug}>
-            {/* TODO: Remove ban-ts-comment once work on blog post tasks */}
-            {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-            {/* @ts-ignore */}
             <Book /> {i + 1}. {post.title}
           </Heading>
         </Link>

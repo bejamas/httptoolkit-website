@@ -3,6 +3,8 @@ import path from 'path';
 
 import { compileMDX } from 'next-mdx-remote/rsc';
 
+import { components } from './components';
+
 const rootDirectory = path.join(process.cwd(), 'src', 'content', 'posts');
 
 const markdowRegex = /\.(md|mdx)$/;
@@ -20,6 +22,7 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
   const { frontmatter, content } = await compileMDX<PostFrontmatter>({
     source: fileContent,
     options: { parseFrontmatter: true },
+    components,
   });
 
   const post: Post = {
@@ -48,10 +51,10 @@ export const getAllPostsMeta = async () => {
         posts.push(post);
       }
     } catch (error) {
-      console.error('*_________START___________*');
-      console.error('error in file: ', file);
-      console.error('error message', error);
-      console.error('*_________END___________*');
+      // console.error('*_________START___________*');
+      // console.error('error in file: ', file);
+      // console.error('error message', error);
+      // console.error('*_________END___________*');
     }
   }
   return posts;
