@@ -2,6 +2,7 @@ import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
 import { GithubLogo } from '@/components/elements/icon';
 import { ContentCard } from '@/components/modules/content-card';
+import { ContactForm } from '@/components/sections/contact-form';
 import { TextSlot } from '@/components/sections/text-slot';
 
 export default function ContactPage() {
@@ -45,6 +46,8 @@ export default function ContactPage() {
         </TextSlot>
         <div></div>
       </div>
+      <Heading color="textGradient">Get in touch</Heading>
+      <ContactForm />
     </Container>
   );
 }

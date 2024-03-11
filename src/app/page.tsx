@@ -50,6 +50,7 @@ import { IntegrationSinglePageHero } from '@/components/sections/integration/sin
 import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
 import { IntegrationTextImage } from '@/components/sections/integration/single-page/text-image';
 import { Statistics } from '@/components/sections/statistics';
+import { Testimonials } from '@/components/sections/testimonials';
 import BlogPostImage from '@/content/posts/analytics-map.png';
 
 export default async function Home() {
@@ -347,10 +348,10 @@ export default async function Home() {
           </Dropdown>
         </ShowCase>
         <ShowCase title="Input">
-          <Input placeholder="Email address" />
-          <Input placeholder="Search" type="search" />
-          <Input as="textarea" placeholder="Email address" />
-          <Input $hasError placeholder="Email address" errorMessage="This is an error message." />
+          <Input id="email" placeholder="Email address" />
+          <Input id="search" placeholder="Search" type="search" />
+          <Input id="text-area" as="textarea" placeholder="Email address" />
+          <Input id="email-with-error" $hasError placeholder="Email address" errorMessage="This is an error message." />
         </ShowCase>
         <ShowCase title="Card">
           <Card
@@ -584,6 +585,8 @@ export default async function Home() {
           <DownloadButton $small $variant="secondary" />
           <DownloadButton $variant="primary" $withBorder />
         </ShowCase>
+      </Container>
+      <Container>
         <ShowCase title="Simple Footer">
           <SimpleFooter />
         </ShowCase>
@@ -596,6 +599,7 @@ export default async function Home() {
       />
       <IntegrationGrid integrations={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
       <Statistics title="Why `*HTTP Toolkit*`?" text="Numbers that speak for themselves:" />
+      <Testimonials />
       <IntegrationCTA
         $variant="hero"
         title="Automatic setup and powerful integration for all your tools"
