@@ -4,6 +4,7 @@ import reset from 'styled-reset';
 export { styled, css, ThemeProvider, keyframes };
 
 export const screens = {
+  content: '659px',
   sm: '640px',
   md: '768px',
   lg: '1024px',
@@ -186,7 +187,7 @@ export const GlobalStyles = createGlobalStyle`
       --text-always-light-grey: #E6E8F2;
       --text-electric-light-blue: #6284FA;
       --text-gradient: linear-gradient(to bottom,rgba(230,232,242,1), rgba(231,235,253,0.7));
-      --text-orange-gradient: linear-gradient(345.32deg, #D93815 10.67%, #F65430 89.91%);
+      --text-orange-gradient: linear-gradient(to top, #D93815 10.67%, #F65430 89.91%);
 ;
       --button-secondary-default: #16181E;
       --button-secondary-section: #16181E;

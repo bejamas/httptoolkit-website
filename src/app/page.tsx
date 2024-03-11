@@ -46,12 +46,14 @@ import { NavigationSidebarLinks } from '@/components/modules/navigation-sidebar-
 import { TableContent } from '@/components/modules/table-content';
 import { CTA } from '@/components/sections/cta';
 import { FeatureLine } from '@/components/sections/feature-line';
+import { IntegrationCTA } from '@/components/sections/integration/cta';
 import { IntegrationGrid } from '@/components/sections/integration/grid';
 import { IntegrationBento } from '@/components/sections/integration/single-page/bento';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
 import { IntegrationTextImage } from '@/components/sections/integration/single-page/text-image';
 import { Statistics } from '@/components/sections/statistics';
+import { Testimonials } from '@/components/sections/testimonials';
 import BlogPostImage from '@/content/posts/analytics-map.png';
 
 export default async function Home() {
@@ -112,19 +114,19 @@ export default async function Home() {
   const nonCollapsibleTableContent = [
     {
       text: 'Terms Of Service',
-      href: '#example',
+      href: '#example-1',
     },
     {
       text: 'Terms Of Service (“Terms”)',
-      href: '#example',
+      href: '#example-2',
     },
     {
       text: 'What information do we collect?',
-      href: '#example',
+      href: '#example-3',
       subItems: [
         {
           text: 'Information automatically collected',
-          href: '#example',
+          href: '#example-5',
         },
       ],
     },
@@ -137,7 +139,7 @@ export default async function Home() {
       title: 'Android',
       text: 'Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
       link: {
-        href: '/example',
+        href: '/example-1',
         target: '_blank',
       },
     },
@@ -146,7 +148,7 @@ export default async function Home() {
       title: 'Javascript',
       text: 'Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
       link: {
-        href: '/example',
+        href: '/example-2',
         target: '_blank',
       },
     },
@@ -158,28 +160,28 @@ export default async function Home() {
       subitems: [
         {
           text: 'Standard checkout',
-          href: '#example',
+          href: '#example-1',
         },
         {
           text: 'Internet transfer',
-          href: '#example',
+          href: '#example-2',
         },
       ],
     },
     {
       text: 'How to pay?',
-      href: '#example',
+      href: '#example-3',
     },
     {
       text: 'Troubles with payment',
       subitems: [
         {
           text: 'How to find your money',
-          href: '#example',
+          href: '#example-4',
         },
         {
           text: 'My money has gone',
-          href: '#example',
+          href: '#example-5',
         },
       ],
     },
@@ -377,10 +379,10 @@ export default async function Home() {
           </Dropdown>
         </ShowCase>
         <ShowCase title="Input">
-          <Input placeholder="Email address" />
-          <Input placeholder="Search" type="search" />
-          <Input as="textarea" placeholder="Email address" />
-          <Input $hasError placeholder="Email address" errorMessage="This is an error message." />
+          <Input id="email" placeholder="Email address" />
+          <Input id="search" placeholder="Search" type="search" />
+          <Input id="text-area" as="textarea" placeholder="Email address" />
+          <Input id="email-with-error" $hasError placeholder="Email address" errorMessage="This is an error message." />
         </ShowCase>
         <ShowCase title="Card">
           <Card
@@ -614,6 +616,8 @@ export default async function Home() {
           <DownloadButton $small $variant="secondary" />
           <DownloadButton $variant="primary" $withBorder />
         </ShowCase>
+      </Container>
+      <Container>
         <ShowCase title="Simple Footer">
           <SimpleFooter />
         </ShowCase>
@@ -626,6 +630,22 @@ export default async function Home() {
       />
       <IntegrationGrid integrations={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
       <Statistics title="Why `*HTTP Toolkit*`?" text="Numbers that speak for themselves:" />
+      <Testimonials />
+      <IntegrationCTA
+        $variant="hero"
+        title="Automatic setup and powerful integration for all your tools"
+        text="With deep integrations into a huge range of popular components & tools, HTTP Toolkit lets you intercept mobile apps, whole devices, bash scripts, entire Docker containers and more, so you can see & modify anything in just one click."
+      />
+      <IntegrationCTA
+        $variant="cta"
+        title="Integrations"
+        text="Explore a vast array of integrations and applications designed to streamline your work, consolidate information, and enhance collaboration effortlessly. "
+        button={{
+          $small: true,
+          $variant: 'secondary',
+          children: 'See all integrations',
+        }}
+      />
       <IntegrationTextImage
         title="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."
         subtitle="what is http toolkit?"

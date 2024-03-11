@@ -12,6 +12,7 @@ export const StyledInputWrapper = styled.div`
 `;
 
 export const StyledInputBorder = styled.span<InputBorderProps>`
+  width: 100%;
   display: inline-block;
   border-radius: 6px;
   overflow: hidden;
@@ -69,4 +70,9 @@ export const StyledInput = styled.input<InputProps>`
   &:focus {
     background-color: ${({ theme }) => theme.colors.inkBlack};
   }
+`;
+
+export const STyledLabel = styled.label`
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  color: ${({ theme }) => theme.colors.text.darkGrey};
 `;
