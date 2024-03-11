@@ -17,8 +17,14 @@ import {
   LinkSimpleBreak,
   Check,
   CursorClick,
-  AppleLogo,
+  Heart,
+  Article,
+  RedditLogo,
   X,
+  Gear,
+  ShieldCheck,
+  ArrowsLeftRight,
+  WindowsLogo,
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -32,6 +38,8 @@ import {
   RubyLogo,
   SquareJSLogo,
   PythonLogo,
+  AppleLogo,
+  LinuxLogo,
 } from './custom';
 
 export {
@@ -58,6 +66,9 @@ export {
   CaretUp,
   CursorClick,
   AppleLogo,
+  Heart,
+  Article,
+  RedditLogo,
   DockerLogo,
   ElectronLogo,
   JavaLogo,
@@ -65,4 +76,9 @@ export {
   SquareJSLogo,
   PythonLogo,
   X,
+  Gear,
+  ShieldCheck,
+  ArrowsLeftRight,
+  WindowsLogo,
+  LinuxLogo,
 };
