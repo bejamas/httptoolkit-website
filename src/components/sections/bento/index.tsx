@@ -1,3 +1,5 @@
+import { chunk } from 'lodash';
+
 import {
   StyledBentoColumn,
   StyledBentoContent,
@@ -12,6 +14,8 @@ import { Gradient } from '@/components/elements/gradient';
 import { FluidCard } from '@/components/modules/fluid-card';
 
 export const Bento = ({ title, cards }: BentoProps) => {
+  const formattedCards = chunk(cards, 2);
+
   return (
     <StyledBentoWrapper>
       <StyledBentoGradientWrapper>
@@ -22,18 +26,15 @@ export const Bento = ({ title, cards }: BentoProps) => {
           {title}
         </StyledBentoTitle>
         <StyledBentoContent>
-          <StyledBentoColumn>
-            <FluidCard $variant="dark" {...cards[0]} />
-            <FluidCard $variant="dark" {...cards[1]} />
-          </StyledBentoColumn>
-          <StyledBentoColumn>
-            <FluidCard $variant="dark" {...cards[2]} />
-            <FluidCard $variant="dark" {...cards[3]} />
-          </StyledBentoColumn>
-          <StyledBentoColumn>
-            <FluidCard $variant="dark" {...cards[4]} />
-            <FluidCard $variant="dark" {...cards[5]} />
-          </StyledBentoColumn>
+          {Array.isArray(formattedCards) &&
+            formattedCards.length > 0 &&
+            formattedCards.map(cardsChunk => (
+              <StyledBentoColumn>
+                {Array.isArray(cardsChunk) &&
+                  cardsChunk.length > 0 &&
+                  cardsChunk.map(card => <FluidCard $variant="dark" {...card} />)}
+              </StyledBentoColumn>
+            ))}
         </StyledBentoContent>
       </Container>
     </StyledBentoWrapper>
