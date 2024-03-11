@@ -3,13 +3,14 @@ import Link from 'next/link';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
 import { Book } from '@/components/elements/icon';
+import { OverviewHero } from '@/components/sections/blog/overview-hero';
 import { getAllPostsMeta } from '@/lib/mdx';
 
 export default async function Blog() {
   const posts = await getAllPostsMeta();
   return (
     <Container>
-      <Heading color="textGradient">Blog</Heading>
+      <OverviewHero />
       {posts?.map((post, i) => (
         <Link
           key={i}
