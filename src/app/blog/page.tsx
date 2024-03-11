@@ -8,9 +8,11 @@ import { getAllPostsMeta } from '@/lib/mdx';
 
 export default async function Blog() {
   const posts = await getAllPostsMeta();
+  const featurePost = posts.find(post => post.isFeatured);
+
   return (
     <Container>
-      <OverviewHero />
+      <OverviewHero featuredPost={featurePost} />
       {posts?.map((post, i) => (
         <Link
           key={i}

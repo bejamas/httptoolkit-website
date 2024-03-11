@@ -17,13 +17,10 @@ type BlogPostPageProps = {
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = params;
   const post = await getPostBySlug(slug);
-
   return (
     <Container>
-      {/* TODO: Remove ban-ts-comment once work on blog post tasks */}
-      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-      {/* @ts-ignore */}
-      <Heading>{post.meta.title}</Heading>
+      <Heading>{post.title}</Heading>
+      {post.content}
     </Container>
   );
 }
