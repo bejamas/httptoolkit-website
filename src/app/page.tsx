@@ -192,7 +192,7 @@ export default async function Home() {
           lightSrc: '/images/hero-placeholder-light.webp',
           withBorderAnimation: true,
           alt: 'Hero',
-          priority: true,
+          loading: 'eager',
         }}
       />
       <Container>
