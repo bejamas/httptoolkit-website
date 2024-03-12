@@ -46,7 +46,7 @@ export const OverviewHero = ({ featuredPost }: OverviewHeroProps) => {
                 <Stack $direction="row">
                   {featuredPost.tags.length && featuredPost.tags.map((tag: string) => <Badge>{tag}</Badge>)}
                 </Stack>
-                <Heading fontSize="m" as="h3" fontWeight="normal" color="white">
+                <Heading fontSize="m" as="h2" fontWeight="normal" color="white">
                   {featuredPost.title}
                 </Heading>
                 <Text fontSize="l" color="darkGrey">

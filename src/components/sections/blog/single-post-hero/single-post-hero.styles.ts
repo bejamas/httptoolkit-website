@@ -22,6 +22,7 @@ export const StyledSinglePost = styled.div`
     align-items: normal;
     margin-top: 64px;
     flex-direction: row;
+    gap: 64px;
   }
 `;
 
@@ -73,6 +74,7 @@ export const StyledSinglePostImageWrapper = styled.div`
   }
 
   @media (min-width: ${screens['lg']}) {
+    max-width: 607px;
     min-width: 607px;
   }
 `;
