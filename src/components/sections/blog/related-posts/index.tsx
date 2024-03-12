@@ -7,10 +7,11 @@ import { getRelatedPosts } from '@/lib/mdx';
 
 interface RelatedPostsProps {
   tags: string[];
+  currentPostSlug: string;
 }
 
-export const RelatedPosts = async ({ tags }: RelatedPostsProps) => {
-  const relatedPosts = await getRelatedPosts(tags);
+export const RelatedPosts = async ({ tags, currentPostSlug }: RelatedPostsProps) => {
+  const relatedPosts = await getRelatedPosts({ tags, currentPostSlug });
 
   if (relatedPosts.length === 0) {
     return null;

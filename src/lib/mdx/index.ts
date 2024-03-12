@@ -66,10 +66,11 @@ export const getAllPostsMeta = async () => {
   return posts;
 };
 
-export const getRelatedPosts = async (tags: string[]) => {
+export const getRelatedPosts = async ({ tags, currentPostSlug }: { tags: string[]; currentPostSlug: string }) => {
   const allPosts = await getAllPostsMeta();
 
   const filteredPosts = allPosts
+    .filter(post => post.slug !== currentPostSlug)
     .filter(post => {
       return tags.some(tag => post.tags.includes(tag));
     })
