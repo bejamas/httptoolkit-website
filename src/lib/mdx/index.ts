@@ -65,3 +65,16 @@ export const getAllPostsMeta = async () => {
   }
   return posts;
 };
+
+export const getAllCategoryTags = async () => {
+  const allPosts = await getAllPostsMeta();
+
+  const tags: string[] = [];
+
+  allPosts.map(post => {
+    const formattedTags = post.tags.map(tag => tag.toLowerCase().trim());
+    tags.push(...formattedTags);
+  });
+
+  return [...new Set(tags)];
+};
