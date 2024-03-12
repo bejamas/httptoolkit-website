@@ -1,7 +1,6 @@
 'use client';
 
-import Image from 'next/image';
-
+import { Image } from '@/components/elements/image';
 import { styled } from '@/styles';
 
 export const StyledIntegrationBentoWrapper = styled.section`
