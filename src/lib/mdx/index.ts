@@ -63,7 +63,7 @@ export const getAllPostsMeta = async () => {
       // console.error('*_________END___________*');
     }
   }
-  return posts;
+  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 };
 
 export const getRelatedPosts = async ({ tags, currentPostSlug }: { tags: string[]; currentPostSlug: string }) => {
@@ -74,7 +74,6 @@ export const getRelatedPosts = async ({ tags, currentPostSlug }: { tags: string[
     .filter(post => {
       return tags.some(tag => post.tags.includes(tag));
     })
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 3);
 
   return filteredPosts;
