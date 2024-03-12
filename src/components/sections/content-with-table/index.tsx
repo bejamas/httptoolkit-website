@@ -22,6 +22,7 @@ export const ContentWithTable = ({ content: Content, links }: ContentWithTablePr
       </StyledContentWithTableLowerGradientWrapper>
       <StyledContentWithTableContentWrapper>
         <StyledContentWithTableTableWrapper>
+          {/* TODO: get the links by the content */}
           <TableContent isCollapsible={false} links={links} />
         </StyledContentWithTableTableWrapper>
         <div>
