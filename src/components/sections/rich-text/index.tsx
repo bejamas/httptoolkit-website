@@ -1,8 +1,8 @@
 import type { RichTextProps } from './rich-text.types';
-import { termOfServicesComponents } from './themes/terms-of-services';
+import { policiesComponents } from './themes/policies';
 
 const COMPONENT_DICTIONARY: Record<RichTextProps['theme'], any> = {
-  'terms-of-service': termOfServicesComponents,
+  policies: policiesComponents,
 };
 
 export const RichText = ({ content: Content, theme }: RichTextProps) => {
