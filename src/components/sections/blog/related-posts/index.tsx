@@ -24,6 +24,7 @@ export const RelatedPosts = async ({ tags }: RelatedPostsProps) => {
           {relatedPosts.length &&
             relatedPosts.map(post => (
               <BlogCard
+                key={post.slug}
                 title={post.title}
                 slug={post.slug}
                 image={{ src: `/images/${post.coverImage}`, alt: post.title }}
