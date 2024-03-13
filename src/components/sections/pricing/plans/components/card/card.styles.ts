@@ -3,7 +3,6 @@
 import type { StyledPricingCardProps } from './card.types';
 
 import { StyledButton, StyledLink } from '@/components/elements/button/button.styles';
-import { DropdownWrapper } from '@/components/modules/dropdown/dropdown.styles';
 import { styled } from '@/styles';
 
 export const StyledPricingCardWrapper = styled.div<StyledPricingCardProps>`
@@ -20,8 +19,11 @@ export const StyledPricingCardWrapper = styled.div<StyledPricingCardProps>`
     gap: 32px;
     padding: 32px;
   }
+`;
 
-  & ${StyledButton}, & ${StyledLink}, & ${DropdownWrapper} {
+export const StyledPricingCardButtonWrapper = styled.div`
+  & > *,
+  & > * > ${StyledButton}, & > * > ${StyledLink} {
     width: 100%;
   }
 `;

@@ -5,6 +5,7 @@ import {
   StyledPriceCardFeatureItemLI,
   StyledPriceCardFeatureItemsWrapper,
   StyledPriceCardPrice,
+  StyledPricingCardButtonWrapper,
   StyledPricingCardPriceWrapper,
   StyledPricingCardWrapper,
 } from './card.styles';
@@ -65,7 +66,9 @@ export const PricingCard = ({
           {priceDescription}
         </Text>
       </StyledPricingCardPriceWrapper>
-      {isDownload ? <DownloadButton {...CTA} /> : CTA && <Button {...CTA} />}
+      <StyledPricingCardButtonWrapper>
+        {isDownload ? <DownloadButton {...CTA} /> : CTA && <Button {...CTA} />}
+      </StyledPricingCardButtonWrapper>
       {Array.isArray(features) &&
         features.length > 0 &&
         features.map(feature => renderFeatures(feature, $isHighlighted))}
