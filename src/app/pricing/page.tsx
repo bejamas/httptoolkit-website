@@ -1,6 +1,5 @@
-import { Container } from '@/components/elements/container';
-import { Heading } from '@/components/elements/heading';
 import { CaretRight } from '@/components/elements/icon';
+import { CTA } from '@/components/sections/cta';
 import { TextWithAccordion } from '@/components/sections/text-with-accordion';
 import type { TextWithAccordionProps } from '@/components/sections/text-with-accordion/text-with-accordion.types';
 
@@ -30,9 +29,15 @@ const FAQItems: TextWithAccordionProps['accordionItems'] = [
 export default function PricingPage() {
   return (
     <>
-      <Container>
-        <Heading color="textGradient">Pricing</Heading>
-      </Container>
+      <CTA
+        $variant="pricing-hero"
+        heading="Developer tools built for professionals"
+        subHeading={{
+          text: 'pricing',
+        }}
+        excerpt="Your time is valuable. HTTP Toolkit gives you instant insight and access into every request & response, with zero hassle. Test clie nts, debug APIs and catch bugs, all at lightning speed."
+        withDownload={false}
+      ></CTA>
       <TextWithAccordion
         title="Frequently Asked Questions"
         text="Create rules to match requests and respond with your own content, to quickly prototype against new endpoints or services."
