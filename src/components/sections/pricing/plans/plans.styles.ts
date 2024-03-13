@@ -3,7 +3,10 @@
 import { Container } from '@/components/elements/container';
 import { styled } from '@/styles';
 
-export const StyledPricingPlansWrapper = styled(Container)``;
+export const StyledPricingPlansWrapper = styled(Container)`
+  position: relative;
+  max-width: ${({ theme }) => theme.screens['2xl']} !important;
+`;
 
 export const StyledPricingPlansSwitchWrapper = styled.div`
   position: relative;
