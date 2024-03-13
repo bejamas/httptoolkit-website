@@ -1,13 +1,8 @@
-import { Container } from '@/components/elements/container';
-import { Heading } from '@/components/elements/heading';
 import { CTA } from '@/components/sections/cta';
 
 export default function PricingPage() {
   return (
     <>
-      <Container>
-        <Heading color="textGradient">Pricing</Heading>
-      </Container>
       <CTA
         $variant="pricing-hero"
         heading="Developer tools built for professionals"
