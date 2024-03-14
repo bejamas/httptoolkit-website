@@ -10,6 +10,7 @@ import type { AccordionProps } from './accordion.types';
 
 import { Heading } from '@/components/elements/heading';
 import { CaretDown } from '@/components/elements/icon';
+import { Text } from '@/components/elements/text';
 
 export const Accordion = ({ items, $variant = 'default' }: AccordionProps) => {
   return (
@@ -19,12 +20,16 @@ export const Accordion = ({ items, $variant = 'default' }: AccordionProps) => {
         items.map(item => (
           <StyledAccordionItem value={item.title} $variant={$variant}>
             <StyledAccordionTrigger>
-              <Heading as="h3" fontSize="s" color="darkGrey" textAlign="left">
+              <Heading as="h3" fontSize="m" color="darkGrey" textAlign="left">
                 {item.title}
               </Heading>
               <CaretDown weight="fill" size={24} />
             </StyledAccordionTrigger>
-            <StyledAccordionContent>{item.text}</StyledAccordionContent>
+            <StyledAccordionContent>
+              <Text fontSize="m" color="darkGrey">
+                {item.text}
+              </Text>
+            </StyledAccordionContent>
           </StyledAccordionItem>
         ))}
     </StyledAccordionWrapper>
