@@ -1,6 +1,8 @@
+import { Suspense } from 'react';
+
 import { Container } from '@/components/elements/container';
+import { OverviewBlogContent } from '@/components/sections/blog/overview-content';
 import { OverviewHero } from '@/components/sections/blog/overview-hero';
-import { OverviewPostGrid } from '@/components/sections/blog/overview-post-grid';
 import { getAllPostsMeta } from '@/lib/mdx';
 
 export default async function Blog() {
@@ -10,7 +12,9 @@ export default async function Blog() {
   return (
     <Container>
       {featurePost && <OverviewHero featuredPost={featurePost} />}
-      <OverviewPostGrid posts={posts} />
+      <Suspense fallback="loading...">
+        <OverviewBlogContent posts={posts} />
+      </Suspense>
     </Container>
   );
 }
