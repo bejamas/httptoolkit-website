@@ -1,16 +1,22 @@
 'use client';
 
-import { styled } from '@/styles';
+import { screens, styled } from '@/styles';
 
-export const StyledPostGrid = styled.div`
-  columns: 1;
+export const StyledPostGridSection = styled.section`
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 64px;
 
-  @media (min-width: 768px) {
-    columns: 2;
+  @media (min-width: ${screens.lg}) {
+    flex-direction: row;
   }
+`;
 
-  & article {
-    break-inside: avoid;
-    margin-bottom: 24px;
+export const StyledSubscriberBox = styled.aside`
+  flex: 1;
+  max-width: none;
+
+  @media (min-width: ${screens.lg}) {
+    min-width: 387px;
   }
 `;
