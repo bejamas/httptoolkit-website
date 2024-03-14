@@ -1,14 +1,14 @@
-import Content from './content.mdx';
-
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
-import { RichText } from '@/components/sections/rich-text';
+import { getAllDocsMeta } from '@/lib/mdx/docs';
 
-export default function DocsPage() {
+export default async function DocsPage() {
+  const docs = await getAllDocsMeta();
+
   return (
     <Container>
       <Heading color="textGradient">Docs</Heading>
-      <RichText content={Content} />
+      {docs[2].content}
     </Container>
   );
 }
