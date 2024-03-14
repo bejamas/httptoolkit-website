@@ -11,6 +11,7 @@ import {
   AndroidLogo,
   ArrowRight,
   CaretRight,
+  CaretLeft,
   GithubLogo,
   Globe,
   SealCheck,
@@ -25,6 +26,9 @@ import {
   ShieldCheck,
   ArrowsLeftRight,
   WindowsLogo,
+  Desktop,
+  Shuffle,
+  Flag,
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -62,6 +66,7 @@ export {
   TwitterX,
   Check,
   CaretRight,
+  CaretLeft,
   GithubLogo,
   CaretUp,
   CursorClick,
@@ -81,4 +86,7 @@ export {
   ArrowsLeftRight,
   WindowsLogo,
   LinuxLogo,
+  Desktop,
+  Shuffle,
+  Flag,
 };

@@ -1,6 +1,7 @@
 'use client';
 
-import { styled } from '@/styles';
+import { Image } from '@/components/elements/image';
+import { screens, styled } from '@/styles';
 
 export const StyledBlogCardWrapper = styled.article`
   display: flex;
@@ -19,31 +20,24 @@ export const StyledBlogCardWrapper = styled.article`
 `;
 
 export const StyledBlogCardFigure = styled.figure`
-  height: 217px;
+  height: 174px;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
+
+  @media (min-width: ${screens.lg}) {
+    height: 217px;
+  }
 `;
 
-export const StyledBlogCardImage = styled.img`
+export const StyledBlogCardImage = styled(Image)`
   width: 100%;
-  height: 100%;
 `;
 
 export const StyledBlogCardTag = styled.span`
   position: absolute;
   top: 16px;
   left: 16px;
-  padding: 6px 10px;
-  border-radius: 16px;
-  background-color: ${({ theme }) => theme.colors.inkBlack};
-  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
-  font-size: ${({ theme }) => theme.fontSizes.label.m};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme }) => theme.colors.text.lightGrey};
-  line-height: 1.1;
-  letter-spacing: 0.6;
-  text-transform: uppercase;
 `;
 
 export const StyledBlogCardContentWrapper = styled.div`

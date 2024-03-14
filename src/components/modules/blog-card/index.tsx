@@ -8,18 +8,21 @@ import {
 } from './blog-card.styles';
 import type { BlogCardProps } from './blog-card.types';
 
+import { Badge } from '@/components/elements/badge';
 import { Button } from '@/components/elements/button';
 import { Heading } from '@/components/elements/heading';
 import { ArrowRight } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
 import { formatDateLongMonthYear } from '@/lib/utils/formatMonthYearDate';
 
-export const BlogCard = ({ title, text, image, date, tag }: BlogCardProps) => {
+export const BlogCard = ({ title, text, image, date, tag, slug }: BlogCardProps) => {
   return (
     <StyledBlogCardWrapper>
       <StyledBlogCardFigure>
-        <StyledBlogCardImage src={image.src} alt={image.alt} loading="lazy" />
-        <StyledBlogCardTag>{tag}</StyledBlogCardTag>
+        <StyledBlogCardImage width={386} height={217} src={image.src} alt={image.alt ?? title} loading="lazy" />
+        <StyledBlogCardTag>
+          <Badge>{tag}</Badge>
+        </StyledBlogCardTag>
       </StyledBlogCardFigure>
       <StyledBlogCardContentWrapper>
         <Text fontSize="m" color="darkGrey">
@@ -32,7 +35,14 @@ export const BlogCard = ({ title, text, image, date, tag }: BlogCardProps) => {
           {text}
         </Text>
         <StyledBlogCardButtonWrapper>
-          <Button $variant="secondary" $small icon={ArrowRight}>
+          <Button
+            as="link"
+            href={`/blog/${slug}`}
+            aria-label={`Read more about ${title}`}
+            $variant="secondary"
+            $small
+            icon={ArrowRight}
+          >
             Read more
           </Button>
         </StyledBlogCardButtonWrapper>

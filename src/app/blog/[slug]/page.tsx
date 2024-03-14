@@ -1,6 +1,7 @@
 import { Container } from '@/components/elements/container';
-import { Heading } from '@/components/elements/heading';
-import { getPostBySlug, getAllPostsMeta } from '@/lib/mdx';
+import { RelatedPosts } from '@/components/sections/blog/related-posts';
+import { SinglePostHero } from '@/components/sections/blog/single-post-hero';
+import { getPostBySlug, getAllPostsMeta } from '@/lib/mdx/blog';
 
 export async function generateStaticParams() {
   const posts = await getAllPostsMeta();
@@ -20,10 +21,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <Container>
-      {/* TODO: Remove ban-ts-comment once work on blog post tasks */}
-      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-      {/* @ts-ignore */}
-      <Heading>{post.meta.title}</Heading>
+      <SinglePostHero post={post} />
+      <RelatedPosts tags={post.tags} currentPostSlug={post.slug} />
+      {/* <div>{post.content}</div> */}
     </Container>
   );
 }
