@@ -44,12 +44,12 @@ const planFeatures: PricingComparisonProps['features'] = [
       {
         title: 'Users',
         tooltip: 'Users example',
-        checked: ['hobbyist', 'professional'],
+        checked: ['hobbyist', 'professional', 'team'],
       },
       {
         title: 'Users 1',
         tooltip: 'This is a tooltip',
-        checked: ['team', 'professional'],
+        checked: ['hobbyist', 'team', 'professional'],
       },
     ],
   },
@@ -59,10 +59,40 @@ const planFeatures: PricingComparisonProps['features'] = [
       {
         title: 'Multiple Filters',
         tooltip: 'Multiple Filters example',
-        checked: ['hobbyist', 'professional'],
+        checked: ['professional', 'team'],
       },
       {
         title: 'Breakpoint',
+        tooltip: 'This is a tooltip',
+        checked: ['team', 'professional'],
+      },
+      {
+        title: 'Breakpoint 2',
+        tooltip: 'This is a tooltip',
+        checked: ['team', 'professional'],
+      },
+      {
+        title: 'Breakpoint 3',
+        tooltip: 'This is a tooltip',
+        checked: ['team', 'professional'],
+      },
+    ],
+  },
+  {
+    title: 'Integrations',
+    items: [
+      {
+        title: 'Android',
+        tooltip: 'This is a tooltip',
+        checked: ['team', 'professional'],
+      },
+      {
+        title: 'Javascript',
+        tooltip: 'This is a tooltip',
+        checked: ['team', 'professional'],
+      },
+      {
+        title: 'Java',
         tooltip: 'This is a tooltip',
         checked: ['team', 'professional'],
       },

@@ -16,3 +16,11 @@ export const StyledPricingComparisonWrapper = styled(Container)`
     padding-bottom: 96px;
   }
 `;
+
+export const StyledPricingComparisonDesktopWrapper = styled.div`
+  display: none;
+
+  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    display: block;
+  }
+`;

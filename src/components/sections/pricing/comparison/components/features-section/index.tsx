@@ -1,4 +1,5 @@
 import {
+  StyledCheckedMarkWrapper,
   StyledFeatureSectionItem,
   StyledFeatureSectionItemTitleWrapper,
   StyledFeatureSectionItemWrapper,
@@ -13,28 +14,33 @@ import { Text } from '@/components/elements/text';
 import { Tooltip } from '@/components/elements/tooltip';
 
 const CheckedMark = ({ checked }: { checked: boolean }) => {
-  if (checked) {
-    return <CheckIcon />;
-  }
   return (
-    <Text fontSize="m" fontWeight="medium" color="lightGrey">
-      –
-    </Text>
+    <StyledCheckedMarkWrapper>
+      {checked ? (
+        <CheckIcon />
+      ) : (
+        <Text fontSize="m" fontWeight="medium" color="lightGrey">
+          –
+        </Text>
+      )}
+    </StyledCheckedMarkWrapper>
   );
 };
 
-export const FeaturesSection = ({ features, active }: FeaturesSectionProps) => {
+export const FeaturesSection = ({ features, active, plans }: FeaturesSectionProps) => {
   return (
     <StyledFeaturesSectionWrapper>
       {Array.isArray(features) &&
         features.length > 0 &&
         features.map(feature => (
-          <StyledFeatureSectionItemWrapper>
-            <StyledFeatureSectionTitle>{feature.title}</StyledFeatureSectionTitle>
+          <StyledFeatureSectionItemWrapper key={feature.title}>
+            <StyledFeatureSectionTitle fontSize="l" color="lightGrey" fontWeight="medium">
+              {feature.title}
+            </StyledFeatureSectionTitle>
             {Array.isArray(feature.items) &&
               feature.items.length > 0 &&
               feature.items.map(item => (
-                <StyledFeatureSectionItem>
+                <StyledFeatureSectionItem key={item.title}>
                   <StyledFeatureSectionItemTitleWrapper>
                     <Text fontSize="s" fontWeight="medium" color="darkGrey">
                       {item.title}
@@ -46,6 +52,12 @@ export const FeaturesSection = ({ features, active }: FeaturesSectionProps) => {
                     )}
                   </StyledFeatureSectionItemTitleWrapper>
                   {active && <CheckedMark checked={item.checked?.some(check => active === check) || false} />}
+                  {!active &&
+                    Array.isArray(plans) &&
+                    plans.length > 0 &&
+                    plans.map(plan => (
+                      <CheckedMark key={plan.id} checked={item.checked?.some(check => plan.id === check) || false} />
+                    ))}
                 </StyledFeatureSectionItem>
               ))}
           </StyledFeatureSectionItemWrapper>
