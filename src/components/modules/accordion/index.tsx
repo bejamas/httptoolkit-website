@@ -1,6 +1,5 @@
 'use client';
 
-import * as RadixAccordion from '@radix-ui/react-accordion';
 import { marked } from 'marked';
 
 import {
@@ -37,13 +36,11 @@ export const Accordion = ({ items, $variant = 'default' }: AccordionProps) => {
       {Array.isArray(items) &&
         items.length > 0 &&
         items.map(item => (
-          <StyledAccordionItem value={item.title} $variant={$variant}>
-            <RadixAccordion.Header>
-              <StyledAccordionTrigger>
-                <AccordionTitle $variant={$variant}>{item.title}</AccordionTitle>
-                <CaretDown weight="fill" size={$variant === 'default' ? 24 : 16} />
-              </StyledAccordionTrigger>
-            </RadixAccordion.Header>
+          <StyledAccordionItem key={item.text} value={item.title} $variant={$variant}>
+            <StyledAccordionTrigger>
+              <AccordionTitle>{item.title}</AccordionTitle>
+              <CaretDown weight="fill" size={24} />
+            </StyledAccordionTrigger>
             <StyledAccordionContent>
               <div dangerouslySetInnerHTML={{ __html: marked.parse(item.text, { renderer }) }}></div>
             </StyledAccordionContent>
