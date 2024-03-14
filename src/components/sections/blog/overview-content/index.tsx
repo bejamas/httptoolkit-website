@@ -9,11 +9,13 @@ import { Button } from '@/components/elements/button';
 import Stack from '@/components/elements/stack';
 import { BlogCard } from '@/components/modules/blog-card';
 
+const POST_ITEMS_PER_PAGE = 6;
+
 export const OverviewBlogContent = ({ posts }: { posts: Post[] }) => {
-  const [visibleItems, setVisibleItems] = useState(6);
+  const [visibleItems, setVisibleItems] = useState(POST_ITEMS_PER_PAGE);
 
   const handleLoadMore = () => {
-    setVisibleItems(prev => prev + 6);
+    setVisibleItems(prev => prev + POST_ITEMS_PER_PAGE);
   };
 
   return (
