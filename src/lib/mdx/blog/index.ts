@@ -69,12 +69,12 @@ export const getAllPostsMeta = async () => {
 export const getRelatedPosts = async ({ tags, currentPostSlug }: { tags: string[]; currentPostSlug: string }) => {
   const allPosts = await getAllPostsMeta();
 
-  const filteredPosts = allPosts
+  const relatedPosts = allPosts
     .filter(post => post.slug !== currentPostSlug)
     .filter(post => {
       return tags.some(tag => post.tags.includes(tag));
     })
     .slice(0, 3);
 
-  return filteredPosts;
+  return relatedPosts;
 };
