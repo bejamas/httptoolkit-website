@@ -1,5 +1,3 @@
-import { Suspense } from 'react';
-
 import { Container } from '@/components/elements/container';
 import { OverviewBlogContent } from '@/components/sections/blog/overview-content';
 import { OverviewHero } from '@/components/sections/blog/overview-hero';
@@ -12,9 +10,7 @@ export default async function Blog() {
   return (
     <Container>
       {featurePost && <OverviewHero featuredPost={featurePost} />}
-      <Suspense fallback="loading...">
-        <OverviewBlogContent posts={posts} />
-      </Suspense>
+      <OverviewBlogContent />
     </Container>
   );
 }
