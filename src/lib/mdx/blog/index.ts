@@ -3,7 +3,7 @@ import path from 'path';
 
 import { compileMDX } from 'next-mdx-remote/rsc';
 
-import { components } from './components';
+import { components } from '../components';
 
 const rootDirectory = path.join(process.cwd(), 'src', 'content', 'posts');
 

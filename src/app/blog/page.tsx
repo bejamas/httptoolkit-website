@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import { Container } from '@/components/elements/container';
 import { OverviewBlogContent } from '@/components/sections/blog/overview-content';
 import { OverviewHero } from '@/components/sections/blog/overview-hero';
-import { getAllPostsMeta } from '@/lib/mdx';
+import { getAllPostsMeta } from '@/lib/mdx/blog';
 
 export default async function Blog() {
   const posts = await getAllPostsMeta();
