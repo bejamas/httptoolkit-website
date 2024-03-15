@@ -1,7 +1,7 @@
 import { Container } from '@/components/elements/container';
 import { OverviewBlogContent } from '@/components/sections/blog/overview-content';
+import { OverviewExplorer } from '@/components/sections/blog/overview-explorer';
 import { OverviewHero } from '@/components/sections/blog/overview-hero';
-import { OverviewTags } from '@/components/sections/blog/overview-tags';
 import { getAllPostsMeta } from '@/lib/mdx/blog';
 
 export default async function Blog() {
@@ -11,7 +11,7 @@ export default async function Blog() {
   return (
     <>
       <Container>{featurePost && <OverviewHero featuredPost={featurePost} />}</Container>
-      <OverviewTags />
+      <OverviewExplorer />
       <Container>
         <OverviewBlogContent />
       </Container>

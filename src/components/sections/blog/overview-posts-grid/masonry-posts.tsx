@@ -4,9 +4,10 @@ import { useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 import { Masonry } from 'react-plock';
 
-import { StyledLoadMoreWrapper } from './overview-posts-grid.styles';
+import { StyledLoadMoreWrapper, StyledNoResultsWrapper, StyledSelectedTag } from './overview-posts-grid.styles';
 
 import { Button } from '@/components/elements/button';
+import { ArrowRight } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
 import { BlogCard } from '@/components/modules/blog-card';
 
@@ -29,7 +30,18 @@ export const MasonryPosts = ({ posts }: { posts: Post[] }) => {
   };
 
   if (!filteredPosts.length) {
-    return <Text fontSize="m">Sorry, there are currently no posts with {currentTag} tag</Text>;
+    return (
+      <StyledNoResultsWrapper>
+        <Text fontSize="m">
+          Sorry, there are currently no posts with
+          <StyledSelectedTag>{currentTag}</StyledSelectedTag>
+          tag
+        </Text>
+        <Button icon={ArrowRight} as="link" $variant="secondary" $small href="/blog">
+          Back to all posts
+        </Button>
+      </StyledNoResultsWrapper>
+    );
   }
 
   return (
