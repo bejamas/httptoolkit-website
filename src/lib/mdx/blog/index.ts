@@ -89,5 +89,7 @@ export const getAllCategoryTags = async () => {
     tags.push(...formattedTags);
   });
 
-  return [...new Set(tags)];
+  const allCategoryTagsOrdered = [...new Set(tags)].sort((a, b) => a.localeCompare(b));
+
+  return allCategoryTagsOrdered;
 };
