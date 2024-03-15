@@ -1,8 +1,7 @@
-import { StyledTagsSection, StyledTagsWrapper } from './overview-tags.styled';
+import { StyledTagText, StyledTagsSection, StyledTagsWrapper } from './overview-tags.styled';
 
 import { Container } from '@/components/elements/container';
 import { Link } from '@/components/elements/link';
-import { Text } from '@/components/elements/text';
 import { getAllCategoryTags } from '@/lib/mdx/blog';
 
 export const OverviewTags = async () => {
@@ -15,13 +14,11 @@ export const OverviewTags = async () => {
       <Container>
         <StyledTagsWrapper>
           <Link href={`/blog`}>
-            <Text fontSize="m">All posts</Text>
+            <StyledTagText>All posts</StyledTagText>
           </Link>
           {visibleTags.map(tag => (
             <Link href={`/blog?tags=${tag}`}>
-              <Text fontSize="m" key={tag}>
-                {tag}
-              </Text>
+              <StyledTagText key={tag}>{tag}</StyledTagText>
             </Link>
           ))}
           {/*

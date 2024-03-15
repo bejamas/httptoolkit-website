@@ -12,3 +12,8 @@ export const StyledTagsWrapper = styled.div`
   display: inline-flex;
   gap: 48px;
 `;
+
+export const StyledTagText = styled.span`
+  font-size: ${({ theme }) => theme.fontSizes.text.m};
+  text-transform: capitalize;
+`;
