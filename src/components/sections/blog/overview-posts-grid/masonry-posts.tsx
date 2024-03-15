@@ -1,39 +1,41 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Masonry } from 'react-plock';
 
 import { StyledLoadMoreWrapper } from './overview-posts-grid.styles';
 
 import { Button } from '@/components/elements/button';
+import { Text } from '@/components/elements/text';
 import { BlogCard } from '@/components/modules/blog-card';
 
 const POST_ITEMS_PER_PAGE = 6;
 
 export const MasonryPosts = ({ posts }: { posts: Post[] }) => {
   const [visibleItems, setVisibleItems] = useState(POST_ITEMS_PER_PAGE);
-  const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
-
   const params = useSearchParams();
   const currentTag = params.get('tags');
-  const allPosts = filteredPosts.length ? filteredPosts : posts;
 
-  useEffect(() => {
+  const filteredPosts = useMemo(() => {
     if (currentTag) {
-      const filteredPosts = posts.filter(post => post.tags.includes(currentTag));
-      setFilteredPosts(filteredPosts);
+      return posts.filter(post => post.tags.includes(currentTag));
     }
+    return posts;
   }, [currentTag, posts]);
 
   const handleLoadMore = () => {
     setVisibleItems(prev => prev + POST_ITEMS_PER_PAGE);
   };
 
+  if (!filteredPosts.length) {
+    return <Text fontSize="m">Sorry, there are currently no posts with {currentTag} tag</Text>;
+  }
+
   return (
     <>
       <Masonry
-        items={allPosts.slice(0, visibleItems)}
+        items={filteredPosts.slice(0, visibleItems)}
         config={{
           columns: [1, 2, 2],
           gap: [24, 24, 24],
@@ -52,7 +54,7 @@ export const MasonryPosts = ({ posts }: { posts: Post[] }) => {
           />
         )}
       />
-      {visibleItems < allPosts.length && (
+      {visibleItems < filteredPosts.length && (
         <StyledLoadMoreWrapper>
           <Button $variant="secondary" onClick={handleLoadMore}>
             Load More

@@ -23,5 +23,6 @@ export const StyledSubscriberBox = styled.aside`
 
   @media (min-width: ${screens.xl}) {
     min-width: 387px;
+    max-width: fit-content;
   }
 `;
