@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { Masonry } from 'react-plock';
 
 import { StyledLoadMoreWrapper } from './overview-posts-grid.styles';
@@ -12,6 +13,18 @@ const POST_ITEMS_PER_PAGE = 6;
 
 export const MasonryPosts = ({ posts }: { posts: Post[] }) => {
   const [visibleItems, setVisibleItems] = useState(POST_ITEMS_PER_PAGE);
+  const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
+
+  const params = useSearchParams();
+  const currentTag = params.get('tags');
+  const allPosts = filteredPosts.length ? filteredPosts : posts;
+
+  useEffect(() => {
+    if (currentTag) {
+      const filteredPosts = posts.filter(post => post.tags.includes(currentTag));
+      setFilteredPosts(filteredPosts);
+    }
+  }, [currentTag, posts]);
 
   const handleLoadMore = () => {
     setVisibleItems(prev => prev + POST_ITEMS_PER_PAGE);
@@ -20,7 +33,7 @@ export const MasonryPosts = ({ posts }: { posts: Post[] }) => {
   return (
     <>
       <Masonry
-        items={posts.slice(0, visibleItems)}
+        items={allPosts.slice(0, visibleItems)}
         config={{
           columns: [1, 2, 2],
           gap: [24, 24, 24],
@@ -39,7 +52,7 @@ export const MasonryPosts = ({ posts }: { posts: Post[] }) => {
           />
         )}
       />
-      {visibleItems < posts.length && (
+      {visibleItems < allPosts.length && (
         <StyledLoadMoreWrapper>
           <Button $variant="secondary" onClick={handleLoadMore}>
             Load More

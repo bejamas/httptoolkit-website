@@ -14,9 +14,11 @@ export const OverviewTags = async () => {
     <StyledTagsSection>
       <Container>
         <StyledTagsWrapper>
-          <Text fontSize="m">All posts</Text>
+          <Link href={`/blog`}>
+            <Text fontSize="m">All posts</Text>
+          </Link>
           {visibleTags.map(tag => (
-            <Link href={`blog?tags=${tag}`}>
+            <Link href={`/blog?tags=${tag}`}>
               <Text fontSize="m" key={tag}>
                 {tag}
               </Text>
