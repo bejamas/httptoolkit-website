@@ -1,12 +1,17 @@
 'use client';
 
 import { Container } from '@/components/elements/container';
-import { styled } from '@/styles';
+import { screens, styled } from '@/styles';
 
 export const StyledExplorerSection = styled.section`
   padding: 34px 0;
   margin-bottom: 48px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.borderGradient};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.button.border};
+  display: none;
+
+  @media (min-width: ${screens.lg}) {
+    display: block;
+  }
 `;
 
 export const StyledExplorerContainer = styled(Container)`
@@ -17,6 +22,7 @@ export const StyledExplorerContainer = styled(Container)`
 export const StyledTagsWrapper = styled.nav`
   & ul {
     display: inline-flex;
+    align-items: center;
     gap: 48px;
   }
 `;

@@ -43,6 +43,23 @@ export const StyledDropdownMenuContent = styled(DropdownMenu.Content)`
       background: ${({ theme }) => theme.colors.darkGrey};
     }
   }
+  /* width */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.colors.darkGrey};
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    height: 94px;
+    background: ${({ theme }) => theme.colors.lightGrey};
+    border-radius: 40px;
+    border: 2px solid ${({ theme }) => theme.colors.darkGrey};
+  }
 `;
 
 export const StyledDropdownContentWrapper = styled.div`
@@ -55,6 +72,7 @@ export const StyledDropdownContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  font-family: ${({ theme }) => theme.fontFamily.dmSans};
 `;
 
 export const StyledDropdownItem = styled.span`
