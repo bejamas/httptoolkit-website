@@ -36,7 +36,7 @@ const ctaSquareStyles = css`
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background-image: radial-gradient(ellipse at center, transparent 30%, ${({ theme }) => theme.colors.inkBlack});
+      background-image: radial-gradient(ellipse at center, transparent 30%, ${({ theme }) => theme.colors.darkGrey});
     }
   }
 `;
@@ -98,7 +98,7 @@ const ctaHeroStyles = css<{ $variant: CTAVariant; $bgVariant: bgVariant }>`
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background-image: radial-gradient(ellipse at center, transparent 60%, ${({ theme }) => theme.colors.inkBlack});
+    background-image: radial-gradient(ellipse at center, transparent 60%, ${({ theme }) => theme.colors.darkGrey});
   }
 `;
 
