@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import { HttpToolkitFeatures } from '@/components/common-sections/http-toolkit-features';
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
@@ -29,7 +31,9 @@ export default async function HomePage() {
       <MockResponseFeatures />
       <RewriteAnything />
       <Statistics title="Why `*HTTP Toolkit*`?" text="Numbers that speak for themselves:" />
-      <Testimonials />
+      <Suspense>
+        <Testimonials />
+      </Suspense>
       <TryItForYourselfCTA variant="cta-fluid" />
     </>
   );
