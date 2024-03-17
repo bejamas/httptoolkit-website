@@ -1,3 +1,4 @@
+import type { Metadata } from 'next/types';
 import { Suspense } from 'react';
 
 import { HttpToolkitFeatures } from '@/components/common-sections/http-toolkit-features';
@@ -8,6 +9,12 @@ import { LinuxLogo } from '@/components/elements/icon';
 import { ProductLdData } from '@/components/elements/product-ld-data';
 import { CTA } from '@/components/sections/cta';
 import { Testimonials } from '@/components/sections/testimonials';
+
+export const metadata: Metadata = {
+  title: 'Intercept, debug & mock HTTP(S) on Linux',
+  description:
+    'HTTP Toolkit lets you easily see and modify HTTP & HTTPS messages from applications, browsers, scripts & more on your Linux computer.',
+};
 
 export default async function ForLinuxPage() {
   return (
