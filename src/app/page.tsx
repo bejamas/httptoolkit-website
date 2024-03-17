@@ -5,6 +5,7 @@ import { MockResponseFeatures } from '@/components/common-sections/mock-response
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
 import { TryItForYourselfCTA } from '@/components/common-sections/try-it-for-yourself';
 import { CursorClick } from '@/components/elements/icon';
+import { ProductLdData } from '@/components/elements/product-ld-data';
 import { CTA } from '@/components/sections/cta';
 import { Statistics } from '@/components/sections/statistics';
 import { Testimonials } from '@/components/sections/testimonials';
@@ -37,6 +38,9 @@ export default async function HomePage() {
         <Testimonials />
       </Suspense>
       <TryItForYourselfCTA variant="cta-fluid" />
+      <Suspense>
+        <ProductLdData />
+      </Suspense>
     </>
   );
 }
