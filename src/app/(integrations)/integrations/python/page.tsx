@@ -1,35 +1,28 @@
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
-import { DockerLogo } from '@/components/elements/icon';
+import { PythonLogo } from '@/components/elements/icon';
 import { IntegrationCompatibility } from '@/components/sections/integration/single-page/compatibility';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
 import { IntegrationTextImage } from '@/components/sections/integration/single-page/text-image';
 import { Testimonials } from '@/components/sections/testimonials';
 
-const dockerIntegrationSteps = [
+const pythonIntegrationSteps = [
   [
     'Open a terminal via HTTP Toolkit',
-    'Run any command in that terminal to build or create a Docker container',
-    'The build or container is automatically intercepted',
-    "Instantly inspect, debug & rewrite all your container's HTTP(S) traffic",
-  ],
-  [
-    'Launch a Docker container anywhere',
-    "Click 'Attach to Docker' in HTTP Toolkit, and pick your container",
-    'HTTP Toolkit recreates & restarts the container with interception injected',
-    "Instantly inspect, debug & rewrite all your container's HTTP(S) traffic",
+    'Run any Python script, tool or server from that terminal',
+    "Instantly see, debug & rewrite all Python's HTTP traffic",
   ],
 ];
 
-export default function DockerIntegrationPage() {
+export default function PythonIntegrationPage() {
   return (
     <>
       <IntegrationSinglePageHero
         title="Http Toolkit and Docker integrated"
         text="Intercept & view all Docker HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
-        icon={DockerLogo}
-        breadcrumbText="docker"
+        icon={PythonLogo}
+        breadcrumbText="python"
       />
       <IntegrationTextImage
         title="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."
@@ -40,8 +33,8 @@ export default function DockerIntegrationPage() {
           alt: 'Mockup image',
         }}
       />
-      <IntegrationSteps title="Two ways to get started" subtitle="getting started" steps={dockerIntegrationSteps} />
-      <IntegrationCompatibility title="Supported by Docker" subtitle="compatibility" />
+      <IntegrationSteps title="Getting `*started*`" steps={pythonIntegrationSteps} />
+      <IntegrationCompatibility title="Supported by Python" subtitle="compatibility" />
       <Testimonials />
       <MockResponseFeatures />
       <RewriteAnything />
