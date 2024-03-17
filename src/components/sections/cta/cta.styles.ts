@@ -48,6 +48,15 @@ const ctaFluidStyles = css`
   @media (min-width: ${screens['lg']}) {
     background-position: top -80px center;
   }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    box-shadow: inset 0px 11px 16px 0px ${({ theme }) => theme.colors.darkGrey};
+  }
 `;
 
 const handleBackgroundVariant = (variant: bgVariant) => {
