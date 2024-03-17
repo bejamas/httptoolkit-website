@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: siteMetadata.description,
   twitter: {
     card: 'summary',
-    title: 'Next.js',
+    title: siteMetadata.name,
     description: siteMetadata.description,
     siteId: '982983215693680641',
     site: '@httptoolkit',
