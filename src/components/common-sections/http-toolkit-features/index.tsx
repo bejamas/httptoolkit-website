@@ -28,9 +28,10 @@ export const HttpToolkitFeatures = () => {
           <StyledFeaturesWrapper>
             <FeatureLine
               $align="right"
-              darkImage="/images/mockup-image.webp"
-              lightImage="/images/mockup-image-light.webp"
-              alt="Mockup image"
+              image={{
+                darkSrc: '/images/mockup-image.webp',
+                lightSrc: '/images/mockup-image-light.webp',
+              }}
               title="Seamless Traffic Interception"
               badge={{
                 text: 'Intercept',
@@ -44,9 +45,10 @@ export const HttpToolkitFeatures = () => {
             />
             <FeatureLine
               $align="left"
-              darkImage="/images/mockup-image.webp"
-              lightImage="/images/mockup-image-light.webp"
-              alt="Mockup image"
+              image={{
+                darkSrc: '/images/mockup-image.webp',
+                lightSrc: '/images/mockup-image-light.webp',
+              }}
               title="Explore, search & examine HTTP"
               badge={{
                 text: 'inspect',
@@ -60,9 +62,10 @@ export const HttpToolkitFeatures = () => {
             />
             <FeatureLine
               $align="right"
-              darkImage="/images/mockup-image.webp"
-              lightImage="/images/mockup-image-light.webp"
-              alt="Mockup image"
+              image={{
+                darkSrc: '/images/mockup-image.webp',
+                lightSrc: '/images/mockup-image-light.webp',
+              }}
               title="Pause & edit live HTTP traffic"
               badge={{
                 text: 'breakpoint',

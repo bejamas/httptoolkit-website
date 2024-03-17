@@ -26,25 +26,28 @@ export const MockResponseFeatures = () => {
           />
           <StyledFeaturesWrapper>
             <FeatureLine
-              darkImage="/images/mockup-image.webp"
-              lightImage="/images/mockup-image-light.webp"
-              alt="Mockup image"
+              image={{
+                darkSrc: '/images/mockup-image.webp',
+                lightSrc: '/images/mockup-image-light.webp',
+              }}
               title="Customize Responses with Prototyping Rules for Endpoints"
               text="Create rules to match requests and respond with your own content, to quickly prototype against new endpoints or services."
               icon={Gear}
             />
             <FeatureLine
-              darkImage="/images/mockup-image.webp"
-              lightImage="/images/mockup-image-light.webp"
-              alt="Mockup image"
+              image={{
+                darkSrc: '/images/mockup-image.webp',
+                lightSrc: '/images/mockup-image-light.webp',
+              }}
               title="Endpoint Management for Testing Edge Cases & Error Handling"
               text="Define new endpoints, override existing ones, or replace external services, to reproduce tricky edge cases and test your error handling."
               icon={ShieldCheck}
             />
             <FeatureLine
-              darkImage="/images/mockup-image.webp"
-              lightImage="/images/mockup-image-light.webp"
-              alt="Mockup image"
+              image={{
+                darkSrc: '/images/mockup-image.webp',
+                lightSrc: '/images/mockup-image-light.webp',
+              }}
               title="Shareable Mock Rulesets: Import & Export for Team Collaboration"
               text="Import & export your mock rulesets, to build complex setups and share them with your team."
               icon={ArrowsLeftRight}
