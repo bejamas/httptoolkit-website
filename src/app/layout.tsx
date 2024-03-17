@@ -12,6 +12,7 @@ import StyledComponentsRegistry from '@/styles/styled-component-registry';
 const dmSansFont = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-dmSans' });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(`${siteMetadata.siteUrl}`),
   title: siteMetadata.title,
   description: siteMetadata.description,
   twitter: {
