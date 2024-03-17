@@ -30,7 +30,9 @@ export default async function HomePage() {
       <TryItForYourselfCTA />
       <MockResponseFeatures />
       <RewriteAnything />
-      <Statistics title="Why `*HTTP Toolkit*`?" text="Numbers that speak for themselves:" />
+      <Suspense>
+        <Statistics title="Why `*HTTP Toolkit*`?" text="Numbers that speak for themselves:" />
+      </Suspense>
       <Suspense>
         <Testimonials />
       </Suspense>
