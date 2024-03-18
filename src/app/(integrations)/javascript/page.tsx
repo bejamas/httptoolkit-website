@@ -1,28 +1,19 @@
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
-import { PythonLogo } from '@/components/elements/icon';
+import { SquareJSLogo } from '@/components/elements/icon';
 import { IntegrationCompatibility } from '@/components/sections/integration/single-page/compatibility';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
-import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
 import { IntegrationTextImage } from '@/components/sections/integration/single-page/text-image';
 import { Testimonials } from '@/components/sections/testimonials';
 
-const pythonIntegrationSteps = [
-  [
-    'Open a terminal via HTTP Toolkit',
-    'Run any Python script, tool or server from that terminal',
-    "Instantly see, debug & rewrite all Python's HTTP traffic",
-  ],
-];
-
-export default function PythonIntegrationPage() {
+export default function JavascriptIntegrationPage() {
   return (
     <>
       <IntegrationSinglePageHero
-        title="Http Toolkit and Python integrated"
-        text="Intercept & view all Python HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
-        icon={PythonLogo}
-        breadcrumbText="python"
+        title="Http Toolkit and Javascript integrated"
+        text="Intercept & view all Javascript HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
+        icon={SquareJSLogo}
+        breadcrumbText="javascript"
       />
       <IntegrationTextImage
         title="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."
@@ -33,8 +24,7 @@ export default function PythonIntegrationPage() {
           alt: 'Mockup image',
         }}
       />
-      <IntegrationSteps title="Getting `*started*`" steps={pythonIntegrationSteps} />
-      <IntegrationCompatibility title="Supported by Python" subtitle="compatibility" />
+      <IntegrationCompatibility title="Supported by Javascript" subtitle="compatibility" />
       <Testimonials />
       <MockResponseFeatures />
       <RewriteAnything />

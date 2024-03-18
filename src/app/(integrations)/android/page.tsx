@@ -42,8 +42,8 @@ export default function AndroidIntegrationPage() {
   return (
     <>
       <IntegrationSinglePageHero
-        title="Http Toolkit and Docker integrated"
-        text="Intercept & view all Docker HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
+        title="Http Toolkit and Android integrated"
+        text="Intercept & view all Android HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
         icon={AndroidLogo}
         breadcrumbText="android"
       />
