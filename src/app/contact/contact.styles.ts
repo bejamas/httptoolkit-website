@@ -35,3 +35,50 @@ export const StyledGradientLeft = styled.div`
     top: -7px;
   }
 `;
+
+export const StyledSuccessWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 24px;
+
+  max-width: 300px;
+  margin: 0 auto;
+
+  & a {
+    max-width: fit-content;
+  }
+
+  @media (min-width: ${screens['lg']}) {
+    max-width: 624px;
+  }
+`;
+
+export const StyledFullGradient = styled.div`
+  position: absolute;
+  width: 100%;
+  display: none;
+  visibility: hidden;
+  z-index: -1;
+
+  @media (min-width: ${screens['lg']}) {
+    display: block;
+    visibility: visible;
+  }
+`;
+
+export const StyledGradientMobile = styled.div`
+  position: absolute;
+  top: -100px;
+  width: 100%;
+  height: 700px;
+  display: block;
+  visibility: visible;
+
+  @media (min-width: ${screens['lg']}) {
+    display: none;
+    visibility: hidden;
+  }
+`;
