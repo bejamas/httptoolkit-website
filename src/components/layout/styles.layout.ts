@@ -1,28 +1,31 @@
 'use client';
 
-import { styled } from '@/styles';
+import { screens, styled } from '@/styles';
 
 export const StyledLandingLayoutWrapper = styled.div`
+  height: 100vh;
+  min-height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
-  min-height: 800px;
-  overflow: hidden;
 
-  & main {
-    flex: 1; /* Allow the main content to grow and take up remaining space */
-    display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
+  @media (min-width: ${screens['md']}) {
+    overflow: hidden;
 
-    width: 100%;
-    height: 100%;
-  }
+    & main {
+      flex: 1; /* Allow the main content to grow and take up remaining space */
+      display: flex;
+      justify-content: center; /* Center content horizontally */
+      align-items: center; /* Center content vertically */
 
-  & section:first-of-type {
-    width: 100%;
-    height: 100%;
-    display: flex;
+      width: 100%;
+      height: 100%;
+    }
+
+    & section:first-of-type {
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
   }
 `;
