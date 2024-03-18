@@ -35,8 +35,18 @@ export default async function FridaPage() {
                 </Text>
               </Stack>
               <StyledButtonsWrapper>
-                <Button>Get Started</Button>
-                <Button $variant="secondary" icon={GithubLogo}>
+                <Button
+                  target="_blank"
+                  href="https://github.com/httptoolkit/frida-js/tree/3a0b4f95a953058420c5e118dd73e33f465358ed?tab=readme-ov-file#getting-started"
+                >
+                  Get Started
+                </Button>
+                <Button
+                  target="_blank"
+                  $variant="secondary"
+                  icon={GithubLogo}
+                  href="https://github.com/httptoolkit/frida-js/tree/3a0b4f95a953058420c5e118dd73e33f465358ed?tab=readme-ov-file#getting-started"
+                >
                   Getting Started Guide
                 </Button>
               </StyledButtonsWrapper>
