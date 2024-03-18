@@ -4,7 +4,7 @@ import { Container } from '@/components/elements/container';
 import { screens, styled } from '@/styles';
 
 export const StyledFooter = styled.footer`
-  margin-top: 64px;
+  margin-top: 0;
 `;
 
 export const StyledContainer = styled(Container)`
