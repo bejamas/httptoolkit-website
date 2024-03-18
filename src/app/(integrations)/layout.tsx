@@ -5,7 +5,7 @@ export default function IntegrationsLayout({ children }: { children: React.React
   return (
     <Layout>
       {children}
-      <TryItForYourselfCTA />
+      <TryItForYourselfCTA variant="cta-fluid" />
     </Layout>
   );
 }
