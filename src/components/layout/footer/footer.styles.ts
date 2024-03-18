@@ -4,6 +4,10 @@ import { Container } from '@/components/elements/container';
 import { screens, styled } from '@/styles';
 
 export const StyledFooter = styled.footer`
+  margin-top: 64px;
+`;
+
+export const StyledSimpleFooter = styled.footer`
   margin-top: 0;
 `;
 
