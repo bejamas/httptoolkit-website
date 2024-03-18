@@ -30,7 +30,6 @@ export const StyledGradientLeft = styled.div`
   top: -180px;
   left: 0;
   height: 780px;
-  display: none;
 
   @media (min-width: ${screens['lg']}) {
     top: -7px;
