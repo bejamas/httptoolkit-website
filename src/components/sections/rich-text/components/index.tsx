@@ -6,17 +6,17 @@ import type { AccordionProps } from '@/components/modules/accordion/accordion.ty
 import { CTABox } from '@/components/modules/cta-box';
 import type { CTABoxProps } from '@/components/modules/cta-box/cta-box.types';
 
-const Heading2 = ({ children, id, $margin }: Component<StyledHeadingProps>) => {
+const Heading2 = ({ children, id }: Component<StyledHeadingProps>) => {
   return (
-    <StyledHeading $margin={$margin} forwardedAs="h2" fontSize="m" color="lightGrey" id={id}>
+    <StyledHeading $margin={48} forwardedAs="h2" fontSize="m" color="lightGrey" id={id}>
       {children}
     </StyledHeading>
   );
 };
 
-const Heading3 = ({ children, id, $margin }: Component<StyledHeadingProps>) => {
+const Heading3to6 = ({ children, id }: Component<StyledHeadingProps>) => {
   return (
-    <StyledHeading $margin={$margin} forwardedAs="h3" fontSize="s" color="lightGrey" id={id}>
+    <StyledHeading $margin={24} forwardedAs="h3" fontSize="s" color="lightGrey" id={id}>
       {children}
     </StyledHeading>
   );
@@ -24,10 +24,11 @@ const Heading3 = ({ children, id, $margin }: Component<StyledHeadingProps>) => {
 
 // TODO: need to define the default styles
 export const defaultComponents = {
-  Heading2,
-  Heading3,
   h2: Heading2,
-  h3: Heading3,
+  h3: Heading3to6,
+  h4: Heading3to6,
+  h5: Heading3to6,
+  h6: Heading3to6,
   a({ children, href }: Component<{ href: string }>) {
     return <StyledLink href={href}>{children}</StyledLink>;
   },
