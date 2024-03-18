@@ -4,7 +4,7 @@ import path from 'path';
 import type { MDXComponents } from 'mdx/types';
 import { compileMDX } from 'next-mdx-remote/rsc';
 
-import { defaultComponents } from '@/components/sections/rich-text/themes/default';
+import { defaultComponents } from '@/components/sections/rich-text/components';
 import { findFile } from '@/lib/utils/find-file';
 import { getAllFiles } from '@/lib/utils/get-all-files';
 
