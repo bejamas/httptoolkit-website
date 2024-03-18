@@ -1,6 +1,7 @@
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
 import { DockerLogo } from '@/components/elements/icon';
+import { IntegrationHttpTookitFeatures } from '@/components/sections/integration/http-toolkit-features';
 import { IntegrationCompatibility } from '@/components/sections/integration/single-page/compatibility';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
@@ -22,6 +23,38 @@ const dockerIntegrationSteps = [
   ],
 ];
 
+const compatibilityTools = [
+  'Docker',
+  'Node.js containers',
+  'Docker Compose',
+  'Docker for Mac',
+  'Docker for Windows',
+  'Golang containers',
+  'Apt-Get, Apk, Npm, and other build tools',
+  'PHP+Apache containers',
+  'Ruby containers',
+  'Curl, Wget, Httpie, and other Bash clients',
+  'Java containers',
+  'Rust containers',
+  'Python containers',
+];
+
+const mobileCompatibilityTools = [
+  'Docker for Mac',
+  'Node.js containers',
+  'Docker',
+  'Docker for Windows',
+  'PHP+Apache containers',
+  'Python containers',
+  'Rust containers',
+  'Docker Compose',
+  'Java containers',
+  'Golang containers',
+  'Ruby containers',
+  'Apt-Get, Apk, Npm, and other build tools',
+  'Curl, Wget, Httpie, and other Bash clients',
+];
+
 export default function DockerIntegrationPage() {
   return (
     <>
@@ -41,8 +74,14 @@ export default function DockerIntegrationPage() {
         }}
       />
       <IntegrationSteps title="Two ways to get started" subtitle="getting started" steps={dockerIntegrationSteps} />
-      <IntegrationCompatibility title="Supported by Docker" subtitle="compatibility" />
+      <IntegrationCompatibility
+        title="Supported by Docker"
+        subtitle="compatibility"
+        tools={compatibilityTools}
+        mobileTools={mobileCompatibilityTools}
+      />
       <Testimonials />
+      <IntegrationHttpTookitFeatures />
       <MockResponseFeatures />
       <RewriteAnything />
     </>

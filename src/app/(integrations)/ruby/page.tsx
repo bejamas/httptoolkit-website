@@ -1,6 +1,7 @@
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
 import { RubyLogo } from '@/components/elements/icon';
+import { IntegrationHttpTookitFeatures } from '@/components/sections/integration/http-toolkit-features';
 import { IntegrationCompatibility } from '@/components/sections/integration/single-page/compatibility';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
@@ -36,6 +37,7 @@ export default function RubyIntegrationPage() {
       <IntegrationSteps title="Getting `*started*`" steps={rubyIntegrationSteps} />
       <IntegrationCompatibility title="Supported by Ruby" subtitle="compatibility" />
       <Testimonials />
+      <IntegrationHttpTookitFeatures />
       <MockResponseFeatures />
       <RewriteAnything />
     </>

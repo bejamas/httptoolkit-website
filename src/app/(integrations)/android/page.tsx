@@ -4,6 +4,7 @@ import { MockResponseFeatures } from '@/components/common-sections/mock-response
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
 import { RocketLaunch, SealCheck, Wrench, AndroidLogo } from '@/components/elements/icon';
 import type { FluidCardProps } from '@/components/modules/fluid-card/fluid-card.types';
+import { IntegrationHttpTookitFeatures } from '@/components/sections/integration/http-toolkit-features';
 import { IntegrationBento } from '@/components/sections/integration/single-page/bento';
 import { IntegrationDeviceMedia } from '@/components/sections/integration/single-page/device-media';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
@@ -34,7 +35,7 @@ const integrationBentoCards: FluidCardProps[] = [
     title: 'Want the full details?',
     text: 'Take a look at the in-depth guide to Android HTTP debugging.',
     buttonText: 'Learn more',
-    buttonHref: '/learn-more',
+    buttonHref: '/docs/guides/android/',
   },
 ];
 
@@ -64,6 +65,7 @@ export default function AndroidIntegrationPage() {
         subtitle="what is http toolkit?"
         cards={integrationBentoCards}
       />
+      <IntegrationHttpTookitFeatures />
       <Suspense>
         <Testimonials />
       </Suspense>

@@ -1,6 +1,7 @@
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
 import { JavaLogo } from '@/components/elements/icon';
+import { IntegrationHttpTookitFeatures } from '@/components/sections/integration/http-toolkit-features';
 import { IntegrationCompatibility } from '@/components/sections/integration/single-page/compatibility';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationTextImage } from '@/components/sections/integration/single-page/text-image';
@@ -26,6 +27,7 @@ export default function JavaIntegrationPage() {
       />
       <IntegrationCompatibility title="Supported by Java" subtitle="compatibility" />
       <Testimonials />
+      <IntegrationHttpTookitFeatures />
       <MockResponseFeatures />
       <RewriteAnything />
     </>
