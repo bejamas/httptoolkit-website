@@ -30,7 +30,9 @@ import {
   Desktop,
   Shuffle,
   Flag,
+  PaperPlaneTilt,
   Question,
+  CheckFat,
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -92,5 +94,7 @@ export {
   Desktop,
   Shuffle,
   Flag,
+  PaperPlaneTilt,
   Question,
+  CheckFat,
 };

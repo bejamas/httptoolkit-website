@@ -1,9 +1,10 @@
 import { ArrowRight } from '@/components/elements/icon';
+import { LandingLayout } from '@/components/layout/landing-layout';
 import { CTA } from '@/components/sections/cta';
 
 export default function NotFound() {
   return (
-    <div>
+    <LandingLayout>
       <CTA
         textAppearance="small"
         subHeading={{ text: '404 error' }}
@@ -17,6 +18,6 @@ export default function NotFound() {
           $variant: 'primary',
         }}
       />
-    </div>
+    </LandingLayout>
   );
 }

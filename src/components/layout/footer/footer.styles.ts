@@ -7,7 +7,12 @@ export const StyledFooter = styled.footer`
   margin-top: 64px;
 `;
 
+export const StyledSimpleFooter = styled.footer`
+  margin-top: 0;
+`;
+
 export const StyledContainer = styled(Container)`
+  position: relative;
   display: flex;
   flex-direction: column-reverse;
   gap: 24px;
@@ -136,12 +141,12 @@ export const StyledMenuItems = styled.ul<{ $displayOnMobile: boolean; $displayOn
   }
 `;
 
-export const StyledSeparator = styled.hr`
+export const StyledSeparator = styled.hr<{ $isSimple?: boolean }>`
   border-color: ${({ theme }) => theme.colors.mediumGrey};
-  margin: 24px 0;
+  margin: ${({ $isSimple }) => ($isSimple ? '16px 0' : '24px 0')};
 
   @media (min-width: ${screens.xl}) {
-    margin: 48px 0;
+    margin: ${({ $isSimple }) => ($isSimple ? '32px 0' : '48px 0')};
   }
 `;
 
@@ -160,6 +165,7 @@ export const StyledFooterCopySection = styled.div`
 
 export const StyledSimpleFooterWrapper = styled(StyledFooterCopySection)`
   gap: 32px;
+  position: relative;
 
   & > svg {
     width: fit-content;
