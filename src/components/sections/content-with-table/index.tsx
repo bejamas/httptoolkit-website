@@ -26,7 +26,7 @@ export const ContentWithTable = ({ content: Content, links }: ContentWithTablePr
           <TableContent isCollapsible={false} links={links} />
         </StyledContentWithTableTableWrapper>
         <div>
-          <RichText content={Content} theme="policies" />
+          <RichText content={Content} />
         </div>
       </StyledContentWithTableContentWrapper>
     </StyledContentWithTableWrapper>
