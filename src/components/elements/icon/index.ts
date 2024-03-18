@@ -25,11 +25,13 @@ import {
   Gear,
   ShieldCheck,
   ArrowsLeftRight,
+  Wrench,
   WindowsLogo,
   Desktop,
   Shuffle,
   Flag,
   PaperPlaneTilt,
+  Question,
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -85,10 +87,12 @@ export {
   Gear,
   ShieldCheck,
   ArrowsLeftRight,
+  Wrench,
   WindowsLogo,
   LinuxLogo,
   Desktop,
   Shuffle,
   Flag,
   PaperPlaneTilt,
+  Question,
 };

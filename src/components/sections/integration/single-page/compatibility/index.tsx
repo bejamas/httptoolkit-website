@@ -1,6 +1,5 @@
-import { CompatibilityBadge } from './badge';
+import { BadgesWrapper } from './badges-wrapper';
 import {
-  StyledCompatibilityBadgeWrapper,
   StyledIntegrationCompatibilityContent,
   StyledIntegrationCompatibilityContentTitle,
   StyledIntegrationCompatibilityContentWrapper,
@@ -14,26 +13,11 @@ import { Gradient } from '@/components/elements/gradient';
 import { Heading } from '@/components/elements/heading';
 import { DownloadButton } from '@/components/modules/download-button';
 
-const compatibilityTools = [
-  'Docker',
-  'Node.js containers',
-  'Docker Compose',
-  'Docker for Mac',
-  'Docker for Windows',
-  'Golang containers',
-  'Apt-Get, Apk, Npm, and other build tools',
-  'PHP+Apache containers',
-  'Ruby containers',
-  'Curl, Wget, Httpie, and other Bash clients',
-  'Java containers',
-  'Rust containers',
-  'Python containers',
-];
-
 export const IntegrationCompatibility = ({
   title,
   subtitle,
-  tools = compatibilityTools,
+  tools = [],
+  mobileTools = tools || [],
 }: IntegrationCompatibilityProps) => {
   return (
     <StyledIntegrationCompatibilityWrapper>
@@ -50,11 +34,7 @@ export const IntegrationCompatibility = ({
           </StyledIntegrationCompatibilityContentTitle>
           <DownloadButton $small $variant="secondary" />
         </StyledIntegrationCompatibilityContent>
-        <StyledCompatibilityBadgeWrapper>
-          {Array.isArray(tools) &&
-            tools.length > 0 &&
-            tools.map(tool => <CompatibilityBadge key={tool}>{tool}</CompatibilityBadge>)}
-        </StyledCompatibilityBadgeWrapper>
+        <BadgesWrapper tools={tools} mobileTools={mobileTools} />
       </StyledIntegrationCompatibilityContentWrapper>
     </StyledIntegrationCompatibilityWrapper>
   );
