@@ -62,6 +62,7 @@ export const PricingCard = ({
           {title}
         </Text>
         <Text fontSize="l" color="white">
+          {/* TODO: Refactor to change when is authenticated */}
           <StyledPriceCardPrice>{price === 0 ? 'Free' : `€${price}`}</StyledPriceCardPrice>
           {priceDescription}
         </Text>
