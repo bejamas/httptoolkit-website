@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
 import { JavaLogo } from '@/components/elements/icon';
@@ -26,7 +28,9 @@ export default function JavaIntegrationPage() {
         }}
       />
       <IntegrationCompatibility title="Supported by Java" subtitle="compatibility" />
-      <Testimonials />
+      <Suspense>
+        <Testimonials />
+      </Suspense>
       <IntegrationHttpTookitFeatures />
       <MockResponseFeatures />
       <RewriteAnything />

@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
 import { SquareJSLogo } from '@/components/elements/icon';
@@ -26,7 +28,9 @@ export default function JavascriptIntegrationPage() {
         }}
       />
       <IntegrationCompatibility title="Supported by Javascript" subtitle="compatibility" />
-      <Testimonials />
+      <Suspense>
+        <Testimonials />
+      </Suspense>
       <IntegrationHttpTookitFeatures />
       <MockResponseFeatures />
       <RewriteAnything />

@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
 import { RubyLogo } from '@/components/elements/icon';
@@ -36,7 +38,9 @@ export default function RubyIntegrationPage() {
       />
       <IntegrationSteps title="Getting `*started*`" steps={rubyIntegrationSteps} />
       <IntegrationCompatibility title="Supported by Ruby" subtitle="compatibility" />
-      <Testimonials />
+      <Suspense>
+        <Testimonials />
+      </Suspense>
       <IntegrationHttpTookitFeatures />
       <MockResponseFeatures />
       <RewriteAnything />

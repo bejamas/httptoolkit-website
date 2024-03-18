@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
 import { PythonLogo } from '@/components/elements/icon';
@@ -50,7 +52,9 @@ export default function PythonIntegrationPage() {
       />
       <IntegrationSteps title="Getting `*started*`" steps={pythonIntegrationSteps} />
       <IntegrationCompatibility title="Supported by Python" subtitle="compatibility" tools={compatibilityTools} />
-      <Testimonials />
+      <Suspense>
+        <Testimonials />
+      </Suspense>
       <IntegrationHttpTookitFeatures />
       <MockResponseFeatures />
       <RewriteAnything />
