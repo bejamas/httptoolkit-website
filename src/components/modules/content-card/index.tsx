@@ -12,7 +12,7 @@ import { Text } from '@/components/elements/text';
 
 export const ContentCard = ({ title, text, button, $isNewsletter }: ContentCardProps) => {
   return (
-    <StyledContentCardWrapper>
+    <StyledContentCardWrapper $isNewsletter={$isNewsletter}>
       <StyledContentCardContent>
         <StyledContentCardTitle fontSize="l" fontWeight="bold" color="white">
           {title}
