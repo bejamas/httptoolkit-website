@@ -4,6 +4,8 @@ import type { DetailedHTMLProps, ImgHTMLAttributes, RefObject } from 'react';
 
 import { StyledThemedImage, ThemedImageMovingBorder } from './themed-image';
 
+import { Image } from '@/components/elements/image';
+
 export interface ThemeImageProps
   extends Omit<DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, 'src'> {
   lightSrc: string;
@@ -12,6 +14,8 @@ export interface ThemeImageProps
   withBorder?: boolean;
   withoutStyles?: boolean;
   ref?: RefObject<HTMLImageElement>;
+  height?: number;
+  width?: number;
 }
 
 export const ThemedImage = ({
@@ -21,6 +25,8 @@ export const ThemedImage = ({
   withBorder,
   withoutStyles,
   loading,
+  height,
+  width,
   alt = 'image',
   ...props
 }: ThemeImageProps) => {
@@ -34,9 +40,9 @@ export const ThemedImage = ({
     return (
       <>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img alt={alt} src={lightSrc} data-hide-on-theme="dark" {...imageProps} />
+        <Image alt={alt} height={height} width={width} src={lightSrc} data-hide-on-theme="dark" {...imageProps} />
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img alt={alt} src={darkSrc} data-hide-on-theme="light" {...imageProps} />
+        <Image alt={alt} height={height} width={width} src={darkSrc} data-hide-on-theme="light" {...imageProps} />
       </>
     );
   };
