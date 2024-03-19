@@ -60,7 +60,13 @@ export const CTA = ({
             ) : null}
 
             {cta && (
-              <Button as="link" $variant={cta.$variant || 'secondary'} href={cta.href} icon={cta.icon}>
+              <Button
+                as={cta.as}
+                $variant={cta.$variant || 'secondary'}
+                href={cta.href}
+                icon={cta.icon}
+                $withBorder={cta.$withBorder}
+              >
                 {cta.title}
               </Button>
             )}
