@@ -1,4 +1,9 @@
-import { StyledButtonsWrapper, StyledFridaColumnContent, StyledFridaColumns } from './frida.styles';
+import {
+  StyledButtonsWrapper,
+  StyledFridaColumnContent,
+  StyledFridaColumns,
+  StyledGradientBottom,
+} from './frida.styles';
 
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
@@ -61,6 +66,7 @@ export default async function FridaPage() {
           </StyledFridaColumns>
         </Container>
       </Section>
+      <StyledGradientBottom />
     </LandingLayout>
   );
 }
