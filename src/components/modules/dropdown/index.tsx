@@ -55,7 +55,7 @@ export const Dropdown = ({
         </DropdownWrapper>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
-        <DropdownOptionsWrapper align="start" sideOffset={5}>
+        <DropdownOptionsWrapper align="start" sideOffset={5} $variant={$variant}>
           {Array.isArray(items) && renderOptions(items, $variant)}
         </DropdownOptionsWrapper>
       </DropdownMenu.Portal>

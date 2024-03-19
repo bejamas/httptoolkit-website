@@ -7,13 +7,14 @@ import type { DropdownOptionProps, DropdownProps } from './dropdown.types';
 import { Link } from '@/components/elements/link';
 import { css, screens, styled } from '@/styles';
 
-export const DropdownOptionsWrapper = styled(DropdownMenu.DropdownMenuContent)`
+export const DropdownOptionsWrapper = styled(DropdownMenu.DropdownMenuContent)<{ $variant?: 'primary' | 'secondary' }>`
   display: grid;
   border-radius: 12px;
   background: ${({ theme }) => theme.colors.inkBlack};
   padding: 4px;
   gap: 4px;
-  min-width: 100%;
+  /* width: ; */
+  width: ${({ $variant }) => ($variant === 'primary' ? css`calc(100% + 2rem)` : '100%')};
   /* max-height: 0; */
   transition: all 0.5s linear;
   overflow: hidden;
