@@ -1,7 +1,5 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 import { Drawer } from 'vaul';
 
 import {
@@ -10,6 +8,7 @@ import {
   StyledMobileNavigationWrapper,
   StyledMobileTrigger,
 } from './tags-drawer.styles';
+import { useDrawerState } from '../hooks/use-drawer-state';
 import { StyledTagText } from '../overview-explorer.styled';
 
 import { ListBullets, XSquare } from '@/components/elements/icon';
@@ -17,20 +16,7 @@ import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';
 
 export const TagsDrawer = ({ tags }: { tags: string[] }) => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const router = useRouter();
-
-  // Sync controlled state with drawer menu root state
-  const handleOpenChange = (isOpen: boolean) => {
-    setIsDrawerOpen(isOpen);
-  };
-
-  // Close the drawer when a tag is clicked
-  const handleOnClickTag = (tag: string) => {
-    router.push(`/blog?tags=${tag}`, { scroll: false });
-    setIsDrawerOpen(false);
-  };
-
+  const { isDrawerOpen, handleOnClickTag, handleOpenChange } = useDrawerState(false);
   return (
     <Drawer.Root onOpenChange={handleOpenChange} open={isDrawerOpen}>
       <StyledMobileTrigger>
