@@ -34,7 +34,7 @@ export const StyledTagText = styled.span`
   transition: color ease-in 200ms;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.text.cinnarbarRed};
+    color: ${({ theme }) => theme.colors.text.electricLightBlue};
   }
 `;
 
