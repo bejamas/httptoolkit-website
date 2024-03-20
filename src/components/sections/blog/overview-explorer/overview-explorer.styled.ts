@@ -4,13 +4,16 @@ import { Container } from '@/components/elements/container';
 import { screens, styled } from '@/styles';
 
 export const StyledExplorerSection = styled.section`
-  padding: 34px 0;
+  padding: 18px 0;
   margin-bottom: 48px;
+  border-top: 1px solid ${({ theme }) => theme.colors.button.border};
   border-bottom: 1px solid ${({ theme }) => theme.colors.button.border};
-  display: none;
 
   @media (min-width: ${screens.lg}) {
     display: block;
+    border-top: 0;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.button.border};
+    padding: 34px 0;
   }
 `;
 
@@ -24,6 +27,22 @@ export const StyledTagsWrapper = styled.nav`
     display: inline-flex;
     align-items: center;
     gap: 48px;
+  }
+
+  display: none;
+
+  @media (min-width: ${screens.lg}) {
+    display: block;
+  }
+`;
+
+export const StyledTagsMobileWrapper = styled.section`
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: ${screens.lg}) {
+    display: none;
   }
 `;
 
