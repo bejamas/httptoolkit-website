@@ -7,7 +7,7 @@ export const TagsMobileNavigation = async () => {
   const tags = await getAllCategoryTags();
 
   return (
-    <StyledTagsMobileWrapper aria-label="Blog post tags">
+    <StyledTagsMobileWrapper aria-label="Blog mobile post tags">
       <TagsDrawer tags={tags} />
     </StyledTagsMobileWrapper>
   );

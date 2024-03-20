@@ -14,6 +14,7 @@ import { CaretDown, CaretUp } from '@/components/elements/icon';
 
 export const TagsDropwdown = ({ tags }: { tags: string[] }) => {
   const { isDrawerOpen, handleOnClickTag, handleOpenChange } = useDrawerState(false);
+
   return (
     <DropdownMenu.Root modal={false} onOpenChange={handleOpenChange} open={isDrawerOpen}>
       <DropdownMenu.Trigger asChild>

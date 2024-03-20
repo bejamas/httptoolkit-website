@@ -17,6 +17,7 @@ import { Text } from '@/components/elements/text';
 
 export const TagsDrawer = ({ tags }: { tags: string[] }) => {
   const { isDrawerOpen, handleOnClickTag, handleOpenChange } = useDrawerState(false);
+
   return (
     <Drawer.Root onOpenChange={handleOpenChange} open={isDrawerOpen}>
       <StyledMobileTrigger>
