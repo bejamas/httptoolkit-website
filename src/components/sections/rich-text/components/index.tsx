@@ -4,6 +4,7 @@ import type { MDXComponents } from 'mdx/types';
 import { StyledBiggerText, StyledHeading, StyledLink, StyledText, StyledUL } from './default.styles';
 import type { StyledHeadingProps } from './default.types';
 
+import * as Icons from '@/components/elements/icon';
 import { Accordion } from '@/components/modules/accordion';
 import type { AccordionProps } from '@/components/modules/accordion/accordion.types';
 import { BlockCode } from '@/components/modules/block-code';
@@ -64,4 +65,5 @@ export const defaultComponents: MDXComponents = {
   code(props) {
     return <BlockCode content={props.children} language={props.className} title="Code example" />;
   },
+  ...Icons,
 };
