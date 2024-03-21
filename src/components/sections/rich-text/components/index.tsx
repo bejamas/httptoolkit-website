@@ -1,7 +1,14 @@
 import { kebabCase } from 'lodash';
 import type { MDXComponents } from 'mdx/types';
 
-import { StyledBiggerText, StyledHeading, StyledInlineCode, StyledLink, StyledText, StyledUL } from './default.styles';
+import {
+  StyledHeading,
+  StyledHighlightedParagraphs,
+  StyledInlineCode,
+  StyledLink,
+  StyledText,
+  StyledUL,
+} from './default.styles';
 import type { StyledHeadingProps } from './default.types';
 
 import * as Icons from '@/components/elements/icon';
@@ -46,12 +53,8 @@ export const defaultComponents: MDXComponents = {
       </StyledText>
     );
   },
-  BiggerText({ text }: Component<{ text: string }>) {
-    return (
-      <StyledBiggerText fontSize="l" fontWeight="bold" color="lightGrey">
-        {text}
-      </StyledBiggerText>
-    );
+  HighlightedParagraphs({ children }: Component) {
+    return <StyledHighlightedParagraphs>{children}</StyledHighlightedParagraphs>;
   },
   Accordion(props: AccordionProps) {
     return <Accordion {...props} />;

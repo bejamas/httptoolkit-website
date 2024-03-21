@@ -7,11 +7,14 @@ authorUrl: https://philsturgeon.com/
 tags: http, standards, apis
 ---
 
+<HighlightedParagraphs>
 Idempotency is when doing an operation multiple times is guaranteed to have the same effect as doing it just once.
 
 When working with APIs this is exceptionally helpful on slow or unreliable internet connections, or when dealing with particularly sensitive actions such as payments, because it makes retrying operations safe and reliable. This is why most payment gateways like [Stripe](https://stripe.com/docs/api/idempotent_requests) and [Adyen](https://docs.adyen.com/development-resources/api-idempotency/) support 'idempotency keys' as a key feature of their APIs.
 
 Recently, the IETF have gone further, and created [a draft RFC standard](https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/) for this useful common pattern, as part of the 'Building Blocks for HTTP APIs' working group. This is technically still a draft and the details could change, but it's fairly mature now and increasingly widely used, so it's a good time to take a closer look, and start using & implementing it for yourself.
+
+</HighlightedParagraphs>
 
 ## Idempotency in HTTP APIs
 
@@ -43,7 +46,7 @@ Unfortunately though, in this scenario the client doesn't actually know whether 
 
 The server could try to write some logic to detect duplicate payments, but is that something you always want to automatically block?
 
-``` js
+```js
 POST /payments
 
 {
