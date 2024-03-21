@@ -8,12 +8,26 @@ import { Text } from '@/components/elements/text';
 
 export const TableContentAccordionFixed = ({ link, hasSubItems }: TableContentFixedProps) => {
   const renderSubItems = (subItems: TableContentSubitem[]) => {
-    return subItems.map(item => (
-      <Text fontSize="m" fontWeight="bold" color="lightGrey" key={item.text}>
-        <StyledTableContentSubitem href={item.href}>{item.text}</StyledTableContentSubitem>
-        {item.subItems && renderSubItems(item.subItems)}
-      </Text>
-    ));
+    return subItems.map(item => {
+      const isParent = item.subItems && item.subItems?.length > 0;
+      return (
+        <ul key={item.text} data-parent={isParent}>
+          <li>
+            <StyledTableContentSubitem href={item.href}>
+              <Text
+                as="span"
+                fontSize="m"
+                color={!isParent ? 'lightGrey' : 'white'}
+                fontWeight={!isParent ? 'normal' : 'bold'}
+              >
+                {item.text}
+              </Text>
+            </StyledTableContentSubitem>
+          </li>
+          {item.subItems && renderSubItems(item.subItems)}
+        </ul>
+      );
+    });
   };
 
   return (
