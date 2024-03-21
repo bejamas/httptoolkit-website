@@ -61,7 +61,9 @@ export const defaultComponents: MDXComponents = {
   ul({ children }: Component) {
     return <StyledUL>{children}</StyledUL>;
   },
-  code({ children }) {
-    return <BlockCode content={children} title="Code example" />;
+  code(props) {
+    const language = props.className;
+    // console.log(language);
+    return <BlockCode content={props.children} language={language} title="Code example" />;
   },
 };
