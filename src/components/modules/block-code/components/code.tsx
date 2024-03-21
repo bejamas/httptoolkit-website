@@ -1,32 +1,25 @@
 'use client';
 
-import * as Prism from 'prismjs';
-import React, { useEffect } from 'react';
+import Prism from 'prismjs';
+import { useEffect } from 'react';
 
-import 'prismjs/themes/prism-tomorrow.css';
 import type { BlockCodeProps } from '../block-code.types';
 
 export const Code = ({ children, language, title }: Component<Pick<BlockCodeProps, 'language' | 'title'>>) => {
-  const codeRef = React.createRef<HTMLPreElement>();
-
   async function highlight() {
-    if (codeRef.current) {
-      Prism.highlightElement(codeRef.current as Element);
-    }
+    Prism.highlightAll();
   }
 
   useEffect(() => {
-    highlight();
-  }, [language, children]);
+    setTimeout(() => highlight(), 0);
+  }, []);
 
   return (
-    <pre aria-labelledby="code-label" className="w-prismjs">
+    <pre aria-labelledby="code-label" className={language ?? 'language-js'} tabIndex={0}>
       <span id="code-label" className="visually-hidden">
         {title}
       </span>
-      <code ref={codeRef} className={language}>
-        {children}
-      </code>
+      <code className={language ?? 'language-js'}>{children}</code>
     </pre>
   );
 };
