@@ -1,6 +1,19 @@
 'use client';
 
-import { screens, styled } from '@/styles';
+import { Container } from '@/components/elements/container';
+import { Section } from '@/components/elements/section';
+import { CTA } from '@/components/sections/cta';
+import { css, screens, styled } from '@/styles';
+
+export const StyledFridaSection = styled(Section)`
+  padding-top: 16px;
+  padding-bottom: calc(64px + 32px);
+
+  @media (min-width: ${screens['2xl']}) {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+`;
 
 export const StyledFridaColumns = styled.div`
   display: grid;
@@ -70,5 +83,55 @@ export const StyledGradientBottom = styled.div`
   @media (min-width: ${screens['lg']}) {
     display: block;
     visibility: visible;
+  }
+`;
+
+export const StyledDisplayDevice = styled.div<{ $hideOn: 'mobile' | 'desktop' }>`
+  ${({ $hideOn }) => {
+    switch ($hideOn) {
+      case 'mobile':
+        return css`
+          display: none;
+          visibility: hidden;
+
+          @media (min-width: ${screens['lg']}) {
+            display: block;
+            visibility: visible;
+          }
+        `;
+      case 'desktop':
+        return css`
+          display: block;
+          visibility: visible;
+          @media (min-width: ${screens['lg']}) {
+            display: none;
+            visibility: hidden;
+          }
+        `;
+    }
+  }}
+`;
+
+export const StyledSectionCTA = styled(CTA)`
+  padding-bottom: 0 !important;
+
+  & h1 {
+    margin-bottom: 19px;
+  }
+`;
+
+export const StyledMobileText = styled(Container)`
+  margin-top: 16px;
+`;
+
+export const StyledTextContent = styled.div`
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  gap: 8px;
+
+  @media (min-width: ${screens['lg']}) {
+    text-align: left;
   }
 `;
