@@ -4,25 +4,31 @@ title: 'HTTP Toolkit Subscription Frequently Asked Questions'
 order: 3
 ---
 
+import { GithubLogo } from '@/components/elements/icon';
+
 Want to know more about HTTP Toolkit subscriptions? Take a look at the FAQ below, and feel free to [get in touch](/contact/) if you have any other questions.
 
 ## Payments
 
-### What are the subscription options?
-
-There are two types of HTTP Toolkit account subscriptions: Pro & Team (see [Accounts](#accounts) below for the full details on the differences).
-
-You can pay either monthly or annually. For either subscription period you can cancel at any time, and the subscription will continue as normal until the end of the paid period.
+<Accordion
+  $variant="transparent"
+  items={[
+    {
+      title: 'What are the subscription options?',
+      text: 'There are two types of HTTP Toolkit account subscriptions: Pro & Team (see [Accounts](https://example.com) below for the full details on the differences). You can pay either monthly or annually. For either subscription period you can cancel at any time, and the subscription will continue as normal until the end of the paid period.',
+    },
+    {
+      title: 'What payment methods are available?',
+      text: "The payment methods available depend on your region.\n\n Credit cards and PayPal are available for all purchases globally, but in specific regions it's also possible to pay with iDEAL, Giropay, WebMoney, Boleto Bancario, Alipay, Real-time Bank Transfer, CarteBleue, Sofort, MrCash, EPS, Przelewy24, Multibanco-SIBS, Trustly, MercadoPago, ToditoCash, Finnish Online Banking, DragonPay, AmBank, CIMB Clicks, Hong Leong Bank Transfer, Maybank2U, OP-Pohjola, Nordea, Danske, UnionPay, Konbini, WeChat Pay, ApplePay, Pix, Mach Pay, OXXO, and PagoEfectivo.\n\n The available methods will be shown automatically during the checkout when you've selected your country. If your preferred payment method is listed above but isn't available during the checkout, please [get in touch](/contact/) as it may be possible to process this manually. \n\n On request it's also possible to pay by purchase order (PO) and wire transfer, for payments over $1,000, but please note that this may entail delays and additional charges.",
+    },
+    {
+      title: 'How can I manage my subscription?',
+      text: 'There are two types of HTTP Toolkit account subscriptions: Pro & Team (see [Accounts](https://example.com) below for the full details on the differences). You can pay either monthly or annually. For either subscription period you can cancel at any time, and the subscription will continue as normal until the end of the paid period.',
+    },
+  ]}
+></Accordion>
 
 ### What payment methods are available?
-
-The payment methods available depend on your region.
-
-Credit cards and PayPal are available for all purchases globally, but in specific regions it's also possible to pay with iDEAL, Giropay, WebMoney, Boleto Bancario, Alipay, Real-time Bank Transfer, CarteBleue, Sofort, MrCash, EPS, Przelewy24, Multibanco-SIBS, Trustly, MercadoPago, ToditoCash, Finnish Online Banking, DragonPay, AmBank, CIMB Clicks, Hong Leong Bank Transfer, Maybank2U, OP-Pohjola, Nordea, Danske, UnionPay, Konbini, WeChat Pay, ApplePay, Pix, Mach Pay, OXXO, and PagoEfectivo.
-
-The available methods will be shown automatically during the checkout when you've selected your country. If your preferred payment method is listed above but isn't available during the checkout, please [get in touch](/contact/) as it may be possible to process this manually.
-
-On request it's also possible to pay by purchase order (PO) and wire transfer, for payments over $1,000, but please note that this may entail delays and additional charges.
 
 ### How can I manage my subscription?
 
@@ -114,3 +120,13 @@ HTTP Toolkit accounts are passwordless. Instead of setting a password, when you 
 Codes are randomly generated, only the most recent code is valid, and codes expire after 15 minutes.
 
 This avoids remembering & managing passwords, simplifies account setup, and remains just as secure as passwords, since anybody who can access your email could also use a "Forgot Password" link.
+
+<CTABox
+  $variant="faq"
+  title="Still have questions?"
+  text="Head to the GitHub issue repo, as many questions and bugs already have answers there, and new bugs or feature requests posted there get more feedback & support from the wider community."
+  textOverButton="You can also read more in the docs:"
+  buttonHref="https://example.com"
+  buttonText="Github HTTP Toolkit"
+  buttonIcon={GithubLogo}
+></CTABox>

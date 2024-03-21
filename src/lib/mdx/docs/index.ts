@@ -1,3 +1,5 @@
+'use server';
+
 import fs from 'fs';
 import path from 'path';
 
@@ -7,7 +9,6 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import { defaultComponents } from '@/components/sections/rich-text/components';
 import { findFile } from '@/lib/utils/find-file';
 import { getAllFiles } from '@/lib/utils/get-all-files';
-
 const rootDirectory = path.join(process.cwd(), 'src', 'content', 'docs');
 
 const markdowRegex = /\.(md|mdx)$/;
@@ -16,9 +17,9 @@ function isMarkdown(str: string) {
   return markdowRegex.test(str);
 }
 
-export const getDocBySlug = async (slug: string): Promise<Doc> => {
+export const getDocBySlug = async (slug: string, extension = '.mdx'): Promise<Doc> => {
   const realSlug = slug.replace(markdowRegex, '');
-  const [filePath, relativePath] = findFile(rootDirectory, realSlug);
+  const [filePath, relativePath] = findFile(rootDirectory, realSlug, extension);
 
   if (!filePath) throw new Error('Document not found');
 
@@ -46,7 +47,7 @@ export const getDocBySlug = async (slug: string): Promise<Doc> => {
 };
 
 export const getAllDocsMeta = async () => {
-  const files = getAllFiles(rootDirectory, '.md');
+  const files = getAllFiles(rootDirectory, '.mdx');
   const docs = [];
 
   for (const file of files) {
