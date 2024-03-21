@@ -22,9 +22,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <Container>
       <SinglePostHero post={post} />
-
+      <div>{post.content}</div>
       <RelatedPosts tags={post.tags} currentPostSlug={post.slug} />
-      {/* <div>{post.content}</div> */}
     </Container>
   );
 }

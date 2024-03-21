@@ -1,10 +1,12 @@
 import { kebabCase } from 'lodash';
+import type { MDXComponents } from 'mdx/types';
 
 import { StyledBiggerText, StyledHeading, StyledLink, StyledText, StyledUL } from './default.styles';
 import type { StyledHeadingProps } from './default.types';
 
 import { Accordion } from '@/components/modules/accordion';
 import type { AccordionProps } from '@/components/modules/accordion/accordion.types';
+import { BlockCode } from '@/components/modules/block-code';
 import { CTABox } from '@/components/modules/cta-box';
 import type { CTABoxProps } from '@/components/modules/cta-box/cta-box.types';
 
@@ -25,12 +27,14 @@ const Heading3to6 = ({ children }: Component<StyledHeadingProps>) => {
 };
 
 // TODO: need to define the default styles
-export const defaultComponents = {
+export const defaultComponents: MDXComponents = {
   h2: Heading2,
   h3: Heading3to6,
   h4: Heading3to6,
   h5: Heading3to6,
   h6: Heading3to6,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   a({ children, href }: Component<{ href: string }>) {
     return <StyledLink href={href}>{children}</StyledLink>;
   },
@@ -56,5 +60,8 @@ export const defaultComponents = {
   },
   ul({ children }: Component) {
     return <StyledUL>{children}</StyledUL>;
+  },
+  code({ children }) {
+    return <BlockCode content={children} title="Code example" />;
   },
 };

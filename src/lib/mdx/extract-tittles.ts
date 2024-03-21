@@ -7,7 +7,7 @@ export interface HeadingGroup {
   level: 2 | 3 | 4 | 5 | 6;
 }
 
-function getHeadings(source: string): HeadingGroup[] {
+export function getHeadings(source: string): HeadingGroup[] {
   const headingLines = source.split('\n').filter(line => {
     return line.match(/^###*\s/);
   });

@@ -7,6 +7,8 @@ export const StyledBlockCodeWrapper = styled.div`
   box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
   background-color: ${({ theme }) => theme.colors.mediumGrey};
   overflow: hidden;
+  margin-top: 24px;
+  margin-bottom: 24px;
 `;
 
 export const StyledBlockCodeTitleWrapper = styled.div`
