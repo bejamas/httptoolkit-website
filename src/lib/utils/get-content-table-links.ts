@@ -16,6 +16,7 @@ export function getContentTableLinks(docs: UnorganizedDoc[]): TableContentProps[
     const parentLinks = docs
       .filter(doc => doc.parent === parent)
       .filter(doc => doc.slug !== FAQ_SLUG)
+      .sort((a, b) => (a.order || 0) - (b.order || 0))
       .map(doc => ({
         text: doc.name,
         href: `${basePath}/${doc.slug}`,

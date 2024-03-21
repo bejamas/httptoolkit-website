@@ -9,6 +9,7 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import { defaultComponents } from '@/components/sections/rich-text/components';
 import { findFile } from '@/lib/utils/find-file';
 import { getAllFiles } from '@/lib/utils/get-all-files';
+import type { UnorganizedDoc } from '@/lib/utils/get-content-table-links';
 const rootDirectory = path.join(process.cwd(), 'src', 'content', 'docs');
 
 const markdowRegex = /\.(md|mdx)$/;
@@ -54,7 +55,8 @@ export const getAllDocsMeta = async () => {
     try {
       if (isMarkdown(file)) {
         const post = await getDocBySlug(file);
-        docs.push(post);
+        delete post.content;
+        docs.push(post as unknown as UnorganizedDoc);
       }
     } catch (error) {
       // console.error('*_________START___________*');
