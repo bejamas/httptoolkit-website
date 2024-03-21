@@ -1,17 +1,29 @@
 'use client';
 
 import Prism from 'prismjs';
-import { useEffect } from 'react';
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-ruby';
+import 'prismjs/components/prism-java';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-python';
+import 'prismjs/components/prism-docker';
+import 'prismjs/components/prism-go';
+import 'prismjs/components/prism-dart';
+import 'prismjs/components/prism-yaml';
+import React, { useEffect } from 'react';
 
 import type { BlockCodeProps } from '../block-code.types';
 
 export const Code = ({ children, language, title }: Component<Pick<BlockCodeProps, 'language' | 'title'>>) => {
-  async function highlight() {
-    Prism.highlightAll();
-  }
+  const codeRef = React.createRef<HTMLPreElement>();
 
   useEffect(() => {
-    setTimeout(() => highlight(), 0);
+    async function highlight() {
+      if (codeRef.current) {
+        Prism.highlightElement(codeRef.current as Element);
+      }
+    }
+    highlight();
   }, []);
 
   return (
