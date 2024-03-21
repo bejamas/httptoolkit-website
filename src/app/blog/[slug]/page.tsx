@@ -1,6 +1,5 @@
 import { Container } from '@/components/elements/container';
 import { Logo } from '@/components/elements/icon';
-import { Section } from '@/components/elements/section';
 import { RelatedPosts } from '@/components/sections/blog/related-posts';
 import { SinglePostHero } from '@/components/sections/blog/single-post-hero';
 import { ContentWithTable } from '@/components/sections/content-with-table';
@@ -30,9 +29,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <Container>
         <SinglePostHero post={post} />
       </Container>
-      <Section>
-        <ContentWithTable $bgVariant="darkGrey" links={[postNavigation]} richContent={post.content} />
-      </Section>
+
+      <ContentWithTable $bgVariant="darkGrey" links={[postNavigation]} parsedContent={post.content} />
+
       <Container>
         <CTA
           variant="cta-square"

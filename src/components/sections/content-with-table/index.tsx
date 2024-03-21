@@ -14,9 +14,9 @@ import { Gradient } from '@/components/elements/gradient';
 import { TableContent } from '@/components/modules/table-content';
 
 export const ContentWithTable = ({
-  content: Content,
+  richTextContent: RichTextContent,
   links,
-  richContent,
+  parsedContent,
   $bgVariant = 'inkBlack',
 }: ContentWithTableProps) => {
   return (
@@ -33,8 +33,10 @@ export const ContentWithTable = ({
             <TableContent isCollapsible={false} links={links} />
           </StyledContentWithTableTableWrapper>
           <StyledContentRichText>
-            {Content && <RichText content={Content} />}
-            {richContent && richContent}
+            {RichTextContent && <RichText content={RichTextContent} />}
+
+            {/* Content that is already parsed from remoteMDX */}
+            {parsedContent && parsedContent}
           </StyledContentRichText>
         </StyledContentWithTableContentWrapper>
       </Container>
