@@ -5,6 +5,7 @@ import matter from 'gray-matter';
 export interface HeadingGroup {
   text: string;
   level: 2 | 3 | 4 | 5 | 6;
+  subItems?: HeadingGroup[];
 }
 
 export function getHeadings(source: string): HeadingGroup[] {

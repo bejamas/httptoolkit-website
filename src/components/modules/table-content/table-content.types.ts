@@ -1,6 +1,7 @@
-interface TableContentSubitem {
+export interface TableContentSubitem {
   text: string;
   href: string;
+  subItems?: TableContentSubitem[];
 }
 
 export interface TableContentItem {

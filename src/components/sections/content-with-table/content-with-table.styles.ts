@@ -1,11 +1,13 @@
 'use client';
 
+import type { StyledContentWithTableProps } from './content-with-table.type';
+
 import { css, styled } from '@/styles';
 
-export const StyledContentWithTableWrapper = styled.section`
+export const StyledContentWithTableWrapper = styled.section<StyledContentWithTableProps>`
   position: relative;
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.inkBlack};
+  background-color: ${({ theme, $bgVariant }) => $bgVariant && theme.colors[$bgVariant]};
 `;
 
 const StyledContentWithTableGradientWrapper = css`
@@ -68,5 +70,5 @@ export const StyledContentWithTableTableWrapper = styled.div`
 `;
 
 export const StyledContentRichText = styled.div`
-  margin-top: -48px;
+  /* margin-top: -48px; */
 `;

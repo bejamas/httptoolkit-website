@@ -96,10 +96,17 @@ export const StyledTableContentSubitem = styled(Link)`
   color: ${({ theme }) => theme.colors.text.lightGrey};
   transition: all 0.1s;
   outline: none;
+  border-radius: 8px;
 
-  &:hover,
+  /* &:hover,
   &:focus {
     color: ${({ theme }) => theme.colors.white};
+  } */
+
+  &:hover,
+  &:focus,
+  &:focus-within {
+    background-color: ${({ theme }) => theme.colors.darkGrey};
   }
 
   &:active {
