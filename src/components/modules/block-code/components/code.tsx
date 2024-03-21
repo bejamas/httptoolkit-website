@@ -31,7 +31,9 @@ export const Code = ({ children, language, title }: Component<Pick<BlockCodeProp
       <span id="code-label" className="visually-hidden">
         {title}
       </span>
-      <code className={language ?? 'language-js'}>{children}</code>
+      <code ref={codeRef} className={language ?? 'language-js'}>
+        {children}
+      </code>
     </pre>
   );
 };
