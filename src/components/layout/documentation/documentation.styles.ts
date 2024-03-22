@@ -22,8 +22,8 @@ export const StyledDocumentationLayoutWrapper = styled.div`
 export const StyledDocumentationLayoutGradientWrapper = styled.div`
   position: absolute;
   top: 0;
-  right: 0;
-  height: 600px;
+  right: -150px;
+  height: 700px;
   transform: rotate(180deg);
 
   @media (max-width: ${({ theme }) => theme.screens.lg}) {
