@@ -1,7 +1,7 @@
 'use client';
 
 import { Text } from '@/components/elements/text';
-import { styled } from '@/styles';
+import { screens, styled } from '@/styles';
 
 export const StyledBlockCodeWrapper = styled.div`
   border-radius: 16px;
@@ -30,6 +30,7 @@ export const StyledBlockCodeContent = styled.div`
       font-size: 13px;
       line-height: 19.5px;
       font-family: var(--font-code) !important;
+      text-wrap: balance;
     }
   }
 `;
@@ -46,4 +47,9 @@ export const StyledInlineCode = styled(Text)`
   font-family: var(--font-code) !important;
   display: inline-flex;
   line-height: normal;
+  text-wrap: balance;
+
+  @media (min-width: ${screens.md}) {
+    text-wrap: nowrap;
+  }
 `;
