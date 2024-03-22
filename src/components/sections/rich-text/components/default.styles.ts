@@ -33,11 +33,7 @@ export const StyledHeading = styled(Heading)<StyledHeadingProps>`
 
 export const StyledUL = styled.ul`
   list-style: disc;
-  padding-left: 20px;
-`;
-
-export const StyledInlineCode = styled(Text)`
-  background: ${({ theme }) => theme.colors.blueGradient};
-  padding: 0 8px;
-  border-radius: 4px;
+  padding-left: 30px;
+  margin-bottom: 16px;
+  color: ${({ theme }) => theme.colors.text.darkGrey};
 `;

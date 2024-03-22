@@ -1,5 +1,6 @@
 'use client';
 
+import { Text } from '@/components/elements/text';
 import { styled } from '@/styles';
 
 export const StyledBlockCodeWrapper = styled.div`
@@ -31,4 +32,18 @@ export const StyledBlockCodeContent = styled.div`
       font-family: var(--font-code) !important;
     }
   }
+`;
+
+export const StyledInlineCode = styled(Text)`
+  color: ${({ theme }) => theme.colors.lightGrey};
+  background: ${({ theme }) => theme.colors.mediumGrey};
+  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
+  padding: 0 6px;
+  border-radius: 4px;
+  margin: 0 4px;
+  font-size: 13px;
+  line-height: 19.5px;
+  font-family: var(--font-code) !important;
+  display: inline-flex;
+  line-height: normal;
 `;

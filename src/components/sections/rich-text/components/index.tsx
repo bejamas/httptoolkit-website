@@ -1,20 +1,13 @@
 import { kebabCase } from 'lodash';
 import type { MDXComponents } from 'mdx/types';
 
-import {
-  StyledHeading,
-  StyledHighlightedParagraphs,
-  StyledInlineCode,
-  StyledLink,
-  StyledText,
-  StyledUL,
-} from './default.styles';
+import { StyledHeading, StyledHighlightedParagraphs, StyledLink, StyledText, StyledUL } from './default.styles';
 import type { StyledHeadingProps } from './default.types';
 
 import * as Icons from '@/components/elements/icon';
 import { Accordion } from '@/components/modules/accordion';
 import type { AccordionProps } from '@/components/modules/accordion/accordion.types';
-import { BlockCode } from '@/components/modules/block-code';
+import { BlockCode, InlineCode } from '@/components/modules/block-code';
 import { CTABox } from '@/components/modules/cta-box';
 import type { CTABoxProps } from '@/components/modules/cta-box/cta-box.types';
 
@@ -67,11 +60,7 @@ export const defaultComponents: MDXComponents = {
   },
   code({ children, className }) {
     if (!className) {
-      return (
-        <StyledInlineCode fontSize="m" color="white" forwardedAs="code">
-          {children} - {className}
-        </StyledInlineCode>
-      );
+      return <InlineCode>{children}</InlineCode>;
     }
 
     return <BlockCode content={children} language={className} title="Code example" />;

@@ -37,7 +37,7 @@ export const TableContentAccordionFixed = ({ link, hasSubItems }: TableContentFi
     <>
       {link.text && (
         <StyledTableContentItemLink>
-          <TableContentTriggerComponent text={link.text} href={link.href} />
+          <TableContentTriggerComponent text={link.text} href={link.href ?? '#intro'} />
         </StyledTableContentItemLink>
       )}
 
