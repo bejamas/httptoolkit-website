@@ -1,7 +1,14 @@
 import { kebabCase } from 'lodash';
 import type { MDXComponents } from 'mdx/types';
 
-import { StyledHeading, StyledHighlightedParagraphs, StyledLink, StyledText, StyledUL } from './default.styles';
+import {
+  StyledHeading,
+  StyledHighlightedParagraphs,
+  StyledLink,
+  StyledOL,
+  StyledText,
+  StyledUL,
+} from './default.styles';
 import type { StyledHeadingProps } from './default.types';
 
 import * as Icons from '@/components/elements/icon';
@@ -57,6 +64,9 @@ export const defaultComponents: MDXComponents = {
   },
   ul({ children }: Component) {
     return <StyledUL>{children}</StyledUL>;
+  },
+  ol({ children }: Component) {
+    return <StyledOL>{children}</StyledOL>;
   },
   code({ children, className }) {
     if (!className) {
