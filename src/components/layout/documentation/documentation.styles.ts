@@ -6,6 +6,7 @@ import { styled } from '@/styles';
 export const StyledDocumentationGlobalWrapper = styled.section`
   position: relative;
 `;
+
 export const StyledDocumentationLayoutWrapper = styled.div`
   display: grid;
   position: relative;
@@ -59,6 +60,13 @@ export const StyledDocumentationLayoutDesktopHeading = styled.p`
   @media (max-width: ${({ theme }) => theme.screens.lg}) {
     display: none;
     font-size: ${({ theme }) => theme.fontSizes.heading.mobile.l};
+  }
+`;
+
+export const StyledDocumentationLayoutNavigationWrapper = styled.div`
+  margin: 64px auto 0;
+  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+    display: none;
   }
 `;
 
