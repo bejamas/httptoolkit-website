@@ -4,7 +4,7 @@ import path from 'path';
 import type { MDXComponents } from 'mdx/types';
 import { compileMDX } from 'next-mdx-remote/rsc';
 
-import { defaultComponents } from '@/components/sections/rich-text/components';
+import { defaultComponents, docsComponents } from '@/components/sections/rich-text/components';
 import { findFile } from '@/lib/utils/find-file';
 import { getAllFiles } from '@/lib/utils/get-all-files';
 import type { UnorganizedDoc } from '@/lib/utils/get-content-table-links';
@@ -29,7 +29,7 @@ export const getDocBySlug = async (slug: string, extension = '.mdx'): Promise<Do
   const { frontmatter, content } = await compileMDX<Doc>({
     source: fileContent,
     options: { parseFrontmatter: true },
-    components: defaultComponents as MDXComponents,
+    components: { ...defaultComponents, ...docsComponents } as MDXComponents,
   });
 
   const splittedRelative = relativePath.split('/');

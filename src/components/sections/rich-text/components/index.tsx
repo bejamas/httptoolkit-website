@@ -12,6 +12,7 @@ import {
 import type { StyledHeadingProps } from './default.types';
 
 import * as Icons from '@/components/elements/icon';
+import { Image } from '@/components/elements/image';
 import { Accordion } from '@/components/modules/accordion';
 import type { AccordionProps } from '@/components/modules/accordion/accordion.types';
 import { BlockCode, InlineCode } from '@/components/modules/block-code';
@@ -76,4 +77,19 @@ export const defaultComponents: MDXComponents = {
     return <BlockCode content={children} language={className} title="Code example" />;
   },
   ...Icons,
+};
+
+function setImagePath(path: string, parentFolder: string) {
+  const imageSegments = path?.split('/');
+  const imageFilename = imageSegments[imageSegments.length - 1];
+
+  return `/images/${parentFolder}/${imageFilename}`;
+}
+
+export const docsComponents: MDXComponents = {
+  img: ({ src, alt, title }) => {
+    const realSRC = setImagePath(src || '', 'docs');
+
+    return <Image $forRichText src={realSRC} alt={alt ?? ''} title={title} fill />;
+  },
 };
