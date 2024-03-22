@@ -1,12 +1,16 @@
+import type { HeadingGroup } from '@/lib/mdx/extract-tittles';
+
 export interface TableContentSubitem {
   text: string;
   href: string;
+  level?: HeadingGroup['level'];
   subItems?: TableContentSubitem[];
 }
 
 export interface TableContentItem {
   text: string;
   href?: string;
+  level?: HeadingGroup['level'];
   subItems?: TableContentSubitem[];
 }
 

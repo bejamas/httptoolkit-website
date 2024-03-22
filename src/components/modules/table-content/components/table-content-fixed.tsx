@@ -9,16 +9,19 @@ import { Text } from '@/components/elements/text';
 export const TableContentAccordionFixed = ({ link, hasSubItems }: TableContentFixedProps) => {
   const renderSubItems = (subItems: TableContentSubitem[]) => {
     return subItems.map(item => {
-      const isParent = item.subItems && item.subItems?.length > 0;
+      const withSubItems = item.subItems && item.subItems?.length > 0;
+      const isHeading2 = (item.level ?? 2) === 2;
+      const isChildHeading = !withSubItems && !isHeading2;
+
       return (
-        <ul key={item.text} data-parent={isParent}>
+        <ul style={{ paddingLeft: isChildHeading ? '16px' : 0 }} key={item.text} data-level={item.level ?? 2}>
           <li>
-            <StyledTableContentSubitem href={item.href}>
+            <StyledTableContentSubitem $isAccordionFixed={true} href={item.href}>
               <Text
                 as="span"
                 fontSize="m"
-                color={!isParent ? 'lightGrey' : 'white'}
-                fontWeight={!isParent ? 'normal' : 'bold'}
+                color={isChildHeading ? 'lightGrey' : 'white'}
+                fontWeight={isChildHeading ? 'normal' : 'bold'}
               >
                 {item.text}
               </Text>
