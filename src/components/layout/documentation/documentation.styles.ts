@@ -5,8 +5,11 @@ import { styled } from '@/styles';
 
 export const StyledDocumentationLayoutWrapper = styled.section`
   display: grid;
+  max-width: ${({ theme }) => theme.screens['2xl']};
+  margin: 32px 16px 0;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    margin: 0 auto;
     grid-template-columns: 360px ${({ theme }) => theme.screens.content} 1fr;
     gap: 24px;
   }
