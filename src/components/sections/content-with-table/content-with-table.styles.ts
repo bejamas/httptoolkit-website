@@ -38,7 +38,8 @@ export const StyledContentWithTableLowerGradientWrapper = styled.div`
 
 export const StyledContentWithTableContentWrapper = styled.div`
   position: relative;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 32px;
   justify-content: center;
   padding: 32px 16px 16px;
@@ -46,10 +47,11 @@ export const StyledContentWithTableContentWrapper = styled.div`
   margin: 0 auto;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    display: grid;
     padding: 64px 48px;
   }
 
-  @media (min-width: ${({ theme }) => theme.screens['2xl']}) {
+  @media (min-width: ${({ theme }) => theme.screens.lg}) {
     padding: 64px 0;
     max-width: initial;
     grid-template-columns: 1fr ${({ theme }) => theme.screens.content} 1fr;
@@ -63,6 +65,7 @@ export const StyledContentWithTableTableWrapper = styled.div`
 
     & > div {
       max-width: 296px;
+      min-width: 296px;
       width: 100%;
       height: fit-content;
     }
