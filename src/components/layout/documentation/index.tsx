@@ -20,7 +20,7 @@ import { getTitlesBySlug } from '@/lib/utils/get-titles-by-slug';
 export async function DocumentationLayout({ title, children }: Component<DocumentationLayoutProps>) {
   const docsMeta = await getAllDocsMeta();
   const links = getContentTableLinks(docsMeta as UnorganizedDoc[]);
-  const faq = await getTitlesBySlug(`/src/content/docs/guides/${FAQ_SLUG}.mdx`, FAQ_SLUG);
+  const faq = await getTitlesBySlug(`/src/content/docs/guides/${FAQ_SLUG}.mdx`, FAQ_SLUG, '/faq');
 
   return (
     <StyledDocumentationGlobalWrapper>

@@ -37,3 +37,10 @@ export const StyledUL = styled.ul`
   margin-bottom: 16px;
   color: ${({ theme }) => theme.colors.text.darkGrey};
 `;
+
+export const StyledOL = styled.ol`
+  list-style: decimal;
+  padding-left: 30px;
+  margin-bottom: 16px;
+  color: ${({ theme }) => theme.colors.text.darkGrey};
+`;

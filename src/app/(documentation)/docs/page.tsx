@@ -1,10 +1,13 @@
-import { Container } from '@/components/elements/container';
-import { Heading } from '@/components/elements/heading';
+import { DocumentationLayout } from '@/components/layout/documentation';
+import { getDocBySlug, ROOT_DOC_SLUG } from '@/lib/mdx/docs';
 
+// TODO: remove when we can do the redirect at production level
 export default async function DocsPage() {
+  const { title, content: Content } = await getDocBySlug(ROOT_DOC_SLUG);
+
   return (
-    <Container>
-      <Heading color="textGradient">Docs</Heading>
-    </Container>
+    <DocumentationLayout title={title} withoutNavigation>
+      {Content}
+    </DocumentationLayout>
   );
 }

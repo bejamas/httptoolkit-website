@@ -8,7 +8,9 @@ import { defaultComponents } from '@/components/sections/rich-text/components';
 import { findFile } from '@/lib/utils/find-file';
 import { getAllFiles } from '@/lib/utils/get-all-files';
 import type { UnorganizedDoc } from '@/lib/utils/get-content-table-links';
+
 const rootDirectory = path.join(process.cwd(), 'src', 'content', 'docs');
+export const ROOT_DOC_SLUG = 'getting-started';
 
 const markdowRegex = /\.(md|mdx)$/;
 
