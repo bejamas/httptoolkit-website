@@ -49,7 +49,6 @@ export const StyledNavigationSidebarLinksContentLink = styled(Link)`
 
   &:focus,
   &:hover {
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
     color: ${({ theme }) => theme.colors.text.white};
   }
 `;
