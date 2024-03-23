@@ -10,7 +10,7 @@ import { Input } from '../input';
 import { Button } from '@/components/elements/button';
 import { Text } from '@/components/elements/text';
 
-export const ContentCard = ({ title, text, button, $isNewsletter }: ContentCardProps) => {
+export const ContentCard = ({ title, text, button, action, $isNewsletter }: ContentCardProps) => {
   return (
     <StyledContentCardWrapper $isNewsletter={$isNewsletter}>
       <StyledContentCardContent>
@@ -25,7 +25,11 @@ export const ContentCard = ({ title, text, button, $isNewsletter }: ContentCardP
       </StyledContentCardContent>
       {$isNewsletter && (
         <>
-          <StyledContentCardForm>
+          <StyledContentCardForm method="POST" action={action} target="_blank">
+            <div style={{ position: 'absolute', left: '-9999px' }}>
+              <label htmlFor="extra-info">An extra form field you should ignore</label>
+              <input type="text" id="extra-info" name="first-name" tab-index="-1" autoComplete="nope" />
+            </div>
             <Input id="email" placeholder="Email address" type="email" required />
             <Button as="button" type="submit" $variant="secondary" $small>
               Sign up
