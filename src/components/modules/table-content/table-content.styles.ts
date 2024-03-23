@@ -88,23 +88,35 @@ export const StyledTableContentContent = styled(Accordion.Content)`
   }
 `;
 
-export const StyledTableContentSubitem = styled(Link)`
+export const StyledTableContentSubitem = styled(Link)<{ $isAccordionFixed?: boolean }>`
   display: inline-block;
   width: 100%;
-  padding: 8px 32px;
   font-weight: ${({ theme }) => theme.fontWeight.normal};
   color: ${({ theme }) => theme.colors.text.lightGrey};
   transition: all 0.1s;
   outline: none;
+  border-radius: 8px;
 
-  &:hover,
-  &:focus {
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
-    color: ${({ theme }) => theme.colors.white};
-  }
+  ${({ $isAccordionFixed }) =>
+    $isAccordionFixed
+      ? css`
+          padding: 8px 16px;
+
+          &:hover,
+          &:focus,
+          &:focus-within {
+            background-color: ${({ theme }) => theme.colors.darkGrey};
+          }
+        `
+      : css`
+          padding: 8px 32px;
+          &:hover,
+          &:focus {
+            color: ${({ theme }) => theme.colors.electricLightBlue};
+          }
+        `}
 
   &:active {
-    font-weight: ${({ theme }) => theme.fontWeight.bold};
     color: ${({ theme }) => theme.colors.electricLightBlue};
   }
 `;
