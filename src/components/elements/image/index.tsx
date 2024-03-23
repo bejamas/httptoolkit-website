@@ -3,13 +3,11 @@ import ExportedImage from 'next-image-export-optimizer';
 
 import { StyledImageWrapper } from './image.styles';
 
-export type ImageProps = ExportedImageProps & {
-  $forRichText?: boolean;
-};
+export type ImageProps = ExportedImageProps;
 
-export const Image = ({ $forRichText, ...props }: ImageProps) => {
+export const Image = ({ ...props }: ImageProps) => {
   return (
-    <StyledImageWrapper $forRichText={$forRichText}>
+    <StyledImageWrapper>
       <ExportedImage {...props} />
     </StyledImageWrapper>
   );

@@ -4,6 +4,7 @@ import type { MDXComponents } from 'mdx/types';
 import {
   StyledHeading,
   StyledHighlightedParagraphs,
+  StyledImage,
   StyledLink,
   StyledOL,
   StyledText,
@@ -12,7 +13,6 @@ import {
 import type { StyledHeadingProps } from './default.types';
 
 import * as Icons from '@/components/elements/icon';
-import { Image } from '@/components/elements/image';
 import { Accordion } from '@/components/modules/accordion';
 import type { AccordionProps } from '@/components/modules/accordion/accordion.types';
 import { BlockCode, InlineCode } from '@/components/modules/block-code';
@@ -90,6 +90,6 @@ export const docsComponents: MDXComponents = {
   img: ({ src, alt, title }) => {
     const realSRC = setImagePath(src || '', 'docs');
 
-    return <Image $forRichText src={realSRC} alt={alt ?? ''} title={title} fill />;
+    return <StyledImage src={realSRC} alt={alt ?? ''} title={title} fill />;
   },
 };
