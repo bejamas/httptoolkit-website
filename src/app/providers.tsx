@@ -1,6 +1,10 @@
 'use client';
+import { loadPlanPricesUntilSuccess } from '@httptoolkit/accounts';
 import posthog from 'posthog-js';
 import { PostHogProvider } from 'posthog-js/react';
+import { useEffect } from 'react';
+
+import { isSSR } from '@/lib/utils';
 
 if (typeof window !== 'undefined') {
   posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
@@ -13,5 +17,10 @@ if (typeof window !== 'undefined') {
 }
 
 export function PHProvider({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    if (!isSSR) {
+      window.pricingPromise = loadPlanPricesUntilSuccess();
+    }
+  }, []);
   return <PostHogProvider client={posthog}>{children}</PostHogProvider>;
 }

@@ -1,4 +1,6 @@
-import { Suspense } from 'react';
+'use client';
+
+import React, { Suspense } from 'react';
 
 import { TryItForYourselfCTA } from '@/components/common-sections/try-it-for-yourself';
 import { CaretRight } from '@/components/elements/icon';

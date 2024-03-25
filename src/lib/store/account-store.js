@@ -8,19 +8,37 @@ import {
   initializeAuthUi,
 } from '@httptoolkit/accounts';
 import * as _ from 'lodash';
-import { flow, observable, computed } from 'mobx';
+import { flow, observable, computed, makeObservable } from 'mobx';
 
-import { isSSR } from '../util';
+import { isSSR } from '../utils';
 
 export class AccountStore {
+  subscriptionPlans = null; // Set once the price loading has completed
+
+  modal = null;
+
+  waitingForPurchase = false;
+
+  user = !isSSR ? getLastUserData() : {};
+
   constructor() {
+    makeObservable(this, {
+      subscriptionPlans: observable,
+      modal: observable,
+      waitingForPurchase: observable,
+      user: observable,
+      isLoggedIn: computed,
+      isPaidUser: computed,
+      subscription: computed,
+    });
+
     if (!isSSR) {
       initializeAuthUi({
         refreshToken: false,
       });
 
       // The pricing lookup promise is always triggered at first load, within layout.tsx.
-      window.pricingPromise.then(prices => {
+      window.pricingPromise?.then(prices => {
         this.subscriptionPlans = prices;
       });
     }
@@ -42,36 +60,24 @@ export class AccountStore {
     return `${tierCode}-${planCycle}`;
   };
 
-  @observable
-  subscriptionPlans; // Set once the price loading has completed
-
-  @observable
-  modal = null;
-
-  @observable
-  waitingForPurchase = false;
-
-  @observable
-  user = !isSSR ? getLastUserData() : {};
-
   updateUser = flow(
     function* () {
       this.user = yield getLatestUserData();
     }.bind(this),
   );
 
-  @computed get isLoggedIn() {
+  get isLoggedIn() {
     return !!this.user.email;
   }
 
-  @computed get isPaidUser() {
+  get isPaidUser() {
     // Set with the last known active subscription details
     const subscriptionExpiry = _.get(this, 'user.subscription.expiry');
 
     return !!subscriptionExpiry && subscriptionExpiry.valueOf() > Date.now();
   }
 
-  @computed get subscription() {
+  get subscription() {
     if (!this.isPaidUser) return {};
 
     const [paidTier, paidCycle] = this.user.subscription.plan.split('-');
@@ -89,8 +95,8 @@ export class AccountStore {
   }).bind(this);
 
   buyPlan = flow(
-    function* (tierCode, planCycle) {
-      this.reportPurchaseEvent('Select plan', tierCode, planCycle);
+    function* (tierCode, planCycle, posthog) {
+      this.reportPurchaseEvent('Select plan', tierCode, planCycle, posthog);
       const sku = this.getSKU(tierCode, planCycle);
 
       let loggingIn = true;
@@ -110,15 +116,15 @@ export class AccountStore {
           }
         });
 
-        this.reportPurchaseEvent('Login started', tierCode, planCycle);
+        this.reportPurchaseEvent('Login started', tierCode, planCycle, posthog);
         yield showLoginDialog();
         if (this.isLoggedIn) {
-          this.reportPurchaseEvent('Login completed', tierCode, planCycle);
+          this.reportPurchaseEvent('Login completed', tierCode, planCycle, posthog);
         } else {
-          this.reportPurchaseEvent('Login cancelled', tierCode, planCycle);
+          this.reportPurchaseEvent('Login cancelled', tierCode, planCycle, posthog);
         }
       } else {
-        this.reportPurchaseEvent('Already logged in', tierCode, planCycle);
+        this.reportPurchaseEvent('Already logged in', tierCode, planCycle, posthog);
       }
 
       loggingIn = false;
@@ -134,16 +140,16 @@ export class AccountStore {
         return;
       }
 
-      this.reportPurchaseEvent('Checkout started', tierCode, planCycle);
+      this.reportPurchaseEvent('Checkout started', tierCode, planCycle, posthog);
 
       // This redirects the entire page to the checkout:
       return goToCheckout(this.user.email, sku, 'web');
     }.bind(this),
   );
 
-  reportPurchaseEvent(name, planName, planCycle) {
+  reportPurchaseEvent(name, planName, planCycle, posthog) {
     const sku = this.getSKU(planName, planCycle);
-    if (window.posthog) {
+    if (posthog) {
       posthog.capture(name, { planName, planCycle, sku });
     }
   }
