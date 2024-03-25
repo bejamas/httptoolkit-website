@@ -49,7 +49,6 @@ export const StyledOL = styled.ol`
 export const StyledImage = styled(Image)`
   display: block;
   position: relative !important;
-  width: unset !important;
-  height: unset !important;
+  max-width: 100%;
   margin: 48px auto;
 `;
