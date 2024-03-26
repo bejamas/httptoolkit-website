@@ -1,3 +1,5 @@
+'use client';
+
 import {
   StyledContentCardContent,
   StyledContentCardForm,
@@ -6,11 +8,15 @@ import {
 } from './content-card.styles';
 import type { ContentCardProps } from './content-card.types';
 import { Input } from '../input';
+import { StyledNewsletterSuccess } from '../newsletter/newsletter.styles';
 
 import { Button } from '@/components/elements/button';
 import { Text } from '@/components/elements/text';
+import { useNewsletterSubmit } from '@/lib/hooks/use-newsletter-submit';
 
 export const ContentCard = ({ title, text, button, action, $isNewsletter }: ContentCardProps) => {
+  const [isSuccess, handleSubmit] = useNewsletterSubmit();
+
   return (
     <StyledContentCardWrapper $isNewsletter={$isNewsletter}>
       <StyledContentCardContent>
@@ -25,7 +31,14 @@ export const ContentCard = ({ title, text, button, action, $isNewsletter }: Cont
       </StyledContentCardContent>
       {$isNewsletter && (
         <>
-          <StyledContentCardForm method="POST" action={action} target="_blank">
+          {isSuccess && <StyledNewsletterSuccess>Thanks for subscribing!</StyledNewsletterSuccess>}
+          <StyledContentCardForm
+            method="POST"
+            action={action}
+            target="_blank"
+            onSubmit={handleSubmit}
+            className={isSuccess ? 'visually-hidden' : ''}
+          >
             <div className="visually-hidden">
               <label htmlFor="extra-info">An extra form field you should ignore</label>
               <input type="text" id="extra-info" name="first-name" tab-index="-1" autoComplete="nope" />

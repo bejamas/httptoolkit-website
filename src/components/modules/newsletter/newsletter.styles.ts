@@ -186,3 +186,17 @@ export const StyledNewsletterFormWrapper = styled.form<StyledNewsletterProps>`
     }
   }}
 `;
+
+export const StyledNewsletterSuccess = styled.div`
+  font-size: ${({ theme }) => theme.fontSizes.button.default};
+  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  color: ${({ theme }) => theme.colors.text.white};
+  line-height: 1;
+  text-align: center;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background: ${({ theme }) => theme.colors.electricBlue};
+  box-shadow:
+    0 0 0 1px ${({ theme }) => theme.colors.button.border} inset,
+    0 0 8px 0 ${({ theme }) => theme.colors.shadowDefault};
+`;
