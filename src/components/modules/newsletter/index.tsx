@@ -7,6 +7,7 @@ import {
   StyledNewsletterWrapper,
 } from './newsletter.styles';
 import type { NewsletterProps } from './newsletter.types';
+import { NEWSLETTER_URLS } from './newsletter.values';
 import { Input } from '../input';
 
 import { Button } from '@/components/elements/button';
@@ -20,7 +21,7 @@ export function Newsletter({
   text,
   supportText,
   buttonText = 'Sign up',
-  action,
+  action = NEWSLETTER_URLS.default,
 }: NewsletterProps) {
   const TextSize: TextProps['fontSize'] = $variant === 'blog-short' ? 'l' : 'm';
   const TextColor: TextProps['color'] = $variant === 'blog-short' ? 'white' : 'darkGrey';
