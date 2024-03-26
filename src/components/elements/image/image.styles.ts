@@ -1,16 +1,19 @@
 'use client';
 
+import type { ImageProps } from '.';
+
 import { styled } from '@/styles';
 
-export const StyledImageWrapper = styled.div`
+export const StyledImageWrapper = styled.figure<Partial<ImageProps>>`
   position: relative;
-  width: 100%;
-  object-fit: cover;
-  overflow: hidden;
   line-height: 0;
+  /* width: fit-content; */
+  height: 100%;
+  object-fit: cover;
 
   & img {
-    object-fit: cover;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `;
