@@ -11,8 +11,8 @@ import {
 import type { DocumentationLayoutProps } from './documentation.types';
 
 import { Gradient } from '@/components/elements/gradient';
-import { Input } from '@/components/modules/input';
 import { NavigationSidebarLinks } from '@/components/modules/navigation-sidebar-links';
+import { SiteSearch } from '@/components/modules/site-search';
 import { TableContent } from '@/components/modules/table-content';
 import { getAllDocsMeta } from '@/lib/mdx/docs';
 import type { UnorganizedDoc } from '@/lib/utils/get-content-table-links';
@@ -30,11 +30,11 @@ export async function DocumentationLayout({ title, children, links }: Component<
         <Gradient />
       </StyledDocumentationLayoutGradientWrapper>
       <StyledDocumentationLayoutWrapper>
-        <StyledDocumentationLayoutMobileHeading fontSize="m" color="textGradient">
+        <StyledDocumentationLayoutMobileHeading fontSize="l" color="textGradient">
           {title}
         </StyledDocumentationLayoutMobileHeading>
         <StyledDocumentationLayoutSideWrapper>
-          <Input id="search" type="search" placeholder="Search" />
+          <SiteSearch />
           <TableContent isCollapsible links={[...localLinks, faq]} />
         </StyledDocumentationLayoutSideWrapper>
         <StyledDocumentationLayoutContentWrapper>

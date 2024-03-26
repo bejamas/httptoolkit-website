@@ -34,10 +34,26 @@ export const StyledDocumentationLayoutGradientWrapper = styled.div`
 `;
 
 export const StyledDocumentationLayoutSideWrapper = styled.aside`
-  padding: 32px 0 16px;
+  padding: 32px 0 32px;
   display: flex;
   flex-direction: column-reverse;
   gap: 32px;
+
+  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    padding: 32px 0 16px;
+  }
+
+  & button {
+    margin: 0;
+    width: 100%;
+    min-width: fit-content;
+
+    @media (max-width: ${({ theme }) => theme.screens.md}) {
+      .DocSearch-Button-Placeholder {
+        display: block;
+      }
+    }
+  }
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     flex-direction: column;
@@ -53,14 +69,17 @@ export const StyledDocumentationLayoutMobileHeading = styled(Heading)`
   }
 `;
 
-export const StyledDocumentationLayoutDesktopHeading = styled.p`
+export const StyledDocumentationLayoutDesktopHeading = styled.h1`
   font-size: ${({ theme }) => theme.fontSizes.heading.desktop.l};
   color: ${({ theme }) => theme.colors.text.textGradient};
   ${({ theme }) => theme.colors.text.textGradient};
+  line-height: 1.2;
+  margin-bottom: 24px;
 
   @media (max-width: ${({ theme }) => theme.screens.lg}) {
     display: none;
     font-size: ${({ theme }) => theme.fontSizes.heading.mobile.l};
+    margin-bottom: 48px;
   }
 `;
 
@@ -71,7 +90,7 @@ export const StyledDocumentationLayoutNavigationWrapper = styled.div`
   }
 `;
 
-export const StyledDocumentationLayoutContentWrapper = styled.div`
+export const StyledDocumentationLayoutContentWrapper = styled.article`
   padding-bottom: 64px;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
