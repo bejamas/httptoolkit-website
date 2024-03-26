@@ -1,10 +1,9 @@
 'use client';
 
+import ExportedImage from 'next-image-export-optimizer';
 import type { DetailedHTMLProps, ImgHTMLAttributes, RefObject } from 'react';
 
 import { StyledThemedImage, ThemedImageMovingBorder } from './themed-image';
-
-import { Image } from '@/components/elements/image';
 
 export interface ThemeImageProps
   extends Omit<DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, 'src'> {
@@ -40,9 +39,23 @@ export const ThemedImage = ({
     return (
       <>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <Image alt={alt} height={height} width={width} src={lightSrc} data-hide-on-theme="dark" {...imageProps} />
+        <ExportedImage
+          alt={alt}
+          height={height}
+          width={width}
+          src={lightSrc}
+          data-hide-on-theme="dark"
+          {...imageProps}
+        />
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <Image alt={alt} height={height} width={width} src={darkSrc} data-hide-on-theme="light" {...imageProps} />
+        <ExportedImage
+          alt={alt}
+          height={height}
+          width={width}
+          src={darkSrc}
+          data-hide-on-theme="light"
+          {...imageProps}
+        />
       </>
     );
   };
