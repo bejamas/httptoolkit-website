@@ -3,7 +3,7 @@ import path from 'path';
 
 import { compileMDX } from 'next-mdx-remote/rsc';
 
-import { defaultComponents } from '@/components/sections/rich-text/components';
+import { defaultComponents, postComponents } from '@/components/sections/rich-text/components';
 
 const rootDirectory = path.join(process.cwd(), 'src', 'content', 'posts');
 
@@ -15,14 +15,14 @@ function isMarkdown(str: string) {
 
 export const getPostBySlug = async (slug: string): Promise<Post> => {
   const realSlug = slug.replace(markdowRegex, '');
-  const filePath = path.join(rootDirectory, `${realSlug}.md`);
+  const filePath = path.join(rootDirectory, `${realSlug}.mdx`);
 
   const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
 
   const { frontmatter, content } = await compileMDX<PostFrontmatter>({
     source: fileContent,
     options: { parseFrontmatter: true },
-    components: defaultComponents,
+    components: { ...defaultComponents, ...postComponents },
   });
 
   const post: Post = {
