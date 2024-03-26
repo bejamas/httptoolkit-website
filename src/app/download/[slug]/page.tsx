@@ -18,6 +18,7 @@ import { Text } from '@/components/elements/text';
 import { ThemedImage } from '@/components/elements/themed-image';
 import { LandingLayout } from '@/components/layout/landing-layout';
 import { ContentCard } from '@/components/modules/content-card';
+import { NEWSLETTER_URLS } from '@/components/modules/newsletter/newsletter.values';
 import { OSDictionary } from '@/lib/constants/download-dictionary';
 
 export async function generateStaticParams() {
@@ -51,18 +52,18 @@ export default async function DownloadPage({ params }: DownloadPageProps) {
               {hasDownloadCommand ? (
                 <Stack>
                   <Copy text={downloadData.downloadCommand} />
-                  <Text fontSize="l" fontWeight="medium">
+                  <Text fontSize="l" fontWeight="medium" color="white">
                     Copy & run the above to install HTTP Toolkit.
                   </Text>
                 </Stack>
               ) : (
-                <Text fontSize="m">
+                <Text fontSize="l" fontWeight="medium">
                   Didn&apos;t work?{' '}
                   <Link
                     target="_self"
                     href={`https://github.com/httptoolkit/httptoolkit-desktop/releases/download/${downloadData?.releasePath}`}
                   >
-                    <Text fontSize="m" as="span" color="cinnarbarRed">
+                    <Text fontSize="l" as="span" color="cinnarbarRed" fontWeight="medium">
                       Click here
                     </Text>
                   </Link>
@@ -78,6 +79,7 @@ export default async function DownloadPage({ params }: DownloadPageProps) {
               <ContentCard
                 title="Join the mailing list now, so you don't miss new features & releases:"
                 $isNewsletter
+                action={NEWSLETTER_URLS.download}
               />
             </StyledColumnContent>
             <StyledImageWrapper>

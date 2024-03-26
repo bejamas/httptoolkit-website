@@ -3,7 +3,7 @@ import path from 'path';
 
 import { compileMDX } from 'next-mdx-remote/rsc';
 
-import { components } from '../components';
+import { defaultComponents } from '@/components/sections/rich-text/components';
 
 const rootDirectory = path.join(process.cwd(), 'src', 'content', 'posts');
 
@@ -22,14 +22,14 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
   const { frontmatter, content } = await compileMDX<PostFrontmatter>({
     source: fileContent,
     options: { parseFrontmatter: true },
-    components,
+    components: defaultComponents,
   });
 
   const post: Post = {
     title: frontmatter?.title ?? '',
     date: frontmatter?.date ?? '',
     coverImage: frontmatter?.cover_image ?? '',
-    tags: frontmatter?.tags ? frontmatter?.tags.split(',') : [],
+    tags: frontmatter?.tags ? frontmatter?.tags.split(',')?.map(tag => tag?.trim()) : [],
     isFeatured: frontmatter?.isFeatured ?? false,
     isDraft: frontmatter?.draft ?? false,
     excerpt: '',

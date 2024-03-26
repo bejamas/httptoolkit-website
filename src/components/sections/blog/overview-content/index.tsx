@@ -1,12 +1,15 @@
 import { Suspense } from 'react';
 
 import { StyledBlogOverviewSection, StyledSubscriberBox } from './overview-content.styles';
+import { NewsletterBox } from '../newsletter-box';
 import { OverviewPostsGrid } from '../overview-posts-grid';
 
 export const OverviewBlogContent = () => {
   return (
     <StyledBlogOverviewSection>
-      <StyledSubscriberBox>HTTP Toolkit Newsletter</StyledSubscriberBox>
+      <StyledSubscriberBox>
+        <NewsletterBox />
+      </StyledSubscriberBox>
       <Suspense fallback={'loading posts...'}>
         <OverviewPostsGrid />
       </Suspense>

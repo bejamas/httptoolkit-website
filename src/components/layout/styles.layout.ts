@@ -4,14 +4,17 @@ import { screens, styled } from '@/styles';
 
 export const StyledLandingLayoutWrapper = styled.div`
   min-height: fit-content;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow-y: auto;
 
-  @media (min-width: ${screens['md']}) {
-    height: 100vh;
+  & main {
+    overflow: visible;
+  }
 
+  @media (min-width: ${screens['xl']}) {
     & main {
       flex: 1; /* Allow the main content to grow and take up remaining space */
       display: flex;
