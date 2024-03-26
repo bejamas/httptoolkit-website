@@ -16,9 +16,11 @@ export const StyledBlogOverviewSection = styled.section`
 export const StyledSubscriberBox = styled.aside`
   flex: 1;
   max-width: fit-content;
+  display: none;
 
   @media (min-width: ${screens.lg}) {
     min-width: 250px;
+    display: block;
   }
 
   @media (min-width: ${screens.xl}) {
