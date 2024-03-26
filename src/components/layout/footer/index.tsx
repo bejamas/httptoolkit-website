@@ -31,7 +31,7 @@ export const Footer = ({ withoutNewsletter }: FooterProps) => {
       {!withoutNewsletter && (
         <Container>
           <Newsletter
-            action={NEWSLETTER_URLS.normal}
+            action={NEWSLETTER_URLS.default}
             title="Keep yourself up to date"
             text="There's a lot of new HTTP Toolkit features coming soon, like automated iOS interception, HTTP client tools, gRPC & GraphQL support, and request diffing."
             supportText="Want to hear about the latest new HTTP Toolkit features as soon as they land? Sign up for updates:"
