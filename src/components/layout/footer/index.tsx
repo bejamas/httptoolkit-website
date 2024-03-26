@@ -17,7 +17,6 @@ import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
 import { Newsletter } from '@/components/modules/newsletter';
-import { NEWSLETTER_URLS } from '@/components/modules/newsletter/newsletter.values';
 import { footerColumns } from '@/content/data/footer-columns';
 import LogoFooter from '@/images/logo-footer.svg';
 
@@ -31,7 +30,6 @@ export const Footer = ({ withoutNewsletter }: FooterProps) => {
       {!withoutNewsletter && (
         <Container>
           <Newsletter
-            action={NEWSLETTER_URLS.default}
             title="Keep yourself up to date"
             text="There's a lot of new HTTP Toolkit features coming soon, like automated iOS interception, HTTP client tools, gRPC & GraphQL support, and request diffing."
             supportText="Want to hear about the latest new HTTP Toolkit features as soon as they land? Sign up for updates:"

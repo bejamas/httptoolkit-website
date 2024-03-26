@@ -3,7 +3,7 @@ export interface NewsletterProps extends StyledNewsletterProps {
   text: string;
   supportText?: string;
   buttonText?: string;
-  action: string;
+  action?: string;
 }
 
 export interface StyledNewsletterProps {
