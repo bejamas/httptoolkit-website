@@ -24,6 +24,13 @@ export const AlgoliaGlobalStyles = createGlobalStyle`
     --docsearch-key-shadow: none;
   }
 
+  @media (max-width: 768px){
+    .DocSearch-Container {
+      width: 100%;
+    }
+  }
+
+
   .DocSearch-Logo svg *,
   .DocSearch-Logo svg {
     fill: var(--text-dark-grey);
@@ -40,14 +47,25 @@ export const AlgoliaGlobalStyles = createGlobalStyle`
     font-size: 1rem;
   }
 
-  .DocSearch-Form {
-    border-bottom: 1px solid var(--button-border);
-    border-radius: 6px 6px 0 0;
-  }
+  @media (min-width: 768px){
+    .DocSearch-Form {
+     border-bottom: 1px solid var(--button-border);
+     border-radius: 6px 6px 0 0;
+    }
 
-  .DocSearch-SearchBar {
+    .DocSearch-SearchBar {
     padding: 0;
   }
+  }
+
+
+  @media (max-width: 768px){
+    .DocSearch-SearchBar {
+      border-bottom: 1px solid var(--button-border);;
+    }
+  }
+
+
 
   .DocSearch-Footer {
     border-radius: 0 0 6px 6px;
