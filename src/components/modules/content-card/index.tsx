@@ -26,7 +26,7 @@ export const ContentCard = ({ title, text, button, action, $isNewsletter }: Cont
       {$isNewsletter && (
         <>
           <StyledContentCardForm method="POST" action={action} target="_blank">
-            <div style={{ position: 'absolute', left: '-9999px' }}>
+            <div className="visually-hidden">
               <label htmlFor="extra-info">An extra form field you should ignore</label>
               <input type="text" id="extra-info" name="first-name" tab-index="-1" autoComplete="nope" />
             </div>
