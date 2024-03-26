@@ -29,6 +29,7 @@ export const StyledAlgoliaSearchWrapper = styled.div`
       font-size: ${({ theme }) => theme.fontSizes.text.s};
       font-weight: ${({ theme }) => theme.fontWeight.normal};
     }
+
     & .DocSearch-Search-Icon {
       width: 16px;
     }
