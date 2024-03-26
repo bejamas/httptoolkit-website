@@ -12,5 +12,6 @@ export interface PricingCardProps extends StyledPricingCardProps {
   title: string;
   price?: number | JSX.Element;
   priceDescription: string;
+  isPaidYearly?: boolean;
   features: Features[];
 }

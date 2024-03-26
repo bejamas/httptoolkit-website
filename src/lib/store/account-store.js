@@ -13,14 +13,6 @@ import { flow, observable, computed, makeObservable } from 'mobx';
 import { isSSR } from '../utils';
 
 export class AccountStore {
-  subscriptionPlans = null; // Set once the price loading has completed
-
-  modal = null;
-
-  waitingForPurchase = false;
-
-  user = !isSSR ? getLastUserData() : {};
-
   constructor() {
     makeObservable(this, {
       subscriptionPlans: observable,
@@ -55,6 +47,14 @@ export class AccountStore {
     }
     loginEvents.on('logout', this.updateUser);
   }
+
+  subscriptionPlans = null; // Set once the price loading has completed
+
+  modal = null;
+
+  waitingForPurchase = false;
+
+  user = !isSSR ? getLastUserData() : {};
 
   getSKU = (tierCode, planCycle) => {
     return `${tierCode}-${planCycle}`;

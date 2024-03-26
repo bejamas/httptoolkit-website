@@ -1,8 +1,8 @@
 'use client';
-
 import type { StyledPricingCardProps } from './card.types';
 
 import { StyledButton, StyledLink } from '@/components/elements/button/button.styles';
+import { Text } from '@/components/elements/text';
 import { styled } from '@/styles';
 
 export const StyledPricingCardWrapper = styled.div<StyledPricingCardProps>`
@@ -37,6 +37,10 @@ export const StyledPricingCardPriceWrapper = styled.div`
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     text-align: left;
   }
+`;
+
+export const StyledPricingCardAnnualFlag = styled(Text)`
+  margin-top: 6px;
 `;
 
 export const StyledPriceCardPrice = styled.span`

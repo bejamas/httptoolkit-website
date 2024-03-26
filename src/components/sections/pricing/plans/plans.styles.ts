@@ -47,3 +47,13 @@ export const StyledPricingPlansCardsWrapper = styled.div`
     grid-template-columns: repeat(3, 1fr);
   }
 `;
+
+export const StyledPricingPlansDisclaimerWrapper = styled.div`
+  display: grid;
+  justify-content: center;
+  gap: 32px;
+
+  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    gap: 24px;
+  }
+`;

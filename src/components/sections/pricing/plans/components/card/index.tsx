@@ -5,6 +5,7 @@ import {
   StyledPriceCardFeatureItemLI,
   StyledPriceCardFeatureItemsWrapper,
   StyledPriceCardPrice,
+  StyledPricingCardAnnualFlag,
   StyledPricingCardButtonWrapper,
   StyledPricingCardPriceWrapper,
   StyledPricingCardWrapper,
@@ -49,9 +50,11 @@ export const PricingCard = ({
   priceDescription,
   features,
   $isHighlighted,
+  isPaidYearly,
   children,
 }: Component<PricingCardProps>) => {
   const TextColor: TextProps['color'] = $isHighlighted ? 'white' : 'lightGrey';
+  const isFree = price === 0;
   return (
     <StyledPricingCardWrapper $isHighlighted={$isHighlighted}>
       <StyledPricingCardPriceWrapper>
@@ -60,10 +63,16 @@ export const PricingCard = ({
         </Text>
         <Text fontSize="l" color="lightGrey">
           <StyledPriceCardPrice>
-            {price === 0 ? 'Free' : '$'}
-            {price !== 0 && price}
+            {isFree ? 'Free' : '$'}
+            {!isFree && price}
           </StyledPriceCardPrice>
           {priceDescription}
+          <br />
+          {isPaidYearly && !isFree && (
+            <StyledPricingCardAnnualFlag fontSize="s" color="darkGrey">
+              paid annually
+            </StyledPricingCardAnnualFlag>
+          )}
         </Text>
       </StyledPricingCardPriceWrapper>
       <StyledPricingCardButtonWrapper>{children}</StyledPricingCardButtonWrapper>
