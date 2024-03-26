@@ -3,7 +3,7 @@ import { Footer } from './footer';
 import { SimpleFooter } from './footer/simple-footer';
 import { Header } from './header';
 
-interface LayoutProps extends FooterProps {
+interface LayoutProps extends Pick<FooterProps, 'withoutNewsletter'> {
   isNavigationEnabled?: boolean;
   withSimpleFooter?: boolean;
 }
