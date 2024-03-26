@@ -1,4 +1,4 @@
-import type { FormEventHandler} from 'react';
+import type { FormEventHandler } from 'react';
 import { useState } from 'react';
 
 export const useNewsletterSubmit = (): [boolean, FormEventHandler<HTMLFormElement>] => {
@@ -9,7 +9,7 @@ export const useNewsletterSubmit = (): [boolean, FormEventHandler<HTMLFormElemen
 
     setTimeout(
       () => {
-        e.target.reset();
+        (e.target as HTMLFormElement).reset();
         setIsSuccess(false);
       },
       100 * 60 * 2,
