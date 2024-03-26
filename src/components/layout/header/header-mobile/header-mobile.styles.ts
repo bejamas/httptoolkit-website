@@ -15,15 +15,17 @@ export const StyledNavMobileItems = styled.nav`
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
+  gap: 2.5rem;
   text-transform: uppercase;
-  margin-top: 64px;
+  margin-top: 15px;
 
-  & a:hover,
-  & a:focus {
-    span {
-      transition: color ease-in 200ms;
-      color: ${({ theme }) => theme.colors.cinnarbarRed};
+  @media (min-width: ${screens.md}) {
+    & a:hover,
+    & a:focus {
+      span {
+        transition: color ease-in 200ms;
+        color: ${({ theme }) => theme.colors.cinnarbarRed};
+      }
     }
   }
 `;
