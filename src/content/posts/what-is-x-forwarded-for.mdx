@@ -11,16 +11,15 @@ The X-Forwarded-For (XFF) HTTP header provides crucial insight into the origin o
 
 A typical HTTP request goes on a bit of a journey, traversing multiple layers of infrastructure before reaching its destination. Without the `X-Forwarded-For` header, the receiving server would only see the IP address of the last intermediary in the chain (the direct source of the request) rather than the true client origin.
 
-<!--
-sequenceDiagram
+{/* sequenceDiagram
     actor Client as <br><br><br><br><br>Client<br>28.178.124.142
     participant CDN as CDN<br>198.40.10.101
     participant LB as Load Balancer<br>198.40.10.102
     participant B as Backend App<br>10.0.0.1
     Client->>CDN:
     CDN->>LB:
-    LB->>B:
--->
+    LB->>B: */}
+
 
 ![A connection flow from Client to CDN to Load Balancer to Backend app](./x-forwarded-for-flow.png)
 
@@ -72,16 +71,16 @@ Actors can be malicious or misconfigured, but either way the contents of an HTTP
 
 Here's an example of how that might look, if the incoming header is blindly trusted:
 
-<!--
-sequenceDiagram
+
+{/* sequenceDiagram
     actor Client as Client<br>IP 28.178.124.142<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     participant CDN as CDN<br>IP 198.40.10.101
     participant LB as Load Balancer<br>IP 198.40.10.102
     participant B as Backend App
     Client->>CDN: X-Forwarded-For:<br>1.1.1.1
     CDN->>LB: X-Forwarded-For:<br>1.1.1.1, 28.178.124.142
-    LB->>B: X-Forwarded-For:<br>1.1.1.1, 28.178.124.142, 198.40.10.101
--->
+    LB->>B: X-Forwarded-For:<br>1.1.1.1, 28.178.124.142, 198.40.10.101 */}
+
 
 ![An example where a spoofed XFF header value is provided and forwarded](./x-forwarded-for-spoofed.png)
 
@@ -103,16 +102,14 @@ This replaces the `X-Forwarded-For` header with the client's real IP address, dr
 
 This resolves the issue with the client above who appears to be trying to hide their IP address, or pretend to be somebody else, by sending a falsified `X-Forwarded-For` header. This header would be ignored by the CDN, and the request value would be replaced with just the actual IP address as seen by that server rather than being blindly accepted, like so:
 
-<!--
-sequenceDiagram
+{/* sequenceDiagram
     actor Client as Client<br>IP 28.178.124.142<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     participant CDN as CDN<br>IP 198.40.10.101
     participant LB as Load Balancer<br>IP 198.40.10.102
     participant B as Backend App
     Client->>CDN: X-Forwarded-For:<br>1.1.1.1
     CDN->>LB: X-Forwarded-For:<br>28.178.124.142
-    LB->>B: X-Forwarded-For:<br>28.178.124.142, 198.40.10.101
--->
+    LB->>B: X-Forwarded-For:<br>28.178.124.142, 198.40.10.101 */}
 
 ![An blocked attempt to spoof an incoming X-Forwarded-For header](./x-forwarded-for-spoof-blocked.png)
 
