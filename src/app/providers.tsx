@@ -19,7 +19,7 @@ if (typeof window !== 'undefined') {
 export function PHProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!isSSR) {
-      window.pricingPromise = loadPlanPricesUntilSuccess();
+      (window as any).pricingPromise = loadPlanPricesUntilSuccess();
     }
   }, []);
   return <PostHogProvider client={posthog}>{children}</PostHogProvider>;

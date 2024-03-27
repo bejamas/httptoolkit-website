@@ -2,7 +2,7 @@
 
 import React, { Suspense } from 'react';
 
-import { FAQItems, comparisonPlans, planFeatures } from '../pricing/page';
+import { FAQItems, comparisonPlans, planFeatures } from '../pricing/data';
 
 import { TryItForYourselfCTA } from '@/components/common-sections/try-it-for-yourself';
 import { CaretRight } from '@/components/elements/icon';
