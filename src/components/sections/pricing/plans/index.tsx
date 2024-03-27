@@ -101,12 +101,13 @@ const { cards, disclaimer }: PricingPlansData = {
   ],
 };
 
-export const PricingPlans = observer(({}: PricingPlansProps) => {
+export const PricingPlans = observer(({ hideFree }: PricingPlansProps) => {
   const [account] = useState(() => new AccountStore());
-  const getPlanCTA = usePlanCta();
   const [planCycle, setPlanCycle] = useState(pricingPlans[0].id);
-  const isAnnual = planCycle === 'annual';
+  const getPlanCTA = usePlanCta();
 
+  const isAnnual = planCycle === 'annual';
+  const filteredCards = hideFree ? cards.filter(card => card.id !== 'free') : cards;
   const { isLoggedIn, user, waitingForPurchase } = account;
 
   const getPlanMonthlyPrice = useCallback(
@@ -150,9 +151,10 @@ export const PricingPlans = observer(({}: PricingPlansProps) => {
           <Switch options={pricingPlans} onChange={setPlanCycle} defaultValue={planCycle} />
         </StyledPricingPlansSwitchWrapper>
         <StyledPricingPlansCardsWrapper>
-          {Array.isArray(cards) &&
-            cards.length > 0 &&
-            cards.map(card => (
+          {hideFree && <div></div>}
+          {Array.isArray(filteredCards) &&
+            filteredCards.length > 0 &&
+            filteredCards.map(card => (
               <PricingCard
                 isPaidYearly={isAnnual}
                 status={getPlanStatus(card.id)}

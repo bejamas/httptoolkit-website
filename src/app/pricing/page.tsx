@@ -13,7 +13,7 @@ import { Testimonials } from '@/components/sections/testimonials';
 import { TextWithAccordion } from '@/components/sections/text-with-accordion';
 import type { TextWithAccordionProps } from '@/components/sections/text-with-accordion/text-with-accordion.types';
 
-const comparisonPlans: PricingComparisonProps['plans'] = [
+export const comparisonPlans: PricingComparisonProps['plans'] = [
   {
     id: 'free',
     title: 'Hobbyist',
@@ -27,7 +27,7 @@ const comparisonPlans: PricingComparisonProps['plans'] = [
     title: 'Team',
   },
 ];
-const planFeatures: PricingComparisonProps['features'] = [
+export const planFeatures: PricingComparisonProps['features'] = [
   {
     title: 'Key features',
     items: [
@@ -90,7 +90,7 @@ const planFeatures: PricingComparisonProps['features'] = [
   },
 ];
 
-const FAQItems: TextWithAccordionProps['accordionItems'] = [
+export const FAQItems: TextWithAccordionProps['accordionItems'] = [
   {
     title: 'What are the subscription options?',
     text: 'Remember that the goal is to create a user-friendly and informative experience that guides visitors toward making a confident purchase decision. Regularly update product pages with accurate information and monitor user behavior to make continuous improvements.',
