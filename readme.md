@@ -1,5 +1,5 @@
 # HTTP Toolkit Site
-HTTP Toolkit website is an opensource documentation build with Next.js and use mdx as a content managament.
+HTTP Toolkit website is an opensource documentation build with Next.js and use MDX as a content managament. The rendering aproach is SSG.
 
 ## Table of Contents
 
@@ -25,6 +25,7 @@ HTTP Toolkit website is an opensource documentation build with Next.js and use m
 - Algolia DocSearch
 - Posthog
 - Radix UI for primitives components
+- [next-image-export-optimizer](https://github.com/Niels-IO/next-image-export-optimizer) For image optimization at built time.
 
 ## Getting Started
 
