@@ -14,4 +14,5 @@ export interface PricingCardProps extends StyledPricingCardProps {
   priceDescription: string;
   isPaidYearly?: boolean;
   features: Features[];
+  status?: string;
 }

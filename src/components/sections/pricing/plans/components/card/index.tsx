@@ -8,10 +8,12 @@ import {
   StyledPricingCardAnnualFlag,
   StyledPricingCardButtonWrapper,
   StyledPricingCardPriceWrapper,
+  StyledPricingCardTitle,
   StyledPricingCardWrapper,
 } from './card.styles';
 import type { PricingCardProps } from './card.types';
 
+import { Badge } from '@/components/elements/badge';
 import { CheckIcon } from '@/components/elements/check-icon';
 import { Text } from '@/components/elements/text';
 import type { TextProps } from '@/components/elements/text/text.types';
@@ -52,15 +54,19 @@ export const PricingCard = ({
   $isHighlighted,
   isPaidYearly,
   children,
+  status,
 }: Component<PricingCardProps>) => {
   const TextColor: TextProps['color'] = $isHighlighted ? 'white' : 'lightGrey';
   const isFree = price === 0;
   return (
     <StyledPricingCardWrapper $isHighlighted={$isHighlighted}>
       <StyledPricingCardPriceWrapper>
-        <Text fontSize="l" color={TextColor}>
-          {title}
-        </Text>
+        <StyledPricingCardTitle>
+          <Text fontSize="l" color={TextColor}>
+            {title}
+          </Text>
+          {status && <Badge variant="secondary">{status}</Badge>}
+        </StyledPricingCardTitle>
         <Text fontSize="l" color="lightGrey">
           <StyledPriceCardPrice>
             {isFree ? 'Free' : '$'}

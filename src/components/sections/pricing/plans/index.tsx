@@ -5,6 +5,7 @@ import { usePostHog } from 'posthog-js/react';
 import { useCallback, useState } from 'react';
 
 import { PricingCard } from './components/card';
+import { StyledPricingCardCTAWrapper } from './components/card/card.styles';
 import { LoginInfo } from './components/login-info';
 import { Switch } from './components/switch';
 import type { SwitchProps } from './components/switch/switch.types';
@@ -124,21 +125,21 @@ export const PricingPlans = observer(({}: PricingPlansProps) => {
     [planCycle],
   );
 
-  // const getPlanStatus = useCallback((tierCode: string) => {
-  //   const { paidTier, paidCycle, status } = account.subscription;
+  const getPlanStatus = useCallback((tierCode: string) => {
+    const { paidTier, paidCycle, status } = account.subscription;
 
-  //   if (paidTier !== tierCode) return;
+    if (paidTier !== tierCode) return;
 
-  //   const statusDescription =
-  //     {
-  //       active: 'Active',
-  //       trialing: 'Active trial',
-  //       past_due: 'Past due',
-  //       deleted: 'Active but cancelled',
-  //     }[status] || 'Unknown';
+    const statusDescription =
+      {
+        active: 'Active',
+        trialing: 'Active trial',
+        past_due: 'Past due',
+        deleted: 'Active but cancelled',
+      }[status as string] || 'Unknown';
 
-  //   return paidCycle === planCycle ? statusDescription : `${statusDescription} (${paidCycle})`;
-  // }, []);
+    return paidCycle === planCycle ? statusDescription : `${statusDescription} (${paidCycle})`;
+  }, []);
 
   const getPlanCta = useCallback((tierCode: string) => {
     const { paidTier, paidCycle } = account.subscription;
@@ -154,22 +155,22 @@ export const PricingPlans = observer(({}: PricingPlansProps) => {
     if (paidTier === tierCode) {
       if (paidCycle === planCycle) {
         return (
-          <>
-            <Text fontSize="s" textAlign="left" color="darkGrey">
+          <StyledPricingCardCTAWrapper>
+            <Text fontSize="s" color="lightGrey">
               Download now and log in to access your {upperFirst(tierCode)} subscription
             </Text>
             <DownloadButton />
-          </>
+          </StyledPricingCardCTAWrapper>
         );
       }
 
       return (
-        <>
-          <Text fontSize="s" textAlign="left" color="darkGrey">
+        <StyledPricingCardCTAWrapper>
+          <Text fontSize="s" color="lightGrey">
             You already have this {paidCycle} plan.
           </Text>
           <Button href="/contact/">Change to {planCycle}</Button>
-        </>
+        </StyledPricingCardCTAWrapper>
       );
     }
 
@@ -212,7 +213,12 @@ export const PricingPlans = observer(({}: PricingPlansProps) => {
           {Array.isArray(cards) &&
             cards.length > 0 &&
             cards.map(card => (
-              <PricingCard isPaidYearly={isAnnual} price={getPlanMonthlyPrice(card.id)} {...card}>
+              <PricingCard
+                isPaidYearly={isAnnual}
+                status={getPlanStatus(card.id)}
+                price={getPlanMonthlyPrice(card.id)}
+                {...card}
+              >
                 {getPlanCta(card.id)}
               </PricingCard>
             ))}
