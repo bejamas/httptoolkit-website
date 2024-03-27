@@ -4,11 +4,11 @@ import { Suspense } from 'react';
 import { HttpToolkitFeatures } from '@/components/common-sections/http-toolkit-features';
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
+import { Testimonials } from '@/components/common-sections/testimonials';
 import { TryItForYourselfCTA } from '@/components/common-sections/try-it-for-yourself';
 import { LinuxLogo } from '@/components/elements/icon';
 import { ProductLdData } from '@/components/elements/product-ld-data';
 import { CTA } from '@/components/sections/cta';
-import { Testimonials } from '@/components/sections/testimonials';
 
 export const metadata: Metadata = {
   title: 'Intercept, debug & mock HTTP(S) on Linux',

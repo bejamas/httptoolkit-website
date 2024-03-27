@@ -2,13 +2,13 @@ import { Suspense } from 'react';
 
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
+import { Testimonials } from '@/components/common-sections/testimonials';
 import { DockerLogo } from '@/components/elements/icon';
 import { IntegrationHttpTookitFeatures } from '@/components/sections/integration/http-toolkit-features';
 import { IntegrationCompatibility } from '@/components/sections/integration/single-page/compatibility';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
 import { IntegrationTextImage } from '@/components/sections/integration/single-page/text-image';
-import { Testimonials } from '@/components/sections/testimonials';
 
 const dockerIntegrationSteps = [
   [

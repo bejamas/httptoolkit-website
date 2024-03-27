@@ -2,14 +2,14 @@ import { Suspense } from 'react';
 
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
+import { Statistics } from '@/components/common-sections/statistics';
+import { Testimonials } from '@/components/common-sections/testimonials';
 import { RocketLaunch, SealCheck, Wrench, AndroidLogo } from '@/components/elements/icon';
 import type { FluidCardProps } from '@/components/modules/fluid-card/fluid-card.types';
 import { IntegrationHttpTookitFeatures } from '@/components/sections/integration/http-toolkit-features';
 import { IntegrationBento } from '@/components/sections/integration/single-page/bento';
 import { IntegrationDeviceMedia } from '@/components/sections/integration/single-page/device-media';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
-import { Statistics } from '@/components/sections/statistics';
-import { Testimonials } from '@/components/sections/testimonials';
 
 const integrationBentoCards: FluidCardProps[] = [
   {
@@ -72,7 +72,7 @@ export default function AndroidIntegrationPage() {
       <MockResponseFeatures />
       <RewriteAnything />
       <Suspense>
-        <Statistics title="Why `*HTTP Toolkit*`?" text="Numbers that speak for themselves:" />
+        <Statistics />
       </Suspense>
     </>
   );

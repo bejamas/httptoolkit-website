@@ -13,7 +13,10 @@ import { getGithubDownloadStats } from '@/lib/services/get-github-download-stats
 import { getOpenSourceContributors } from '@/lib/services/get-open-source-contributors';
 import { getOrganizationStars } from '@/lib/services/get-repo-starts';
 
-export const Statistics = async ({ title, text }: StatisticsProps) => {
+export const Statistics = async ({
+  title = 'Why `*HTTP Toolkit*`?',
+  text = 'Numbers that speak for themselves:',
+}: StatisticsProps) => {
   const downloads = await getGithubDownloadStats();
   const contributors = await getOpenSourceContributors();
   const starts = await getOrganizationStars();

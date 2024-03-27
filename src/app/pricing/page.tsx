@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 
+import { Testimonials } from '@/components/common-sections/testimonials';
 import { TryItForYourselfCTA } from '@/components/common-sections/try-it-for-yourself';
 import { CaretRight } from '@/components/elements/icon';
 import { Layout } from '@/components/layout';
@@ -7,7 +8,6 @@ import { CTA } from '@/components/sections/cta';
 import { PricingComparison } from '@/components/sections/pricing/comparison';
 import type { PricingComparisonProps } from '@/components/sections/pricing/comparison/comparison.types';
 import { PricingPlans } from '@/components/sections/pricing/plans';
-import { Testimonials } from '@/components/sections/testimonials';
 import { TextWithAccordion } from '@/components/sections/text-with-accordion';
 import type { TextWithAccordionProps } from '@/components/sections/text-with-accordion/text-with-accordion.types';
 
