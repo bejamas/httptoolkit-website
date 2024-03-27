@@ -15,34 +15,16 @@ import type { TextWithAccordionProps } from '@/components/sections/text-with-acc
 
 const comparisonPlans: PricingComparisonProps['plans'] = [
   {
-    id: 'hobbyist',
+    id: 'free',
     title: 'Hobbyist',
-    isDownload: true,
-    CTA: {
-      $variant: 'secondary',
-    },
   },
   {
-    id: 'professional',
+    id: 'pro',
     title: 'Professional',
-    isDownload: false,
-    CTA: {
-      $variant: 'primary',
-      as: 'link',
-      href: '/',
-      children: 'Buy Pro',
-    },
   },
   {
     id: 'team',
     title: 'Team',
-    isDownload: false,
-    CTA: {
-      $variant: 'secondary',
-      as: 'link',
-      href: '/',
-      children: 'Get in touch',
-    },
   },
 ];
 const planFeatures: PricingComparisonProps['features'] = [
