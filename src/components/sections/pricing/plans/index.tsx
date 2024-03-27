@@ -116,7 +116,7 @@ export const PricingPlans = observer(({ hideFree }: PricingPlansProps) => {
       const subscriptionPlans: any = account.subscriptionPlans;
       if (!subscriptionPlans) return <Spinner />;
       const price: string = subscriptionPlans[sku]?.prices?.monthly || '';
-      return Number(price.split('USD').at(-1)?.trim()) || 0;
+      return price || 0;
     },
     [planCycle],
   );

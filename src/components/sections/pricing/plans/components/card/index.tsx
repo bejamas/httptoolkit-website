@@ -68,10 +68,7 @@ export const PricingCard = ({
           {status && <Badge variant="secondary">{status}</Badge>}
         </StyledPricingCardTitle>
         <Text fontSize="l" color="lightGrey">
-          <StyledPriceCardPrice>
-            {isFree ? 'Free' : '$'}
-            {!isFree && price}
-          </StyledPriceCardPrice>
+          <StyledPriceCardPrice>{isFree ? 'Free' : price}</StyledPriceCardPrice>
           {priceDescription}
           <br />
           {isPaidYearly && !isFree && (
