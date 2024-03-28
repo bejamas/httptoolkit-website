@@ -56,8 +56,9 @@ async function generate() {
         });
       }),
     );
-
-    await fs.writeFile('./out/rss.xml', feed.xml({ indent: true }));
+    const dirPath = path.join(__dirname, '..', '..', 'public');
+    const filePath = path.join(dirPath, 'rss.xml');
+    await fs.writeFile(filePath, feed.xml({ indent: true }));
   } catch (error) {
     console.error('Error trying to generating the rss feed:', error);
   }

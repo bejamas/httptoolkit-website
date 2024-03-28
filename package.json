@@ -6,14 +6,15 @@
   "main": "n/a",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next-image-export-optimizer && npm run generate-rss",
+    "dev-docker": "npm run build && docker build . --tag htk-website && docker run --rm -it -p 8080:80 htk-website",
+    "build": "next build && next-image-export-optimizer",
     "start": "next start -p 4000",
     "lint": "next lint",
     "format": "prettier \"**/*.+(ts|tsx|js|jsx|json|css)\" --write",
     "precommit-hook": "lint-staged",
     "prepare": "husky install",
     "generate-rss": "node ./src/scripts/generate-rss.js",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap && npm run generate-rss"
   },
   "repository": {
     "type": "git",
