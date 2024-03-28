@@ -3,6 +3,8 @@ import path from 'path';
 
 import { compileMDX } from 'next-mdx-remote/rsc';
 
+import { extractExcerpt } from '../utils/extract-excerpt';
+
 import { defaultComponents, postComponents } from '@/components/sections/rich-text/components';
 
 const rootDirectory = path.join(process.cwd(), 'src', 'content', 'posts');
@@ -25,6 +27,8 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
     components: { ...defaultComponents, ...postComponents },
   });
 
+  const excerpt = extractExcerpt(fileContent);
+
   const post: Post = {
     title: frontmatter?.title ?? '',
     date: frontmatter?.date ?? '',
@@ -32,7 +36,7 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
     tags: frontmatter?.tags ? frontmatter?.tags.split(',')?.map(tag => tag?.trim()) : [],
     isFeatured: frontmatter?.isFeatured ?? false,
     isDraft: frontmatter?.draft ?? false,
-    excerpt: '',
+    excerpt,
     slug: realSlug,
     author: {
       name: frontmatter.author ?? 'Tim Perry',
