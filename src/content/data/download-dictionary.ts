@@ -20,8 +20,8 @@ export const OSDictionary = [
   },
   {
     os: 'windows',
-    slug: 'windows-installer',
-    href: '/download/windows-installer',
+    slug: 'windows-exe',
+    href: '/download/windows-exe',
     text: 'Windows installer',
     defaultText: 'Windows',
     releasePath: `v${LATEST_VERSION_PLACEHOLDER}/HttpToolkit-installer-${LATEST_VERSION_PLACEHOLDER}.exe`,
