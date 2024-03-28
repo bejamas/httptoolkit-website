@@ -87,8 +87,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               },
               {
                 '@type': 'Person',
-                name: post.author?.name || 'Tim Perry',
-                url: post.author?.url || 'https://tim.fyi',
+                name: post.author?.name,
+                url: post.author?.url,
               },
             ],
             publisher: {
