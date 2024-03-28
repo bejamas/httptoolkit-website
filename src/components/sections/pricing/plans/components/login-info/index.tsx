@@ -14,7 +14,7 @@ export const LoginInfo = ({ isLoggedIn, email }: LoginInfoProps) => {
     return (
       <Text fontSize="m" textAlign="center" color="darkGrey">
         Want to manage an existing account? Log into your dashboard at 
-        <Link href="mailto:accounts.httptoolkit.tech">accounts.httptoolkit.tech</Link>.
+        <Link href="https://accounts.httptoolkit.tech">accounts.httptoolkit.tech</Link>.
       </Text>
     );
   }
