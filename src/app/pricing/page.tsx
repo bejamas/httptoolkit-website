@@ -1,6 +1,4 @@
-'use client';
-
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 
 import { FAQItems, comparisonPlans, planFeatures } from './data';
 
