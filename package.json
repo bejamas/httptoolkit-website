@@ -6,14 +6,14 @@
   "main": "n/a",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next-image-export-optimizer",
+    "build": "next build && next-image-export-optimizer && npm run generate-rss",
     "start": "next start -p 4000",
     "lint": "next lint",
     "format": "prettier \"**/*.+(ts|tsx|js|jsx|json|css)\" --write",
     "precommit-hook": "lint-staged",
     "prepare": "husky install",
     "generate-rss": "node ./src/scripts/generate-rss.js",
-    "postbuild": "next-sitemap && npm run generate-rss"
+    "postbuild": "next-sitemap"
   },
   "repository": {
     "type": "git",
