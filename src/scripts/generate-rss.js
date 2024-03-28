@@ -57,7 +57,7 @@ async function generate() {
       }),
     );
 
-    await fs.writeFile('./public/rss.xml', feed.xml({ indent: true }));
+    await fs.writeFile('./out/rss.xml', feed.xml({ indent: true }));
   } catch (error) {
     console.error('Error trying to generating the rss feed:', error);
   }
