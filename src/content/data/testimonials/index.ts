@@ -36,4 +36,6 @@ const formattedRedditComments = REDDIT_TESTIMONIALS.map(
   }),
 );
 
-export const allTestimonials = shuffleArray([...formattedArticles, ...formattedRedditComments, ...formattedTweets]);
+const allTestimonialsMerged = [...formattedArticles, ...formattedRedditComments, ...formattedTweets];
+export const allTestimonials = shuffleArray(allTestimonialsMerged);
+export const testimonialsCount = allTestimonialsMerged.length;

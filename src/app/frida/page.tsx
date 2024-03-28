@@ -1,3 +1,5 @@
+import type { Metadata } from 'next/types';
+
 import {
   StyledButtonsWrapper,
   StyledFridaColumnContent,
@@ -18,6 +20,10 @@ import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { ThemedImage } from '@/components/elements/themed-image';
 import { LandingLayout } from '@/components/layout/landing-layout';
+
+export const metadata: Metadata = {
+  title: 'Frida scripts to directly MitM all HTTPS traffic from a target mobile application.',
+};
 
 export default async function FridaPage() {
   return (

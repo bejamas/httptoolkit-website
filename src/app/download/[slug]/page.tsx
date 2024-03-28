@@ -1,3 +1,5 @@
+import type { Metadata } from 'next/types';
+
 import { SelfDownload } from './self-download';
 import {
   StyledDownloadSection,
@@ -21,15 +23,24 @@ import { ContentCard } from '@/components/modules/content-card';
 import { NEWSLETTER_URLS } from '@/components/modules/newsletter/newsletter.values';
 import { OSDictionary } from '@/lib/constants/download-dictionary';
 
+type DownloadPageProps = {
+  params: { slug: string };
+};
+
+export function generateMetadata({ params }: DownloadPageProps): Metadata {
+  const slug = params.slug;
+  const downloadData = OSDictionary.find(item => item.slug === slug);
+
+  return {
+    title: `Download HTTP Toolkit for ${downloadData?.text}`,
+  };
+}
+
 export async function generateStaticParams() {
   return OSDictionary.map(software => ({
     slug: software.slug,
   }));
 }
-
-type DownloadPageProps = {
-  params: { slug: string };
-};
 
 export default async function DownloadPage({ params }: DownloadPageProps) {
   const { slug } = params;
@@ -89,6 +100,8 @@ export default async function DownloadPage({ params }: DownloadPageProps) {
                 darkSrc="/images/hero-placeholder-dark.webp"
                 lightSrc="/images/hero-placeholder-light.webp"
                 loading="eager"
+                width={662}
+                height={450}
               />
             </StyledImageWrapper>
           </StyledDownloadaColumns>

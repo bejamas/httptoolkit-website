@@ -1,3 +1,4 @@
+import type { Metadata } from 'next/types';
 import { Suspense } from 'react';
 
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
@@ -8,6 +9,10 @@ import { IntegrationHttpTookitFeatures } from '@/components/sections/integration
 import { IntegrationCompatibility } from '@/components/sections/integration/single-page/compatibility';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationTextImage } from '@/components/sections/integration/single-page/text-image';
+
+export const metadata: Metadata = {
+  title: 'Capture, debug and mock all Java HTTP traffic',
+};
 
 export default function JavaIntegrationPage() {
   return (

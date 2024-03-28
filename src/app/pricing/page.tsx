@@ -1,3 +1,4 @@
+import type { Metadata } from 'next/types';
 import { Suspense } from 'react';
 
 import { Testimonials } from '@/components/common-sections/testimonials';
@@ -10,6 +11,10 @@ import type { PricingComparisonProps } from '@/components/sections/pricing/compa
 import { PricingPlans } from '@/components/sections/pricing/plans';
 import { TextWithAccordion } from '@/components/sections/text-with-accordion';
 import type { TextWithAccordionProps } from '@/components/sections/text-with-accordion/text-with-accordion.types';
+
+export const metadata: Metadata = {
+  title: 'Pricing | HTTP Toolkit',
+};
 
 const comparisonPlans: PricingComparisonProps['plans'] = [
   {

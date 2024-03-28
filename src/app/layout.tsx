@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(`${siteMetadata.siteUrl}`),
   title: siteMetadata.title,
   description: siteMetadata.description,
+  openGraph: {
+    images: [`${siteMetadata.siteUrl}/images/hero-placeholder-dark.webp`],
+  },
   twitter: {
     card: 'summary',
     title: siteMetadata.name,

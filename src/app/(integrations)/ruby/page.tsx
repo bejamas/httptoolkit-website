@@ -1,3 +1,4 @@
+import type { Metadata } from 'next/types';
 import { Suspense } from 'react';
 
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
@@ -9,6 +10,10 @@ import { IntegrationCompatibility } from '@/components/sections/integration/sing
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
 import { IntegrationTextImage } from '@/components/sections/integration/single-page/text-image';
+
+export const metadata: Metadata = {
+  title: "Capture, debug and mock your Ruby app's HTTP traffic",
+};
 
 export default function RubyIntegrationPage() {
   return (
