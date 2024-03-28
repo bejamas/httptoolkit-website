@@ -12,7 +12,8 @@
     "format": "prettier \"**/*.+(ts|tsx|js|jsx|json|css)\" --write",
     "precommit-hook": "lint-staged",
     "prepare": "husky install",
-    "postbuild": "next-sitemap"
+    "generate-rss": "node ./src/scripts/generate-rss.js",
+    "postbuild": "next-sitemap && npm run generate-rss"
   },
   "repository": {
     "type": "git",
@@ -88,6 +89,9 @@
     "husky": "^8.0.3",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
-    "typescript": "^5"
+    "rss": "^1.2.2",
+    "typescript": "^5",
+    "showdown": "^2.1.0",
+    "html-minifier": "^4.0.0"
   }
 }
