@@ -4,16 +4,11 @@ import path from 'path';
 import { compileMDX } from 'next-mdx-remote/rsc';
 
 import { extractExcerpt } from '../utils/extract-excerpt';
+import { markdowRegex, isMarkdown } from '../utils/is-markdown';
 
 import { defaultComponents, postComponents } from '@/components/sections/rich-text/components';
 
 const rootDirectory = path.join(process.cwd(), 'src', 'content', 'posts');
-
-const markdowRegex = /\.(md|mdx)$/;
-
-function isMarkdown(str: string) {
-  return markdowRegex.test(str);
-}
 
 export const getPostBySlug = async (slug: string): Promise<Post> => {
   const realSlug = slug.replace(markdowRegex, '');

@@ -10,6 +10,8 @@ function firstFourLines(input) {
     .replace(/^(#+\s.*\n?)\n*/m, '')
     // Remove links
     .replace(/\[(.*?)\]\((.*?)\)/g, '$1')
+    // Remove images ![alt](src)
+    .replace(/!\[[^\]]*]\((.*?)\)/g, '')
     // Remove custom components like <HighlightedParagraphs>
     .replace(/<.*?>/g, '')
     .replace(/`/g, '"')
