@@ -21,7 +21,7 @@ import { ThemedImage } from '@/components/elements/themed-image';
 import { LandingLayout } from '@/components/layout/landing-layout';
 import { ContentCard } from '@/components/modules/content-card';
 import { NEWSLETTER_URLS } from '@/components/modules/newsletter/newsletter.values';
-import { OSDictionary } from '@/lib/constants/download-dictionary';
+import { OSDictionary } from '@/content/data/download-dictionary';
 import { buildMetadata } from '@/lib/utils/build-metadata';
 
 type DownloadPageProps = {
