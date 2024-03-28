@@ -4,12 +4,13 @@ import { Book, Desktop, Flag, Globe, LinkSimpleBreak, Shuffle } from '@/componen
 import { Bento } from '@/components/sections/bento';
 import { CTA } from '@/components/sections/cta';
 import { IntegrationCTA } from '@/components/sections/integration/cta';
+import { buildMetadata } from '@/lib/utils/build-metadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'A Chrome DevTools alternative | HTTP Toolkit',
   description:
     "HTTP Toolkit is a supercharged alternative to Chrome's built-in networking tools, designed for faster debugging and complete control of any HTTP(S) traffic.",
-};
+});
 
 export default async function ChromeDevToolsAlternativePage() {
   return (

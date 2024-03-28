@@ -9,10 +9,13 @@ import { IntegrationHttpTookitFeatures } from '@/components/sections/integration
 import { IntegrationCompatibility } from '@/components/sections/integration/single-page/compatibility';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationTextImage } from '@/components/sections/integration/single-page/text-image';
+import { buildMetadata } from '@/lib/utils/build-metadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'Capture, debug and mock all Java HTTP traffic',
-};
+  description:
+    'Intercept & view all Java HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors.',
+});
 
 export default function JavaIntegrationPage() {
   return (

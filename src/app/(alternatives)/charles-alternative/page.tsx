@@ -4,12 +4,13 @@ import { Book, Desktop, Flag, Globe, LinkSimpleBreak, Shuffle } from '@/componen
 import { Bento } from '@/components/sections/bento';
 import { CTA } from '@/components/sections/cta';
 import { IntegrationCTA } from '@/components/sections/integration/cta';
+import { buildMetadata } from '@/lib/utils/build-metadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'Charles Proxy alternative → HTTP Toolkit',
   description:
     'HTTP Toolkit is a modern powerful alternative to Charles designed from the ground up for instant targeted debugging and control of any HTTP(S) traffic (with no Java necessary)',
-};
+});
 
 export default async function CharlesAlternativePage() {
   return (

@@ -3,6 +3,7 @@ import type { Metadata } from 'next/types';
 import { DocumentationLayout } from '@/components/layout/documentation';
 import { ROOT_DOCS_DIRECTORY, getAllDocsMeta, getDocBySlug } from '@/lib/mdx/docs';
 import { optimizeExerptToMetaDescription } from '@/lib/utils';
+import { buildMetadata } from '@/lib/utils/build-metadata';
 import { findFile } from '@/lib/utils/find-file';
 import { getHeadingLinks } from '@/lib/utils/get-heading-links';
 
@@ -15,20 +16,14 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
   const realSlug = slug[slug.length - 1];
   const doc = await getDocBySlug(realSlug);
 
-  const metaDescription = doc.excerpt ? { description: optimizeExerptToMetaDescription(doc.excerpt) } : null;
+  const metaDescription = doc.excerpt ? optimizeExerptToMetaDescription(doc.excerpt) : undefined;
 
-  return {
+  const doctMetadata = buildMetadata({
     title: doc.title,
-    ...metaDescription,
-    openGraph: {
-      title: doc.title,
-      ...metaDescription,
-    },
-    twitter: {
-      title: doc.title,
-      ...metaDescription,
-    },
-  };
+    description: metaDescription,
+  });
+
+  return doctMetadata;
 }
 
 export async function generateStaticParams() {

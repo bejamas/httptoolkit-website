@@ -9,6 +9,7 @@ import { CTA } from '@/components/sections/cta';
 import { getPostBySlug, getAllPostsMeta } from '@/lib/mdx/blog';
 import { siteMetadata } from '@/lib/site-metadata';
 import { optimizeExerptToMetaDescription } from '@/lib/utils';
+import { buildMetadata } from '@/lib/utils/build-metadata';
 import { getBlogTitlesBySlug } from '@/lib/utils/get-titles-by-slug';
 
 type BlogPostPageProps = {
@@ -19,21 +20,21 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const slug = params.slug;
   const post = await getPostBySlug(slug);
 
-  const metaDescription = post.excerpt ? { description: optimizeExerptToMetaDescription(post.excerpt) } : null;
+  const metaDescription = post.excerpt ? optimizeExerptToMetaDescription(post.excerpt) : undefined;
   const postImageMetadata = [`${siteMetadata.siteUrl}/images/${post.coverImage}`];
 
-  return {
+  const postMetadata = buildMetadata({
     title: post.title,
-    ...metaDescription,
+    description: metaDescription,
     openGraph: {
       images: postImageMetadata,
     },
     twitter: {
-      title: post.title,
-      ...metaDescription,
       images: postImageMetadata,
     },
-  };
+  });
+
+  return postMetadata;
 }
 
 export async function generateStaticParams() {

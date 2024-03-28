@@ -10,10 +10,13 @@ import { IntegrationHttpTookitFeatures } from '@/components/sections/integration
 import { IntegrationBento } from '@/components/sections/integration/single-page/bento';
 import { IntegrationDeviceMedia } from '@/components/sections/integration/single-page/device-media';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
+import { buildMetadata } from '@/lib/utils/build-metadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'Intercept, mock & debug Android HTTP traffic',
-};
+  description:
+    'Intercept & view all Android HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors.',
+});
 
 export default function AndroidIntegrationPage() {
   return (

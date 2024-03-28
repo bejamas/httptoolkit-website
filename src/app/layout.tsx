@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   title: siteMetadata.title,
   description: siteMetadata.description,
   openGraph: {
+    title: siteMetadata.title,
+    description: siteMetadata.description,
     images: [`${siteMetadata.siteUrl}/images/hero-placeholder-dark.webp`],
   },
   twitter: {
