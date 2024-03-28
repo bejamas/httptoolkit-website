@@ -14,7 +14,7 @@ import {
   StyledPricingPlansSwitchWrapper,
   StyledPricingPlansWrapper,
 } from './plans.styles';
-import type { PricingPlansData, PricingPlansProps } from './plans.types';
+import type { PricingPlansData, StyledPricingPlansProps } from './plans.types';
 
 import { Spinner } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
@@ -101,13 +101,13 @@ const { cards, disclaimer }: PricingPlansData = {
   ],
 };
 
-export const PricingPlans = observer(({ hideFree }: PricingPlansProps) => {
+export const PricingPlans = observer(({ $hideFree }: StyledPricingPlansProps) => {
   const [account] = useState(() => new AccountStore());
   const [planCycle, setPlanCycle] = useState(pricingPlans[0].id);
   const getPlanCTA = usePlanCta();
 
   const isAnnual = planCycle === 'annual';
-  const filteredCards = hideFree ? cards.filter(card => card.id !== 'free') : cards;
+  const filteredCards = $hideFree ? cards.filter(card => card.id !== 'free') : cards;
   const { isLoggedIn, user, waitingForPurchase } = account;
 
   const getPlanMonthlyPrice = useCallback(
@@ -150,8 +150,7 @@ export const PricingPlans = observer(({ hideFree }: PricingPlansProps) => {
           )}
           <Switch options={pricingPlans} onChange={setPlanCycle} defaultValue={planCycle} />
         </StyledPricingPlansSwitchWrapper>
-        <StyledPricingPlansCardsWrapper>
-          {hideFree && <div></div>}
+        <StyledPricingPlansCardsWrapper $hideFree={$hideFree}>
           {Array.isArray(filteredCards) &&
             filteredCards.length > 0 &&
             filteredCards.map(card => (

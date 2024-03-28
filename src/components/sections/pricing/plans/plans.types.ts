@@ -5,6 +5,6 @@ export interface PricingPlansData {
   disclaimer: string;
 }
 
-export interface PricingPlansProps {
-  hideFree?: boolean;
+export interface StyledPricingPlansProps {
+  $hideFree?: boolean;
 }

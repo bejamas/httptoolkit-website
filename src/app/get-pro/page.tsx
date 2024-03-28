@@ -24,7 +24,7 @@ export default function PricingPage() {
         withDownload={false}
       >
         <Suspense>
-          <PricingPlans hideFree />
+          <PricingPlans $hideFree />
         </Suspense>
       </CTA>
       <PricingComparison
