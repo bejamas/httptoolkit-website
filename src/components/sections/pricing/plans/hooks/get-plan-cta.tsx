@@ -12,8 +12,6 @@ import { Text } from '@/components/elements/text';
 import { DownloadButton } from '@/components/modules/download-button';
 import type { AccountStore } from '@/lib/store/account-store';
 
-
-
 export const usePlanCta = () => {
   const posthog = usePostHog();
 
