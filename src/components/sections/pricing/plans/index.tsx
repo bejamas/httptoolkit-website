@@ -156,6 +156,7 @@ export const PricingPlans = observer(({ hideFree }: PricingPlansProps) => {
             filteredCards.length > 0 &&
             filteredCards.map(card => (
               <PricingCard
+                key={card.id}
                 isPaidYearly={isAnnual}
                 status={getPlanStatus(card.id)}
                 price={getPlanMonthlyPrice(card.id)}
