@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import { CapturePurchaseEvent } from './capture-purchase-event';
 import {
   StyledThankYouColumnContent,
@@ -22,7 +24,9 @@ import { NEWSLETTER_URLS } from '@/components/modules/newsletter/newsletter.valu
 export default function WebPurchaseThankYouPage() {
   return (
     <LandingLayout>
-      <CapturePurchaseEvent />
+      <Suspense>
+        <CapturePurchaseEvent />
+      </Suspense>
       <div>
         <StyledDisplayDevice $hideOn="desktop">
           <StyledSectionCTA
