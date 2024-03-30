@@ -5,7 +5,7 @@ export default function WillItCors() {
   return (
     <LandingLayout>
       <CTA
-        $variant="pricing-hero"
+        variant="pricing-hero"
         textAppearance="small"
         heading="Will it CORS?"
         excerpt="Cross-Origin Resource Sharing (CORS) is how browsers decide how web applications can communicate with other services.
