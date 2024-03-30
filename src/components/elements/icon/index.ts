@@ -35,6 +35,9 @@ import {
   CheckFat,
   XSquare,
   ListBullets,
+  Spinner,
+  PencilSimple,
+  FacebookLogo,
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -70,6 +73,7 @@ export {
   LinkSimpleBreak,
   Github,
   TwitterX,
+  FacebookLogo,
   Check,
   CaretRight,
   CaretLeft,
@@ -101,4 +105,6 @@ export {
   CheckFat,
   XSquare,
   ListBullets,
+  Spinner,
+  PencilSimple,
 };

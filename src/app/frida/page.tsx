@@ -1,9 +1,10 @@
+import type { Metadata } from 'next/types';
+
 import {
   StyledButtonsWrapper,
   StyledFridaColumnContent,
   StyledFridaColumns,
   StyledGradientBottom,
-  StyledDisplayDevice,
   StyledMobileText,
   StyledSectionCTA,
   StyledTextContent,
@@ -13,17 +14,23 @@ import {
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
+import { StyledHideElementOn } from '@/components/elements/hide-on/hide-on';
 import { GithubLogo } from '@/components/elements/icon';
 import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { ThemedImage } from '@/components/elements/themed-image';
 import { LandingLayout } from '@/components/layout/landing-layout';
+import { buildMetadata } from '@/lib/utils/build-metadata';
+
+export const metadata: Metadata = buildMetadata({
+  title: 'Frida scripts to directly MitM all HTTPS traffic from a target mobile application.',
+});
 
 export default async function FridaPage() {
   return (
     <LandingLayout>
       <div>
-        <StyledDisplayDevice $hideOn="desktop">
+        <StyledHideElementOn $hideOn="desktop">
           <StyledSectionCTA
             heading="Frida Mobile Interception Scripts"
             withDownload={false}
@@ -40,12 +47,12 @@ export default async function FridaPage() {
               </Text>
             </StyledMobileText>
           </StyledSectionCTA>
-        </StyledDisplayDevice>
+        </StyledHideElementOn>
         <StyledFridaSection>
           <Container>
             <StyledFridaColumns>
               <StyledFridaColumnContent>
-                <StyledDisplayDevice $hideOn="mobile">
+                <StyledHideElementOn $hideOn="mobile">
                   <Stack $gapxl="24px">
                     <Heading fontSize="l" color="textGradient">
                       Frida Mobile Interception Scripts
@@ -54,7 +61,7 @@ export default async function FridaPage() {
                       Frida scripts to directly MitM all HTTPS traffic from a target mobile application.
                     </Text>
                   </Stack>
-                </StyledDisplayDevice>
+                </StyledHideElementOn>
                 <StyledTextContent>
                   <Text fontSize="m" fontWeight="bold">
                     This repo contains Frida scripts designed to do everything required for fully automated HTTPS MitM
@@ -83,7 +90,7 @@ export default async function FridaPage() {
                   </Button>
                 </StyledButtonsWrapper>
               </StyledFridaColumnContent>
-              <StyledDisplayDevice $hideOn="mobile">
+              <StyledHideElementOn $hideOn="mobile">
                 <ThemedImage
                   withBorder
                   alt="Frida Mobile Interception Scripts"
@@ -93,7 +100,7 @@ export default async function FridaPage() {
                   width={662}
                   height={450}
                 />
-              </StyledDisplayDevice>
+              </StyledHideElementOn>
             </StyledFridaColumns>
           </Container>
         </StyledFridaSection>

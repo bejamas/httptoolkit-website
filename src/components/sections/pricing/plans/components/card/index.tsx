@@ -5,22 +5,24 @@ import {
   StyledPriceCardFeatureItemLI,
   StyledPriceCardFeatureItemsWrapper,
   StyledPriceCardPrice,
+  StyledPricingCardAnnualFlag,
   StyledPricingCardButtonWrapper,
   StyledPricingCardPriceWrapper,
+  StyledPricingCardTitle,
   StyledPricingCardWrapper,
 } from './card.styles';
 import type { PricingCardProps } from './card.types';
 
-import { Button } from '@/components/elements/button';
+import { Badge } from '@/components/elements/badge';
 import { CheckIcon } from '@/components/elements/check-icon';
 import { Text } from '@/components/elements/text';
 import type { TextProps } from '@/components/elements/text/text.types';
-import { DownloadButton } from '@/components/modules/download-button';
 
-const renderFeatures = (
-  feature: PricingCardProps['features'][number],
-  $isHighlighted: PricingCardProps['$isHighlighted'],
-) => {
+interface FeatureListProps {
+  feature: PricingCardProps['features'][number];
+  $isHighlighted: PricingCardProps['$isHighlighted'];
+}
+const FeatureList = ({ feature, $isHighlighted }: FeatureListProps) => {
   const textColor: TextProps['color'] = $isHighlighted ? 'white' : 'lightGrey';
   const itemColor: TextProps['color'] = $isHighlighted ? 'white' : 'darkGrey';
 
@@ -32,8 +34,8 @@ const renderFeatures = (
       <StyledPriceCardFeatureItemsWrapper>
         {Array.isArray(feature.items) &&
           feature.items?.length > 0 &&
-          feature.items.map(item => (
-            <StyledPriceCardFeatureItemLI>
+          feature.items.map((item, idx) => (
+            <StyledPriceCardFeatureItemLI key={idx}>
               <CheckIcon />
               <Text fontSize="m" color={itemColor} textAlign="left">
                 {item}
@@ -49,30 +51,38 @@ export const PricingCard = ({
   title,
   price,
   priceDescription,
-  isDownload,
-  CTA,
   features,
   $isHighlighted,
-}: PricingCardProps) => {
+  isPaidYearly,
+  children,
+  status,
+}: Component<PricingCardProps>) => {
   const TextColor: TextProps['color'] = $isHighlighted ? 'white' : 'lightGrey';
+  const isFree = price === 0;
   return (
     <StyledPricingCardWrapper $isHighlighted={$isHighlighted}>
       <StyledPricingCardPriceWrapper>
-        <Text fontSize="l" color={TextColor}>
-          {title}
-        </Text>
+        <StyledPricingCardTitle>
+          <Text fontSize="l" color={TextColor}>
+            {title}
+          </Text>
+          {status && <Badge variant="secondary">{status}</Badge>}
+        </StyledPricingCardTitle>
         <Text fontSize="l" color="lightGrey">
-          {/* TODO: Refactor to change when is authenticated */}
-          <StyledPriceCardPrice>{price === 0 ? 'Free' : `€${price}`}</StyledPriceCardPrice>
+          <StyledPriceCardPrice>{isFree ? 'Free' : price}</StyledPriceCardPrice>
           {priceDescription}
+          <br />
+          {isPaidYearly && !isFree && (
+            <StyledPricingCardAnnualFlag forwardedAs="span" fontSize="s" color="darkGrey">
+              paid annually
+            </StyledPricingCardAnnualFlag>
+          )}
         </Text>
       </StyledPricingCardPriceWrapper>
-      <StyledPricingCardButtonWrapper>
-        {isDownload ? <DownloadButton {...CTA} /> : CTA && <Button {...CTA} />}
-      </StyledPricingCardButtonWrapper>
+      <StyledPricingCardButtonWrapper>{children}</StyledPricingCardButtonWrapper>
       {Array.isArray(features) &&
         features.length > 0 &&
-        features.map(feature => renderFeatures(feature, $isHighlighted))}
+        features.map((feature, idx) => <FeatureList key={idx} feature={feature} $isHighlighted />)}
     </StyledPricingCardWrapper>
   );
 };

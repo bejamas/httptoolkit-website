@@ -13,9 +13,13 @@ export const StyledSendEmailWrapper = styled.div`
     0 0 0 1px ${({ theme }) => theme.colors.button.border},
     0 0 8px 0 ${({ theme }) => theme.colors.shadowDefault};
 
-  & p {
-    @media (max-width: 415px) {
-      font-size: 0.65rem;
+  &&[data-is-in-header='true'] p {
+    @media screen and (max-height: 700px) {
+      &:first-child {
+        display: block;
+      }
+
+      display: none;
     }
   }
 `;
