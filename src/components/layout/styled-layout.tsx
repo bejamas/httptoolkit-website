@@ -11,7 +11,7 @@ interface MainLayoutProps {
 export const StyledLayout = ({ children }: MainLayoutProps) => {
   return (
     <ThemeProvider theme={theme}>
-      <NextThemeProvider>
+      <NextThemeProvider defaultTheme="dark">
         <GlobalStyles />
         {children}
       </NextThemeProvider>

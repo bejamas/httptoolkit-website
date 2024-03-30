@@ -21,6 +21,7 @@ export const ThemedImageMovingBorder = styled(MovingBorder)<MovingBorderProps>`
   width: 100%;
   height: fit-content;
   object-fit: cover;
+  max-height: 752px;
 
   @media (min-width: ${screens['lg']}) {
     --radius: 16px;
@@ -47,6 +48,8 @@ export const ThemedImageMovingBorder = styled(MovingBorder)<MovingBorderProps>`
     padding: 4px;
     border-radius: 8px;
     border: 1px solid linear-gradient(270deg, #ffffff -0.8%, rgba(255, 255, 255, 0) 93.82%);
+    z-index: 2;
+    position: relative;
 
     @media (min-width: ${screens['lg']}) {
       padding: 10px;
