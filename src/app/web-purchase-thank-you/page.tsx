@@ -1,3 +1,4 @@
+import { CapturePurchaseEvent } from './capture-purchase-event';
 import {
   StyledThankYouColumnContent,
   StyledThankYouColumns,
@@ -21,6 +22,7 @@ import { NEWSLETTER_URLS } from '@/components/modules/newsletter/newsletter.valu
 export default function WebPurchaseThankYouPage() {
   return (
     <LandingLayout>
+      <CapturePurchaseEvent />
       <div>
         <StyledDisplayDevice $hideOn="desktop">
           <StyledSectionCTA
