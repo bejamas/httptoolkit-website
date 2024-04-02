@@ -45,6 +45,18 @@ const TriggerStyles = css`
 
 export const StyledTableContentItemLink = styled.div`
   ${TriggerStyles}
+
+  & a {
+    transition: color ease-in 300ms;
+    &.active {
+      color: ${({ theme }) => theme.colors.electricLightBlue};
+
+      p {
+        transition: color ease-in 300ms;
+        color: ${({ theme }) => theme.colors.electricLightBlue};
+      }
+    }
+  }
 `;
 
 export const StyledTableContentItemTrigger = styled(Accordion.Trigger)`
@@ -97,6 +109,13 @@ export const StyledTableContentSubitem = styled(Link)<{ $isAccordionFixed?: bool
   outline: none;
   border-radius: 8px;
 
+  &.active {
+    span,
+    p {
+      color: ${({ theme }) => theme.colors.text.electricLightBlue};
+    }
+  }
+
   ${({ $isAccordionFixed }) =>
     $isAccordionFixed
       ? css`
@@ -119,4 +138,10 @@ export const StyledTableContentSubitem = styled(Link)<{ $isAccordionFixed?: bool
   &[data-active='true'] {
     color: ${({ theme }) => theme.colors.electricLightBlue};
   }
+`;
+
+export const TableOfContentFixedWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 `;

@@ -10,6 +10,10 @@ export const StyledNavigationSidebarLinksWrapper = styled.div`
   flex-direction: column;
   gap: 24px;
   padding: 8px 0;
+
+  position: sticky;
+  top: 10px;
+  align-self: self-start;
 `;
 
 export const StyledNavigationSidebarLinksTitle = styled(Heading)``;
@@ -30,7 +34,19 @@ export const StyledNavigationSidebarLinksContentTitle = styled(Text)`
   padding: 8px 16px;
 
   & > a {
+    transition: color ease-in 300ms;
     color: ${({ theme }) => theme.colors.text.white};
+
+    &.active {
+      color: ${({ theme }) => theme.colors.text.electricLightBlue};
+      @media (min-width: ${screens.md}) {
+        &:hover,
+        &:focus,
+        &:active {
+          color: ${({ theme }) => theme.colors.text.electricLightBlue};
+        }
+      }
+    }
 
     @media (min-width: ${screens.md}) {
       &:hover,
@@ -50,6 +66,17 @@ export const StyledNavigationSidebarLinksContentLink = styled(Link)`
   padding: 8px 32px;
 
   transition: color ease-in 300ms;
+
+  &.active {
+    color: ${({ theme }) => theme.colors.text.electricLightBlue};
+    @media (min-width: ${screens.md}) {
+      &:hover,
+      &:focus,
+      &:active {
+        color: ${({ theme }) => theme.colors.text.electricLightBlue};
+      }
+    }
+  }
 
   @media (min-width: ${screens.md}) {
     &:focus,

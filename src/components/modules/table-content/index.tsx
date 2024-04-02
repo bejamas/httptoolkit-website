@@ -10,6 +10,7 @@ import {
   StyledTableContentItemTrigger,
   StyledTableContentSubitem,
   StyledTableContentWrapper,
+  TableOfContentFixedWrapper,
 } from './table-content.styles';
 import type { TableContentProps } from './table-content.types';
 
@@ -28,7 +29,12 @@ const AccordionItem = ({
   const hasSubItems = Boolean(Array.isArray(link.subItems) && link.subItems?.length);
   const showCaret = isCollapsible && hasSubItems;
 
-  if (!isCollapsible) return <TableContentAccordionFixed key={link.text} link={link} hasSubItems={hasSubItems} />;
+  if (!isCollapsible)
+    return (
+      <TableOfContentFixedWrapper id="table-of-content-headings">
+        <TableContentAccordionFixed key={link.text} link={link} hasSubItems={hasSubItems} />
+      </TableOfContentFixedWrapper>
+    );
 
   return (
     <Accordion.Item value={link.text} key={link.text}>
@@ -53,10 +59,16 @@ const AccordionItem = ({
 
 export const TableContent = ({ isCollapsible, links }: TableContentProps) => {
   const currentPath = usePathname();
+
   const content =
     Array.isArray(links) &&
-    links.map(link => (
-      <AccordionItem key={link.href} link={link} isCollapsible={Boolean(isCollapsible)} currentPath={currentPath} />
+    links.map((link, idx) => (
+      <AccordionItem
+        key={`${link.href}-${idx}`}
+        link={link}
+        isCollapsible={Boolean(isCollapsible)}
+        currentPath={currentPath}
+      />
     ));
 
   if (!isCollapsible) return <StyledTableContentWrapper>{content}</StyledTableContentWrapper>;

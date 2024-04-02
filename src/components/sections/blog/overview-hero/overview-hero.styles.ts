@@ -1,5 +1,6 @@
 'use client';
 
+import { Text } from '@/components/elements/text';
 import { screens, styled } from '@/styles';
 
 export const StyledHeadingWrapper = styled.section`
@@ -43,13 +44,17 @@ export const StyledPostImageWrapper = styled.div`
     border-radius: 8px;
     overflow: hidden;
     max-height: 174px;
+    min-height: 174px;
+
     @media (min-width: ${screens['lg']}) {
       max-height: fit-content;
+      min-height: 100%;
     }
   }
 
   @media (min-width: ${screens['lg']}) {
     max-width: 540px;
+    min-width: 540px;
     min-height: 271px;
   }
 `;
@@ -59,4 +64,15 @@ export const StyledPostDetails = styled.div`
   flex-direction: column;
   justify-content: space-between;
   gap: 24px;
+`;
+
+export const StyledExcerpt = styled(Text)`
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  padding: 3px 0;
+  text-overflow: ellipsis;
+
+  /* stylelint-disable-next-line */
+  display: -webkit-box;
 `;

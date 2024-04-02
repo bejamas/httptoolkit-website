@@ -38,6 +38,8 @@ import {
   Spinner,
   PencilSimple,
   FacebookLogo,
+  DevToLogo,
+  ShareNetwork,
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -53,6 +55,13 @@ import {
   PythonLogo,
   AppleLogo,
   LinuxLogo,
+  NodeLogo,
+  DenoLogo,
+  BunLogo,
+  FirefoxLogo,
+  ChromeLogo,
+  YCombinator,
+  ProductHuntLogo,
 } from './custom';
 
 export {
@@ -107,4 +116,13 @@ export {
   ListBullets,
   Spinner,
   PencilSimple,
+  NodeLogo,
+  DenoLogo,
+  BunLogo,
+  FirefoxLogo,
+  ChromeLogo,
+  DevToLogo,
+  YCombinator,
+  ProductHuntLogo,
+  ShareNetwork,
 };

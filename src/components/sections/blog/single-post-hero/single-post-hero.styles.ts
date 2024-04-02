@@ -67,9 +67,11 @@ export const StyledSinglePostImageWrapper = styled.div`
     border-radius: 8px;
     overflow: hidden;
     max-height: 174px;
+    min-height: 174px;
 
     @media (min-width: ${screens['lg']}) {
       max-height: fit-content;
+      min-height: 100%;
     }
   }
 

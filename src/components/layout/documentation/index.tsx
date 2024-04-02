@@ -38,6 +38,7 @@ export async function DocumentationLayout({ title, children, links }: Component<
           <TableContent isCollapsible links={[...localLinks, faq]} />
         </StyledDocumentationLayoutSideWrapper>
         <StyledDocumentationLayoutContentWrapper>
+          <div id="intro" />
           <StyledDocumentationLayoutDesktopHeading>{title}</StyledDocumentationLayoutDesktopHeading>
           {children}
         </StyledDocumentationLayoutContentWrapper>
