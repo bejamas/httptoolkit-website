@@ -171,9 +171,6 @@ export const StyledContainer = styled(Container)`
   }
 
   & ${StyledText} {
-    display: flex;
-    align-items: center;
-    gap: 8px;
     margin: 0 auto;
   }
 
