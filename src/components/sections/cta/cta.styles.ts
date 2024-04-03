@@ -182,12 +182,6 @@ export const StyledContainer = styled(Container)`
   }
 `;
 
-export const STyledSubHeading = styled(Text)`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-`;
-
 export const StyledExcerpt = styled(Text)<{ $isLargeText?: boolean }>`
   ${({ $isLargeText }) =>
     $isLargeText &&

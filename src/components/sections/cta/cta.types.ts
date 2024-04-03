@@ -23,7 +23,7 @@ export interface CTAProps extends Component {
     text: string;
     icon?: IconType;
   };
-  excerpt?: string;
+  excerpt?: React.ReactNode;
   withDownload?: boolean;
   cta?: CTA;
   icon?: IconType;

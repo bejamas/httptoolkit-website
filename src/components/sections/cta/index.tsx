@@ -48,11 +48,14 @@ export const CTA = ({
           <Heading color="textGradient" as={asTitle} fontSize={HeadingSize}>
             {heading}
           </Heading>
-          {excerpt && (
-            <StyledExcerpt fontSize={excerptSize} $isLargeText={isLargeText}>
-              {excerpt}
-            </StyledExcerpt>
-          )}
+          {excerpt &&
+            (typeof excerpt === 'string' ? (
+              <StyledExcerpt fontSize={excerptSize} $isLargeText={isLargeText}>
+                {excerpt}
+              </StyledExcerpt>
+            ) : (
+              <>{excerpt}</>
+            ))}
         </Stack>
         {(withDownload || cta) && (
           <StyledCTAWrapper $isLargeText={isLargeText}>
