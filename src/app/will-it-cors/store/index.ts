@@ -92,6 +92,10 @@ export class WillItCorsStore {
     this.serverResponseHeaders = serverResponseHeaders;
   }
 
+  setPreflightResponseHeaders(preflightResponseHeaders) {
+    this.preflightResponseHeaders = preflightResponseHeaders;
+  }
+
   get sourceOrigin() {
     try {
       return getOrigin(this.sourceUrl);

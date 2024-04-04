@@ -8,10 +8,15 @@ import {
   MethodQuestion,
   MixedContentResult,
   NotCorsResult,
+  PreflightRequest,
+  PreflightResponseQuestion,
   RequestExtrasQuestion,
   ServerAllowsCorsRequest,
+  ServerAllowsPreflightRequest,
   ServerRejectsCorsRequest,
+  ServerRejectsPreflightRequest,
   ServerResponseQuestion,
+  ShowCode,
   SimpleCorsRequest,
   SourceUrlQuestion,
   TargetUrlQuestion,
@@ -170,6 +175,53 @@ export const Steps = observer(({ currentStep }: { currentStep: WillItCorsSteps }
           responseHeaders={steps.serverResponseHeaders}
           sendCredentials={steps.sendCredentials}
           onNext={() => router.push('./show-code')}
+        />
+      );
+
+    case 'show-code':
+      return <ShowCode code={steps.exampleCode} />;
+
+    case 'preflight':
+      return <PreflightRequest onNext={() => router.push('./preflight-response')} />;
+
+    case 'preflight-success':
+      return <ServerAllowsPreflightRequest onNext={() => router.push('./server-response')} />;
+
+    case 'preflight-response':
+      return (
+        <PreflightResponseQuestion
+          sourceOrigin={steps.sourceOrigin}
+          targetUrl={steps.targetUrl}
+          method={steps.method}
+          unsafeHeaders={steps.unsafeHeaders}
+          sendCredentials={steps.sendCredentials}
+          isPreflightSuccessful={steps.isPreflightSuccessful}
+          value={steps.preflightResponseHeaders}
+          onChange={newValue => {
+            steps.setPreflightResponseHeaders(newValue);
+          }}
+          onNext={() => {
+            if (steps.isPreflightSuccessful) {
+              router.push('./preflight-success');
+            } else {
+              router.push('./preflight-failure');
+            }
+          }}
+        />
+      );
+
+    case 'preflight-failure':
+      return (
+        <ServerRejectsPreflightRequest
+          sourceOrigin={steps.sourceOrigin}
+          method={steps.method}
+          sendCredentials={steps.sendCredentials}
+          unsafeHeaders={steps.unsafeHeaders}
+          preflightResponseHeaders={steps.preflightResponseHeaders}
+          originAllowed={steps.doesPreflightResponseAllowOrigin}
+          methodAllowed={steps.doesPreflightResponseAllowMethod}
+          headersAllowed={steps.doesPreflightResponseAllowHeaders}
+          credentialsAllowed={steps.doesPreflightResponseAllowCredentials}
         />
       );
 

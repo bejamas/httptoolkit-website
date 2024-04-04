@@ -14,12 +14,12 @@ import {
 } from '@/app/will-it-cors/utils';
 import { Button } from '@/components/elements/button';
 import { Heading } from '@/components/elements/heading';
-import { CheckCircle, XCircle } from '@/components/elements/icon';
+import { CheckCircle, PaperPlaneTilt, XCircle } from '@/components/elements/icon';
 import { ShippingFast } from '@/components/elements/icon/custom';
 import { Link } from '@/components/elements/link';
 import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
-import { InlineCode } from '@/components/modules/block-code';
+import { BlockCode, InlineCode } from '@/components/modules/block-code';
 import { Checkbox } from '@/components/modules/checkbox';
 import { Input } from '@/components/modules/input';
 
@@ -561,6 +561,263 @@ export const ServerAllowsCorsRequest = ({
     </Stack>
   );
 };
+
+export const ShowCode = ({ code }: { code: any }) => {
+  return (
+    <Stack>
+      <BlockCode language="language-bash" title="Example code" content={code.trim()} />
+      <TryHttpToolkit />
+    </Stack>
+  );
+};
+
+export const PreflightRequest = ({ onNext }: Pick<QuestionProps, 'onNext'>) => (
+  <Stack>
+    <Heading fontSize="l">Preflight required</Heading>
+    <Text textAlign="center">
+      <PaperPlaneTilt weight="fill" size={100} color="#D93E1C" />
+    </Text>
+    <Text fontSize="l">
+      This is not a{' '}
+      <Link href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Simple_requests">
+        simple cross-origin request
+      </Link>
+      , so <strong>the browser will send a preflight request</strong> to the server automatically, to check its CORS
+      configuration before it sends the real request.
+    </Text>
+    <Text fontSize="l">
+      Preflight requests use the HTTP OPTIONS method and include Access-Control-Request headers to ask the server what
+      kind of CORS requests are allowed. The server&apos;s response tells the browser whether your main request can be
+      sent.
+    </Text>
+    <Button type="submit" $isFluid onClick={onNext}>
+      Next
+    </Button>
+  </Stack>
+);
+
+// start
+
+interface PreflightResponseQuestionProps extends QuestionProps {
+  targetUrl: string;
+  sourceOrigin?: string;
+  unsafeHeaders: any;
+  method: string;
+  isPreflightSuccessful: boolean;
+  sendCredentials: boolean;
+}
+
+export const PreflightResponseQuestion = observer(
+  ({
+    value,
+    onNext,
+    targetUrl,
+    sourceOrigin,
+    unsafeHeaders,
+    method,
+    onChange,
+    isPreflightSuccessful,
+    sendCredentials,
+  }: PreflightResponseQuestionProps) => {
+    const preflightHeaders = value;
+    const cacheDuration = parseInt(getHeaderValue(preflightHeaders, 'access-control-max-age'), 10);
+
+    return (
+      <Question onNext={onNext}>
+        <Stack>
+          <Text fontSize="l" fontStyle="italic">
+            The browser will send an OPTIONS request to {targetUrl}, with{' '}
+            {joinAnd(
+              [`an Origin header (${sourceOrigin})`, `an Access-Control-Request-Method header (${method})`].concat(
+                unsafeHeaders.length ? [`an Access-Control-Request-Headers header (${unsafeHeaders.join(', ')})`] : [],
+              ),
+            )}
+            .
+          </Text>
+          <Heading fontSize="l">What headers will the server return in its response?</Heading>
+          <Checkbox
+            id="allow-request"
+            checked={isPreflightSuccessful}
+            onChange={e => {
+              if (e.target.checked) {
+                setHeader(preflightHeaders, 'Access-Control-Allow-Origin', sourceOrigin);
+                setHeader(preflightHeaders, 'Access-Control-Allow-Methods', method);
+                if (unsafeHeaders.length) {
+                  setHeader(preflightHeaders, 'Access-Control-Allow-Headers', unsafeHeaders.join(', '));
+                }
+                if (sendCredentials) {
+                  setHeader(preflightHeaders, 'Access-Control-Allow-Credentials', 'true');
+                }
+              } else {
+                deleteHeader(preflightHeaders, 'Access-Control-Allow-Origin');
+                deleteHeader(preflightHeaders, 'Access-Control-Allow-Methods');
+                deleteHeader(preflightHeaders, 'Access-Control-Allow-Headers');
+                deleteHeader(preflightHeaders, 'Access-Control-Allow-Credentials');
+              }
+              onChange(preflightHeaders);
+            }}
+            label="Allow this request"
+          />
+          <Checkbox
+            id="cache-result"
+            checked={cacheDuration > 0}
+            onChange={e => {
+              if (e.target.checked) {
+                setHeader(preflightHeaders, 'Access-Control-Max-Age', '86400');
+              } else {
+                deleteHeader(preflightHeaders, 'Access-Control-Max-Age');
+              }
+              onChange(preflightHeaders);
+            }}
+            label="Cache this result, to speed up future preflight checks"
+          />
+          <EditableHeaders headers={value} onChange={onChange} />
+          <Button $isFluid type="submit">
+            Next
+          </Button>
+        </Stack>
+      </Question>
+    );
+  },
+);
+
+interface ServerRejectsPreflightRequestProps {
+  sourceOrigin?: string;
+  preflightResponseHeaders: any;
+  originAllowed?: boolean;
+  methodAllowed: boolean;
+  headersAllowed: boolean;
+  credentialsAllowed: boolean;
+  sendCredentials: boolean;
+  unsafeHeaders: any;
+  method: string;
+}
+
+export const ServerRejectsPreflightRequest = ({
+  preflightResponseHeaders,
+  sourceOrigin,
+  originAllowed,
+  methodAllowed,
+  headersAllowed,
+  credentialsAllowed,
+  sendCredentials,
+  unsafeHeaders,
+  method,
+}: ServerRejectsPreflightRequestProps) => {
+  const preflightHeaders = preflightResponseHeaders;
+
+  const incorrectHeaders = [
+    !originAllowed && 'Origin',
+    !methodAllowed && 'Methods',
+    !headersAllowed && 'Headers',
+    !credentialsAllowed && 'Credentials',
+  ].filter(v => !!v);
+
+  const [missingHeaders, incompleteHeaders] = _.partition(
+    incorrectHeaders,
+    h => !getHeaderValue(preflightHeaders, `Access-Control-Allow-${h}`),
+  );
+
+  const invalidWildcards = sendCredentials
+    ? [
+        !originAllowed && getHeaderValue(preflightHeaders, 'Access-Control-Allow-Origin') === '*' && 'Origin',
+        !methodAllowed && getHeaderValues(preflightHeaders, 'Access-Control-Allow-Methods').includes('*') && 'Methods',
+        !headersAllowed && getHeaderValues(preflightHeaders, 'Access-Control-Allow-Headers').includes('*') && 'Headers',
+      ].filter(h => !!h)
+    : [];
+
+  // Authorization must be included explicitly - * is never sufficient.
+  const allowedHeaders = getHeaderValues(preflightHeaders, 'access-control-allow-headers').map((h: string) =>
+    h.toLowerCase(),
+  );
+  const wildcardWithAuthorization =
+    !sendCredentials && // Irrelevant if * is invalid anyway
+    unsafeHeaders.map((h: string) => h.toLowerCase()).includes('authorization') &&
+    !allowedHeaders.includes('authorization') &&
+    allowedHeaders.includes('*');
+
+  return (
+    <Stack>
+      <Heading>
+        <XCircle aria-label="No" weight="fill" size={90} color="#D93E1C" />
+      </Heading>
+      <Text fontSize="l">
+        The server&apos;s response to the preflight request doesn&apos;t allow the CORS request you want to send, so the
+        browser won&apos;t send it.
+      </Text>
+      <Text fontSize="l">
+        In practice, <strong>your request will fail with a generic error</strong>, and the browser will print an
+        explanation to the console explaining why the preflight response wasn&apos;t OK.
+      </Text>
+      <Text fontSize="l">
+        This failed because{' '}
+        {joinAnd(
+          [
+            missingHeaders.length &&
+              `the ${joinAnd(missingHeaders.map(h => `Access-Control-Allow-${h}`))} header${
+                missingHeaders.length > 1 ? 's are' : ' is'
+              } required but missing`,
+            ...incompleteHeaders.map(
+              incompleteHeader =>
+                `the Access-Control-Allow-${incompleteHeader} header (${getHeaderValue(
+                  preflightHeaders,
+                  `Access-Control-Allow-${incompleteHeader}`,
+                )}) ${
+                  incompleteHeader === 'Origin'
+                    ? `does not match the request origin (${sourceOrigin})`
+                    : incompleteHeader === 'Methods'
+                      ? `does not include the request method (${method})`
+                      : incompleteHeader === 'Headers'
+                        ? `does not match all unsafe headers (${joinAnd(unsafeHeaders)})`
+                        : // Credentials
+                          `is not 'true' and the request would include credentials`
+                }`,
+            ),
+          ].filter(v => !!v),
+        )}
+        .
+      </Text>
+      {wildcardWithAuthorization && (
+        <Text fontSize="l">
+          <strong>Note that the * wildcard for Access-Control-Allow-Headers never matches Authorization headers</strong>
+          . The Authorization header needs to be listed explicitly.
+        </Text>
+      )}
+      {invalidWildcards.length > 0 && (
+        <Text fontSize="l">
+          <strong>
+            Remember that the {joinAnd(invalidWildcards.map(h => `Access-Control-Allow-${h}`))}{' '}
+            {invalidWildcards.length > 1 ? 'headers ignore' : 'header ignores'} * wildcards when credentials are
+            enabled.
+          </strong>
+        </Text>
+      )}
+      <Text fontSize="l">
+        To avoid this, you&apos;ll need to either make the server send the correct preflight headers, or make your
+        request a{' '}
+        <Link href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Simple_requests">simple request</Link> that
+        doesn&apos;t require an initial preflight.
+      </Text>
+    </Stack>
+  );
+};
+
+export const ServerAllowsPreflightRequest = ({ onNext }: Pick<QuestionProps, 'onNext'>) => (
+  <Stack>
+    <Heading>Preflight request successful</Heading>
+    <Text fontSize="l">
+      The server&apos;s response to the preflight request says the browser is allowed to send CORS requests like this,
+      so <strong>the browser now sends your request</strong>.
+    </Text>
+    <Text fontSize="l">
+      <strong>However, this doesn&apos;t mean you can definitely read the response</strong>. That depends on the headers
+      the server returns with the final response...
+    </Text>
+    <Button $isFluid type="submit" onClick={onNext}>
+      Next
+    </Button>
+  </Stack>
+);
 
 const TryHttpToolkit = () => {
   return (
