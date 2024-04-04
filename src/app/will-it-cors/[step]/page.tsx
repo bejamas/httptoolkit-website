@@ -1,5 +1,6 @@
 import { Breadcrumbs } from '../components/breadcrumbs';
 import { Steps } from '../components/steps';
+import type { WillItCorsSteps } from '../data';
 import { willItCorsSteps } from '../data';
 import { StyledWillItCorsContainer, StyledWillItCorsWrapper } from '../will-it-cors.styles';
 
@@ -13,7 +14,7 @@ export async function generateStaticParams() {
 }
 
 type WillItCorsStepsPageProps = {
-  params: { step: string };
+  params: { step: WillItCorsSteps };
 };
 
 export default function WillItCorsStepsPage({ params }: WillItCorsStepsPageProps) {

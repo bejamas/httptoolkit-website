@@ -15,4 +15,6 @@ export const willItCorsSteps = [
   'request-success',
   'show-code',
   'request-failure',
-];
+] as const;
+
+export type WillItCorsSteps = (typeof willItCorsSteps)[number];
