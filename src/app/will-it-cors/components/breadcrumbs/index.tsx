@@ -8,6 +8,7 @@ interface BreadcrumbsProps {
 const SafeToSend = () => <Breadcrumb state="tbc">Is it safe to send?</Breadcrumb>;
 const Readable = () => <Breadcrumb state="tbc">Can the response be read?</Breadcrumb>;
 const IsCors = () => <Breadcrumb state="yes">Sending a CORS request</Breadcrumb>;
+const IsSafeToSend = () => <Breadcrumb state="yes">Safe to send</Breadcrumb>;
 
 export const Breadcrumbs = ({ currentStep }: BreadcrumbsProps) => {
   if (['source-url', 'target-url'].includes(currentStep)) {
@@ -64,7 +65,7 @@ export const Breadcrumbs = ({ currentStep }: BreadcrumbsProps) => {
     return (
       <StyledBreadcrumbContainer>
         <IsCors />
-        <SafeToSend />
+        <IsSafeToSend />
         <Breadcrumb state="maybe">Can the response be read?</Breadcrumb>
       </StyledBreadcrumbContainer>
     );
@@ -73,7 +74,7 @@ export const Breadcrumbs = ({ currentStep }: BreadcrumbsProps) => {
     return (
       <StyledBreadcrumbContainer>
         <IsCors />
-        <SafeToSend />
+        <IsSafeToSend />
         <Breadcrumb state="yes">Allowed to read the response</Breadcrumb>
       </StyledBreadcrumbContainer>
     );
@@ -82,7 +83,7 @@ export const Breadcrumbs = ({ currentStep }: BreadcrumbsProps) => {
     return (
       <StyledBreadcrumbContainer>
         <IsCors />
-        <SafeToSend />
+        <IsSafeToSend />
         <Breadcrumb state="no">Not allowed to read the response</Breadcrumb>
       </StyledBreadcrumbContainer>
     );

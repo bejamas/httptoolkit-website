@@ -9,6 +9,10 @@ import {
   MixedContentResult,
   NotCorsResult,
   RequestExtrasQuestion,
+  ServerAllowsCorsRequest,
+  ServerRejectsCorsRequest,
+  ServerResponseQuestion,
+  SimpleCorsRequest,
   SourceUrlQuestion,
   TargetUrlQuestion,
 } from './components';
@@ -121,6 +125,51 @@ export const Steps = observer(({ currentStep }: { currentStep: WillItCorsSteps }
               router.push('./preflight');
             }
           }}
+        />
+      );
+
+    case 'simple-cors':
+      return <SimpleCorsRequest onNext={() => router.push('./server-response')} />;
+
+    case 'server-response':
+      return (
+        <ServerResponseQuestion
+          sourceOrigin={steps.sourceOrigin}
+          targetUrl={steps.targetUrl}
+          method={steps.method}
+          unsafeHeaders={steps.unsafeHeaders}
+          sendCredentials={steps.sendCredentials}
+          isServerResponseReadable={steps.isServerResponseReadable}
+          value={steps.serverResponseHeaders}
+          onChange={newValue => {
+            steps.setServerResponseHeaders(newValue);
+          }}
+          onNext={() => {
+            if (steps.isServerResponseReadable) {
+              router.push('./request-success');
+            } else {
+              router.push('./request-failure');
+            }
+          }}
+        />
+      );
+
+    case 'request-failure':
+      return (
+        <ServerRejectsCorsRequest
+          sourceOrigin={steps.sourceOrigin ?? 'https://'}
+          sendCredentials={steps.sendCredentials}
+          serverResponseHeaders={steps.serverResponseHeaders}
+        />
+      );
+
+    case 'request-success':
+      return (
+        <ServerAllowsCorsRequest
+          sourceOrigin={steps.sourceOrigin ?? 'https://'}
+          responseHeaders={steps.serverResponseHeaders}
+          sendCredentials={steps.sendCredentials}
+          onNext={() => router.push('./show-code')}
         />
       );
 

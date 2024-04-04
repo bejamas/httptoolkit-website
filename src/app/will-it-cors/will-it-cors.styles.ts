@@ -35,7 +35,7 @@ export const StyledWillItCorsContainer = styled.div`
   max-width: 770px;
 
   & a {
-    color: ${({ theme }) => theme.colors.text.electricLightBlue};
+    color: ${({ theme }) => theme.colors.electricLightBlue};
     text-decoration: underline;
   }
 `;

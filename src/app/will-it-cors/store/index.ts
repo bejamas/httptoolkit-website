@@ -88,6 +88,10 @@ export class WillItCorsStore {
     this.requestHeaders = requestHeaders;
   }
 
+  setServerResponseHeaders(serverResponseHeaders) {
+    this.serverResponseHeaders = serverResponseHeaders;
+  }
+
   get sourceOrigin() {
     try {
       return getOrigin(this.sourceUrl);

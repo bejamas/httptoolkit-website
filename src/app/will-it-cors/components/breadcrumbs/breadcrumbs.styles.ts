@@ -7,7 +7,7 @@ import { css, styled } from '@/styles';
 export const StyledBreadcrumbContainer = styled.nav`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 `;
 
@@ -16,7 +16,7 @@ export const StyledBreadcrumbItemWrapper = styled.div<{ $state?: BreadcrumState 
 
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: top;
   justify-content: space-evenly;
 
   padding: 5px;

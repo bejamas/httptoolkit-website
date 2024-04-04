@@ -4,9 +4,18 @@ import { useState, type FormEventHandler } from 'react';
 
 import { EditableHeaders } from './editable-headers';
 
+import {
+  deleteHeader,
+  getHeaderValue,
+  getHeaderValues,
+  joinAnd,
+  setHeader,
+  someHeaderValues,
+} from '@/app/will-it-cors/utils';
 import { Button } from '@/components/elements/button';
 import { Heading } from '@/components/elements/heading';
 import { CheckCircle, XCircle } from '@/components/elements/icon';
+import { ShippingFast } from '@/components/elements/icon/custom';
 import { Link } from '@/components/elements/link';
 import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
@@ -17,7 +26,7 @@ import { Input } from '@/components/modules/input';
 interface QuestionProps {
   onNext: () => void;
   onChange: (e: string) => void;
-  value?: string;
+  value: string | any;
 }
 
 export const Question = ({ children, onNext }: Component<Pick<QuestionProps, 'onNext'>>) => {
@@ -194,7 +203,6 @@ export const RequestExtrasQuestion = observer(
 
           <Checkbox
             id="send-credentials"
-            required
             label="Send built-in browser credentials, like cookies or client certificates, with this request?"
             checked={sendCredentials}
             onChange={e => onSendCredentials(e.target.checked)}
@@ -202,7 +210,6 @@ export const RequestExtrasQuestion = observer(
 
           <Checkbox
             id="send-useStreaming"
-            required
             label="Incrementally stream the request or response, or monitor their progress?"
             checked={useStreaming}
             onChange={e => onUseStreaming(e.target.checked)}
@@ -253,5 +260,312 @@ export const ContentTypeQuestion = ({ onNext, value, onChange }: QuestionProps) 
         </Text>
       </Stack>
     </Question>
+  );
+};
+
+export const SimpleCorsRequest = ({ onNext }: Pick<QuestionProps, 'onNext'>) => (
+  <Stack>
+    <Heading fontWeight="bold">Simple cross-origin request</Heading>
+    <Text textAlign="center">
+      <ShippingFast width={100} color="#6284FA" />
+    </Text>
+    <Text fontSize="l">
+      This is a{' '}
+      <Link href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Simple_requests">
+        simple cross-origin request
+      </Link>
+      . For requests like this, the browser doesn&apos;t need to send a preflight OPTIONS request to the server first,
+      so <strong>your request will be sent to the server immediately</strong>.
+    </Text>
+    <Text fontSize="l">
+      Simple requests are a GET or HEAD requests, or POST requests with specific safe content types, that don&apos;t use
+      any unsafe cross-origin headers or streaming.
+    </Text>
+    <Text fontSize="l">
+      <strong>However, this doesn&apos;t mean you&apos;re always allowed to read the response</strong>. That depends on
+      the headers the server returns...
+    </Text>
+    <Button $isFluid onClick={onNext}>
+      Next
+    </Button>
+  </Stack>
+);
+
+interface ServerResponseQuestionProps extends QuestionProps {
+  sourceOrigin?: string;
+  isServerResponseReadable?: boolean;
+  sendCredentials: boolean;
+  targetUrl?: string;
+  method?: string;
+  unsafeHeaders: any;
+}
+
+export const ServerResponseQuestion = observer(
+  ({
+    onNext,
+    value,
+    sourceOrigin,
+    onChange,
+    isServerResponseReadable,
+    sendCredentials,
+  }: ServerResponseQuestionProps) => (
+    <Question onNext={onNext}>
+      <Stack>
+        <Text fontStyle="italic" fontSize="m">
+          The browser will include an Origin header set to {sourceOrigin} with your request, so the server knows that
+          this is a CORS request, and knows the specific page origin.
+        </Text>
+        <Heading fontSize="l">What headers will the server return in its response?</Heading>
+        <Checkbox
+          id="server-response-readable"
+          checked={isServerResponseReadable}
+          label="Allow the page to read this response"
+          onChange={e => {
+            if (e.target.checked) {
+              setHeader(value, 'Access-Control-Allow-Origin', sourceOrigin);
+              if (sendCredentials) {
+                setHeader(value, 'Access-Control-Allow-Credentials', 'true');
+              }
+              setHeader(value, 'Vary', 'origin');
+            } else {
+              deleteHeader(value, 'Access-Control-Allow-Origin');
+              deleteHeader(value, 'Access-Control-Allow-Credentials');
+
+              // If there's now no headers that depend on the origin, drop the Vary
+              if (
+                getHeaderValue(value, 'vary') === 'origin' &&
+                !someHeaderValues(value, (value: string | undefined) => value === sourceOrigin)
+              ) {
+                deleteHeader(value, 'Vary');
+              }
+            }
+            onChange(value);
+          }}
+        />
+        <Checkbox
+          id="header-Value"
+          checked={getHeaderValue(value, 'Access-Control-Expose-Headers') !== undefined}
+          label="Allow the page to read custom headers from the response"
+          onChange={e => {
+            if (e.target.checked) {
+              setHeader(value, 'Access-Control-Expose-Headers', 'MyCustomHeader');
+              setHeader(value, 'MyCustomHeader', '');
+            } else {
+              deleteHeader(value, 'Access-Control-Expose-Headers');
+              deleteHeader(value, 'MyCustomHeader');
+            }
+            onChange(value);
+          }}
+        />
+        <Checkbox
+          id="timing"
+          value={
+            getHeaderValue(value, 'timing-allow-origin') === '*' ||
+            getHeaderValues(value, 'timing-allow-origin').includes(sourceOrigin)
+          }
+          label="Allow the page to read the timing data for this response"
+          onChange={e => {
+            if (e.target.checked) {
+              setHeader(value, 'Timing-Allow-Origin', sourceOrigin);
+              setHeader(value, 'Vary', 'origin');
+            } else {
+              deleteHeader(value, 'Timing-Allow-Origin');
+
+              // If there's now no headers that depend on the origin, drop the Vary
+              if (
+                getHeaderValue(value, 'vary') === 'origin' &&
+                !someHeaderValues(value, (value: string | undefined) => value === sourceOrigin)
+              ) {
+                deleteHeader(value, 'Vary');
+              }
+            }
+            onChange(value);
+          }}
+        />
+        <EditableHeaders headers={value} onChange={onChange} />
+        <Button $isFluid type="submit">
+          Next
+        </Button>
+      </Stack>
+    </Question>
+  ),
+);
+
+interface ServerRejectsCorsRequestProps {
+  serverResponseHeaders: any;
+  sendCredentials: boolean;
+  sourceOrigin: string;
+}
+
+export const ServerRejectsCorsRequest = ({
+  serverResponseHeaders,
+  sendCredentials,
+  sourceOrigin,
+}: ServerRejectsCorsRequestProps) => {
+  const allowedOrigin = getHeaderValue(serverResponseHeaders, 'access-control-allow-origin');
+  const allowCredentials = getHeaderValue(serverResponseHeaders, 'access-control-allow-credentials');
+
+  const missingHeaders = [
+    allowedOrigin === undefined && 'Access-Control-Allow-Origin',
+    sendCredentials && allowCredentials === undefined && 'Access-Control-Allow-Credentials',
+  ].filter(h => !!h);
+
+  const failureReasons = [
+    missingHeaders.length > 0 &&
+      `
+          the ${joinAnd(missingHeaders)} ${
+            missingHeaders.length > 1 ? 'headers were' : 'header was'
+          } required but missing`,
+    sendCredentials &&
+      allowCredentials &&
+      allowCredentials !== 'true' &&
+      `
+          credentials were sent, but the Access-Control-Allow-Credentials header was
+          '${allowCredentials}' instead of 'true'`,
+    allowedOrigin &&
+      allowedOrigin !== sourceOrigin &&
+      (allowedOrigin !== '*' || sendCredentials) &&
+      `
+          the Access-Control-Allow-Origin header was '${allowedOrigin}' instead of
+          '${sourceOrigin}'${
+            sendCredentials && allowedOrigin === '*' ? " (* doesn't match all origins when you send credentials)" : ''
+          }`,
+  ].filter(r => !!r);
+
+  return (
+    <Stack>
+      <Heading>
+        <XCircle aria-label="No" weight="fill" size={100} color="#D93E1C" />
+      </Heading>
+      <Text>
+        <strong>
+          The request was sent, but the headers returned by the server don&apos;t allow you to read the response.
+        </strong>
+      </Text>
+      <Text fontSize="l">
+        In practice, your request will fail with an error, and the browser will print an explanation to the console
+        explaining why the server&apos;s headers weren&apos;t OK. You won&apos;t be able to examine the response&apos;s
+        status code, headers or body.
+      </Text>
+      <Text fontSize="l">This failed because {joinAnd(failureReasons)}.</Text>
+      <Text fontSize="l">
+        To avoid this and ready the response, you&apos;ll need to make the server send the correct CORS headers, or use
+        a CORS proxy.
+      </Text>
+      <Text fontSize="l">
+        If you&apos;re actually not interested in the response, you can set <InlineCode>mode: no-cors</InlineCode> on
+        your request, to intentionally receive an opaque response. This is useful for{' '}
+        <Link href="https://stackoverflow.com/a/39109790/68051">a few niche use cases</Link> in caching & cross-origin
+        resource loading.
+      </Text>
+    </Stack>
+  );
+};
+
+interface ServerAllowsCorsRequestProps extends Pick<QuestionProps, 'onNext'> {
+  sourceOrigin?: string;
+  responseHeaders: any;
+  sendCredentials: boolean;
+}
+
+export const ServerAllowsCorsRequest = ({
+  sourceOrigin,
+  responseHeaders,
+  sendCredentials,
+  onNext,
+}: ServerAllowsCorsRequestProps) => {
+  const exposedHeadersHeader = getHeaderValues(responseHeaders, 'access-control-expose-headers');
+  const timingInfo = getHeaderValue(responseHeaders, 'timing-allow-origin');
+
+  const corsSafelistedHeaders = (
+    <>
+      and all{' '}
+      <Link href="https://developer.mozilla.org/en-US/docs/Glossary/CORS-safelisted_response_header">
+        CORS-safelisted headers
+      </Link>
+    </>
+  );
+
+  const hasHeaderWildcard = exposedHeadersHeader.includes('*');
+  const explicitlyAllowedHeaders = exposedHeadersHeader.filter((h: string) => h !== '*');
+
+  const credsWithWildcardWarning =
+    hasHeaderWildcard && sendCredentials ? " (* doesn't match all headers if you send credentials)" : '';
+  const exposedHeaders =
+    hasHeaderWildcard && !sendCredentials ? (
+      'and all received headers'
+    ) : explicitlyAllowedHeaders.length ? (
+      <>
+        the explicitly exposed headers ({joinAnd(explicitlyAllowedHeaders)}) {corsSafelistedHeaders}
+      </>
+    ) : (
+      corsSafelistedHeaders
+    );
+
+  const varyOnOrigin =
+    getHeaderValues(responseHeaders, 'vary').some((v: string) => v.toLowerCase() === 'origin') ||
+    getHeaderValue(responseHeaders, 'vary') === '*';
+
+  const uselessSetCookie = getHeaderValue(responseHeaders, 'set-cookie') !== undefined && !sendCredentials;
+
+  return (
+    <Stack>
+      <Heading>
+        <CheckCircle aria-label="Yes" weight="fill" size={90} color="#6284FA" />
+      </Heading>
+      <Text fontSize="l">
+        <strong>The request was sent, and the server&apos;s CORS headers let you read the response</strong>.
+      </Text>
+      <Text fontSize="l">
+        You&apos;ll be able to examine the response&apos;s status code, its body, {exposedHeaders}
+        {credsWithWildcardWarning}.
+      </Text>
+      <Text fontSize="l">
+        {timingInfo === '*' || timingInfo === sourceOrigin ? (
+          <>
+            You&apos;ll also be able to use the{' '}
+            <Link href="https://developer.mozilla.org/en-US/docs/Web/API/Resource_Timing_API">resource timing API</Link>{' '}
+            to examine the detailed performance of this request.
+          </>
+        ) : (
+          <>
+            You won&apos;t however be able to use the{' '}
+            <Link href="https://developer.mozilla.org/en-US/docs/Web/API/Resource_Timing_API">resource timing API</Link>{' '}
+            to examine the detailed performance of this request, as it doesn&apos;t include a matching
+            Timing-Allow-Origin header.
+          </>
+        )}
+      </Text>
+      {uselessSetCookie && (
+        <Text fontSize="l">
+          <Text fontSize="l" color="cinnarbarRed" as="span" fontStyle="italic">
+            This response sets a cookie that won&apos;t be used
+          </Text>
+          . Set-Cookie headers in responses are ignored, unless the initial request includes browser credentials.
+        </Text>
+      )}
+      {!varyOnOrigin && someHeaderValues(responseHeaders, (v: string) => v.toLowerCase() === sourceOrigin) && (
+        <Text fontSize="l">
+          <Text fontSize="l" color="cinnarbarRed" as="span" fontStyle="italic">
+            This result may be cached incorrectly
+          </Text>
+          . Your response headers reference the page origin from the request, but they don&apos;t include `Origin` in a{' '}
+          <Link href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary">Vary header</Link>. This response
+          might be cached and then used by a CORS request from a different origin, where it will unexpectedly fail.
+        </Text>
+      )}
+      <Button type="submit" $isFluid onClick={onNext}>
+        Show me the code
+      </Button>
+      <TryHttpToolkit />
+    </Stack>
+  );
+};
+
+const TryHttpToolkit = () => {
+  return (
+    <Text fontSize="m">
+      Want to see & test this for real? <Link href="/">Try out HTTP Toolkit</Link>.
+    </Text>
   );
 };

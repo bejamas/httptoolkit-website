@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
 import * as _ from 'lodash';
 
 export function getOrigin(url: string | URL) {
@@ -19,7 +21,7 @@ export function getHeaderValues(headers: any, key: any, separator = ',') {
     .filter((v: any) => !!v);
 }
 
-export function setHeader(headers: any[][], key: any, value: any) {
+export function setHeader(headers: any, key: any, value: any) {
   const headerPair = getHeaderPair(headers, key);
   if (headerPair) {
     headerPair[1] = value;
@@ -32,12 +34,12 @@ export function deleteHeader(headers: _.List<unknown>, key: string) {
   _.remove(headers, ([headerKey]) => headerKey.toLowerCase() === key.toLowerCase());
 }
 
-export function someHeaderValues(headers: [any, any][], predicate: any) {
+export function someHeaderValues(headers, predicate) {
   return headers.some(
     ([, value]) =>
       value
         .split(',')
-        .map((v: string) => v.trim())
+        .map(v => v.trim())
         .filter(predicate).length > 0,
   );
 }
