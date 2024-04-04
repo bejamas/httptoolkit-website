@@ -1,6 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-
 import * as _ from 'lodash';
 import { makeAutoObservable } from 'mobx';
 
@@ -35,33 +34,6 @@ export class WillItCorsStore {
 
   constructor() {
     makeAutoObservable(this);
-    // makeObservable(this, {
-    //   sourceUrl: observable,
-    //   setSourceUrl: observable,
-    //   targetUrl: observable,
-    //   setTargetUrl: observable,
-    //   method: observable,
-    //   sendCredentials: observable,
-    //   useStreaming: observable,
-    //   requestHeaders: observable,
-    //   preflightResponseHeaders: observable,
-    //   serverResponseHeaders: observable,
-    //   sourceOrigin: computed,
-    //   targetOrigin: computed,
-    //   contentType: computed,
-    //   isCorsRequest: computed,
-    //   isMixedContentRequest: computed,
-    //   unsafeHeaders: computed,
-    //   isSendingUnsafeHeaders: computed,
-    //   isSimpleCorsRequest: computed,
-    //   doesPreflightResponseAllowOrigin: computed,
-    //   doesPreflightResponseAllowMethod: computed,
-    //   doesPreflightResponseAllowHeaders: computed,
-    //   doesPreflightResponseAllowCredentials: computed,
-    //   isPreflightSuccessful: computed,
-    //   isServerResponseReadable: computed,
-    //   exampleCode: computed
-    // });
   }
 
   setSourceUrl(url) {
