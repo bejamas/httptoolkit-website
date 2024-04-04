@@ -41,6 +41,7 @@ import {
   DevToLogo,
   ShareNetwork,
   XCircle,
+  Trash,
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -127,4 +128,5 @@ export {
   ProductHuntLogo,
   ShareNetwork,
   XCircle,
+  Trash,
 };

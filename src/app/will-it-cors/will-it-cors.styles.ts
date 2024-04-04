@@ -32,10 +32,10 @@ export const StyledWillItCorsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 700px;
+  max-width: 770px;
 
   & a {
-    color: ${({ theme }) => theme.colors.text.white};
+    color: ${({ theme }) => theme.colors.text.electricLightBlue};
     text-decoration: underline;
   }
 `;

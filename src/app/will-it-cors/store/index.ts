@@ -76,6 +76,18 @@ export class WillItCorsStore {
     this.method = method;
   }
 
+  setCredentials(credentials) {
+    this.sendCredentials = credentials;
+  }
+
+  setUseStreaming(useStreaming) {
+    this.useStreaming = useStreaming;
+  }
+
+  setRequestHeaders(requestHeaders) {
+    this.requestHeaders = requestHeaders;
+  }
+
   get sourceOrigin() {
     try {
       return getOrigin(this.sourceUrl);

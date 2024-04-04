@@ -3,9 +3,18 @@
 import { observer } from 'mobx-react-lite';
 import { useRouter } from 'next/navigation';
 
-import { MethodQuestion, MixedContentResult, NotCorsResult, SourceUrlQuestion, TargetUrlQuestion } from './components';
+import {
+  ContentTypeQuestion,
+  MethodQuestion,
+  MixedContentResult,
+  NotCorsResult,
+  RequestExtrasQuestion,
+  SourceUrlQuestion,
+  TargetUrlQuestion,
+} from './components';
 import type { WillItCorsSteps } from '../../data';
 import { WillItCorsStore } from '../../store';
+import { deleteHeader, setHeader } from '../../utils';
 
 const steps = new WillItCorsStore();
 
@@ -64,6 +73,54 @@ export const Steps = observer(({ currentStep }: { currentStep: WillItCorsSteps }
           onNext={() => router.push('./request-extras')}
           sourceOrigin={steps.sourceOrigin ?? 'https://'}
           targetOrigin={steps.targetOrigin ?? 'http://'}
+        />
+      );
+
+    case 'request-extras':
+      return (
+        <RequestExtrasQuestion
+          sendCredentials={steps.sendCredentials}
+          onSendCredentials={newValue => {
+            steps.setCredentials(newValue);
+          }}
+          useStreaming={steps.useStreaming}
+          onUseStreaming={newValue => {
+            steps.setUseStreaming(newValue);
+          }}
+          headers={steps.requestHeaders}
+          onChangeHeaders={newValue => {
+            steps.setRequestHeaders(newValue);
+          }}
+          onNext={() => {
+            if (steps.method === 'POST' && steps.contentType === undefined) {
+              router.push('./content-type');
+            } else if (steps.isSimpleCorsRequest) {
+              router.push('./simple-cors');
+            } else {
+              router.push('./preflight');
+            }
+          }}
+        />
+      );
+
+    case 'content-type':
+      return (
+        <ContentTypeQuestion
+          value={steps.contentType}
+          onChange={newValue => {
+            if (newValue) {
+              setHeader(steps.requestHeaders, 'Content-Type', newValue);
+            } else {
+              deleteHeader(steps.requestHeaders, 'Content-Type');
+            }
+          }}
+          onNext={() => {
+            if (steps.isSimpleCorsRequest) {
+              router.push('./simple-cors');
+            } else {
+              router.push('./preflight');
+            }
+          }}
         />
       );
 

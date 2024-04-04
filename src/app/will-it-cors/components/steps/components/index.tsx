@@ -1,5 +1,8 @@
+import * as _ from 'lodash';
 import { observer } from 'mobx-react-lite';
-import type { FormEventHandler } from 'react';
+import { useState, type FormEventHandler } from 'react';
+
+import { EditableHeaders } from './editable-headers';
 
 import { Button } from '@/components/elements/button';
 import { Heading } from '@/components/elements/heading';
@@ -8,6 +11,7 @@ import { Link } from '@/components/elements/link';
 import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { InlineCode } from '@/components/modules/block-code';
+import { Checkbox } from '@/components/modules/checkbox';
 import { Input } from '@/components/modules/input';
 
 interface QuestionProps {
@@ -129,7 +133,7 @@ export const MethodQuestion = observer(
     return (
       <Question onNext={onNext}>
         <Stack>
-          <Text fontSize="m">
+          <Text fontStyle="italic" fontSize="m">
             Your source and target URLs have different origins ({sourceOrigin} and {targetOrigin} respectively) so{' '}
             <strong>this is indeed a cross-origin request</strong>.
           </Text>
@@ -139,7 +143,7 @@ export const MethodQuestion = observer(
           </Heading>
           <Input
             id="method_url"
-            type="url"
+            type="text"
             required
             placeholder="GET"
             value={value}
@@ -163,3 +167,91 @@ export const MethodQuestion = observer(
     );
   },
 );
+
+interface RequestExtrasQuestionProps extends Pick<QuestionProps, 'onNext'> {
+  sendCredentials: boolean;
+  onSendCredentials: (e: any) => void;
+  onUseStreaming: (e: any) => void;
+  headers: never[];
+  useStreaming: boolean;
+  onChangeHeaders: (e: any) => void;
+}
+export const RequestExtrasQuestion = observer(
+  ({
+    onNext,
+    sendCredentials,
+    onSendCredentials,
+    headers,
+    useStreaming,
+    onUseStreaming,
+    onChangeHeaders,
+  }: RequestExtrasQuestionProps) => {
+    const [showHeaders, setShowHeaders] = useState(!_.isEmpty(headers));
+    return (
+      <Question onNext={onNext}>
+        <Stack>
+          <Heading fontSize="l">Do you want send or read any other data?</Heading>
+
+          <Checkbox
+            id="send-credentials"
+            required
+            label="Send built-in browser credentials, like cookies or client certificates, with this request?"
+            checked={sendCredentials}
+            onChange={e => onSendCredentials(e.target.checked)}
+          />
+
+          <Checkbox
+            id="send-useStreaming"
+            required
+            label="Incrementally stream the request or response, or monitor their progress?"
+            checked={useStreaming}
+            onChange={e => onUseStreaming(e.target.checked)}
+          />
+
+          <Checkbox
+            id="show-headers"
+            checked={showHeaders}
+            onChange={e => {
+              const shouldShowHeaders = e.target.checked;
+              setShowHeaders(shouldShowHeaders);
+              if (!shouldShowHeaders) {
+                onChangeHeaders([]);
+              }
+            }}
+            label="Send custom request headers?"
+          />
+
+          {showHeaders && (
+            <EditableHeaders autoFocus headers={headers} onChange={onChangeHeaders} onlyClientHeaders={true} />
+          )}
+
+          <Button $isFluid type="submit">
+            {headers.length === 0 && !sendCredentials && !useStreaming ? 'No, skip this' : 'Next'}
+          </Button>
+        </Stack>
+      </Question>
+    );
+  },
+);
+
+export const ContentTypeQuestion = ({ onNext, value, onChange }: QuestionProps) => {
+  return (
+    <Question onNext={onNext}>
+      <Stack>
+        <Heading fontSize="l">
+          What <Link href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type">content type</Link>{' '}
+          will your POST request use?
+        </Heading>
+        <Input id="" placeholder="text/plain" value={value || ''} onChange={e => onChange(e.target.value)} />
+        <Button $isFluid type="submit">
+          Next
+        </Button>
+        <Text fontSize="m" fontStyle="italic">
+          Only POSTs sent with application/x-www-form-urlencoded, text/plain or multipart/form-data content-type headers
+          are considered{' '}
+          <Link href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Simple_requests">simple requests</Link>.
+        </Text>
+      </Stack>
+    </Question>
+  );
+};
