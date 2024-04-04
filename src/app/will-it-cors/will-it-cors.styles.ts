@@ -4,6 +4,7 @@ import { screens, styled } from '@/styles';
 
 export const StyledWillItCorsWrapper = styled.section`
   box-shadow: ${({ theme }) => theme.shadow.hero};
+  padding: 32px 20px;
 
   @media (min-width: ${screens['md']}) {
     position: relative;
@@ -33,6 +34,7 @@ export const StyledWillItCorsContainer = styled.div`
   align-items: center;
   justify-content: center;
   max-width: 770px;
+  text-align: center;
 
   & a {
     color: ${({ theme }) => theme.colors.electricLightBlue};
