@@ -7,12 +7,14 @@ import { Input } from '@/components/modules/input';
 
 export const SendEmail = ({
   buttonProps,
+  isLoading = true,
   ...props
 }: {
+  isLoading: boolean;
   buttonProps: Pick<ButtonProps, '$small' | '$variant' | '$withBorder'>;
 }) => {
   return (
-    <StyledSendEmailWrapper {...props}>
+    <StyledSendEmailWrapper $isLoading={isLoading} {...props}>
       <Text fontSize="s" textAlign="center" color="white">
         On mobile? Send this to your computer and try it out there:
       </Text>

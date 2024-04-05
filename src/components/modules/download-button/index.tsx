@@ -8,6 +8,7 @@ import type { DownloadButtonProps } from './download-button.types';
 import { Dropdown } from '../dropdown';
 import type { DropdownOptionProps } from '../dropdown/dropdown.types';
 
+import { StyledHideElementOn } from '@/components/elements/hide-on/hide-on';
 import { OSDictionary } from '@/content/data/download-dictionary';
 import { useIsMobile } from '@/lib/hooks/use-is-mobile';
 import { parseUserAgent } from '@/lib/utils/parse-user-agent';
@@ -16,7 +17,7 @@ import { parseUserAgent } from '@/lib/utils/parse-user-agent';
 const LATEST_RELEASE_URL = 'https://github.com/httptoolkit/httptoolkit-desktop/releases/latest';
 
 export const DownloadButton = ({ $small, $variant, $withBorder, isInHeader }: DownloadButtonProps) => {
-  const [operativeSystem, setOperativeSystem] = useState('');
+  const [operativeSystem, setOperativeSystem] = useState<undefined | string>(undefined);
   const isMobile = useIsMobile();
   const defaultOperativeSystem =
     OSDictionary.find(os => os.os === operativeSystem && os.defaultText) || OSDictionary[0];
@@ -35,20 +36,28 @@ export const DownloadButton = ({ $small, $variant, $withBorder, isInHeader }: Do
     setOperativeSystem(parseUserAgent(navigator.userAgent));
   }, []);
 
-  if (isMobile || operativeSystem === 'mobile') {
-    return <SendEmail data-is-in-header={isInHeader} buttonProps={{ $variant, $small, $withBorder }} />;
-  }
+  const shouldDisplayMobileVersion = isMobile || operativeSystem === 'mobile' || undefined;
 
   return (
-    <Dropdown
-      $small={$small}
-      href={defaultOperativeSystem.href}
-      $variant={$variant}
-      $withBorder={$withBorder}
-      aria-label="Download Items"
-      items={items}
-    >
-      Download for {defaultOperativeSystem.defaultText}
-    </Dropdown>
+    <>
+      <SendEmail
+        isLoading={shouldDisplayMobileVersion === undefined}
+        data-is-in-header={isInHeader}
+        buttonProps={{ $variant, $small, $withBorder }}
+      />
+
+      <StyledHideElementOn $hideOn="mobile">
+        <Dropdown
+          $small={$small}
+          href={defaultOperativeSystem.href}
+          $variant={$variant}
+          $withBorder={$withBorder}
+          aria-label="Download Items"
+          items={items}
+        >
+          Download for {defaultOperativeSystem.defaultText}
+        </Dropdown>
+      </StyledHideElementOn>
+    </>
   );
 };
