@@ -9,6 +9,7 @@ export const Text = ({
   fontWeight,
   color,
   textAlign,
+  fontStyle,
   ...props
 }: Component<TextProps>) => {
   const isLabel = as === 'label';
@@ -24,6 +25,7 @@ export const Text = ({
       className={className}
       $textAlign={textAlign}
       $isLabel={isLabel}
+      $fontStyle={fontStyle}
       {...props}
     >
       {children}
