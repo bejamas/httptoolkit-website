@@ -1,6 +1,7 @@
 import type { ButtonProps } from '@/components/elements/button/button.types';
 import type { IconType } from '@/components/elements/square-icon/square-icon.types';
 import type { ThemeImageProps } from '@/components/elements/themed-image';
+import type { DownloadButtonProps } from '@/components/modules/download-button/download-button.types';
 
 export type CTA = Pick<ButtonProps, 'icon' | 'href' | 'onClick' | '$withBorder' | '$small' | '$variant' | 'as'> & {
   title: string;
@@ -14,7 +15,7 @@ export type bgVariant =
   | 'rigth-bottom-to-top-left'
   | 'left-top-to-bottom-right';
 
-export interface CTAProps extends Component {
+export interface CTAProps extends Component, Pick<DownloadButtonProps, 'fixedOS'> {
   variant?: CTAVariant;
   $bgVariant?: bgVariant;
   heading: string;

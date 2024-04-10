@@ -26,6 +26,7 @@ export default async function ForMacOsPage() {
           withBorderAnimation: true,
           loading: 'eager',
         }}
+        fixedOS="mac"
       />
       <HttpToolkitFeatures />
       <MockResponseFeatures />

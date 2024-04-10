@@ -24,6 +24,7 @@ export const CTA = ({
   $bgVariant = 'default',
   className,
   children,
+  fixedOS,
 }: CTAProps) => {
   const SubHeadingIcon = subHeading?.icon;
   const isHero = ['cta-hero', 'cta-narrow'].includes(variant);
@@ -60,7 +61,7 @@ export const CTA = ({
         {(withDownload || cta) && (
           <StyledCTAWrapper $isLargeText={isLargeText}>
             {withDownload ? (
-              <DownloadButton $variant="primary" $withBorder={isHero} aria-label="Download Items" />
+              <DownloadButton $variant="primary" $withBorder={isHero} aria-label="Download Items" fixedOS={fixedOS} />
             ) : null}
 
             {cta && (
