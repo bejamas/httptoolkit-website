@@ -26,7 +26,7 @@ export default async function ForMacOsPage() {
           withBorderAnimation: true,
           loading: 'eager',
         }}
-        fixedOS="mac"
+        downloadButtonDefaultOsValue="mac"
       />
       <HttpToolkitFeatures />
       <MockResponseFeatures />

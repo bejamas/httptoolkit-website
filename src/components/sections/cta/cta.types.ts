@@ -15,7 +15,7 @@ export type bgVariant =
   | 'rigth-bottom-to-top-left'
   | 'left-top-to-bottom-right';
 
-export interface CTAProps extends Component, Pick<DownloadButtonProps, 'fixedOS'> {
+export interface CTAProps extends Component {
   variant?: CTAVariant;
   $bgVariant?: bgVariant;
   heading: string;
@@ -29,4 +29,5 @@ export interface CTAProps extends Component, Pick<DownloadButtonProps, 'fixedOS'
   cta?: CTA;
   icon?: IconType;
   image?: ThemeImageProps;
+  downloadButtonDefaultOsValue?: DownloadButtonProps['fixedOS'];
 }
