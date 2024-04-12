@@ -1,4 +1,6 @@
-import Marquee from 'react-fast-marquee';
+'use client';
+
+import dynamic from 'next/dynamic';
 
 import { TestimonialsCard } from './testimonials-card';
 import { StyledTestimonialGrid, StyledTestimonialsWrapper } from './testimonials.styles';
@@ -7,6 +9,10 @@ import { Heart } from '@/components/elements/icon';
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { allTestimonials } from '@/content/data/testimonials';
 import { getGithubDownloadStats } from '@/lib/services/get-github-download-stats';
+
+const Marquee = dynamic(() => import('react-fast-marquee').then(e => e.default), {
+  ssr: false,
+});
 
 export const Testimonials = async () => {
   const userDownloads = await getGithubDownloadStats();
