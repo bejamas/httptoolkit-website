@@ -21,7 +21,7 @@ export const MobileHeader = ({ navigationItems }: MobileHeaderProps) => {
         <StyledNavMobileItems>
           {navigationItems.map(navItem => {
             return (
-              <Link data-test="okay" key={`${navItem.label}-${navItem.href}`} href={navItem.href}>
+              <Link key={`${navItem.label}-${navItem.href}`} href={navItem.href}>
                 <Text as="label" fontSize="xll" fontWeight="bold" color="lightGrey">
                   {navItem.label}
                 </Text>
