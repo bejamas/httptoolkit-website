@@ -1,7 +1,4 @@
-'use client';
-
-import dynamic from 'next/dynamic';
-
+import { MarqueeWrapper } from './components/marquee';
 import { TestimonialsCard } from './testimonials-card';
 import { StyledTestimonialGrid, StyledTestimonialsWrapper } from './testimonials.styles';
 
@@ -9,10 +6,6 @@ import { Heart } from '@/components/elements/icon';
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { allTestimonials } from '@/content/data/testimonials';
 import { getGithubDownloadStats } from '@/lib/services/get-github-download-stats';
-
-const Marquee = dynamic(() => import('react-fast-marquee').then(e => e.default), {
-  ssr: false,
-});
 
 export const Testimonials = async () => {
   const userDownloads = await getGithubDownloadStats();
@@ -31,7 +24,7 @@ export const Testimonials = async () => {
         $align="center"
       />
 
-      <Marquee pauseOnHover>
+      <MarqueeWrapper>
         <StyledTestimonialGrid>
           {testimonialsChunkedData.map((testimonialChunk, rowIndex) => (
             <div key={rowIndex}>
@@ -50,7 +43,7 @@ export const Testimonials = async () => {
             </div>
           ))}
         </StyledTestimonialGrid>
-      </Marquee>
+      </MarqueeWrapper>
     </StyledTestimonialsWrapper>
   );
 };
