@@ -31,8 +31,8 @@ export const getDownloadOptionsDictionary = async (): Promise<DownloadDictionary
     },
     {
       os: 'windows',
-      slug: 'windows-exe',
-      href: '/download/windows-exe',
+      slug: 'win-exe',
+      href: '/download/win-exe',
       text: 'Windows installer',
       defaultText: 'Windows',
       releasePath: `v${latestReleaseVersion}/HttpToolkit-installer-${latestReleaseVersion}.exe`,
