@@ -9,10 +9,19 @@ interface LatestReleaseReturnProps {
 
 export const getLatestRelease = async (): Promise<LatestReleaseReturnProps> => {
   try {
-    const { data } = await octokit.rest.repos.getLatestRelease({ owner: GITHUB_ORG, repo: GITHUB_DESKTOP_REPO_NAME });
+    // Use listReleases becasue for some reason getLatestRelease method it returns
+    // the second-to-last one instead of the last one.
+    const { data: allReleases } = await octokit.rest.repos.listReleases({
+      owner: GITHUB_ORG,
+      repo: GITHUB_DESKTOP_REPO_NAME,
+    });
+
+    const lastReleaseTagName = allReleases[0]?.tag_name;
+    const publishedAt = allReleases[0]?.published_at;
+
     return {
-      latestReleaseVersion: data.tag_name.replace('v', ''),
-      latestReleaseDate: data.published_at,
+      latestReleaseVersion: lastReleaseTagName.replace('v', ''),
+      latestReleaseDate: publishedAt,
     };
   } catch (error) {
     console.error('An error occurred trying to fetch getLatestRelease:', error);
