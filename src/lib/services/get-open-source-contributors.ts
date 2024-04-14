@@ -65,6 +65,6 @@ export const getOpenSourceContributors = async () => {
   } catch (error) {
     console.error('An error occurred trying to fetch getOpenSourceContributors:', error);
     // fallback static data if dynamic fetch fails
-    return 96;
+    return 0;
   }
 };

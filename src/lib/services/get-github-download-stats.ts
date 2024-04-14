@@ -35,6 +35,6 @@ export async function getGithubDownloadStats() {
   } catch (error) {
     console.error('An error occurred trying to fetch getGithubDownloadStats:', error);
     // fallback static data if dynamic fetch fails
-    return 496000;
+    return 0;
   }
 }
