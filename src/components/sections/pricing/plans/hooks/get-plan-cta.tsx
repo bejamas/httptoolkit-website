@@ -11,6 +11,9 @@ import { PaperPlaneTilt, Sparkle, Spinner } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
 import type { AccountStore } from '@/lib/store/account-store';
 
+/**
+ *  @param {React.ReactNode} downloadButton - DrowpdownButton is a server component, so we need to provide it as a children because we cannot import directly in client component
+ */
 export const usePlanCta = (downloadButton?: React.ReactNode) => {
   const posthog = usePostHog();
 
