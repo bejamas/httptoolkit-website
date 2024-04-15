@@ -37,7 +37,7 @@ export default function PricingLayout({ children }: { children: React.ReactNode 
       <Suspense>
         <Testimonials />
       </Suspense>
-      <TryItForYourselfCTA footerClose variant="cta-fluid" />
+      <TryItForYourselfCTA isFooterClose variant="cta-fluid" />
     </Layout>
   );
 }

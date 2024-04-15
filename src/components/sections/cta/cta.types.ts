@@ -18,7 +18,7 @@ export type bgVariant =
 export interface CTAProps extends Component {
   variant?: CTAVariant;
   $bgVariant?: bgVariant;
-  $footerClose?: boolean;
+  $isFooterClose?: boolean;
   heading: string;
   textAppearance?: TextAppearance;
   subHeading?: {

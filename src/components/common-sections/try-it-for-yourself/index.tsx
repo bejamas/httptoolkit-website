@@ -4,10 +4,10 @@ import type { CTAProps } from '@/components/sections/cta/cta.types';
 
 interface TryItForYourselfCTAProps {
   variant?: CTAProps['variant'];
-  footerClose?: CTAProps['$footerClose'];
+  isFooterClose?: CTAProps['$isFooterClose'];
 }
 
-export const TryItForYourselfCTA = ({ variant = 'cta-square', footerClose = false }: TryItForYourselfCTAProps) => {
+export const TryItForYourselfCTA = ({ variant = 'cta-square', isFooterClose = false }: TryItForYourselfCTAProps) => {
   return (
     <CTA
       variant={variant}
@@ -20,7 +20,7 @@ export const TryItForYourselfCTA = ({ variant = 'cta-square', footerClose = fals
         icon: RocketLaunch,
         href: '/get-pro',
       }}
-      $footerClose={footerClose}
+      $isFooterClose={isFooterClose}
     />
   );
 };
