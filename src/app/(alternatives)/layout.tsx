@@ -30,7 +30,7 @@ export default function AlternativesLayout({ children }: { children: React.React
       <Suspense>
         <Statistics />
       </Suspense>
-      <TryItForYourselfCTA variant="cta-fluid" />
+      <TryItForYourselfCTA footerClose variant="cta-fluid" />
       <Suspense>
         <ProductLdData />
       </Suspense>

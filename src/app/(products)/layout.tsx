@@ -14,7 +14,7 @@ export default function ProductLayout({ children }: { children: React.ReactNode 
       <Suspense>
         <Testimonials />
       </Suspense>
-      <TryItForYourselfCTA variant="cta-fluid" />
+      <TryItForYourselfCTA footerClose variant="cta-fluid" />
       <Suspense>
         <ProductLdData />
       </Suspense>
