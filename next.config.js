@@ -21,7 +21,7 @@ const nextConfig = {
     nextImageExportOptimizer_generateAndUseBlurImages: 'true',
   },
   experimental: {
-    optimizePackageImports: ['@phosphor-icons/react'],
+    optimizePackageImports: ['@phosphor-icons/react', 'lodash'],
   },
   compiler: {
     styledComponents: true,
