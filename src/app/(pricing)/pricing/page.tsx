@@ -1,12 +1,15 @@
+import dynamic from 'next/dynamic';
 import type { Metadata } from 'next/types';
 import { Suspense } from 'react';
-
-import { LoadPricing } from '../load-pricing';
 
 import { DownloadButton } from '@/components/modules/download-button';
 import { CTA } from '@/components/sections/cta';
 import { PricingPlans } from '@/components/sections/pricing/plans';
 import { buildMetadata } from '@/lib/utils/build-metadata';
+
+const LoadPricing = dynamic(() => import('../load-pricing').then(c => c.LoadPricing), {
+  ssr: false,
+});
 
 export const metadata: Metadata = buildMetadata({
   title: 'Pricing | HTTP Toolkit',
