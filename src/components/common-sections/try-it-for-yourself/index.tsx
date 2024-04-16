@@ -1,8 +1,10 @@
+import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 
 import { Logo, RocketLaunch } from '@/components/elements/icon';
-import { CTA } from '@/components/sections/cta';
 import type { CTAProps } from '@/components/sections/cta/cta.types';
+
+const CTA = dynamic(() => import('@/components/sections/cta').then(el => el.CTA));
 
 interface TryItForYourselfCTAProps {
   variant?: CTAProps['variant'];
