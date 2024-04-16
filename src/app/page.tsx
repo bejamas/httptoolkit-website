@@ -4,7 +4,7 @@ import { HttpToolkitFeatures } from '@/components/common-sections/http-toolkit-f
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
 import { Statistics } from '@/components/common-sections/statistics';
-// import { Testimonials } from '@/components/common-sections/testimonials';
+import { Testimonials } from '@/components/common-sections/testimonials';
 import { TryItForYourselfCTA } from '@/components/common-sections/try-it-for-yourself';
 import { CursorClick } from '@/components/elements/icon';
 import { ProductLdData } from '@/components/elements/product-ld-data';
@@ -35,7 +35,9 @@ export default async function HomePage() {
       <Suspense>
         <Statistics />
       </Suspense>
-      {/* <Testimonials /> */}
+      <Suspense>
+        <Testimonials />
+      </Suspense>
       <TryItForYourselfCTA isFooterClose variant="cta-fluid" />
       <Suspense>
         <ProductLdData />
