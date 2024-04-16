@@ -1,10 +1,8 @@
-import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
+import { TryYourselfWrapper } from './wrapper';
 
 import { Logo, RocketLaunch } from '@/components/elements/icon';
+import { CTA } from '@/components/sections/cta';
 import type { CTAProps } from '@/components/sections/cta/cta.types';
-
-const CTA = dynamic(() => import('@/components/sections/cta').then(el => el.CTA));
 
 interface TryItForYourselfCTAProps {
   variant?: CTAProps['variant'];
@@ -13,7 +11,7 @@ interface TryItForYourselfCTAProps {
 
 export const TryItForYourselfCTA = ({ variant = 'cta-square', isFooterClose = false }: TryItForYourselfCTAProps) => {
   return (
-    <Suspense fallback={null}>
+    <TryYourselfWrapper>
       <CTA
         variant={variant}
         icon={Logo}
@@ -27,6 +25,6 @@ export const TryItForYourselfCTA = ({ variant = 'cta-square', isFooterClose = fa
         }}
         $isFooterClose={isFooterClose}
       />
-    </Suspense>
+    </TryYourselfWrapper>
   );
 };
