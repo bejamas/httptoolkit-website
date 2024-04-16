@@ -37,9 +37,8 @@ export default async function HomePage() {
       </Suspense>
 
      */}
-      <Suspense>
-        <Testimonials />
-      </Suspense>
+
+      <Testimonials />
       <TryItForYourselfCTA isFooterClose variant="cta-fluid" />
       <Suspense>
         <ProductLdData />
