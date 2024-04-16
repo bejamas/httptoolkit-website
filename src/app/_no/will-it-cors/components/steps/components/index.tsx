@@ -11,7 +11,7 @@ import {
   joinAnd,
   setHeader,
   someHeaderValues,
-} from '@/app/will-it-cors/utils';
+} from '@/app/_no/will-it-cors/utils';
 import { Button } from '@/components/elements/button';
 import { Heading } from '@/components/elements/heading';
 import { CheckCircle, PaperPlaneTilt, XCircle } from '@/components/elements/icon';
