@@ -28,7 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/scripts/generate-rss.js",
-    "src/app/_no/will-it-cors/store/index.ts"
+    "src/app/will-it-cors/store/index.ts"
   ],
   "exclude": ["node_modules"]
 }
