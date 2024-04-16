@@ -1,11 +1,11 @@
 'use client';
 
-import { logOut } from '@httptoolkit/accounts';
+// import { logOut } from '@httptoolkit/accounts';
 
 import { StyledLoginInfoWrapper } from './login-info.styles';
 import type { LoginInfoProps } from './login-info.types';
 
-import { Button } from '@/components/elements/button';
+// import { Button } from '@/components/elements/button';
 import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';
 
@@ -24,9 +24,9 @@ export const LoginInfo = ({ isLoggedIn, email }: LoginInfoProps) => {
       <Text fontSize="m" textAlign="center" color="darkGrey">
         Logged in as {email}.
       </Text>
-      <Button $variant="secondary" $small onClick={logOut}>
+      {/* <Button $variant="secondary" $small onClick={logOut}>
         Log out
-      </Button>
+      </Button> */}
     </StyledLoginInfoWrapper>
   );
 };
