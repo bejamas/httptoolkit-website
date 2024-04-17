@@ -9,7 +9,7 @@ import { getGithubDownloadStats } from '@/lib/services/get-github-download-stats
 
 export const TestimonialsGrid = async () => {
   const userDownloads = await getGithubDownloadStats();
-  const testimonalsData = allTestimonials.concat(allTestimonials);
+  const testimonalsData = allTestimonials.slice(0, 12);
   const testimonialsChunkedData = Array.from({ length: Math.ceil(testimonalsData.length / 3) }, (_, index) =>
     testimonalsData.slice(index * 3, index * 3 + 3),
   );

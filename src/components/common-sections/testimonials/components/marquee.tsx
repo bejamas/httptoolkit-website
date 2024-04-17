@@ -17,7 +17,7 @@ interface MarqueeWrapperProps {
 
 export const MarqueeWrapper = ({ children }: MarqueeWrapperProps) => {
   const isMobile = useIsMobile();
-  const [isRunning, setIsRunning] = useState(true);
+  const [isRunning, setIsRunning] = useState(false);
 
   const play = () => {
     setIsRunning(true);
@@ -28,7 +28,7 @@ export const MarqueeWrapper = ({ children }: MarqueeWrapperProps) => {
   };
 
   return (
-    <Marquee pauseOnHover={!isMobile} play={isRunning} autoFill>
+    <Marquee pauseOnHover={!isMobile} play={isRunning}>
       <StyledTestimonialGrid onTouchStart={pause} onTouchEnd={play}>
         {children}
       </StyledTestimonialGrid>
