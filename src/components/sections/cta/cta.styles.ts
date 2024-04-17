@@ -96,9 +96,9 @@ const handleBackgroundVariant = (variant: bgVariant) => {
           var(--background-dots);
         background-position: top -80px center;
 
-        /* @media (max-width: ${screens['md']}) {
+        @media (max-width: ${screens['md']}) {
           background-position: top -317px center;
-        } */
+        }
       `;
   }
 };
