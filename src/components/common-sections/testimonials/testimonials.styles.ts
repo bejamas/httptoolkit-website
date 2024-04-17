@@ -11,6 +11,11 @@ export const StyledTestimonialsWrapper = styled.section`
   padding-bottom: 32px;
   padding-bottom: 0;
   gap: 32px;
+  overflow: clip;
+
+  & .rfm-marquee {
+    --min-width: auto !important;
+  }
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     padding: 96px 0;

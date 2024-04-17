@@ -7,6 +7,7 @@ export const TestimonialsWrapper = ({ children }: Component) => {
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: true,
+    trackVisibility: false,
   });
 
   return <div ref={ref}>{inView && children}</div>;
